@@ -15,9 +15,10 @@
     "esModuleInterop": true,
     "module": "esnext",
     "resolveJsonModule": true,
+    "moduleResolution":"node",
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "src"
+    "baseUrl": "./src"
   },
   "include": [
     "next-env.d.ts",

@@ -5,18 +5,32 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 4px;
   cursor: pointer;
   overflow: hidden;
   :hover div {
     visibility: visible;
   }
-  :hover {
-    scale: 1.025;
+  :focus div {
+    visibility: visible;
   }
 `;
 
-export const Image = styled.img``;
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+export const ImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+export const DateText = styled.span`
+  font-size: 14px;
+`;
+export const Title = styled.span`
+  font-size: 18px;
+`;
 
 export const HiddenWrapper = styled.div`
   position: absolute;
@@ -24,9 +38,10 @@ export const HiddenWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color: ${colors.transparent.medium};
   visibility: hidden;
   padding: 12px;
-  margin: 0;
-  border-radius: 4px;
 `;

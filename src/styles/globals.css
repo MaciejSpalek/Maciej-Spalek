@@ -24,3 +24,14 @@ a {
     background: black;
   }
 }
+
+
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  gap: 28px;
+  padding: 0 40px;
+  list-style: none;
+}

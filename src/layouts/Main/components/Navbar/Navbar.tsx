@@ -1,13 +1,20 @@
 import React from "react";
-import { Nav, Logo, List } from "./Navbar.styled";
+import { Nav, List, Anchor, Link } from "./Navbar.styled";
+import { Logo } from "components";
+import { navigation } from "./helpers";
 
 export const Navbar = () => {
   return (
     <Nav>
-      <Logo>Spwrtt.pl</Logo>
+      <Logo />
       <List>
-        <li>Drawings</li>
-        <li>Paintings</li>
+        {navigation.map(({ href, text }) => (
+          <li key={text}>
+            <Link href={href}>
+              <Anchor>{text}</Anchor>
+            </Link>
+          </li>
+        ))}
       </List>
     </Nav>
   );

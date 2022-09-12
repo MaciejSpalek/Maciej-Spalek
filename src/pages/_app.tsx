@@ -4,8 +4,10 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { Main as MainLayout } from "layouts";
 
 const client = new ApolloClient({
-  uri: "https://rickandmortyapi.com/graphql",
-  cache: new InMemoryCache(),
+  uri: "http://localhost:1337/graphql",
+  cache: new InMemoryCache({
+    addTypename: false,
+  }),
 });
 
 const App = ({ Component, pageProps }) => {

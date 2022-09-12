@@ -1,1 +1,2 @@
-export * from "./charactersQuery";
+export * from "./projectQuery";
+export * from "./postsQuery";
