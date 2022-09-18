@@ -28,8 +28,13 @@ export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: 600px;
   width: 100%;
+  height: 100%;
+`;
+
+export const Image = styled.img`
+  max-height: 600px;
+  max-width: 600px;
 `;
 
 export const BottomWrapper = styled.div`
@@ -39,19 +44,17 @@ export const BottomWrapper = styled.div`
   width: 100%;
 `;
 
-export const Image = styled.img`
-  height: 100%;
-  width: auto;
-`;
-
 export const Description = styled.p`
+  font-family: Lexend;
+  font-weight: 500;
   font-size: 18px;
   color: black;
 `;
 
 export const Title = styled.span`
+  font-family: Lexend;
+  font-weight: 500;
   font-size: 22px;
-  font-weight: bold;
   color: black;
 `;
 

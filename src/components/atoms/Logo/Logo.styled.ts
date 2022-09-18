@@ -8,6 +8,8 @@ export const StyledLogoIcon = styled(LogoIcon)`
 `;
 
 export const Text = styled.span`
+  font-family: Lexend;
+  font-weight: 500;
   font-size: 28px;
 `;
 

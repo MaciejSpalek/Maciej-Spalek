@@ -23,11 +23,17 @@ export const ImageWrapper = styled.div`
   height: 100%;
 `;
 
-export const Date = styled.span`
+export const DateText = styled.span`
+  font-family: Lexend;
+  font-weight: 500;
   font-size: 14px;
 `;
+
 export const Title = styled.span`
-  font-size: 18px;
+  font-family: Lexend;
+  font-weight: 500;
+  font-size: 28px;
+  text-align: center;
 `;
 
 export const HiddenWrapper = styled.div`
@@ -37,7 +43,8 @@ export const HiddenWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-color: ${colors.transparent.medium};
   visibility: hidden;

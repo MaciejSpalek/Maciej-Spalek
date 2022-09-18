@@ -1,18 +1,19 @@
 import React from "react";
+import { format } from "date-fns";
 import {
   HiddenWrapper,
   ImageWrapper,
   Container,
+  DateText,
   Image,
   Title,
-  Date,
 } from "./ProjectCard.styled";
 
 interface IProjectCard {
   id: string;
   image: string;
   title: string;
-  createdAt: Date;
+  date: Date;
 }
 
 interface IProps {
@@ -20,7 +21,8 @@ interface IProps {
 }
 
 export const ProjectCard = ({ data }: IProps) => {
-  const { image, title, createdAt } = data || {};
+  const { image, title, date } = data || {};
+  const convertedDate = format(new Date(date), "dd/MM/yyyy");
 
   return (
     <Container>
@@ -29,7 +31,7 @@ export const ProjectCard = ({ data }: IProps) => {
       </ImageWrapper>
       <HiddenWrapper>
         <Title>{title}</Title>
-        <Date>{createdAt}</Date>
+        <DateText>{convertedDate}</DateText>
       </HiddenWrapper>
     </Container>
   );

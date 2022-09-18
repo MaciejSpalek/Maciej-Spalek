@@ -1,26 +1,25 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { Container } from "./Home.styled";
 
-import { PostList, PostPreview } from "components";
+import { PostList } from "components";
 import { Projects } from "./components";
 
-import { GET_POST_QUERY, GET_POSTS_QUERY } from "queries/postsQuery";
+import { GET_POSTS_QUERY } from "queries/postsQuery";
 import { GET_PROJECTS_QUERY } from "queries/projectQuery";
-import { convertPosts, convertPreview } from "helpers";
+
+import { convertPosts } from "helpers";
 import { convertProjects } from "helpers/conversion";
 import { PostTypes } from "helpers/post";
+
+import { Slider } from "./components/Slider/Slider";
 
 export const Home = () => {
   const router = useRouter();
 
   const openModal = (id) => {
     router.query.photo = id;
-    router.push(router);
-  };
-
-  const closePreview = () => {
-    router.query = {};
     router.push(router);
   };
 
@@ -40,30 +39,24 @@ export const Home = () => {
     error: projectsError,
   } = useQuery(GET_PROJECTS_QUERY);
 
-  const { data: previewData } = useQuery(GET_POST_QUERY, {
-    variables: {
-      id: router.query.photo,
-    },
-  });
-
-  const preview = convertPreview(previewData);
   const projects = convertProjects(projectsData?.projects?.data);
   const posts = convertPosts(postsData?.posts?.data);
 
   return (
-    <div>
+    <Container>
+      {/* <Slider /> */}
       <Projects
         list={projects}
         error={projectsError}
         loading={projectsLoading}
       />
       <PostList
+        title="Obrazy"
         onClick={openModal}
         loading={postsLoading}
         list={posts}
         error={postsError}
       />
-      <PostPreview data={preview} close={closePreview} />
-    </div>
+    </Container>
   );
 };

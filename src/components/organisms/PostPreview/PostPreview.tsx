@@ -17,40 +17,58 @@ import {
 import { CloseSquareIcon } from "assets/svgComponents/CloseSquareIcon";
 import { useOutsideClick } from "hooks/useOutsideClick/useOutsideClick";
 import { RightBasicArrowIcon, LeftBasicArrowIcon } from "assets";
+import { useQuery } from "@apollo/client";
+import { GET_POST_QUERY } from "queries";
+import _ from "lodash";
+import { convertPreview } from "helpers";
 
-export const PostPreview = ({ data, close }) => {
-  const { image, title, description } = data || {};
-
+export const PostPreview = ({ postIds }) => {
+  const modalRef = useRef(null);
   const router = useRouter();
 
-  const modalRef = useRef(null);
+  let currentPostId = router.query.photo;
+  const currentIndex = postIds?.indexOf(currentPostId);
+
+  const { data: previewData } = useQuery(GET_POST_QUERY, {
+    variables: {
+      id: currentPostId,
+    },
+  });
+
+  const preview = convertPreview(previewData);
+  const { image, title, description } = preview || {};
+
+  const closePreview = () => {
+    router.query = _.omit(router.query, "photo");
+    router.push(router);
+  };
 
   useOutsideClick(modalRef, () => {
-    close();
+    closePreview();
   });
 
   const changePhoto = (type = "increment") => {
     if (type === "increment") {
-      router.query.photo++;
+      router.query.photo = postIds[currentIndex + 1];
     } else {
-      router.query.photo--;
+      router.query.photo = postIds[currentIndex - 1];
     }
 
     router.push(router);
   };
 
   const showChangePhotoButton = (type) => {
-    if (type === "decrement") {
-      return router.query.photo > 1;
+    if (type === "increment") {
+      return currentIndex < postIds?.length - 1;
     } else {
-      return router.query.photo < 100;
+      return currentIndex > 0;
     }
   };
 
   const isLeftArrowButtonVisible = showChangePhotoButton("decrement");
   const isRightArrowButtonVisible = showChangePhotoButton("increment");
 
-  const isOpen = null != router.query.photo && null != data;
+  const isOpen = null != router.query.photo && null != postIds;
 
   if (!isOpen) return null;
 
@@ -63,7 +81,7 @@ export const PostPreview = ({ data, close }) => {
         <AsideWrapper>
           <TopWrapper>
             <Title>{title}</Title>
-            <Button onClick={close}>
+            <Button onClick={closePreview}>
               <CloseSquareIcon />
             </Button>
           </TopWrapper>

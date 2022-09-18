@@ -1,7 +1,14 @@
 import React from "react";
 import Link from "../../../../../node_modules/next/link";
+import {
+  Item,
+  List,
+  HeadingWrapper,
+  Container,
+  Heading,
+} from "./Projects.styled";
 import { ProjectCard } from "components";
-import { Item, List, Title, Container } from "./Projects.styled";
+import { Section } from "layouts/Section";
 
 interface IProps {
   loading: boolean;
@@ -19,8 +26,7 @@ export const Projects = ({ loading, error, list }: IProps) => {
   }
 
   return (
-    <Container>
-      <Title>Projekty</Title>
+    <Section title="Projekty">
       <List>
         {list.map((data) => (
           <Item key={data.id}>
@@ -32,6 +38,6 @@ export const Projects = ({ loading, error, list }: IProps) => {
           </Item>
         ))}
       </List>
-    </Container>
+    </Section>
   );
 };

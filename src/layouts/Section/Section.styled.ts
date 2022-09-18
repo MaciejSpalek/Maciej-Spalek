@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { colors } from "theme";
+import { boxShadow } from "theme";
+import { colors } from "theme/colors";
 
 export const Container = styled.div`
   display: flex;
@@ -8,6 +9,7 @@ export const Container = styled.div`
   width: 100%;
   background-color: ${colors.background.medium};
   border-radius: 8px;
+  ${boxShadow};
 `;
 
 export const HeadingWrapper = styled.div`
@@ -24,14 +26,8 @@ export const Heading = styled.h2`
   color: white;
 `;
 
-export const List = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+export const Content = styled.div`
   width: 100%;
-  gap: 28px;
-  list-style: none;
-  padding: 0 40px;
-  margin: 0;
 `;
 
 export const Item = styled.li`

@@ -1,7 +1,7 @@
 import React from "react";
+import { format } from "date-fns";
 import {
   HiddenWrapper,
-  ImageWrapper,
   Container,
   Image,
   Title,
@@ -17,14 +17,14 @@ interface IPostCard {
 }
 
 export const PostCard = ({ image, title, date }: IPostCard) => {
+  const convertedDate = format(new Date(date), "dd/MM/yyyy");
+
   return (
     <Container>
-      <ImageWrapper>
-        <Image src={image} alt={title} />
-      </ImageWrapper>
+      <Image src={image} alt={title} />
       <HiddenWrapper>
         <Title>{title}</Title>
-        <DateText>{date}</DateText>
+        <DateText>{convertedDate}</DateText>
       </HiddenWrapper>
     </Container>
   );

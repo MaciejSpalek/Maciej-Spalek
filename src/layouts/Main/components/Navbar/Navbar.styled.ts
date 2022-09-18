@@ -18,10 +18,10 @@ export const List = styled.ul`
 `;
 
 export const Anchor = styled.a`
+  font-family: Lexend;
+  font-weight: 500;
   font-size: 22px;
+  cursor: pointer;
 `;
 
-export const Link = styled(NextLink)`
-  cursor: pointer;
-  border: 1px solid black;
-`;
+export const Link = styled(NextLink)``;

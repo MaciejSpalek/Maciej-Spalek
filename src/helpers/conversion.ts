@@ -4,7 +4,6 @@ export const convertPreview = (previewData) => {
 
   return {
     id: previewAttributes?.id,
-    createdAt: previewAttributes?.createdAt,
     image: `http://localhost:1337${previewAttributes?.image.data[0].attributes.url}`,
     title: previewAttributes?.title,
     description: previewAttributes?.description,
@@ -15,7 +14,6 @@ export const convertPosts = (posts) =>
   posts?.reduce((acc, { id, attributes }) => {
     const newObject = {
       id,
-      createdAt: attributes.createdAt,
       image: `http://localhost:1337${attributes.image.data[0].attributes.url}`,
       title: attributes.title,
       description: attributes.description,
@@ -30,7 +28,7 @@ export const convertProjects = (projects) =>
     const newObject = {
       id,
       title: attributes.title,
-      createdAt: attributes.createdAt,
+      date: attributes.date,
       image: `http://localhost:1337${attributes.posts?.data?.[0].attributes.image.data?.[0].attributes.url}`,
     };
     return [...acc, newObject];

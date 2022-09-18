@@ -8,7 +8,7 @@ export const GET_PROJECTS_QUERY = gql`
         attributes {
           description
           title
-          createdAt
+          date
           posts {
             data {
               id
@@ -39,7 +39,7 @@ export const GET_PROJECT_QUERY = gql`
         id
         attributes {
           description
-          createdAt
+          date
           title
           posts {
             data {

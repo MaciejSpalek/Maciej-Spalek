@@ -21,7 +21,17 @@ class CustomDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
-          {this.props.styleTags}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap"
+            rel="stylesheet"
+          />
+          {/* {this.props.styleTags} */}
         </Head>
         <body>
           <Main />

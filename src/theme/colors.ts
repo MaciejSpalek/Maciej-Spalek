@@ -10,4 +10,9 @@ export const colors = {
     medium: "rgba(0, 0, 0, 0.5)",
     dark: "rgba(0, 0, 0, 0.75)",
   },
+  background: {
+    dark: "#141415",
+    medium: "#1B1C1D",
+    light: "#252627",
+  },
 };
