@@ -4,7 +4,7 @@ import { colors } from "theme/colors";
 export const Container = styled.div`
   height: 100%;
   width: 100%;
-  background-color: ${colors.background.dark};
+  background-color: ${colors.white};
 `;
 
 export const InnerWrapper = styled.div`
@@ -12,6 +12,6 @@ export const InnerWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1268px;
   margin: 0 auto;
 `;

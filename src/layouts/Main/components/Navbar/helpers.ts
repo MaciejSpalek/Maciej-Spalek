@@ -5,10 +5,14 @@ export const navigation = [
   },
   {
     href: "/paintings",
-    text: "Obrazy",
+    text: "Malarstwo",
   },
   {
     href: "/drawings",
-    text: "Rysunki",
+    text: "Rysunek",
+  },
+  {
+    href: "/photography",
+    text: "Fotografia",
   },
 ];

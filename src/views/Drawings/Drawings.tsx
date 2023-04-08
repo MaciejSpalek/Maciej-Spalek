@@ -5,8 +5,10 @@ import { useRouter } from "next/router";
 import { GET_POSTS_QUERY } from "queries/postsQuery";
 
 import { convertPosts } from "helpers";
-import { PostTypes } from "helpers/post";
+
+import { RulerAndPenIcon } from "assets";
 import { PostList } from "components";
+import { PostTypes } from "types";
 
 export const Drawings = () => {
   const router = useRouter();
@@ -16,25 +18,22 @@ export const Drawings = () => {
     router.push(router);
   };
 
-  const {
-    data: postsData,
-    loading: postsLoading,
-    error: postsError,
-  } = useQuery(GET_POSTS_QUERY, {
+  const { data, loading, error } = useQuery(GET_POSTS_QUERY, {
     variables: {
       type: PostTypes.drawing,
     },
   });
 
-  const posts = convertPosts(postsData?.posts?.data);
+  const posts = convertPosts(data?.posts?.data);
 
   return (
     <PostList
       title="Rysunki"
+      icon={RulerAndPenIcon}
       onClick={openModal}
-      loading={postsLoading}
+      loading={loading}
       list={posts}
-      error={postsError}
+      error={error}
     />
   );
 };

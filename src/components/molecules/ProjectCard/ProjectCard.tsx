@@ -8,20 +8,9 @@ import {
   Image,
   Title,
 } from "./ProjectCard.styled";
+import { IProjectCard } from "types";
 
-interface IProjectCard {
-  id: string;
-  image: string;
-  title: string;
-  date: Date;
-}
-
-interface IProps {
-  data: IProjectCard;
-}
-
-export const ProjectCard = ({ data }: IProps) => {
-  const { image, title, date } = data || {};
+export const ProjectCard = ({ image, title, date }: IProjectCard) => {
   const convertedDate = format(new Date(date), "dd/MM/yyyy");
 
   return (

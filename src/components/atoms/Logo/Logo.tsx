@@ -6,7 +6,7 @@ export const Logo = () => {
   return (
     <Link href="/">
       <Anchor>
-        <Text>Spwrtt</Text>
+        <Text>Maciej Spałek</Text>
       </Anchor>
     </Link>
   );

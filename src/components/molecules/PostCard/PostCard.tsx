@@ -7,18 +7,11 @@ import {
   Title,
   DateText,
 } from "./PostCard.styled";
-
-interface IPostCard {
-  id: string;
-  image: string;
-  title: string;
-  date: Date;
-  description: string;
-}
+import { IPostCard } from "types";
 
 export const PostCard = ({ image, title, date }: IPostCard) => {
   const convertedDate = format(new Date(date), "dd/MM/yyyy");
-
+  console.log(image);
   return (
     <Container>
       <Image src={image} alt={title} />

@@ -26,7 +26,7 @@ export const Heading = styled.h2`
 `;
 
 export const Item = styled.li`
-  margin-bottom: 28px;
+  margin-bottom: 12px;
 `;
 
 export const Button = styled.button`
@@ -35,6 +35,6 @@ export const Button = styled.button`
   padding: 0;
   transition: 0.1s ease-in;
   :hover {
-    scale: 1.025;
+    scale: 1.01;
   }
 `;

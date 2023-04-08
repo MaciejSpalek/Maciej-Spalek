@@ -1,35 +1,42 @@
 import React, { useRef } from "react";
 import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
+import _ from "lodash";
+
 import {
-  Container,
-  ImageWrapper,
-  AsideWrapper,
-  TopWrapper,
-  BottomWrapper,
   RightArrowButton,
   LeftArrowButton,
+  BottomWrapper,
+  ImageWrapper,
+  AsideWrapper,
   Description,
+  TopWrapper,
+  Container,
+  Button,
   Title,
   Image,
-  Button,
   Modal,
 } from "./PostPreview.styled";
-import { CloseSquareIcon } from "assets/svgComponents/CloseSquareIcon";
-import { useOutsideClick } from "hooks/useOutsideClick/useOutsideClick";
-import { RightBasicArrowIcon, LeftBasicArrowIcon } from "assets";
-import { useQuery } from "@apollo/client";
-import { GET_POST_QUERY } from "queries";
-import _ from "lodash";
-import { convertPreview } from "helpers";
+import {
+  RightBasicArrowIcon,
+  LeftBasicArrowIcon,
+  CloseSquareIcon,
+} from "assets";
 
-export const PostPreview = ({ postIds }) => {
+import { useOutsideClick } from "hooks/useOutsideClick";
+import { GET_POST_QUERY } from "queries";
+import { convertPreview } from "helpers";
+import { LoadingWrapper } from "components/molecules";
+import { PostPreviewProps } from "./PostPreview.model";
+
+export const PostPreview = ({ postIds }: PostPreviewProps) => {
   const modalRef = useRef(null);
   const router = useRouter();
 
-  let currentPostId = router.query.photo;
-  const currentIndex = postIds?.indexOf(currentPostId);
+  const currentPostId = router.query.photo?.toString();
+  const currentIndex = postIds.indexOf(currentPostId);
 
-  const { data: previewData } = useQuery(GET_POST_QUERY, {
+  const { data: previewData, loading } = useQuery(GET_POST_QUERY, {
     variables: {
       id: currentPostId,
     },
@@ -75,29 +82,35 @@ export const PostPreview = ({ postIds }) => {
   return (
     <Container>
       <Modal ref={modalRef}>
-        <ImageWrapper>
-          <Image src={image} alt={title} />
-        </ImageWrapper>
-        <AsideWrapper>
-          <TopWrapper>
-            <Title>{title}</Title>
-            <Button onClick={closePreview}>
-              <CloseSquareIcon />
-            </Button>
-          </TopWrapper>
-          <BottomWrapper>
-            <Description>{description}</Description>
-          </BottomWrapper>
-        </AsideWrapper>
-        {isLeftArrowButtonVisible && (
-          <LeftArrowButton onClick={() => changePhoto("decrement")}>
-            <LeftBasicArrowIcon />
-          </LeftArrowButton>
-        )}
-        {isRightArrowButtonVisible && (
-          <RightArrowButton onClick={() => changePhoto("increment")}>
-            <RightBasicArrowIcon />
-          </RightArrowButton>
+        {loading ? (
+          <LoadingWrapper />
+        ) : (
+          <>
+            {/* <ImageWrapper> */}
+            <Image src={image} alt={title} />
+            {/* </ImageWrapper> */}
+            {/* <AsideWrapper>
+              <TopWrapper>
+                <Title>{title}</Title>
+                <Button onClick={closePreview}>
+                  <CloseSquareIcon />
+                </Button>
+              </TopWrapper>
+              <BottomWrapper>
+                <Description>{description}</Description>
+              </BottomWrapper>
+            </AsideWrapper> */}
+            {isLeftArrowButtonVisible && (
+              <LeftArrowButton onClick={() => changePhoto("decrement")}>
+                <LeftBasicArrowIcon />
+              </LeftArrowButton>
+            )}
+            {isRightArrowButtonVisible && (
+              <RightArrowButton onClick={() => changePhoto("increment")}>
+                <RightBasicArrowIcon />
+              </RightArrowButton>
+            )}
+          </>
         )}
       </Modal>
     </Container>

@@ -4,7 +4,7 @@ export const convertPreview = (previewData) => {
 
   return {
     id: previewAttributes?.id,
-    image: `http://localhost:1337${previewAttributes?.image.data[0].attributes.url}`,
+    image: previewAttributes?.image.data[0].attributes.url,
     title: previewAttributes?.title,
     description: previewAttributes?.description,
   };
@@ -14,7 +14,7 @@ export const convertPosts = (posts) =>
   posts?.reduce((acc, { id, attributes }) => {
     const newObject = {
       id,
-      image: `http://localhost:1337${attributes.image.data[0].attributes.url}`,
+      image: attributes.image.data[0].attributes.url,
       title: attributes.title,
       description: attributes.description,
       date: attributes.date,
@@ -29,7 +29,8 @@ export const convertProjects = (projects) =>
       id,
       title: attributes.title,
       date: attributes.date,
-      image: `http://localhost:1337${attributes.posts?.data?.[0].attributes.image.data?.[0].attributes.url}`,
+      image:
+        attributes.posts?.data?.[0].attributes.image.data?.[0].attributes.url,
     };
     return [...acc, newObject];
   }, []);
@@ -44,3 +45,15 @@ export const convertProject = (projectData) => {
     posts: convertPosts(previewAttributes?.posts?.data),
   };
 };
+
+// Sections
+export const convertSections = (sections) =>
+  sections?.reduce((acc, { id, attributes }) => {
+    const newObject = {
+      id,
+      title: attributes.title,
+      href: attributes.href,
+      image: attributes.image?.data?.attributes?.url,
+    };
+    return [...acc, newObject];
+  }, []);

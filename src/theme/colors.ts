@@ -15,4 +15,8 @@ export const colors = {
     medium: "#1B1C1D",
     light: "#252627",
   },
+  primary: {
+    main: "#1FDF64",
+  },
+  white: "#ffffff",
 };

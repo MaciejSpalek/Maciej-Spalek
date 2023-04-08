@@ -1,19 +1,14 @@
 import styled from "styled-components";
-import { LogoIcon } from "assets";
+import { colors } from "theme";
 
-export const StyledLogoIcon = styled(LogoIcon)`
-  width: 28px;
-  height: 28px;
-  color: white;
-`;
-
-export const Text = styled.span`
+export const Text = styled.p`
   font-family: Lexend;
   font-weight: 500;
-  font-size: 28px;
+  font-size: 24px;
+  color: ${colors.grayscale[700]};
 `;
 
-export const Anchor = styled.span`
+export const Anchor = styled.a`
   display: flex;
   align-items: center;
   gap: 8px;

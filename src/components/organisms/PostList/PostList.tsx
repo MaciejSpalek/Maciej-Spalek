@@ -1,45 +1,29 @@
 import React from "react";
+import Masonry from "react-masonry-css";
 
-import {
-  Button,
-  Item,
-  HeadingWrapper,
-  Heading,
-  Container,
-} from "./PostList.styled";
+import { Button, Item } from "./PostList.styled";
 
 import { PostCard, PostPreview } from "components";
-
-import Masonry from "react-masonry-css";
 import { Section } from "layouts/Section";
 
-interface IProps {
-  title: string;
-  loading: boolean;
-  error: string;
-  list: any[];
-  onClick?: (id: string) => void;
-}
+import { PostListProps } from "./PostList.model";
 
 const columns = {
   default: 3,
-  768: 2,
-  600: 1,
 };
 
-export const PostList = ({ title, loading, error, list, onClick }: IProps) => {
+export const PostList = ({
+  title,
+  icon,
+  loading,
+  error,
+  list,
+  onClick,
+}: PostListProps) => {
   const postIds = list?.map(({ id }) => id);
 
-  if (loading) {
-    return <p>loading...</p>;
-  }
-
-  if (error) {
-    return <p>error</p>;
-  }
-
   return (
-    <Section title={title}>
+    <Section title={title} isLoading={loading} icon={icon} isError={error}>
       <Masonry
         breakpointCols={columns}
         className="my-masonry-grid"

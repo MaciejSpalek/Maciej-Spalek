@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { boxShadow, devices } from "theme";
 import { colors } from "theme/colors";
 
 export const Container = styled.div`
@@ -11,17 +12,14 @@ export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${colors.transparent.dark};
+  z-index: 999999999;
 `;
 
 export const Modal = styled.div`
   position: relative;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  width: calc(100% - 2 * 24px);
-  height: calc(100% - 2 * 48px);
-  max-width: 1000px;
-  max-height: 600px;
-  background-color: black;
+  background-color: ${colors.background.dark};
+  border-radius: 8px;
+  ${boxShadow};
 `;
 
 export const ImageWrapper = styled.div`
@@ -64,6 +62,8 @@ export const AsideWrapper = styled.div`
   background-color: white;
   min-width: 300px;
   padding: 8px;
+  border-end-end-radius: 8px;
+  border-start-end-radius: 8px;
 `;
 
 export const TopWrapper = styled.div`

@@ -1,2 +1,2 @@
 export * from "./conversion";
-export * from "./post";
+export * from "./array";

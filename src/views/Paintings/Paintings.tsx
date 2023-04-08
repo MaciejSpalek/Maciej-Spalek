@@ -3,11 +3,11 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 
 import { GET_POSTS_QUERY } from "queries/postsQuery";
-
-import { PostTypes } from "helpers/post";
 import { convertPosts } from "helpers";
+import { PostTypes } from "types";
 
 import { PostList } from "components";
+import { BrushIcon } from "assets";
 
 export const Paintings = () => {
   const router = useRouter();
@@ -17,27 +17,22 @@ export const Paintings = () => {
     router.push(router);
   };
 
-  const {
-    data: postsData,
-    loading: postsLoading,
-    error: postsError,
-  } = useQuery(GET_POSTS_QUERY, {
+  const { data, loading, error } = useQuery(GET_POSTS_QUERY, {
     variables: {
       type: PostTypes.painting,
     },
   });
 
-  const posts = convertPosts(postsData?.posts?.data);
+  const posts = convertPosts(data?.posts?.data);
 
   return (
-    <div>
-      <PostList
-        title="Obrazy"
-        onClick={openModal}
-        loading={postsLoading}
-        list={posts}
-        error={postsError}
-      />
-    </div>
+    <PostList
+      title="Obrazy"
+      icon={BrushIcon}
+      onClick={openModal}
+      loading={loading}
+      list={posts}
+      error={error}
+    />
   );
 };

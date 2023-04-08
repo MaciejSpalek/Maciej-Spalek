@@ -1,2 +1,2 @@
 export * from "./Projects";
-export * from "./Slider";
+export * from "./Sections";

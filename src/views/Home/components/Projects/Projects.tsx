@@ -1,38 +1,25 @@
 import React from "react";
 import Link from "../../../../../node_modules/next/link";
-import {
-  Item,
-  List,
-  HeadingWrapper,
-  Container,
-  Heading,
-} from "./Projects.styled";
+import { Item, List } from "./Projects.styled";
 import { ProjectCard } from "components";
 import { Section } from "layouts/Section";
+import { ProjectsIcon } from "assets";
+import { ProjectsProps } from "./Projects.model";
 
-interface IProps {
-  loading: boolean;
-  error: string;
-  list: any[];
-}
-
-export const Projects = ({ loading, error, list }: IProps) => {
-  if (loading) {
-    return <span>...loading </span>;
-  }
-
-  if (error) {
-    return <span>error</span>;
-  }
-
+export const Projects = ({ loading, error, list }: ProjectsProps) => {
   return (
-    <Section title="Projekty">
+    <Section
+      title="Projekty"
+      isLoading={loading}
+      icon={ProjectsIcon}
+      isError={error}
+    >
       <List>
-        {list.map((data) => (
-          <Item key={data.id}>
-            <Link href={`/projects/${data.id}`} passHref>
+        {list?.map(({ image, id, title, date }) => (
+          <Item key={id}>
+            <Link href={`/projects/${id}`} passHref>
               <a>
-                <ProjectCard data={data} />
+                <ProjectCard date={date} image={image} title={title} />
               </a>
             </Link>
           </Item>

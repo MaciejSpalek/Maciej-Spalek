@@ -1,33 +1,29 @@
 import styled from "styled-components";
-import { boxShadow } from "theme";
-import { colors } from "theme/colors";
+import { boxShadow, devices, flexCenter, colors } from "theme";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  background-color: ${colors.background.medium};
-  border-radius: 8px;
-  ${boxShadow};
 `;
 
 export const HeadingWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  ${flexCenter};
   width: 100%;
-  padding: 0 40px;
+  gap: 8px;
+  padding: 16px 0;
 `;
 
 export const Heading = styled.h2`
   font-family: Lexend;
   font-size: 36px;
-  color: white;
+  color: ${colors.grayscale[700]};
 `;
 
 export const Content = styled.div`
-  width: 100%;
+  ${flexCenter};
+  padding: 0;
 `;
 
 export const Item = styled.li`

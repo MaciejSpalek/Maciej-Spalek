@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/ban-types */
 import { RefObject, useEffect, useRef } from "react";
 
 export const useEventListener = <T extends HTMLElement = HTMLDivElement>(

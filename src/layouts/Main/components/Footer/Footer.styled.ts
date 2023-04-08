@@ -1,16 +1,20 @@
-import { FacebookIcon, InstagramIcon, LinkedInIcon } from "assets";
 import styled from "styled-components";
+import { boxShadow, colors, flexCenter } from "theme";
 
 export const Container = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
   width: 100%;
   padding: 40px;
+  gap: 16px;
 `;
 
 export const Copyright = styled.span`
   font-size: 18px;
+  text-align: center;
+  color: ${colors.grayscale[700]};
 `;
 
 export const List = styled.ul`
@@ -18,37 +22,23 @@ export const List = styled.ul`
   justify-content: center;
   align-items: center;
   gap: 24px;
+  padding: 0;
   list-style: none;
 `;
 
-export const Wrapper = styled.ul`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 40px;
-`;
-
-export const Logo = styled.span`
-  font-size: 18px;
-`;
 export const Anchor = styled.a`
+  ${flexCenter};
+  border-radius: 12px;
+  width: 40px;
+  height: 40px;
+  :hover svg {
+    color: ${({ isActive }) =>
+      !isActive ? colors.primary.main : colors.white};
+  }
+  ${boxShadow};
   svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    color: ${colors.background.light};
   }
 `;
-
-// export const StyledFaceBookIcon = styled(FacebookIcon)`
-//   width: 24px;
-//   height: 24px;
-// `;
-
-// export const StyledInstagramIcon = styled(InstagramIcon)`
-//   width: 24px;
-//   height: 24px;
-// `;
-
-// export const StyledLinkedInIcon = styled(LinkedInIcon)`
-//   width: 24px;
-//   height: 24px;
-// `;

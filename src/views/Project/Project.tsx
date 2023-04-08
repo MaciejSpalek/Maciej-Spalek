@@ -2,8 +2,8 @@ import { useRouter } from "../../../node_modules/next/router";
 import { useQuery } from "@apollo/client";
 import { GET_PROJECT_QUERY } from "queries";
 import { convertProject } from "helpers/conversion";
-import { Container } from "./Project.styled";
 import { PostList } from "components";
+import { ProjectsIcon } from "assets";
 
 export const Project = () => {
   const router = useRouter();
@@ -13,33 +13,20 @@ export const Project = () => {
     router.push(router);
   };
 
-  const {
-    data: projectData,
-    loading: projectLoading,
-    error: projectError,
-  } = useQuery(GET_PROJECT_QUERY, {
+  const { data, loading, error } = useQuery(GET_PROJECT_QUERY, {
     variables: { id: router.query.id },
   });
 
-  const { title, posts } = convertProject(projectData);
-
-  if (projectLoading) {
-    return <div>...loading</div>;
-  }
-
-  if (projectError) {
-    return <div>error</div>;
-  }
+  const { title, posts } = convertProject(data);
 
   return (
-    <Container>
-      <PostList
-        title={title}
-        list={posts}
-        loading={projectLoading}
-        error={projectError}
-        onClick={openModal}
-      />
-    </Container>
+    <PostList
+      icon={ProjectsIcon}
+      title={title}
+      list={posts}
+      loading={loading}
+      error={error}
+      onClick={openModal}
+    />
   );
 };
