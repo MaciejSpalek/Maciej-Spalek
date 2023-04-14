@@ -25,7 +25,7 @@ export const ProjectList = ({ list, loading, error, onClick }) => {
       {list.map((url, index) => (
         <Item key={url}>
           <Button onClick={() => onClick(index)}>
-            <Image src={url} />
+            <Image src={url} alt="" />
           </Button>
         </Item>
       ))}

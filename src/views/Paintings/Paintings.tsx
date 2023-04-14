@@ -6,7 +6,7 @@ import { GET_POSTS_QUERY } from "queries/postsQuery";
 import { convertPosts } from "helpers";
 import { PostTypes } from "types";
 
-import { PostList } from "components";
+import { PostList, Sections } from "components";
 import { BrushIcon } from "assets";
 
 export const Paintings = () => {
@@ -26,13 +26,14 @@ export const Paintings = () => {
   const posts = convertPosts(data?.posts?.data);
 
   return (
-    <PostList
-      title="Obrazy"
-      icon={BrushIcon}
-      onClick={openModal}
-      loading={loading}
-      list={posts}
-      error={error}
-    />
+    <>
+      <PostList
+        title="Obrazy"
+        onClick={openModal}
+        loading={loading}
+        list={posts}
+      />
+      <Sections hiddenSectionName="Obrazy" />
+    </>
   );
 };

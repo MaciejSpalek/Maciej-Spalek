@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { boxShadow, devices, flexCenter, colors } from "theme";
+import { flexCenter, colors } from "theme";
 
 export const Container = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const HeadingWrapper = styled.div`
 export const Heading = styled.h2`
   font-family: Lexend;
   font-size: 36px;
-  color: ${colors.grayscale[700]};
+  color: ${colors.typography.primary};
 `;
 
 export const Content = styled.div`

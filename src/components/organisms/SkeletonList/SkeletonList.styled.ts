@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { boxShadow, colors } from "theme";
+import { colors } from "theme";
 
 const twinkle = keyframes`
   from {
@@ -13,18 +13,15 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  list-style: none;
-  gap: 40px;
-  padding: 40px;
-`;
 
-export const Item = styled.li``;
+  list-style: none;
+  gap: 16px;
+  padding: 0;
+`;
 
 export const Skeleton = styled.div`
   min-height: 500px;
   width: auto;
-  border-radius: 8px;
-  background-color: ${colors.background.light};
-  animation: ${twinkle} 1s ease-out infinite;
-  ${boxShadow};
+  background-color: ${colors.grayscale.secondary};
+  animation: ${twinkle} 0.5s ease-in-out infinite;
 `;

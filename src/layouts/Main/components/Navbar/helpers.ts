@@ -5,7 +5,7 @@ export const navigation = [
   },
   {
     href: "/paintings",
-    text: "Malarstwo",
+    text: "Obrazy",
   },
   {
     href: "/drawings",

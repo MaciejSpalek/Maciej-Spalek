@@ -5,7 +5,6 @@ export const Container = styled.div`
   position: fixed;
   top: 100px;
   left: 0;
-  background-color: ${colors.background.dark};
   border-top: 1px solid ${colors.background.light};
   display: flex;
   justify-content: space-between;

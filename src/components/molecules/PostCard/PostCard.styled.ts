@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { flexCenter } from "theme";
 import { colors } from "theme/colors";
 
 export const Container = styled.div`
@@ -6,7 +7,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   cursor: pointer;
-  overflow: visible;
+  overflow: hidden;
   :hover div {
     visibility: visible;
   }
@@ -35,16 +36,12 @@ export const Title = styled.span`
 `;
 
 export const HiddenWrapper = styled.div`
+  ${flexCenter};
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  height: calc(100% - 5px);
   background-color: ${colors.transparent.medium};
   visibility: hidden;
-  padding: 12px;
 `;

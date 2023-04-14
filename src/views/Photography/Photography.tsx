@@ -6,8 +6,7 @@ import { GET_POSTS_QUERY } from "queries/postsQuery";
 import { convertPosts } from "helpers";
 import { PostTypes } from "types";
 
-import { PostList } from "components";
-import { BrushIcon } from "assets";
+import { PostList, Sections } from "components";
 
 export const Photography = () => {
   const router = useRouter();
@@ -17,7 +16,7 @@ export const Photography = () => {
     router.push(router);
   };
 
-  const { data, loading, error } = useQuery(GET_POSTS_QUERY, {
+  const { data, loading } = useQuery(GET_POSTS_QUERY, {
     variables: {
       type: PostTypes.photo,
     },
@@ -26,13 +25,14 @@ export const Photography = () => {
   const posts = convertPosts(data?.posts?.data);
 
   return (
-    <PostList
-      title="Fotografia"
-      icon={BrushIcon}
-      onClick={openModal}
-      loading={loading}
-      list={posts}
-      error={error}
-    />
+    <>
+      <PostList
+        title="Fotografia"
+        onClick={openModal}
+        loading={loading}
+        list={posts}
+      />
+      <Sections hiddenSectionName="Fotografia" />
+    </>
   );
 };

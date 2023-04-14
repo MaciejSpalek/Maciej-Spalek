@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { flexCenter } from "theme";
 import { colors } from "theme/colors";
 
 export const Container = styled.div`
@@ -7,7 +8,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  background-color: ${colors.background.medium};
   border-radius: 8px;
 `;
 
@@ -19,22 +19,14 @@ export const HeadingWrapper = styled.div`
   padding: 0 40px;
 `;
 
-export const Heading = styled.h2`
-  font-family: Lexend;
-  font-size: 36px;
-  color: white;
-`;
-
 export const Item = styled.li`
   margin-bottom: 12px;
 `;
 
 export const Button = styled.button`
+  ${flexCenter};
   background-color: ${colors.transparent.main};
   border: none;
   padding: 0;
-  transition: 0.1s ease-in;
-  :hover {
-    scale: 1.01;
-  }
+  margin: 0;
 `;

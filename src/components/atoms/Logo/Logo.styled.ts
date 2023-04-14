@@ -4,7 +4,7 @@ import { colors } from "theme";
 export const Text = styled.p`
   font-family: Lexend;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 18px;
   color: ${colors.grayscale[700]};
 `;
 

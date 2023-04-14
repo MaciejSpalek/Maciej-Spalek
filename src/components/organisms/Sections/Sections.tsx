@@ -1,13 +1,23 @@
 import { useQuery } from "@apollo/client";
-import { Container } from "./Sections.styled";
 import { GET_SECTIONS_QUERY } from "queries";
-import { LoadingWrapper } from "components";
 import { convertSections } from "helpers";
+
+import { LoadingWrapper } from "components";
 import { Section } from "./components";
 
-export const Sections = () => {
+import { Container, List, Heading } from "./Sections.styled";
+
+interface ISections {
+  hiddenSectionName?: string;
+}
+
+export const Sections = ({ hiddenSectionName }: ISections) => {
   const { data, loading } = useQuery(GET_SECTIONS_QUERY);
   const sections = convertSections(data?.sections?.data);
+
+  const filteredSections = sections?.filter(
+    ({ title }) => title !== hiddenSectionName
+  );
 
   if (loading && null == sections) {
     return <LoadingWrapper />;
@@ -15,9 +25,14 @@ export const Sections = () => {
 
   return (
     <Container>
-      {sections.map(({ id, href, title, image }) => (
-        <Section key={id} href={href} title={title} image={image} />
-      ))}
+      <Heading>Zobacz także</Heading>
+      <List>
+        {filteredSections?.map(({ id, href, title, image }) => (
+          <li key={id}>
+            <Section href={href} title={title} image={image} />
+          </li>
+        ))}
+      </List>
     </Container>
   );
 };

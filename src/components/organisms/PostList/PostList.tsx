@@ -10,20 +10,15 @@ import { PostListProps } from "./PostList.model";
 
 const columns = {
   default: 3,
+  768: 2,
+  600: 1,
 };
 
-export const PostList = ({
-  title,
-  icon,
-  loading,
-  error,
-  list,
-  onClick,
-}: PostListProps) => {
+export const PostList = ({ title, loading, list, onClick }: PostListProps) => {
   const postIds = list?.map(({ id }) => id);
 
   return (
-    <Section title={title} isLoading={loading} icon={icon} isError={error}>
+    <Section title={title} isLoading={loading}>
       <Masonry
         breakpointCols={columns}
         className="my-masonry-grid"

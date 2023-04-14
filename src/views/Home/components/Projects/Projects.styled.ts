@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import { colors } from "theme";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  background-color: ${colors.background.medium};
   border-radius: 8px;
 `;
 

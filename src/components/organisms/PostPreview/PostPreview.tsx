@@ -6,35 +6,25 @@ import _ from "lodash";
 import {
   RightArrowButton,
   LeftArrowButton,
-  BottomWrapper,
-  ImageWrapper,
-  AsideWrapper,
-  Description,
-  TopWrapper,
   Container,
-  Button,
-  Title,
-  Image,
+  ImageWrapper,
   Modal,
 } from "./PostPreview.styled";
-import {
-  RightBasicArrowIcon,
-  LeftBasicArrowIcon,
-  CloseSquareIcon,
-} from "assets";
+import { RightBasicArrowIcon, LeftBasicArrowIcon } from "assets";
 
 import { useOutsideClick } from "hooks/useOutsideClick";
 import { GET_POST_QUERY } from "queries";
 import { convertPreview } from "helpers";
 import { LoadingWrapper } from "components/molecules";
 import { PostPreviewProps } from "./PostPreview.model";
+import Image from "next/image";
 
 export const PostPreview = ({ postIds }: PostPreviewProps) => {
   const modalRef = useRef(null);
   const router = useRouter();
 
   const currentPostId = router.query.photo?.toString();
-  const currentIndex = postIds.indexOf(currentPostId);
+  const currentIndex = postIds?.indexOf(currentPostId);
 
   const { data: previewData, loading } = useQuery(GET_POST_QUERY, {
     variables: {
@@ -43,7 +33,7 @@ export const PostPreview = ({ postIds }: PostPreviewProps) => {
   });
 
   const preview = convertPreview(previewData);
-  const { image, title, description } = preview || {};
+  const { image, title } = preview || {};
 
   const closePreview = () => {
     router.query = _.omit(router.query, "photo");
@@ -86,20 +76,15 @@ export const PostPreview = ({ postIds }: PostPreviewProps) => {
           <LoadingWrapper />
         ) : (
           <>
-            {/* <ImageWrapper> */}
-            <Image src={image} alt={title} />
-            {/* </ImageWrapper> */}
-            {/* <AsideWrapper>
-              <TopWrapper>
-                <Title>{title}</Title>
-                <Button onClick={closePreview}>
-                  <CloseSquareIcon />
-                </Button>
-              </TopWrapper>
-              <BottomWrapper>
-                <Description>{description}</Description>
-              </BottomWrapper>
-            </AsideWrapper> */}
+            <ImageWrapper>
+              <Image
+                src={image}
+                layout="fill"
+                objectFit="contain"
+                priority
+                alt={title}
+              />
+            </ImageWrapper>
             {isLeftArrowButtonVisible && (
               <LeftArrowButton onClick={() => changePhoto("decrement")}>
                 <LeftBasicArrowIcon />

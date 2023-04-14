@@ -7,7 +7,7 @@ import { GET_POSTS_QUERY } from "queries/postsQuery";
 import { convertPosts } from "helpers";
 
 import { RulerAndPenIcon } from "assets";
-import { PostList } from "components";
+import { PostList, Sections } from "components";
 import { PostTypes } from "types";
 
 export const Drawings = () => {
@@ -25,15 +25,16 @@ export const Drawings = () => {
   });
 
   const posts = convertPosts(data?.posts?.data);
-
+  console.log({ data, loading, error, posts });
   return (
-    <PostList
-      title="Rysunki"
-      icon={RulerAndPenIcon}
-      onClick={openModal}
-      loading={loading}
-      list={posts}
-      error={error}
-    />
+    <>
+      <PostList
+        title="Rysunek"
+        onClick={openModal}
+        loading={loading}
+        list={posts}
+      />
+      <Sections hiddenSectionName="Rysunek" />
+    </>
   );
 };

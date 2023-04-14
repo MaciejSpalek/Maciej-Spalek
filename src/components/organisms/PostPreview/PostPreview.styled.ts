@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { boxShadow, devices } from "theme";
+import { boxShadow, flexCenter } from "theme";
 import { colors } from "theme/colors";
 
 export const Container = styled.div`
@@ -17,7 +17,6 @@ export const Container = styled.div`
 
 export const Modal = styled.div`
   position: relative;
-  background-color: ${colors.background.dark};
   border-radius: 8px;
   ${boxShadow};
 `;
@@ -26,8 +25,8 @@ export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  min-width: 900px;
+  height: 100vh;
 `;
 
 export const Image = styled.img`
@@ -90,10 +89,13 @@ export const Button = styled.button`
 `;
 
 const arrowButtonCss = css`
-  position: absolute;
+  position: fixed;
+  ${flexCenter};
   top: 50%;
-  width: fit-content;
-  background-color: ${colors.transparent.main};
+  background-color: ${colors.white};
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -101,16 +103,16 @@ const arrowButtonCss = css`
     width: 44px;
     height: 44px;
     path {
-      fill: white;
+      fill: ${colors.grayscale.primary};
     }
   }
 `;
 export const LeftArrowButton = styled.button`
-  right: calc(100% + 16px);
+  left: 24px;
   ${arrowButtonCss};
 `;
 
 export const RightArrowButton = styled.button`
-  left: calc(100% + 16px);
+  right: 24px;
   ${arrowButtonCss};
 `;

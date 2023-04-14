@@ -1,14 +1,7 @@
 import styled from "styled-components";
-import { devices } from "theme";
+import { flexColumn } from "theme";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 40px;
-
-  @media ${devices.sm} {
-    padding: 16px;
-  }
+  ${flexColumn};
+  gap: 2rem;
 `;

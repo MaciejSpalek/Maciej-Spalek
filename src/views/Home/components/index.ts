@@ -1,2 +1,2 @@
 export * from "./Projects";
-export * from "./Sections";
+export * from "./Header";

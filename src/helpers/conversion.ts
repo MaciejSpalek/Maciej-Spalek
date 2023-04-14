@@ -23,15 +23,15 @@ export const convertPosts = (posts) =>
   }, []);
 
 // Projects
-export const convertProjects = (projects) =>
-  projects?.reduce((acc, { id, attributes }) => {
+export const convertProjects = (data) =>
+  data?.projects?.data.reduce((acc, { id, attributes }) => {
     const newObject = {
       id,
       title: attributes.title,
       date: attributes.date,
-      image:
-        attributes.posts?.data?.[0].attributes.image.data?.[0].attributes.url,
+      image: attributes.image.data.attributes.url,
     };
+
     return [...acc, newObject];
   }, []);
 

@@ -3,19 +3,21 @@ import Link from "../../../../../node_modules/next/link";
 import { Item, List } from "./Projects.styled";
 import { ProjectCard } from "components";
 import { Section } from "layouts/Section";
-import { ProjectsIcon } from "assets";
 import { ProjectsProps } from "./Projects.model";
+import { GET_PROJECTS_QUERY } from "queries";
+import { convertProjects } from "helpers";
+import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
 
-export const Projects = ({ loading, error, list }: ProjectsProps) => {
+export const Projects = () => {
+  const { data, loading, error } = useQuery(GET_PROJECTS_QUERY);
+
+  const projects = convertProjects(data);
+
   return (
-    <Section
-      title="Projekty"
-      isLoading={loading}
-      icon={ProjectsIcon}
-      isError={error}
-    >
+    <Section title="Jak powstaje obraz?" isLoading={loading}>
       <List>
-        {list?.map(({ image, id, title, date }) => (
+        {projects?.map(({ image, id, title, date }) => (
           <Item key={id}>
             <Link href={`/projects/${id}`} passHref>
               <a>

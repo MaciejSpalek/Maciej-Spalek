@@ -31,7 +31,6 @@ class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap"
             rel="stylesheet"
           />
-          {/* {this.props.styleTags} */}
         </Head>
         <body>
           <Main />

@@ -4,20 +4,14 @@ import { SectionProps } from "./Section.model";
 
 import { Container, HeadingWrapper, Heading, Content } from "./Section.styled";
 
-export const Section = ({
-  title,
-  children,
-  isLoading,
-  icon: Icon,
-}: SectionProps) => {
-  console.log(isLoading);
+export const Section = ({ title, children, isLoading }: SectionProps) => {
   return (
     <Container>
       <HeadingWrapper>
         <Heading>{title}</Heading>
       </HeadingWrapper>
       <Content>
-        {isLoading ? <SkeletonList elementsNumber={3} /> : children}
+        {isLoading ? <SkeletonList elementsNumber={6} /> : children}
       </Content>
     </Container>
   );

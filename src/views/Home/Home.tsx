@@ -1,21 +1,13 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
+import { Sections } from "components";
 import { Container } from "./Home.styled";
-import { Projects, Sections } from "./components";
-import { GET_PROJECTS_QUERY } from "queries/projectQuery";
-import { convertProjects } from "helpers";
+import { Header, Projects } from "./components";
 
 export const Home = () => {
-  const router = useRouter();
-
-  // const openModal = (id: string) => {
-  //   router.query.photo = id;
-  //   router.push(router);
-  // };
-
   return (
     <Container>
+      <Header />
+      <Projects />
       <Sections />
     </Container>
   );

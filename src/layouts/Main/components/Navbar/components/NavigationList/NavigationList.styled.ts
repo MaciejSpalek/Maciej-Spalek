@@ -18,13 +18,12 @@ export const List = styled.ul`
 export const Anchor = styled.a`
   font-family: Lexend;
   font-weight: 500;
-  font-size: 28px;
   cursor: pointer;
   color: ${({ isActive }) =>
-    isActive ? colors.primary.main : colors.grayscale[700]};
-
-  @media ${devices.md} {
-    font-size: 22px;
+    isActive ? colors.primary.main : colors.typography.secondary};
+  :hover {
+    color: ${({ isActive }) =>
+      isActive ? colors.primary.dark : colors.typography.primary};
   }
 `;
 

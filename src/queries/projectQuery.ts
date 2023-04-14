@@ -9,20 +9,10 @@ export const GET_PROJECTS_QUERY = gql`
           description
           title
           date
-          posts {
+          image {
             data {
-              id
               attributes {
-                title
-                description
-                date
-                image {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
+                url
               }
             }
           }
