@@ -7,7 +7,6 @@ import { convertPosts } from "helpers";
 import { PostTypes } from "types";
 
 import { PostList, Sections } from "components";
-import { BrushIcon } from "assets";
 
 export const Paintings = () => {
   const router = useRouter();
@@ -17,7 +16,7 @@ export const Paintings = () => {
     router.push(router);
   };
 
-  const { data, loading, error } = useQuery(GET_POSTS_QUERY, {
+  const { data, loading } = useQuery(GET_POSTS_QUERY, {
     variables: {
       type: PostTypes.painting,
     },

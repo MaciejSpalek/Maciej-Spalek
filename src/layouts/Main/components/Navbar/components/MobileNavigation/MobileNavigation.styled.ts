@@ -1,17 +1,17 @@
 import styled from "styled-components";
-import { colors } from "theme";
+import { colors, flexColumn } from "theme";
 
 export const Container = styled.div`
   position: fixed;
-  top: 100px;
+  top: 50px;
   left: 0;
-  border-top: 1px solid ${colors.background.light};
-  display: flex;
+  ${flexColumn};
   justify-content: space-between;
-  align-items: center;
-  height: calc(100% - 100px);
-  width: 100%;
+  padding: 0.5rem;
+  height: calc(100% - 50px);
   z-index: 999999;
+  background-color: ${colors.white};
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 `;
 
 export const IconButton = styled.button`
@@ -19,9 +19,11 @@ export const IconButton = styled.button`
   height: auto;
   background-color: ${colors.transparent.main};
   border: none;
+  padding: 0;
+
   svg {
     width: 32px;
     height: 32px;
-    color: ${colors.primary.main};
+    color: ${colors.grayscale.primary};
   }
 `;

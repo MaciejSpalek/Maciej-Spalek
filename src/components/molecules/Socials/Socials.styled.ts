@@ -16,12 +16,13 @@ export const Anchor = styled.a`
   width: 40px;
   height: 40px;
   border: 1px solid ${colors.grayscale.tertiary};
+  background-color: ${colors.white};
   transition: 0.25s ease-in;
   :hover {
     scale: 1.1;
+    border: none;
   }
   :hover svg {
-    color: ${colors.primary.main};
   }
   ${boxShadow};
 

@@ -3,4 +3,5 @@ export interface IProjectCard {
   title: string;
   id?: string;
   date: Date;
+  description: string;
 }

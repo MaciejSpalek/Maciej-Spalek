@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { boxShadow, colors, flexCenter } from "theme";
+import { colors } from "theme";
 
 export const Container = styled.footer`
   display: flex;

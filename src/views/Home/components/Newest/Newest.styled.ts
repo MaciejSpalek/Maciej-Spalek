@@ -1,19 +1,28 @@
 import styled from "styled-components";
-import { colors, devices, flexColumn } from "theme";
+import { devices, flexCenter, flexColumn } from "theme";
+
+export const Wrapper = styled.div`
+  ${flexCenter};
+`;
 
 export const Container = styled.div`
   ${flexColumn};
-  width: 100%;
   gap: 2rem;
-  padding: 1rem;
+`;
+
+export const Heading = styled.h2`
+  font-family: Lexend;
+  font-size: 36px;
+  color: white;
 `;
 
 export const List = styled.ul`
   display: grid;
   width: 100%;
   gap: 1rem;
-  padding: 0;
   list-style: none;
+  padding: 0;
+  margin: 0;
 
   @media ${devices.sm} {
     grid-template-columns: repeat(2, 1fr);
@@ -23,13 +32,7 @@ export const List = styled.ul`
   }
 `;
 
-export const Heading = styled.div`
-  font-size: 32px;
-  font-family: Lexend;
-  font-weight: 500;
-  color: ${colors.grayscale[700]};
-`;
-
 export const ListItem = styled.li`
-  aspect-ratio: 1/1;
+  position: relative;
+  aspect-ratio: 4/5;
 `;

@@ -1,4 +1,3 @@
-// Posts
 export const convertPreview = (previewData) => {
   const previewAttributes = previewData?.post?.data?.attributes;
 
@@ -22,13 +21,13 @@ export const convertPosts = (posts) =>
     return [...acc, newObject];
   }, []);
 
-// Projects
 export const convertProjects = (data) =>
   data?.projects?.data.reduce((acc, { id, attributes }) => {
     const newObject = {
       id,
       title: attributes.title,
       date: attributes.date,
+      description: attributes.description,
       image: attributes.image.data.attributes.url,
     };
 
@@ -46,7 +45,6 @@ export const convertProject = (projectData) => {
   };
 };
 
-// Sections
 export const convertSections = (sections) =>
   sections?.reduce((acc, { id, attributes }) => {
     const newObject = {

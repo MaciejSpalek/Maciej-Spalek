@@ -4,9 +4,8 @@ import { colors, devices, flexColumn } from "theme";
 export const List = styled.ul`
   ${flexColumn};
   justify-content: flex-start;
-  gap: 24px;
+  gap: 3rem;
   list-style: none;
-  width: 100%;
   padding: 0;
 
   @media ${devices.md} {
@@ -18,12 +17,17 @@ export const List = styled.ul`
 export const Anchor = styled.a`
   font-family: Lexend;
   font-weight: 500;
+  font-size: 14px;
   cursor: pointer;
   color: ${({ isActive }) =>
     isActive ? colors.primary.main : colors.typography.secondary};
   :hover {
     color: ${({ isActive }) =>
       isActive ? colors.primary.dark : colors.typography.primary};
+  }
+
+  @media ${devices.md} {
+    font-size: 14px;
   }
 `;
 

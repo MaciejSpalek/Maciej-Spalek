@@ -1,17 +1,18 @@
 import styled from "styled-components";
-import { devices } from "theme";
+import { colors, devices, flexCenter } from "theme";
 
-export const Nav = styled.nav<{ stickNavbar: boolean }>`
-  display: flex;
+export const Nav = styled.nav`
+  ${flexCenter};
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0 16px;
-  height: 40px;
+  padding: 0 20px;
+  height: 60px;
   top: 0;
-  z-index: 999;
+  z-index: 999999;
+  position: fixed;
+  background-color: ${colors.white};
 
   @media ${devices.md} {
+    position: static;
     height: 160px;
   }
 `;

@@ -1,13 +1,15 @@
-import Masonry from "react-masonry-css";
-import { Image, Item, Button } from "./ProjectList.styled";
+import {
+  Item,
+  Title,
+  Container,
+  List,
+  ItemTitle,
+  ImageWrapper,
+  ItemDescription,
+} from "./ProjectList.styled";
+import Image from "next/image";
 
-const columns = {
-  default: 3,
-  1000: 2,
-  700: 1,
-};
-
-export const ProjectList = ({ list, loading, error, onClick }) => {
+export const ProjectList = ({ list, loading, title, error }) => {
   if (loading) {
     return <div>...loading</div>;
   }
@@ -17,18 +19,28 @@ export const ProjectList = ({ list, loading, error, onClick }) => {
   }
 
   return (
-    <Masonry
-      breakpointCols={columns}
-      className="my-masonry-grid"
-      columnClassName="my-masonry-grid_column"
-    >
-      {list.map((url, index) => (
-        <Item key={url}>
-          <Button onClick={() => onClick(index)}>
-            <Image src={url} alt="" />
-          </Button>
-        </Item>
-      ))}
-    </Masonry>
+    <Container>
+      <Title>{title}</Title>
+      <List>
+        {list.map(({ id, title, description, image }, index) => (
+          <Item key={id}>
+            <ImageWrapper>
+              <Image
+                src={image}
+                alt={title}
+                layout="fill"
+                objectFit="contain"
+              />
+            </ImageWrapper>
+            <div>
+              <ItemTitle>
+                {index + 1}. {title}
+              </ItemTitle>
+              <ItemDescription>{description}</ItemDescription>
+            </div>
+          </Item>
+        ))}
+      </List>
+    </Container>
   );
 };

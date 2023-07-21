@@ -1,32 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "../../../../../node_modules/next/link";
-import { Item, List } from "./Projects.styled";
+import { ListItem, List, Wrapper } from "./Projects.styled";
 import { ProjectCard } from "components";
 import { Section } from "layouts/Section";
-import { ProjectsProps } from "./Projects.model";
 import { GET_PROJECTS_QUERY } from "queries";
 import { convertProjects } from "helpers";
-import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
+import { useIntersectionObserver } from "hooks/useIntersectionObserver";
 
 export const Projects = () => {
-  const { data, loading, error } = useQuery(GET_PROJECTS_QUERY);
+  const [isSectionVisible, setVisibleState] = useState(false);
+  const { visible, ref } = useIntersectionObserver<HTMLDivElement>({
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (visible) {
+      setVisibleState(true);
+    }
+    //eslint-disable-next-line
+  }, [visible]);
+
+  const { data, loading } = useQuery(GET_PROJECTS_QUERY, {
+    skip: !isSectionVisible,
+  });
 
   const projects = convertProjects(data);
 
   return (
-    <Section title="Jak powstaje obraz?" isLoading={loading}>
-      <List>
-        {projects?.map(({ image, id, title, date }) => (
-          <Item key={id}>
-            <Link href={`/projects/${id}`} passHref>
-              <a>
-                <ProjectCard date={date} image={image} title={title} />
-              </a>
-            </Link>
-          </Item>
-        ))}
-      </List>
-    </Section>
+    <Wrapper ref={ref}>
+      <Section title="Etapy powstawania obrazu" isLoading={loading}>
+        <List>
+          {projects?.map(({ image, id, title, date, description }) => (
+            <ListItem key={id}>
+              <Link href={`/projects/${id}`} passHref>
+                <a>
+                  <ProjectCard
+                    date={date}
+                    image={image}
+                    title={title}
+                    description={description}
+                  />
+                </a>
+              </Link>
+            </ListItem>
+          ))}
+        </List>
+      </Section>
+    </Wrapper>
   );
 };

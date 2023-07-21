@@ -18,7 +18,7 @@ export const Header = () => {
       </ImageWrapper>
       <HeadingWrapper>
         <Heading>Maciej Spałek</Heading>
-        <Paragraph>PORTFOLIO</Paragraph>
+        <Paragraph>My ART</Paragraph>
         <Socials />
       </HeadingWrapper>
     </Container>

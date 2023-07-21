@@ -17,7 +17,7 @@ export const NavigationList = ({ toggle }: INavigationList) => {
         <li key={text}>
           <Link href={href}>
             <Anchor onClick={toggle} isActive={pathname === href}>
-              {text}
+              {text.toUpperCase()}
             </Anchor>
           </Link>
         </li>

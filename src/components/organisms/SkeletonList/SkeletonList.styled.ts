@@ -13,15 +13,14 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100%;
-
   list-style: none;
   gap: 16px;
   padding: 0;
 `;
 
-export const Skeleton = styled.div`
-  min-height: 500px;
+export const Skeleton = styled.div<{ minHeight: boolean }>`
+  min-height: ${({ minHeight }) => minHeight}px;
   width: auto;
   background-color: ${colors.grayscale.secondary};
-  animation: ${twinkle} 0.5s ease-in-out infinite;
+  animation: ${twinkle} 0.75s ease-in-out infinite;
 `;

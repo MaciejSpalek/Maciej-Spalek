@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { flexColumn } from "theme";
+import { devices, flexColumn } from "theme";
 import { colors } from "theme/colors";
 
 export const Container = styled.div`
@@ -16,4 +16,9 @@ export const InnerWrapper = styled.div`
 
 export const MainWrapper = styled.main`
   ${flexColumn};
+  margin: 60px;
+
+  @media ${devices.md} {
+    margin: 0;
+  }
 `;

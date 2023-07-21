@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, IconButton } from "./MobileNavigation.styled";
 import { CloseSquareIcon, HamburgerIcon } from "assets";
 import { NavigationList } from "../../components";
+import { Socials } from "components";
 
 export const MobileNavigation = () => {
   const [isOpen, open] = useState(false);
@@ -14,6 +15,7 @@ export const MobileNavigation = () => {
         <Container>
           <IconButton onClick={toggle}></IconButton>
           <NavigationList toggle={toggle} />
+          <Socials />
         </Container>
       )}
       <IconButton onClick={toggle}>
