@@ -6,12 +6,15 @@ import { flexCenter, colors, fullRotateAnimation } from "theme";
 
 export const BaseButton = styled.button<IBaseButton>`
   ${flexCenter};
-  border-radius: 10px;
   font-family: "Red Hat Display", sans-serif;
   font-style: normal;
   font-weight: bold;
   line-height: 16px;
+  font-size: 16px;
   transition: 0.3s ease-in-out;
+  cursor: pointer;
+  min-height: 50px;
+  border-radius: 8px;
   ${({ size }) => getButtonSize(size)};
   ${({ outline, disabled }) => getStyles(outline, disabled)};
   width: ${({ fullWidth }) => fullWidth && "100%"};
@@ -38,7 +41,6 @@ export const StyledIconWrapper = styled.div<{
 
 export const StyledContent = styled.div`
   ${flexCenter};
-  min-height: 40px;
 `;
 
 export const Wrapper = styled.div<{ isLoading: boolean }>`

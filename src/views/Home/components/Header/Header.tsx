@@ -3,23 +3,33 @@ import {
   Container,
   HeadingWrapper,
   Heading,
-  ImageWrapper,
+  GridList,
+  GridItem,
   Paragraph,
 } from "./Header.styled";
-import { logo } from "assets/images";
 import Image from "next/image";
-import { Socials } from "components";
+import { SpecialButton } from "components";
+import { useRouter } from "next/router";
 
 export const Header = () => {
+  const { push } = useRouter();
+
+  const handleOnClick = () => push("/contact");
+
   return (
     <Container>
-      <ImageWrapper>
-        <Image quality={100} loading="eager" src={logo} alt="logo" priority />
-      </ImageWrapper>
       <HeadingWrapper>
         <Heading>Maciej Spałek</Heading>
-        <Paragraph>My ART</Paragraph>
-        <Socials />
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua minim
+          veniam, quis nostrud.
+        </Paragraph>
+        <SpecialButton onClick={handleOnClick}>Contact me</SpecialButton>
+        {/* <GridList>
+          <GridItem></GridItem>
+          <GridItem></GridItem>
+        </GridList> */}
       </HeadingWrapper>
     </Container>
   );

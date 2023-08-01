@@ -1,37 +1,29 @@
-import React from "react";
-import Masonry from "react-masonry-css";
-
-import { Button, Item } from "./PostList.styled";
-
+import { Button, List } from "./PostList.styled";
 import { PostCard, PostPreview } from "components";
 import { Section } from "layouts/Section";
-
 import { PostListProps } from "./PostList.model";
+import { useRouter } from "next/router";
 
-const columns = {
-  default: 3,
-  768: 2,
-  600: 1,
-};
-
-export const PostList = ({ title, loading, list, onClick }: PostListProps) => {
+export const PostList = ({ title, loading, list }: PostListProps) => {
   const postIds = list?.map(({ id }) => id);
+  const router = useRouter();
+
+  const openModal = (id) => {
+    router.query.photo = id;
+    router.push(router);
+  };
 
   return (
     <Section title={title} isLoading={loading}>
-      <Masonry
-        breakpointCols={columns}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
+      <List>
         {list?.map(({ image, id, title, date }) => (
-          <Item key={id}>
-            <Button onClick={() => onClick(id)}>
+          <li key={id}>
+            <Button onClick={() => openModal(id)}>
               <PostCard image={image} title={title} date={date} />
             </Button>
-          </Item>
+          </li>
         ))}
-      </Masonry>
+      </List>
       <PostPreview postIds={postIds} />
     </Section>
   );

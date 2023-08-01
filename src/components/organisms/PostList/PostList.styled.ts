@@ -1,26 +1,20 @@
 import styled from "styled-components";
-import { flexCenter } from "theme";
-import { colors } from "theme/colors";
+import { devices, flexCenter, colors } from "theme";
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+export const List = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr;
   width: 100%;
-  border-radius: 8px;
-`;
-
-export const HeadingWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 0 40px;
-`;
-
-export const Item = styled.li`
-  margin-bottom: 12px;
+  list-style: none;
+  padding: 0;
+  gap: 16px;
+  
+  @media ${devices.sm} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media ${devices.md} {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 export const Button = styled.button`

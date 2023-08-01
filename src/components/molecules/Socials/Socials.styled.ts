@@ -22,8 +22,6 @@ export const Anchor = styled.a`
     scale: 1.1;
     border: none;
   }
-  :hover svg {
-  }
   ${boxShadow};
 
   svg {

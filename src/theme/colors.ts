@@ -7,6 +7,7 @@ export const colors = {
     secondary: "#DFDFE5",
     tertiary: "#EEEEF2",
     quaternary: "#f5f5f5",
+    dark: "#131315",
   },
   transparent: {
     main: "transparent",
@@ -19,11 +20,25 @@ export const colors = {
   },
   typography: {
     primary: "#313260",
-    secondary: "#6F7090",
+    secondary: "#c4c4c4",
   },
   primary: {
-    main: "#56CCF2",
-    dark: "#219EC6",
+    main: "#ff6921",
+    dark: "#B64B19",
+  },
+  secondary: {
+    main: "#ed4140",
+    dark: "#912626",
+  },
+  grayScale: {
+    1: "#131315",
+    2: "#54545d",
+    3: "#b0b0b0",
+    4: "#bcbcc2",
+    5: "#c4c4c4",
+    6: "#fafafa",
+    7: "#EBEBEB"
   },
   white: "#ffffff",
+  black: "#000000"
 };

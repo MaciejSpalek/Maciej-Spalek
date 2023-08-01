@@ -17,9 +17,8 @@ export const Container = styled.div`
   }
 `;
 
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
+export const ImageWrapper = styled.div`
+  aspect-ratio: 1 / 1;
 `;
 
 export const DateText = styled.span`
@@ -41,7 +40,7 @@ export const HiddenWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 5px);
+  height: 100%;
   background-color: ${colors.transparent.medium};
   visibility: hidden;
 `;
