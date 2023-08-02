@@ -4,20 +4,15 @@ import { colors, devices, flexCenter, flexColumn } from "theme";
 export const Container = styled.header`
   ${flexColumn};
   justify-content: center;
-  width: 100%;
   overflow: hidden;
-  padding: 5rem 0;
-  height: calc(100vh - 60px);
+  padding: 128px 24px 24px 24px;
+  min-height: calc(100vh - 60px);
   background-color: ${colors.grayScale[1]};
-
+  gap: 16px;
+  
   @media ${devices.lg} {
     border-radius: 48px;
   }
-`;
-
-export const HeadingWrapper = styled.div`
-  ${flexColumn};
-  gap: 16px;
 `;
 
 export const Heading = styled.h1`
@@ -34,25 +29,23 @@ export const Heading = styled.h1`
 export const Paragraph = styled.p`
   font-family: "General Sans Regular", sans-serif;
   color: ${colors.grayScale[5]};
-  max-width: 60%;
+  max-width: 50%;
   text-align: center;
 `;
 
-export const ImageWrapper = styled.div`
-  ${flexCenter};
-  max-width: 16rem;
-  padding: 1rem 0;
-
-  @media ${devices.md} {
-    width: 30%;
-    padding: 0;
-  }
-`;
-
 export const GridList = styled.ul`
-  ${flexCenter};
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  list-style: none;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  margin-top: 48px;
 `;
 
-export const GridItem = styled.div`
-  ${flexCenter};
+export const GridItem = styled.li`
+  border-radius: 24px;
+  max-height: 520px;
+  overflow: hidden;
 `;
