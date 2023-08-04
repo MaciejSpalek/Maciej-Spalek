@@ -18,8 +18,8 @@ export const Main = ({ children }) => {
         <Meta />
         <Navbar />
         <MainWrapper>{children}</MainWrapper>
-        <Footer />
       </InnerWrapper>
+      <Footer />
     </Container>
   );
 };

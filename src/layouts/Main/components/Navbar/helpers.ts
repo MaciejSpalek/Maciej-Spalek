@@ -1,44 +1,23 @@
-export const navigation = [
-  {
-    href: "/",
-    text: "Główna",
-  },
-  {
-    href: "/paintings",
-    text: "Obrazy",
-  },
-  {
-    href: "/drawings",
-    text: "Rysunek",
-  },
-  {
-    href: "/photography",
-    text: "Fotografia",
-  },
-  {
-    href: "/contact",
-    text: "Kontakt",
-  },
-];
+import { URLS } from "helpers";
 
 export const leftNavigation = [
   {
-    href: "/",
+    href: URLS.home,
     text: "Główna",
   },
   {
-    href: "/paintings",
+    href: URLS.paintings,
     text: "Obrazy",
   },
 ];
 
 export const rightNavigation = [
   {
-    href: "/drawings",
+    href: URLS.drawings,
     text: "Rysunek",
   },
   {
-    href: "/photography",
+    href: URLS.photography,
     text: "Fotografia",
   },
 ];

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { devices, flexColumn } from "theme";
+import { breakpoints, devices, flexColumn } from "theme";
 import { colors } from "theme/colors";
 
 export const Container = styled.div`
@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const InnerWrapper = styled.div`
   ${flexColumn};
-  max-width: 1268px;
+  max-width: ${breakpoints.lg}px;
 `;
 
 export const MainWrapper = styled.main`

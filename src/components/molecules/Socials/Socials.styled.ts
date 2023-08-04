@@ -15,19 +15,17 @@ export const Anchor = styled.a`
   border-radius: 12px;
   width: 40px;
   height: 40px;
-  border: 1px solid ${colors.grayscale.tertiary};
-  background-color: ${colors.white};
+  border: 1px solid ${colors.grayScale[2]};
   transition: 0.25s ease-in;
   :hover {
     scale: 1.1;
     border: none;
   }
-  ${boxShadow};
 
   svg {
     width: 20px;
     height: 20px;
     transition: 0.25s ease-in;
-    color: ${colors.typography.secondary};
+    color: ${colors.grayScale[2]};
   }
 `;
