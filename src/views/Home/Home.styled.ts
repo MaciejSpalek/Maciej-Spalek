@@ -3,5 +3,5 @@ import { flexColumn } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
-  gap: 2rem;
+  gap: 5rem;
 `;

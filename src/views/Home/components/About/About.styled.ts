@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, flexCenter, flexColumn } from "theme";
+import { colors, flexCenter, flexColumn, getFont } from "theme";
 
 export const Container = styled.header`
   ${flexCenter};
@@ -23,27 +23,22 @@ export const ImageWrapper = styled.div`
 `;
 
 export const RightWrapper = styled.div`
-  ${flexColumn};
-  height: min-content;
+  ${flexCenter};
   width: 50%;
+  align-self: flex-start;
 `;
 
 export const Heading = styled.h2`
-  font-family: "General Sans Regular";
-  font-size: 18px;
+  ${getFont("regular", 18)};
+  letter-spacing: 7.2px;
+  line-height: 32px;
   color: ${colors.grayScale[4]};
   margin: 0;
   text-transform: uppercase;
 `;
 
 export const Paragraph = styled.p`
-  font-family: "General Sans Medium";
-  font-size: 40px;
+  ${getFont("medium", 40)};
   color: ${colors.grayScale[1]};
-  text-align: left;
+  margin: 0;
 `;
-
-
-
-
-

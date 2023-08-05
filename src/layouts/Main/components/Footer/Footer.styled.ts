@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpoints, colors, flexCenter, flexColumn } from "theme";
+import { breakpoints, colors, flexCenter, flexColumn, getFont } from "theme";
 
 export const Container = styled.footer`
   display: flex;
@@ -14,20 +14,23 @@ export const Container = styled.footer`
 `;
 
 export const Copyright = styled.span`
-  font-size: 18px;
   text-align: center;
   color: ${colors.grayScale[2]};
+  line-height: 150%;
+  ${getFont("regular", 18)};
 `;
 
 export const Heading = styled.h2`
   color: ${colors.white};
-  font-size: 72px;
-  line-height: 40px;
+  line-height: 100%;
+  ${getFont("medium", 94)};
 `;
+
 export const Paragraph = styled.p`
-  font-size: 20px;
   text-align: center;
   color: ${colors.white};
+  line-height: 140%;
+  ${getFont("medium", 20)};
 `;
 
 export const FirstWrapper = styled.div`
@@ -81,16 +84,14 @@ export const Divider = styled.hr`
 `;
 
 export const Anchor = styled.a`
-  font-family: "General Sans Semibold", sans-serif;
-  font-size: 16px;
   cursor: pointer;
   color: ${colors.grayScale[3]};
+  line-height: 150% ${getFont("semibold", 18)};
 `;
 
 export const ListTitle = styled.p`
-  font-family: "General Sans Medium", sans-serif;
-  font-size: 20px;
   color: ${colors.white};
+  line-height: 140% ${getFont("medium", 20)};
 `;
 
 export const List = styled.ul`
@@ -102,10 +103,9 @@ export const List = styled.ul`
 `;
 
 export const InnerWrapper = styled.div`
- ${flexColumn}
+  ${flexColumn}
   justify-content: space-between;
   width: 100%;
   gap: 16px;
   max-width: ${breakpoints.lg}px;
 `;
-

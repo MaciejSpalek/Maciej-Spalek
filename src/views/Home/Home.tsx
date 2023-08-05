@@ -1,6 +1,5 @@
 import React from "react";
-import { About, Header, Newest } from "./components";
-import { Sections } from "components";
+import { About, Header, Newest, Sections } from "./components";
 import { Container } from "./Home.styled";
 
 export const Home = () => {
@@ -8,7 +7,6 @@ export const Home = () => {
     <Container>
       <Header />
       <About />
-      <Newest />
       <Sections />
     </Container>
   );

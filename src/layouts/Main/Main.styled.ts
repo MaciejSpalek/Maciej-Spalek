@@ -14,6 +14,7 @@ export const Container = styled.div`
 export const InnerWrapper = styled.div`
   ${flexColumn};
   max-width: ${breakpoints.lg}px;
+  padding-bottom: 64px;
 `;
 
 export const MainWrapper = styled.main`

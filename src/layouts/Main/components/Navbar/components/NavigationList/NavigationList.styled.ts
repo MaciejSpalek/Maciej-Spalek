@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, devices, flexColumn } from "theme";
+import { colors, devices, flexColumn, getFont } from "theme";
 
 export const List = styled.ul`
   ${flexColumn};
@@ -15,17 +15,12 @@ export const List = styled.ul`
 `;
 
 export const Anchor = styled.a`
-  font-family: "General Sans Semibold", sans-serif;
-  font-size: 14px;
+  ${getFont("semibold", 12)};
   cursor: pointer;
   color: ${({ isActive }) => (isActive ? colors.grayScale[2] : colors.black)};
   text-decoration: ${({ isActive }) => (isActive ? "underline" : "none")};
   :hover {
     color: ${({ isActive }) =>
       isActive ? colors.grayScale[3] : colors.grayScale[3]};
-  }
-
-  @media ${devices.md} {
-    font-size: 12px;
   }
 `;

@@ -1,29 +1,27 @@
 import styled from "styled-components";
 import { IBaseButton } from "./SpecialButton.model";
-import { colors, flexCenter } from "theme";
+import { colors, flexCenter, getFont } from "theme";
 
 export const BaseButton = styled.button<IBaseButton>`
   position: relative;
   ${flexCenter};
+  width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
+  height: 52px;
   gap: 10px;
-  font-family: "Red Hat Display", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 16px;
-  font-size: 16px;
+  ${getFont('semibold', 18)};
+  letter-spacing: -0.27px;
+  line-height: 32px;
   transition: .7s ease-in-out;
   padding: 10px 24px;
   cursor: pointer;
-  height: 52px;
   border-radius: 50px;
-  width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
+  border: none;
   color: ${colors.white};
   background: linear-gradient(
     180deg,
     rgb(255, 146, 104) 0%,
     rgb(249, 92, 31) 100%
   );
-  border: none;
 
   :hover {
     p {
@@ -49,7 +47,6 @@ export const BaseButton = styled.button<IBaseButton>`
     border-radius: 50px;
     z-index: 1;
     transition: 0.5s ease;
-    /* opacity: 0; */
   }
 `;
 

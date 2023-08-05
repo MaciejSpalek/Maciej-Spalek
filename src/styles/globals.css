@@ -1,3 +1,28 @@
+@font-face {
+	font-family: 'GeneralSans-Light';
+	src: url('../assets/fonts/GeneralSans-Light.otf');
+}
+
+@font-face {
+	font-family: 'GeneralSans-Regular';
+	src: url('../assets/fonts/GeneralSans-Regular.otf');
+}
+
+@font-face {
+	font-family: 'GeneralSans-Medium';
+	src: url('../assets/fonts/GeneralSans-Medium.otf');
+}
+
+@font-face {
+	font-family: 'GeneralSans-Semibold';
+	src: url('../assets/fonts/GeneralSans-Semibold.otf');
+}
+
+@font-face {
+	font-family: 'GeneralSans-Bold';
+	src: url('../assets/fonts/GeneralSans-Bold.otf');
+}
+
 html,
 body {
   padding: 0;
