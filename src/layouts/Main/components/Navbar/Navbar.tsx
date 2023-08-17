@@ -1,14 +1,12 @@
 import React from "react";
-import { Nav } from "./Navbar.styled";
+import { MobileNavigation, DesktopNavigation } from "./components";
 import { useIsMobileView } from "hooks";
-import { MobileNavigation, NavigationList } from "./components";
+import { Nav } from "./Navbar.styled";
 
 export const Navbar = () => {
   const isMobileView = useIsMobileView();
 
   return (
-    <Nav>
-      {isMobileView ? <MobileNavigation /> : <NavigationList />}
-    </Nav>
+    <Nav>{isMobileView ? <MobileNavigation /> : <DesktopNavigation />}</Nav>
   );
 };

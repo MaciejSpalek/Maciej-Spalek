@@ -21,37 +21,32 @@ export const convertPosts = (posts) =>
     return [...acc, newObject];
   }, []);
 
-export const convertProjects = (data) =>
-  data?.projects?.data.reduce((acc, { id, attributes }) => {
-    const newObject = {
-      id,
-      title: attributes.title,
-      date: attributes.date,
-      description: attributes.description,
-      image: attributes.image.data.attributes.url,
-    };
-
-    return [...acc, newObject];
-  }, []);
-
-export const convertProject = (projectData) => {
-  const previewAttributes = projectData?.project?.data?.attributes;
-
-  return {
-    id: projectData?.project?.data?.id,
-    title: previewAttributes?.title,
-    description: previewAttributes?.description,
-    posts: convertPosts(previewAttributes?.posts?.data),
-  };
-};
+export const convertCraft = ({ id, attributes }) => ({
+  id,
+  title: attributes.title,
+  image: attributes.image.data.attributes.url,
+  posts: attributes.posts.data.reduce((acc, { id, attributes }) => {
+    return [
+      ...acc,
+      {
+        id,
+        title: attributes.title,
+        image: attributes.image.data[0].attributes.url,
+      },
+    ];
+  }, []),
+});
 
 export const convertSections = (sections) =>
-  sections?.reduce((acc, { id, attributes }) => {
-    const newObject = {
-      id,
-      title: attributes.title,
-      href: attributes.href,
-      image: attributes.image?.data?.attributes?.url,
-    };
-    return [...acc, newObject];
-  }, []);
+  sections
+    .reduce((acc, { id, attributes }) => {
+      const newObject = {
+        id,
+        title: attributes.title,
+        href: attributes.href,
+        order: attributes.order,
+        image: attributes.image?.data?.attributes?.url,
+      };
+      return [...acc, newObject];
+    }, [])
+    .sort((a, b) => a.order - b.order);

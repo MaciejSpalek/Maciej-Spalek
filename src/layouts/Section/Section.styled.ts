@@ -1,26 +1,23 @@
 import styled from "styled-components";
-import { flexCenter, colors, flexColumn } from "theme";
+import { flexCenter, colors, flexColumn, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
-  gap: 2rem;
-  padding: 1rem;
 `;
 
 export const HeadingWrapper = styled.div`
   ${flexCenter};
-  width: 100%;
+  justify-content: flex-start;
 `;
 
 export const Heading = styled.h2`
-  font-size: 32px;
-  font-family: Lexend;
-  font-weight: 500;
-  color: ${colors.grayscale[700]};
+  color: ${colors.grayScale[1]};
+  ${getFont("semibold", 72)};
+  text-transform: capitalize;
 `;
 
 export const Content = styled.div`
-  ${flexCenter};
+  ${flexColumn};
   padding: 0;
 `;
 

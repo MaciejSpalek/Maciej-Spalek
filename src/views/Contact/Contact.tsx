@@ -53,7 +53,7 @@ export const Contact = () => {
               veniam, quis nostrud.
             </Subtitle>
           </TextWrapper>
-          <Input register={register} fullWidth id="name" placeholder="Imię" />
+          <Input register={register} fullWidth id="name" placeholder="Name" />
           <Input
             register={register}
             fullWidth
@@ -64,11 +64,11 @@ export const Contact = () => {
             register={register}
             fullWidth
             id="message"
-            placeholder="Wiadomość"
+            placeholder="Message"
             rows={5}
           />
           <Button type="submit" fullWidth>
-            Wyślij
+            Submit
           </Button>
         </FormWrapper>
       </ContactWrapper>

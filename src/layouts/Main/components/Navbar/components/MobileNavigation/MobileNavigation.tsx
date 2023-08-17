@@ -1,26 +1,40 @@
 import React, { useState } from "react";
-import { Container, IconButton } from "./MobileNavigation.styled";
-import { CloseSquareIcon, HamburgerIcon } from "assets";
-import { NavigationList } from "../../components";
-import { Socials } from "components";
+import {
+  Collapsed,
+  Container,
+  TopBar,
+  HamburgerContainer,
+  Line,
+  IconButton,
+  Hamburger,
+} from "./MobileNavigation.styled";
+import { leftNavigation, rightNavigation } from "../../helpers";
+import { ListRenderer } from "../../components";
+import { Logo } from "components";
 
 export const MobileNavigation = () => {
   const [isOpen, open] = useState(false);
 
   const toggle = () => open((prev) => !prev);
 
+  const navList = [...leftNavigation, ...rightNavigation];
+
   return (
-    <>
+    <Container>
+      <TopBar>
+        <Logo />
+        {/* <IconButton onClick={toggle}>
+          {isOpen ? <CloseSquareIcon /> : <HamburgerIcon />}
+        </IconButton> */}
+        <Hamburger onClick={toggle}>
+          <Line isOpen={isOpen} />
+        </Hamburger>
+      </TopBar>
       {isOpen && (
-        <Container>
-          <IconButton onClick={toggle}></IconButton>
-          <NavigationList toggle={toggle} />
-          <Socials />
-        </Container>
+        <Collapsed>
+          <ListRenderer navigation={navList} toggle={toggle} />
+        </Collapsed>
       )}
-      <IconButton onClick={toggle}>
-        {isOpen ? <CloseSquareIcon /> : <HamburgerIcon />}
-      </IconButton>
-    </>
+    </Container>
   );
 };

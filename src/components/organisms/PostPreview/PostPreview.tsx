@@ -19,7 +19,7 @@ import { LoadingWrapper } from "components/molecules";
 import { PostPreviewProps } from "./PostPreview.model";
 import Image from "next/image";
 
-export const PostPreview = ({ postIds }: PostPreviewProps) => {
+export const PostPreview = ({ postIds, list }: PostPreviewProps) => {
   const modalRef = useRef(null);
   const router = useRouter();
 

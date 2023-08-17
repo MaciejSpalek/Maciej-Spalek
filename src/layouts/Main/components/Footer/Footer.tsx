@@ -21,18 +21,24 @@ import { logo } from "assets";
 import { SpecialButton } from "components";
 import Link from "next/link";
 import { footerInfo } from "./helpers";
+import { useRouter } from "next/router";
+import { URLS } from "helpers";
 
 export const Footer = () => {
+  const { push } = useRouter();
+
+  const goToContact = () => push(URLS.contact);
+
+  const currentYear = new Date().getFullYear();
+
   return (
     <Container>
       <InnerWrapper>
         <FirstWrapper>
           <Heading>Any questions?</Heading>
-          <SpecialButton>Contact me</SpecialButton>
+          <SpecialButton onClick={goToContact}>Contact me</SpecialButton>
         </FirstWrapper>
-
         <Divider />
-
         <SecondWrapper>
           <LeftWrapper>
             <ImageWrapper>
@@ -63,11 +69,9 @@ export const Footer = () => {
             ))}
           </SocialsWrapper>
         </SecondWrapper>
-
         <Divider />
-
         <Wrapper>
-          <Copyright>2023 | Maciej Spałek</Copyright>
+          <Copyright>{currentYear} | Maciej Spałek</Copyright>
         </Wrapper>
       </InnerWrapper>
     </Container>

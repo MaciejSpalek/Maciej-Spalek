@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, flexColumn, flexRow } from "theme";
+import { colors, flexColumn, flexRow, getFont } from "theme";
 
 export const Container = styled.header`
   ${flexColumn};
@@ -44,23 +44,22 @@ export const TextWrapper = styled.div`
 `;
 
 export const Title = styled.p`
-  font-family: Lexend;
   color: ${colors.white};
   margin: 0;
-  font-size: 72px;
-  line-height: 72px;
+  line-height: 100%;
+  ${getFont('semibold', 72)};
 `;
 
 export const Subtitle = styled.p`
-  font-family: Lexend;
-  font-size: 18px;
   color: ${colors.grayScale[5]};
+  ${getFont('regular', 16)};
+
 `;
 
 export const Heading = styled.h1`
-  font-family: "General Sans Regular";
   color: ${colors.grayScale[4]};
   margin: 0;
-  font-size: 18px;
+  letter-spacing: 7.2px;
   text-transform: uppercase;
+  ${getFont('regular', 18)};
 `;

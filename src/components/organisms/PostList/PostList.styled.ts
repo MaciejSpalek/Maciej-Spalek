@@ -24,3 +24,12 @@ export const Button = styled.button`
   padding: 0;
   margin: 0;
 `;
+
+export const MainImageContainer = styled.div`
+  position: relative;
+  ${flexCenter};
+  border-radius: 28px;
+  height: 800px; 
+  overflow: hidden;
+
+`;

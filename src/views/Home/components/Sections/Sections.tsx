@@ -1,53 +1,108 @@
-import { useEffect, useState } from "react";
-import { useQuery } from "@apollo/client";
-import { GET_SECTIONS_QUERY } from "queries";
-import { convertSections } from "helpers";
-
-import { SkeletonList } from "components";
+import {
+  Container,
+  List,
+  Heading,
+  ImageWrapper,
+  CarouselBar,
+  CarouselHeading,
+  IconButton,
+  CarouselButtonsWrapper,
+  DotItem,
+  CarouselContainer,
+  DotsContainer,
+} from "./Sections.styled";
+import { ISections } from "./Sections.model";
 import { Section } from "./components";
+import Image from "next/image";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { useRef, useState } from "react";
+import {
+  LeftRectangleArrowIcon,
+  RightRectangleArrowIcon,
+} from "assets";
 
-import { Container, List, Heading } from "./Sections.styled";
-import { useIntersectionObserver } from "hooks/useIntersectionObserver";
+export const Sections = ({ sections }: ISections) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef(null);
 
-interface ISections {
-  hiddenSectionName?: string;
-}
-
-export const Sections = ({ hiddenSectionName }: ISections) => {
-  const [isSectionVisible, setVisibleState] = useState(false);
-  const { visible, ref } = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0.1,
-  });
-
-  useEffect(() => {
-    if (visible) {
-      setVisibleState(true);
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+    if (carouselRef.current) {
+      carouselRef.current.slideTo(index);
     }
-    //eslint-disable-next-line
-  }, [visible]);
+  };
 
-  const { data, loading } = useQuery(GET_SECTIONS_QUERY, {
-    skip: !isSectionVisible,
-  });
-  const sections = convertSections(data?.sections?.data);
-  const filteredSections = sections?.filter(
-    ({ title }) => title !== hiddenSectionName
-  );
+  const dots = sections.map((_, index) => (
+    <DotItem
+      key={index}
+      isActive={currentIndex === index}
+      onClick={() => handleDotClick(index)}
+    />
+  ));
+
+  const renderCarouselSlides = () =>
+    sections.map(({ id, image, title }) => (
+      <ImageWrapper key={id}>
+        <Image src={image} layout="fill" objectFit="cover" alt={title} />
+      </ImageWrapper>
+    ));
+
+  const carouselSlides = renderCarouselSlides();
+
+  const handleNextSlide = () => {
+    if (carouselRef.current) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+      carouselRef.current.slideNext();
+    }
+  };
+
+  const handlePrevSlide = () => {
+    if (carouselRef.current) {
+      if (currentIndex <= 0) {
+        setCurrentIndex(sections.length);
+        carouselRef.current.slideNext();
+      } else {
+        setCurrentIndex((prevIndex) => prevIndex - 1);
+        carouselRef.current.slidePrev();
+      }
+    }
+  };
 
   return (
-    <Container ref={ref}>
+    <Container>
       <Heading>what i’m doing</Heading>
-      {loading && null == sections ? (
-        <SkeletonList elementsNumber={3} minHeight={320} />
-      ) : (
-        <List>
-          {filteredSections?.map(({ id, href, title, image }) => (
-            <li key={id}>
-              <Section href={href} title={title} image={image} />
-            </li>
-          ))}
-        </List>
-      )}
+      <List>
+        {sections.map(({ id, href, title }) => (
+          <li key={id}>
+            <Section id={id} href={href} title={title} />
+          </li>
+        ))}
+      </List>
+      <CarouselBar>
+        <CarouselHeading>my crafts</CarouselHeading>
+        <CarouselButtonsWrapper>
+          <IconButton onClick={handlePrevSlide}>
+            <LeftRectangleArrowIcon />
+          </IconButton>
+          <IconButton onClick={handleNextSlide}>
+            <RightRectangleArrowIcon />
+          </IconButton>
+        </CarouselButtonsWrapper>
+      </CarouselBar>
+      <CarouselContainer>
+        <AliceCarousel
+          items={carouselSlides}
+          controlsStrategy="alternate"
+          ref={carouselRef}
+          activeIndex={currentIndex}
+          onSlideChanged={({ item }) => setCurrentIndex(item)}
+          disableButtonsControls
+          disableDotsControls
+          infinite
+/>
+        <DotsContainer>{dots}</DotsContainer>
+      </CarouselContainer>
     </Container>
   );
 };

@@ -11,7 +11,7 @@ export const BaseButton = styled.button<IBaseButton>`
   ${getFont('semibold', 18)};
   letter-spacing: -0.27px;
   line-height: 32px;
-  transition: .7s ease-in-out;
+  transition: .3s ease-in-out;
   padding: 10px 24px;
   cursor: pointer;
   border-radius: 50px;
@@ -46,7 +46,7 @@ export const BaseButton = styled.button<IBaseButton>`
     background-color: ${colors.white};
     border-radius: 50px;
     z-index: 1;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
   }
 `;
 

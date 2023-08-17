@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, devices, flexCenter, flexColumn, getFont } from "theme";
+import { colors, flexColumn, getFont } from "theme";
 
 export const Container = styled.header`
   ${flexColumn};
@@ -40,6 +40,7 @@ export const GridList = styled.ul`
 
 export const GridItem = styled.li`
   border-radius: 24px;
-  max-height: 520px;
+  /* max-height: 520px; */
+  aspect-ratio: 1 / 1; 
   overflow: hidden;
 `;

@@ -1,10 +1,11 @@
-import { Button, List } from "./PostList.styled";
+import { Button, List, MainImageContainer } from "./PostList.styled";
 import { PostCard, PostPreview } from "components";
 import { Section } from "layouts/Section";
 import { PostListProps } from "./PostList.model";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
-export const PostList = ({ title, loading, list }: PostListProps) => {
+export const PostList = ({ title, list, image }: PostListProps) => {
   const postIds = list?.map(({ id }) => id);
   const router = useRouter();
 
@@ -14,17 +15,20 @@ export const PostList = ({ title, loading, list }: PostListProps) => {
   };
 
   return (
-    <Section title={title} isLoading={loading}>
+    <Section title={title}>
+      <MainImageContainer>
+        <Image src={image} layout="fill" objectFit="cover" objectPosition={"bottom"} alt="image" />
+      </MainImageContainer>
       <List>
-        {list?.map(({ image, id, title, date }) => (
+        {list?.map(({ image, id, title }) => (
           <li key={id}>
             <Button onClick={() => openModal(id)}>
-              <PostCard image={image} title={title} date={date} />
+              <PostCard image={image} title={title} />
             </Button>
           </li>
         ))}
       </List>
-      <PostPreview postIds={postIds} />
+      <PostPreview postIds={postIds}  list={list} />
     </Section>
   );
 };

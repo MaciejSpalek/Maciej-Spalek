@@ -8,6 +8,7 @@ export const GET_SECTIONS_QUERY = gql`
         attributes {
           title
           href
+          order
           image {
             data {
               attributes {

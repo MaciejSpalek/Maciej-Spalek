@@ -6,6 +6,7 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  border-radius: 28px;
   cursor: pointer;
   overflow: hidden;
   :hover div {

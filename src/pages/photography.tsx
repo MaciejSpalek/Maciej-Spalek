@@ -1,25 +1,57 @@
-import { Photography } from "views";
+// import { Photography } from "views";
+// import { apolloClient } from "services";
+// import { GET_POSTS_QUERY } from "queries";
+// import { PostTypes } from "types";
+// import { convertPosts } from "helpers";
+
+// export default Photography;
+
+// export async function getServerSideProps() {
+//   const { data, loading } = await apolloClient.query({
+//     query: GET_POSTS_QUERY,
+//     variables: {
+//       type: PostTypes.photo,
+//     },
+//   });
+
+//   const posts = convertPosts(data?.posts?.data);
+
+//   return {
+//     props: {
+//       posts,
+//       loading,
+//     },
+//   };
+// }
+
+import React from "react";
 import { apolloClient } from "services";
-import { GET_POSTS_QUERY } from "queries";
-import { PostTypes } from "types";
-import { convertPosts } from "helpers";
+import { GET_CRAFT_QUERY, GET_SECTIONS_QUERY } from "queries";
+import { convertCraft, convertSections } from "helpers";
+import { Craft } from "components";
+
+const Photography = ({ data }) => <Craft {...data} />;
 
 export default Photography;
 
 export async function getServerSideProps() {
-  const { data, loading } = await apolloClient.query({
-    query: GET_POSTS_QUERY,
+  const { data: craft } = await apolloClient.query({
+    query: GET_CRAFT_QUERY,
     variables: {
-      type: PostTypes.photo,
+      id: 1,
     },
   });
 
-  const posts = convertPosts(data?.posts?.data);
+  const { data: sections } = await apolloClient.query({
+    query: GET_SECTIONS_QUERY,
+  });
+
+  const convertedSections = convertSections(sections.sections.data);
+  const convertedCraft = convertCraft(craft.craft.data);
 
   return {
     props: {
-      posts,
-      loading,
+      data: { craft: convertedCraft, sections: convertedSections },
     },
   };
 }

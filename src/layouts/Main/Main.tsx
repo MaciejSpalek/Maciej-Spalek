@@ -14,9 +14,9 @@ export const Main = ({ children }) => {
 
   return (
     <Container>
+      <Navbar />
       <InnerWrapper ref={containerRef}>
         <Meta />
-        <Navbar />
         <MainWrapper>{children}</MainWrapper>
       </InnerWrapper>
       <Footer />

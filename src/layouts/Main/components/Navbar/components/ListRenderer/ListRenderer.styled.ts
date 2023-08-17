@@ -5,22 +5,20 @@ export const List = styled.ul`
   ${flexColumn};
   gap: 5rem;
   list-style: none;
-  padding: 0;
-
-  @media ${devices.md} {
-    flex-direction: row;
-    justify-content: center;
-    width: auto;
-  }
+  padding: 16px 0;
 `;
 
 export const Anchor = styled.a`
-  ${getFont("semibold", 12)};
+  ${getFont("semibold", 16)};
   cursor: pointer;
   color: ${({ isActive }) => (isActive ? colors.grayScale[2] : colors.black)};
   text-decoration: ${({ isActive }) => (isActive ? "underline" : "none")};
   :hover {
     color: ${({ isActive }) =>
       isActive ? colors.grayScale[3] : colors.grayScale[3]};
+  }
+
+  @media ${devices.md} {
+    ${getFont("semibold", 12)};
   }
 `;

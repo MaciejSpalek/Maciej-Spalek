@@ -1,26 +1,31 @@
 import React from "react";
-import { Paintings } from "views";
 import { apolloClient } from "services";
-import { GET_POSTS_QUERY } from "queries";
-import { PostTypes } from "types";
-import { convertPosts } from "helpers";
+import { GET_CRAFT_QUERY, GET_SECTIONS_QUERY } from "queries";
+import { convertCraft, convertSections } from "helpers";
+import { Craft } from "components";
+
+const Paintings = ({ data }) => <Craft {...data} />;
 
 export default Paintings;
 
 export async function getServerSideProps() {
-  const { data, loading } = await apolloClient.query({
-    query: GET_POSTS_QUERY,
+  const { data: craft } = await apolloClient.query({
+    query: GET_CRAFT_QUERY,
     variables: {
-      type: PostTypes.painting,
+      id: 2,
     },
   });
 
-  const posts = convertPosts(data?.posts?.data);
-  
+  const { data: sections } = await apolloClient.query({
+    query: GET_SECTIONS_QUERY,
+  });
+
+  const convertedSections = convertSections(sections.sections.data);
+  const convertedCraft = convertCraft(craft.craft.data);
+
   return {
     props: {
-      posts,
-      loading,
+      data: { craft: convertedCraft, sections: convertedSections },
     },
   };
 }

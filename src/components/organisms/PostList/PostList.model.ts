@@ -2,7 +2,6 @@ import { IPostCard } from "types";
 
 export interface PostListProps {
   title: string;
-  loading: boolean;
+  image?: string;
   list: IPostCard[];
-  onClick?: (id: string) => void;
 }
