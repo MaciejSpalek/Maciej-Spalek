@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, flexCenter, flexColumn, flexRow, getFont } from "theme";
+import { colors, devices, flexCenter, flexColumn, flexRow, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
@@ -17,7 +17,7 @@ export const List = styled.ul`
 `;
 
 export const Heading = styled.h2`
-  ${getFont("regular", 18)};
+  ${getFont("regular", 12, 18)};
   letter-spacing: 7.2px;
   color: ${colors.grayScale[4]};
   text-transform: uppercase;
@@ -47,42 +47,22 @@ export const CarouselContainer = styled.div`
 `;
 
 export const CarouselBar = styled.div`
-  ${flexRow};
-  justify-content: space-between;
+  ${flexCenter};
   padding: 0 32px;
+  
+  @media ${devices.md} {
+    justify-content: space-between;
+
+  }
 `;
 
 export const CarouselHeading = styled.p`
-  ${getFont("regular", 18)};
+  ${getFont("regular", 12, 18)};
   letter-spacing: 7.2px;
   line-height: 32px;
   color: ${colors.grayScale[4]};
   text-transform: uppercase;
   white-space: nowrap;
-`;
-
-export const CarouselButtonsWrapper = styled.div`
-  ${flexCenter};
-  width: auto;
-  gap: 16px;
-`;
-
-export const IconButton = styled.button`
-  ${flexCenter};
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  border: none;
-  background-color: ${colors.grayScale[2]};
-  cursor: pointer;
-
-  svg {
-    height: 40px;
-    width: 40px;
-  }
-  path {
-    fill: ${colors.white};
-  }
 `;
 
 export const DotsContainer = styled.div`

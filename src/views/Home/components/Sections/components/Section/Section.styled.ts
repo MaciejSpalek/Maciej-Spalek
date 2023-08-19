@@ -3,7 +3,6 @@ import { colors, flexColumn, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
-  width: 100%;
   height: 100%;
 `;
 
@@ -13,8 +12,8 @@ export const Title = styled.p<{ isOddNumber: boolean }>`
   color: ${colors.grayScale[6]};
   text-transform: uppercase;
   margin: 0;
-  ${getFont("medium", 94)};
   transition: 0.5s ease;
+  ${getFont("medium", 32, 94)};
   
   
   :hover {

@@ -8,19 +8,20 @@ export const Container = styled.header`
   padding: 128px 24px 24px 24px;
   min-height: calc(100vh - 60px);
   background-color: ${colors.grayScale[1]};
-  gap: 16px;
   border-radius: 48px;
+  gap: 16px;
 `;
 
 export const Heading = styled.h1`
-  ${getFont("semibold", 72)}
+  ${getFont("semibold", 46, 72)};
   color: ${colors.white};
+  text-align: center;
   margin: 0;
 `;
 
 export const Paragraph = styled.p`
-  ${getFont("regular", 18)};
-font-weight: 400;
+  ${getFont("regular", 14, 18)};
+  font-weight: 400;
   line-height: 150%;
   color: ${colors.grayScale[5]};
   max-width: 50%;
@@ -40,7 +41,6 @@ export const GridList = styled.ul`
 
 export const GridItem = styled.li`
   border-radius: 24px;
-  /* max-height: 520px; */
-  aspect-ratio: 1 / 1; 
+  aspect-ratio: 1 / 1;
   overflow: hidden;
 `;

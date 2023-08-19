@@ -17,7 +17,13 @@ export const PostList = ({ title, list, image }: PostListProps) => {
   return (
     <Section title={title}>
       <MainImageContainer>
-        <Image src={image} layout="fill" objectFit="cover" objectPosition={"bottom"} alt="image" />
+        <Image
+          src={image}
+          layout="fill"
+          objectFit="cover"
+          objectPosition={"bottom"}
+          alt="image"
+        />
       </MainImageContainer>
       <List>
         {list?.map(({ image, id, title }) => (
@@ -28,7 +34,7 @@ export const PostList = ({ title, list, image }: PostListProps) => {
           </li>
         ))}
       </List>
-      <PostPreview postIds={postIds}  list={list} />
+      <PostPreview postIds={postIds} list={list} />
     </Section>
   );
 };

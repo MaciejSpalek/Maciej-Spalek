@@ -16,21 +16,8 @@ export const Collapsed = styled.ul`
   list-style: none;
   ${flexColumn};
   gap: 24px;
+  padding: 0;
 `;
-
-// export const Hamburger = styled.span`
-//   position: relative;
-//   display: inline-block;
-//   width: 35px;
-//   height: 24px;
-// `;
-
-// export const HamburgerLine = styled.span`
-//   left: 0;
-//   top: 50%;
-//   transform: translateY(-50%);
-//   transition: background-color 0.1s 0.2s ease-in-out;
-// `;
 
 export const Hamburger = styled.button`
   ${flexCenter};

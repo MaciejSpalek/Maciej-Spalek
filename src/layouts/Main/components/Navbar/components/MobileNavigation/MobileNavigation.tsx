@@ -3,9 +3,7 @@ import {
   Collapsed,
   Container,
   TopBar,
-  HamburgerContainer,
   Line,
-  IconButton,
   Hamburger,
 } from "./MobileNavigation.styled";
 import { leftNavigation, rightNavigation } from "../../helpers";
@@ -23,9 +21,6 @@ export const MobileNavigation = () => {
     <Container>
       <TopBar>
         <Logo />
-        {/* <IconButton onClick={toggle}>
-          {isOpen ? <CloseSquareIcon /> : <HamburgerIcon />}
-        </IconButton> */}
         <Hamburger onClick={toggle}>
           <Line isOpen={isOpen} />
         </Hamburger>

@@ -75,25 +75,25 @@ export const ImageWrapper = styled.div`
   height: 145px;
 `;
 
-export const Copyright = styled.span`
-  text-align: center;
-  color: ${colors.grayScale[2]};
-  line-height: 150%;
-  ${getFont("regular", 18)};
-`;
-
 export const Heading = styled.h2`
   color: ${colors.white};
   line-height: 100%;
   text-align: center;
-  ${getFont("medium", 94)};
+  ${getFont("medium", 40, 94)};
 `;
 
 export const Paragraph = styled.p`
   text-align: center;
   color: ${colors.white};
   line-height: 140%;
-  ${getFont("medium", 20)};
+  ${getFont("medium", 18, 20)};
+`;
+
+export const Copyright = styled.span`
+  text-align: center;
+  color: ${colors.grayScale[2]};
+  line-height: 150%;
+  ${getFont("regular", 16, 18)};
 `;
 
 export const Divider = styled.hr`
@@ -107,10 +107,9 @@ export const ListTitle = styled.p`
   color: ${colors.white};
   line-height: 140%;
   text-align: center;
-  ${getFont("medium", 18)};
+  ${getFont("medium", 18, 20)};
 
   @media ${devices.md} {
-    ${getFont("medium", 20)};
     text-align: left;
   }
 `;
@@ -119,11 +118,7 @@ export const Anchor = styled.a`
   cursor: pointer;
   color: ${colors.grayScale[3]};
   line-height: 150%;
-  ${getFont("regular", 14)};
-
-  @media ${devices.md} {
-    ${getFont("regular", 18)};
-  }
+  ${getFont("regular", 14, 18)};
 `;
 
 export const List = styled.ul`
