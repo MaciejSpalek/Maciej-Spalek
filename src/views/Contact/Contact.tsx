@@ -36,7 +36,7 @@ export const Contact = () => {
       </LeftWrapper>
       <FormWrapper onSubmit={handleSubmit(onSubmit)}>
         <TextWrapper>
-          <Title>Let's Collaborate!</Title>
+          <Title>{"Let's Collaborate!"}</Title>
           <Subtitle>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua minim
