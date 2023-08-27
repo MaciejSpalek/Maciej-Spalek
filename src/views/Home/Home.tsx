@@ -1,5 +1,6 @@
+import { Sections } from "components";
 import React from "react";
-import { About, Header, Newest, Sections } from "./components";
+import { About, Header} from "./components";
 import { Container } from "./Home.styled";
 
 export const Home = ({ sections }) => {

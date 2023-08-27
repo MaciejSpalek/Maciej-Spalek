@@ -1,20 +1,40 @@
 import React from "react";
 import {
-  HiddenWrapper,
+  DescriptionWrapper,
   ImageWrapper,
   Container,
-  Title,
+  Description,
+  LinkContent,
 } from "./PostCard.styled";
-import { IPostCard } from "types";
+import { IPostCard, PostStates } from "types";
 import Image from "next/image";
+import { URLS } from "helpers";
+import Link from "next/link";
 
-export const PostCard = ({ image, title }: IPostCard) => {
+export const PostCard = ({
+  image,
+  description,
+  id,
+  onClick,
+  state,
+}: IPostCard) => {
+  const isMakeOfferLinkVisible = state === PostStates.available;
+  const href = `${URLS.contact}?id=${id}`;
+
   return (
     <Container>
-      <ImageWrapper>
-        <Image src={image} alt={title} layout="fill" objectFit="cover" />
+      <ImageWrapper onClick={() => onClick(id)}>
+        <Image src={image} alt="title" layout="fill" objectFit="cover" />
       </ImageWrapper>
-      <HiddenWrapper>{title && <Title>{title}</Title>}</HiddenWrapper>
+
+      <DescriptionWrapper>
+        <Description>{description}</Description>
+        {isMakeOfferLinkVisible && (
+          <Link href={href}>
+            <LinkContent>make offer</LinkContent>
+          </Link>
+        )}
+      </DescriptionWrapper>
     </Container>
   );
 };

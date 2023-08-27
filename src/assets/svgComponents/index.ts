@@ -2,7 +2,7 @@ export * from "./FacebookIcon";
 export * from "./InstagramIcon";
 export * from "./LinkedInIcon";
 export * from "./LogoIcon";
-export * from "./CloseSquareIcon";
+export * from "./CloseIcon";
 export * from "./ProjectsIcon";
 export * from "./BrushIcon";
 export * from "./RulerAndPenIcon";

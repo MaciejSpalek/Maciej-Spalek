@@ -9,6 +9,7 @@ export const flexColumn = css`
 
 export const flexRow = css`
   display: flex;
+  flex-direction: row;
   align-items: center;
   width: 100%;
 `;

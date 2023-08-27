@@ -13,7 +13,7 @@ export const HeadingWrapper = styled.div`
   }
 `;
 
-export const Heading = styled.h2`
+export const Heading = styled.h1`
   color: ${colors.grayScale[1]};
   ${getFont("semibold", 52, 72)};
   text-transform: capitalize;

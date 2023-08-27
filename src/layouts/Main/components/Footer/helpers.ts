@@ -12,10 +12,11 @@ export const footerInfo = [
     },
     {
       title: "Socials",
+      isSocial: true,
       list: [
-        { name: "Instagram", href: URLS.home },
-        { name: "Facebook", href: URLS.paintings },
-        { name: "LinkedIn", href: URLS.drawings },
+        { name: "Instagram", href: 'https://www.instagram.com/spwrtt/' },
+        { name: "Facebook", href: 'https://www.facebook.com/MaciekSpalek/' },
+        { name: "LinkedIn", href: 'https://www.linkedin.com/in/maciej-spalek/' },
       ],
     },
   ];

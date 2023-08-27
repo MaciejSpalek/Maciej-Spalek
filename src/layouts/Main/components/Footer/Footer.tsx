@@ -31,6 +31,18 @@ export const Footer = () => {
 
   const currentYear = new Date().getFullYear();
 
+  const renderNavLink = ({ href, name }) => (
+    <Link href={href} passHref>
+      <Anchor>{name}</Anchor>
+    </Link>
+  );
+
+  const renderSocialLink = ({ href, name }) => (
+    <Anchor rel="noopener noreferrer" target="_blank" href={href}>
+      {name}
+    </Anchor>
+  );
+
   return (
     <Container>
       <InnerWrapper>
@@ -53,15 +65,15 @@ export const Footer = () => {
             <Paragraph>Maciej Spałek</Paragraph>
           </LeftWrapper>
           <SocialsWrapper>
-            {footerInfo.map(({ title, list }) => (
+            {footerInfo.map(({ title, list, isSocial }) => (
               <div key={title}>
                 <ListTitle>{title}</ListTitle>
                 <List>
-                  {list.map(({ name, href }) => (
+                  {list.map(({ href, name }) => (
                     <li key={name}>
-                      <Link href={href}>
-                        <Anchor>{name}</Anchor>
-                      </Link>
+                      {isSocial
+                        ? renderSocialLink({ href, name })
+                        : renderNavLink({ href, name })}
                     </li>
                   ))}
                 </List>

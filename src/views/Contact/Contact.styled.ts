@@ -1,34 +1,42 @@
 import styled from "styled-components";
-import { colors, flexColumn, flexRow, getFont } from "theme";
+import { colors, devices, flexColumn, flexRow, getFont } from "theme";
 
-export const Container = styled.header`
+export const Container = styled.div`
   ${flexColumn};
-`;
-
-export const ContactWrapper = styled.div`
-  ${flexRow};
-  justify-content: space-between;
-  height: 100%;
-  min-height: 600px;
   overflow: hidden;
   border-radius: 40px;
   background-color: ${colors.grayScale[1]};
-  padding: 64px;
+  padding: 24px;
+  gap: 64px;
+
+  @media ${devices.md} {
+    ${flexRow};
+    justify-content: space-between;
+    height: 100%;
+    min-height: 600px;
+    padding: 64px;
+  }
 `;
 
 export const FormWrapper = styled.div`
   ${flexColumn};
   height: min-content;
   gap: 15px;
-  width: 60%;
+
+  @media ${devices.md} {
+    width: 60%;
+  }
 `;
 
 export const LeftWrapper = styled.div`
   ${flexColumn};
-  align-items: flex-start;
-  align-self: stretch;
-  justify-content: space-between;
-  width: min-content;
+
+  @media ${devices.md} {
+    align-items: flex-start;
+    align-self: stretch;
+    justify-content: space-between;
+    width: min-content;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -47,19 +55,22 @@ export const Title = styled.p`
   color: ${colors.white};
   margin: 0;
   line-height: 100%;
-  ${getFont('semibold', 72)};
+  ${getFont("semibold", 32, 72)};
 `;
 
 export const Subtitle = styled.p`
   color: ${colors.grayScale[5]};
-  ${getFont('regular', 16)};
-
+  ${getFont("regular", 16)};
 `;
 
 export const Heading = styled.h1`
   color: ${colors.grayScale[4]};
-  margin: 0;
   letter-spacing: 7.2px;
   text-transform: uppercase;
-  ${getFont('regular', 18)};
+  ${getFont("regular", 12, 18)};
+  margin-bottom: 40px;
+
+  @media ${devices.md} {
+    margin: 0;
+  }
 `;

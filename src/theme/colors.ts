@@ -14,6 +14,16 @@ export const colors = {
     light: "rgba(0, 0, 0, 0.2)",
     medium: "rgba(0, 0, 0, 0.5)",
     dark: "rgba(0, 0, 0, 0.75)",
+    black: {
+      light: "rgba(0, 0, 0, 0.25)",
+      medium: "rgba(0, 0, 0, 0.5)",
+      dark: "rgba(0, 0, 0, 0.75)",
+    },
+    white: {
+      light: "rgba(255, 255, 255, 0.25)",
+      medium: "rgba(255, 255, 255, 0.5)",
+      dark: "rgba(255, 255, 255, 0.75)",
+    },
   },
   background: {
     light: "#f5f5f5",
@@ -30,6 +40,10 @@ export const colors = {
     main: "#ed4140",
     dark: "#912626",
   },
+  label: {
+    green: { light: "#DBFDEA", medium: "#14AE5C" },
+    red: { light: "#FEE2E2", medium: "#C22" },
+  },
   grayScale: {
     1: "#131315",
     2: "#54545d",
@@ -37,8 +51,8 @@ export const colors = {
     4: "#bcbcc2",
     5: "#c4c4c4",
     6: "#fafafa",
-    7: "#EBEBEB"
+    7: "#EBEBEB",
   },
   white: "#ffffff",
-  black: "#000000"
+  black: "#000000",
 };

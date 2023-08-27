@@ -54,6 +54,7 @@ export const ImageWrapper = styled.div`
 
 export const RightWrapper = styled.div`
   ${flexCenter};
+    width: 75%;
 
   @media ${devices.md} {
     align-self: flex-start;

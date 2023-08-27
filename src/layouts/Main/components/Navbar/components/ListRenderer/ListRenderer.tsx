@@ -13,7 +13,7 @@ export const ListRenderer = ({ navigation, toggle }: IListRenderer) => {
 
   return navigation.map(({ href, text }) => (
     <li key={text}>
-      <Link href={href}>
+      <Link href={href} passHref>
         <Anchor onClick={toggle} isActive={pathname === href}>
           {text.toUpperCase()}
         </Anchor>

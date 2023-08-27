@@ -9,18 +9,6 @@ export const convertPreview = (previewData) => {
   };
 };
 
-export const convertPosts = (posts) =>
-  posts?.reduce((acc, { id, attributes }) => {
-    const newObject = {
-      id,
-      image: attributes.image.data[0].attributes.url,
-      title: attributes.title,
-      description: attributes.description,
-      date: attributes.date,
-    };
-    return [...acc, newObject];
-  }, []);
-
 export const convertCraft = ({ id, attributes }) => ({
   id,
   title: attributes.title,
@@ -30,7 +18,10 @@ export const convertCraft = ({ id, attributes }) => ({
       ...acc,
       {
         id,
-        title: attributes.title,
+        type: attributes?.type,
+        price: attributes?.price,
+        state: attributes?.state,
+        description: attributes?.description,
         image: attributes.image.data[0].attributes.url,
       },
     ];

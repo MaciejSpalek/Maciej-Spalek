@@ -7,11 +7,12 @@ export const List = styled.ul`
   width: 100%;
   list-style: none;
   padding: 0;
-  gap: 16px;
+  gap: 48px 16px;
   
   @media ${devices.sm} {
     grid-template-columns: repeat(2, 1fr);
   }
+
   @media ${devices.md} {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -31,5 +32,4 @@ export const MainImageContainer = styled.div`
   border-radius: 28px;
   height: 800px; 
   overflow: hidden;
-
 `;

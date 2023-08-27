@@ -1,9 +1,9 @@
-import { PostList } from "components/organisms";
-import { Sections } from "views/Home/components";
+import { PostList, Sections } from "components/organisms";
 import { Container } from "./Craft.styled";
 
 export const Craft = ({ craft, sections }) => {
   const { title, image, posts } = craft;
+
   return (
     <Container>
       <PostList title={title} list={posts} image={image} />

@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 
 export const PostList = ({ title, list, image }: PostListProps) => {
-  const postIds = list?.map(({ id }) => id);
   const router = useRouter();
 
   const openModal = (id) => {
@@ -21,20 +20,17 @@ export const PostList = ({ title, list, image }: PostListProps) => {
           src={image}
           layout="fill"
           objectFit="cover"
-          objectPosition={"bottom"}
           alt="image"
         />
       </MainImageContainer>
       <List>
-        {list?.map(({ image, id, title }) => (
-          <li key={id}>
-            <Button onClick={() => openModal(id)}>
-              <PostCard image={image} title={title} />
-            </Button>
+        {list.map((post) => (
+          <li key={post.id}>
+            <PostCard onClick={openModal} {...post} />
           </li>
         ))}
       </List>
-      <PostPreview postIds={postIds} list={list} />
+      <PostPreview list={list} />
     </Section>
   );
 };
