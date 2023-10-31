@@ -1,3 +1,4 @@
+import { CirclePhoto } from "components";
 import styled from "styled-components";
 import { colors, flexCenter, flexColumn, getFont, devices } from "theme";
 
@@ -37,13 +38,12 @@ export const Heading = styled.h2`
   }
 `;
 
-export const ImageWrapper = styled.div`
-  background-color: ${colors.primary.main};
-  border-radius: 50%;
+export const StyledCirclePhoto = styled(CirclePhoto)<{}>`
   width: calc(100% - 2 * 16px);
   aspect-ratio: 1 / 1;
   margin-bottom: 40px;
   max-width: 500px;
+  border: 1px solid red;
 
   @media ${devices.md} {
     width: 233px;
@@ -54,7 +54,7 @@ export const ImageWrapper = styled.div`
 
 export const RightWrapper = styled.div`
   ${flexCenter};
-    width: 75%;
+  width: 75%;
 
   @media ${devices.md} {
     align-self: flex-start;
@@ -65,10 +65,11 @@ export const RightWrapper = styled.div`
 export const Paragraph = styled.p`
   ${getFont("medium", 26, 40)};
   color: ${colors.grayScale[1]};
-  margin: 0;
   text-align: center;
+  margin-top: 40px;
 
   @media ${devices.md} {
+    margin: 0;
     text-align: left;
   }
 `;

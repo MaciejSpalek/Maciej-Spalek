@@ -41,6 +41,20 @@ export const ImageWrapper = styled.div`
   }
 `;
 
+export const SlideHeading = styled.div`
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background-color: ${colors.transparent.black.dark};
+  border-radius: 24px;
+  color: ${colors.white};
+  padding: 16px 24px;
+  ${getFont('medium', 12, 24)};
+  text-transform: uppercase;
+  letter-spacing: 7.2px;
+  z-index:1;
+`;
+
 export const CarouselContainer = styled.div`
   position: relative;
   ${flexRow};

@@ -1,21 +1,24 @@
 import React from "react";
+import { CirclePhoto } from "components";
+import { useAbout } from "./useAbout";
 import {
-  Container,
-  Heading,
-  Paragraph,
-  LeftWrapper,
-  ImageWrapper,
   RightWrapper,
+  LeftWrapper,
+  Container,
+  Paragraph,
+  Heading,
 } from "./About.styled";
 
 export const About = () => {
+  const { leftBoxRef, rightBoxRef } = useAbout();
+
   return (
     <Container>
-      <LeftWrapper>
+      <LeftWrapper ref={leftBoxRef}>
         <Heading>about me</Heading>
-        <ImageWrapper />
+        <CirclePhoto width={233} />
       </LeftWrapper>
-      <RightWrapper>
+      <RightWrapper ref={rightBoxRef}>
         <Paragraph>
           Hi I’m Donnie and I am passionate about everything that has to do with
           Digital Design and Art Direction. I enjoy working with agencies and

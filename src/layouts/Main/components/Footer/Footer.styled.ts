@@ -68,13 +68,6 @@ export const SocialsWrapper = styled.div`
   }
 `;
 
-export const ImageWrapper = styled.div`
-  background-color: ${colors.primary.main};
-  border-radius: 50%;
-  width: 145px;
-  height: 145px;
-`;
-
 export const Heading = styled.h2`
   color: ${colors.white};
   line-height: 100%;

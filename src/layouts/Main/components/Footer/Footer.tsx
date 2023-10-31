@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Container,
-  ImageWrapper,
   InnerWrapper,
   LeftWrapper,
   SocialsWrapper,
@@ -16,9 +15,7 @@ import {
   ListTitle,
   List,
 } from "./Footer.styled";
-import Image from "next/image";
-import { logo } from "assets";
-import { SpecialButton } from "components";
+import { CirclePhoto, SpecialButton } from "components";
 import Link from "next/link";
 import { footerInfo } from "./helpers";
 import { useRouter } from "next/router";
@@ -53,15 +50,7 @@ export const Footer = () => {
         <Divider />
         <SecondWrapper>
           <LeftWrapper>
-            <ImageWrapper>
-              <Image
-                quality={100}
-                loading="eager"
-                src={logo}
-                alt="logo"
-                priority
-              />
-            </ImageWrapper>
+            <CirclePhoto width={144}/>
             <Paragraph>Maciej Spałek</Paragraph>
           </LeftWrapper>
           <SocialsWrapper>

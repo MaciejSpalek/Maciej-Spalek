@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../styles/globals.css";
 import { Main as MainLayout } from "layouts";
 import { ApolloProvider } from "@apollo/client";

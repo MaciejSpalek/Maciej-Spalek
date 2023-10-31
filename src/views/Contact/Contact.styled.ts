@@ -18,7 +18,7 @@ export const Container = styled.div`
   }
 `;
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
   ${flexColumn};
   height: min-content;
   gap: 15px;
@@ -37,13 +37,6 @@ export const LeftWrapper = styled.div`
     justify-content: space-between;
     width: min-content;
   }
-`;
-
-export const ImageWrapper = styled.div`
-  background-color: ${colors.primary.main};
-  border-radius: 50%;
-  width: 233px;
-  height: 233px;
 `;
 
 export const TextWrapper = styled.div`

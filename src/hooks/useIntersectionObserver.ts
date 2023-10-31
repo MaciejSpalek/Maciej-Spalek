@@ -8,14 +8,16 @@ import { IntersectionObserverConfig, IntersectionObserverReturn } from "types";
  * @param {IntersectionObserverConfig} - Configuration object.
  * @returns {IntersectionObserverReturn} - API that any component will use.
  */
+
 export const useIntersectionObserver = <T extends HTMLElement>(
   config: IntersectionObserverConfig = {}
-): IntersectionObserverReturn<T> => {
+): IntersectionObserverReturn<T> & { alreadyShown: boolean } => {
   const { threshold, root, rootMargin } = config;
 
   // Stores a reference to the HTML element that will be observed.
   const ref = useRef<T>(null);
   const [visible, setVisible] = useState(false);
+  const [alreadyShown, setAlreadyShown] = useState(false);
 
   useEffect(() => {
     const isClient = typeof window !== "undefined";
@@ -49,5 +51,11 @@ export const useIntersectionObserver = <T extends HTMLElement>(
     };
   }, [threshold, root, rootMargin]);
 
-  return { ref, visible };
+  useEffect(() => {
+    if (visible) {
+      setAlreadyShown(true);
+    }
+  }, [visible]);
+
+  return { ref, visible, alreadyShown };
 };

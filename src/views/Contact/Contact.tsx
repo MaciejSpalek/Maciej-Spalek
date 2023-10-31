@@ -1,17 +1,14 @@
-import { useForm } from "react-hook-form";
-import { Button, Input, Textarea } from "components";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Button, CirclePhoto, Input, Textarea } from "components";
 import {
   Container,
   LeftWrapper,
   FormWrapper,
   TextWrapper,
-  ImageWrapper,
   Heading,
   Title,
   Subtitle,
 } from "./Contact.styled";
-import Image from "next/image";
-import { logo } from "assets";
 
 interface IFormInput {
   name: string;
@@ -22,7 +19,7 @@ interface IFormInput {
 export const Contact = () => {
   const { register, handleSubmit } = useForm<IFormInput>();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: SubmitHandler<IFormInput>) => {
     console.log(data);
   };
 
@@ -30,9 +27,10 @@ export const Contact = () => {
     <Container>
       <LeftWrapper>
         <Heading>Contact</Heading>
-        <ImageWrapper>
+        {/* <ImageWrapper>
           <Image quality={100} loading="eager" src={logo} alt="logo" priority />
-        </ImageWrapper>
+        </ImageWrapper> */}
+        <CirclePhoto width={233} />
       </LeftWrapper>
       <FormWrapper onSubmit={handleSubmit(onSubmit)}>
         <TextWrapper>

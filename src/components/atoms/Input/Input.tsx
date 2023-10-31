@@ -9,7 +9,6 @@ export const Input = ({
   fullWidth,
   error,
   id,
-  onChange,
   icon: Icon,
   touched,
   register,
@@ -17,16 +16,14 @@ export const Input = ({
 }: IInput): JSX.Element => {
   return (
     <Container fullWidth={fullWidth}>
-      <Wrapper error={!!error} touched={!!touched} isIcon={!!Icon}>
+      <Wrapper isIcon={!!Icon}>
         {Icon && <Icon />}
         <StyledInput
           placeholder={placeholder}
           aria-label={placeholder}
-          onChange={onChange}
           error={!!error}
           touched={!!touched}
           type={type}
-          name={id}
           id={id}
           {...register(id)}
           {...props}

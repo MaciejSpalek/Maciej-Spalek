@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 100%;
 `;
 
-export const Title = styled.p<{ isOddNumber: boolean }>`
+export const Title = styled.p`
   position: relative;
   line-height: 100%;
   color: ${colors.grayScale[6]};
@@ -14,26 +14,26 @@ export const Title = styled.p<{ isOddNumber: boolean }>`
   margin: 0;
   transition: 0.5s ease;
   ${getFont("medium", 32, 94)};
-  
-  
-  :hover {
-    transform: ${({ isOddNumber }) =>
-      isOddNumber ? "translate(30px, 5px)" : "translate(-30px, 5px)"};
+
+  &:hover,
+  &:focus {
+    transform: translateX(-16px);
   }
 
-  :hover:before {
+  &:hover:before,
+  &:focus:before {
     opacity: 1;
-    width: 30%;
+    transform: translate(0px, -50%);
   }
 
   :before {
     content: "";
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 0%;
-    height: 50%;
-    transform: translate(0%, -50%);
+    left: calc(100% + 16px);
+    height: 80%;
+    aspect-ratio: 1 / 1;
+    transform: translate(-100px, -50%);
     background-color: ${colors.primary.main};
     border-radius: 50px;
     z-index: 1;

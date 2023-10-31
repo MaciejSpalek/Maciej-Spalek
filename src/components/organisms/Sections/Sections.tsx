@@ -48,8 +48,17 @@ export const Sections = ({ sections }: ISections) => {
 
   const handleNextSlide = () => {
     if (carouselRef.current) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-      carouselRef.current.slideNext();
+      // setCurrentIndex((prevIndex) => prevIndex + 1);
+      // carouselRef.current.slideNext();
+
+
+      if (currentIndex >= sections.length - 1) {
+        setCurrentIndex(0);
+        carouselRef.current.slidePrev();
+      } else {
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+        carouselRef.current.slideNext();
+      }
     }
   };
 
@@ -71,7 +80,7 @@ export const Sections = ({ sections }: ISections) => {
       <List>
         {sections.map(({ id, href, title }) => (
           <li key={id}>
-            <Section id={id} href={href} title={title} />
+            <Section href={href} title={title} />
           </li>
         ))}
       </List>
@@ -98,6 +107,8 @@ export const Sections = ({ sections }: ISections) => {
           onSlideChanged={({ item }) => setCurrentIndex(item)}
           disableButtonsControls
           disableDotsControls
+          animationType="fadeout"
+          animationDuration={1000}
           infinite
         />
         <DotsContainer>{dots}</DotsContainer>

@@ -8,28 +8,36 @@ import {
 } from "./Header.styled";
 import Image from "next/image";
 import { SpecialButton } from "components";
-import { useRouter } from "next/router";
 import { FirstHeaderPhoto, SecondHeaderPhoto } from "assets";
 
+import { useHeader } from "./useHeader";
 export const Header = () => {
-  const { push } = useRouter();
-
-  const handleOnClick = () => push("/contact");
+  const {
+    rightImageRef,
+    leftImageRef,
+    containerRef,
+    paragraphRef,
+    headingRef,
+    buttonRef,
+    handleOnClick,
+  } = useHeader();
 
   return (
-    <Container>
-      <Heading>Maciej Spałek</Heading>
-      <Paragraph>
+    <Container ref={containerRef}>
+      <Heading ref={headingRef}>Maciej Spałek</Heading>
+      <Paragraph ref={paragraphRef}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua minim veniam, quis
         nostrud.
       </Paragraph>
-      <SpecialButton onClick={handleOnClick}>Contact me</SpecialButton>
+      <div ref={buttonRef}>
+        <SpecialButton onClick={handleOnClick}>Contact me</SpecialButton>
+      </div>
       <GridList>
-        <GridItem>
+        <GridItem ref={leftImageRef}>
           <Image src={FirstHeaderPhoto} alt="Zdjęcie w windzie" />
         </GridItem>
-        <GridItem>
+        <GridItem ref={rightImageRef}>
           <Image src={SecondHeaderPhoto} alt="Zdjęcie na rzece Hudson" />
         </GridItem>
       </GridList>

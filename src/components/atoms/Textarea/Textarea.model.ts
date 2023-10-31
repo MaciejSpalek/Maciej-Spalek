@@ -5,5 +5,6 @@ export interface ITextarea extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   touched?: boolean;
   rows?: number;
-  register: (id: string) => void;
+  register: any;
+
 }

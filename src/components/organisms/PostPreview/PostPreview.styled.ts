@@ -63,8 +63,8 @@ export const RightArrowButton = styled.button`
 export const CloseIconButton = styled.button`
   ${flexCenter};
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 24px;
+  right: 24px;
   width: auto;
   border-radius: 50%;
   border: none;
