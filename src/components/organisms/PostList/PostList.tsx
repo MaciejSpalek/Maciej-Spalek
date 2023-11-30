@@ -4,6 +4,9 @@ import { Section } from "layouts/Section";
 import { PostListProps } from "./PostList.model";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { animationParams } from "helpers";
+import { gsap } from "gsap";
 
 export const PostList = ({ title, list, image }: PostListProps) => {
   const router = useRouter();
@@ -13,9 +16,27 @@ export const PostList = ({ title, list, image }: PostListProps) => {
     router.push(router);
   };
 
+  const imageRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      imageRef.current,
+      {
+        ease: "ease",
+        opacity: 0
+      },
+      {
+        opacity: 1,
+        duration: animationParams.duration,
+        delay: 1,
+        ease: "ease",
+      }
+    );
+  });
+
   return (
     <Section title={title}>
-      <MainImageContainer>
+      <MainImageContainer ref={imageRef}>
         <Image
           src={image}
           layout="fill"

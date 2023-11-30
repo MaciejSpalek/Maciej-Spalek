@@ -1,90 +1,50 @@
-import {
-  Container,
-  List,
-  Heading,
-  ImageWrapper,
-  CarouselBar,
-  CarouselHeading,
-  DotItem,
-  CarouselContainer,
-  DotsContainer,
-} from "./Sections.styled";
-import { ISections } from "./Sections.model";
-import { CarouselButtons, Section } from "./components";
-import Image from "next/image";
-import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { useRef, useState } from "react";
-import { useIsMobileView } from "hooks";
+import AliceCarousel from "react-alice-carousel";
+import { CarouselButtons, Section } from "./components";
+import { ISections } from "./Sections.model";
+import { useSections } from "./useSections";
+import {
+  CarouselContainer,
+  CarouselHeading,
+  DotsContainer,
+  CarouselBar,
+  Container,
+  Heading,
+  List,
+} from "./Sections.styled";
+import { useHomeContextProvider } from "views/Home/context/HomeContextProvider";
 
 export const Sections = ({ sections }: ISections) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const isMobileView = useIsMobileView();
-  const carouselRef = useRef(null);
+  const {
+    handlePrevSlide,
+    handleNextSlide,
+    setCurrentIndex,
+    carouselSlides,
+    currentIndex,
+    isMobileView,
+    carouselRef,
+    dots,
+  } = useSections(sections);
 
-  const handleDotClick = (index) => {
-    setCurrentIndex(index);
-    if (carouselRef.current) {
-      carouselRef.current.slideTo(index);
-    }
-  };
-
-  const dots = sections.map((_, index) => (
-    <DotItem
-      key={index}
-      isActive={currentIndex === index}
-      onClick={() => handleDotClick(index)}
-    />
-  ));
-
-  const renderCarouselSlides = () =>
-    sections.map(({ id, image, title }) => (
-      <ImageWrapper key={id}>
-        <Image src={image} layout="fill" objectFit="cover" alt={title} />
-      </ImageWrapper>
-    ));
-
-  const carouselSlides = renderCarouselSlides();
-
-  const handleNextSlide = () => {
-    if (carouselRef.current) {
-      // setCurrentIndex((prevIndex) => prevIndex + 1);
-      // carouselRef.current.slideNext();
-
-
-      if (currentIndex >= sections.length - 1) {
-        setCurrentIndex(0);
-        carouselRef.current.slidePrev();
-      } else {
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-        carouselRef.current.slideNext();
-      }
-    }
-  };
-
-  const handlePrevSlide = () => {
-    if (carouselRef.current) {
-      if (currentIndex <= 0) {
-        setCurrentIndex(sections.length);
-        carouselRef.current.slideNext();
-      } else {
-        setCurrentIndex((prevIndex) => prevIndex - 1);
-        carouselRef.current.slidePrev();
-      }
-    }
-  };
+  const {
+    sectionsCarouselContainerRef,
+    sectionsCarouselBarRef,
+    sectionsContainerRef,
+    sectionsHeadingRef,
+    sectionsListRef,
+  } = useHomeContextProvider();
 
   return (
-    <Container>
-      <Heading>what i’m doing</Heading>
-      <List>
+    <Container ref={sectionsContainerRef}>
+      <Heading ref={sectionsHeadingRef}>what i’m doing</Heading>
+      <List ref={sectionsListRef}>
         {sections.map(({ id, href, title }) => (
           <li key={id}>
             <Section href={href} title={title} />
           </li>
         ))}
       </List>
-      <CarouselBar>
+      <CarouselBar ref={sectionsCarouselBarRef}>
         <CarouselHeading>my crafts</CarouselHeading>
         {!isMobileView && (
           <CarouselButtons
@@ -93,7 +53,7 @@ export const Sections = ({ sections }: ISections) => {
           />
         )}
       </CarouselBar>
-      <CarouselContainer>
+      <CarouselContainer ref={sectionsCarouselContainerRef}>
         {isMobileView && (
           <CarouselButtons
             handlePrevSlide={handlePrevSlide}

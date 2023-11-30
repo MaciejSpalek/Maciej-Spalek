@@ -7,37 +7,39 @@ import {
   Paragraph,
 } from "./Header.styled";
 import Image from "next/image";
+import { useHeader } from "./useHeader";
 import { SpecialButton } from "components";
 import { FirstHeaderPhoto, SecondHeaderPhoto } from "assets";
+import { useHomeContextProvider } from "views/Home/context/HomeContextProvider";
 
-import { useHeader } from "./useHeader";
 export const Header = () => {
+  const { handleOnClick } = useHeader();
+
   const {
-    rightImageRef,
-    leftImageRef,
-    containerRef,
-    paragraphRef,
-    headingRef,
-    buttonRef,
-    handleOnClick,
-  } = useHeader();
+    headerRightImageRef,
+    headerContainerRef,
+    headerLeftImageRef,
+    headerParagraphRef,
+    headerHeadingRef,
+    headerButtonRef,
+  } = useHomeContextProvider();
 
   return (
-    <Container ref={containerRef}>
-      <Heading ref={headingRef}>Maciej Spałek</Heading>
-      <Paragraph ref={paragraphRef}>
+    <Container ref={headerContainerRef}>
+      <Heading ref={headerHeadingRef}>Maciej Spałek</Heading>
+      <Paragraph ref={headerParagraphRef}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua minim veniam, quis
         nostrud.
       </Paragraph>
-      <div ref={buttonRef}>
+      <div ref={headerButtonRef}>
         <SpecialButton onClick={handleOnClick}>Contact me</SpecialButton>
       </div>
       <GridList>
-        <GridItem ref={leftImageRef}>
+        <GridItem ref={headerLeftImageRef}>
           <Image src={FirstHeaderPhoto} alt="Zdjęcie w windzie" />
         </GridItem>
-        <GridItem ref={rightImageRef}>
+        <GridItem ref={headerRightImageRef}>
           <Image src={SecondHeaderPhoto} alt="Zdjęcie na rzece Hudson" />
         </GridItem>
       </GridList>

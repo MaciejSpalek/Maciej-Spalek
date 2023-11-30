@@ -1,14 +1,17 @@
+import { About, Header } from "./components";
+import { Container } from "./Home.styled";
 import { Sections } from "components";
 import React from "react";
-import { About, Header} from "./components";
-import { Container } from "./Home.styled";
+import { HomeContextProvider } from "./context/HomeContextProvider";
 
 export const Home = ({ sections }) => {
   return (
-    <Container>
-      <Header />
-      <About />
-      <Sections sections={sections}/>
-    </Container>
+    <HomeContextProvider>
+      <Container>
+        <Header />
+        <About />
+        <Sections sections={sections} />
+      </Container>
+    </HomeContextProvider>
   );
 };
