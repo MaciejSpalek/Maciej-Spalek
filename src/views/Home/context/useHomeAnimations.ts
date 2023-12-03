@@ -1,12 +1,11 @@
 import { useLayoutEffect, useRef } from "react";
 import { animationParams } from "helpers";
 
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { gsap } from "gsap";
 
-gsap.registerPlugin(ScrollTrigger);
 
 export const useHomeAnimations = () => {
+  const aboutSectionContainerRef = useRef(null);
   const headerRightImageRef = useRef(null);
   const headerLeftImageRef = useRef(null);
   const headerContainerRef = useRef(null);
@@ -14,13 +13,6 @@ export const useHomeAnimations = () => {
   const headerHeadingRef = useRef(null);
   const headerButtonRef = useRef(null);
 
-  const sectionsCarouselContainerRef = useRef(null);
-  const sectionsCarouselBarRef = useRef(null);
-  const sectionsContainerRef = useRef(null);
-  const sectionsHeadingRef = useRef(null);
-  const sectionsListRef = useRef(null);
-
-  const aboutSectionContainerRef = useRef(null);
 
   // Header animations
   useLayoutEffect(() => {
@@ -142,101 +134,6 @@ export const useHomeAnimations = () => {
     return () => ctx.revert();
   }, []);
 
-  // Sections
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        sectionsContainerRef.current,
-        {
-          y: "+=300",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: aboutSectionContainerRef.current,
-            start: "center center",
-          },
-        }
-      );
-
-      gsap.fromTo(
-        sectionsHeadingRef.current,
-        {
-          y: "+=50",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: sectionsHeadingRef.current,
-            start: "top bottom",
-          },
-        }
-      );
-
-      gsap.fromTo(
-        sectionsListRef.current,
-        {
-          y: "+=50",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          delay: .5,
-          scrollTrigger: {
-            trigger: sectionsListRef.current,
-            start: "top bottom",
-          },
-        }
-      );
-
-      gsap.fromTo(
-        sectionsCarouselBarRef.current,
-        {
-          y: "+50",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          delay: .5,
-          scrollTrigger: {
-            trigger: sectionsCarouselBarRef.current,
-            start: "top bottom",
-          },
-        }
-      );
-
-      gsap.fromTo(
-        sectionsCarouselContainerRef.current,
-        {
-          y: "+=50",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          delay: .5,
-          scrollTrigger: {
-            trigger: sectionsCarouselContainerRef.current,
-            start: "top bottom",
-            markers: true,
-          },
-        }
-      );
-    });
-
-    return () => ctx.revert();
-  }, []);
 
   return {
     headerContainerRef,
@@ -246,10 +143,6 @@ export const useHomeAnimations = () => {
     headerHeadingRef,
     headerButtonRef,
     aboutSectionContainerRef,
-    sectionsCarouselContainerRef,
-    sectionsCarouselBarRef,
-    sectionsContainerRef,
-    sectionsHeadingRef,
-    sectionsListRef,
+   
   };
 };

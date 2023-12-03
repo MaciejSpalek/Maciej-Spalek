@@ -24,15 +24,12 @@ export const Sections = ({ sections }: ISections) => {
     isMobileView,
     carouselRef,
     dots,
-  } = useSections(sections);
-
-  const {
     sectionsCarouselContainerRef,
     sectionsCarouselBarRef,
     sectionsContainerRef,
     sectionsHeadingRef,
     sectionsListRef,
-  } = useHomeContextProvider();
+  } = useSections(sections);
 
   return (
     <Container ref={sectionsContainerRef}>

@@ -1,10 +1,17 @@
 import "react-alice-carousel/lib/alice-carousel.css";
 import { useIsMobileView } from "hooks";
-import {  useRef, useState } from "react";
+import {  useLayoutEffect, useRef, useState } from "react";
 import { DotItem, ImageWrapper } from "./Sections.styled";
 import Image from "next/image";
+import { animationParams } from "helpers";
+import { gsap } from "gsap";
 
 export const useSections = (sections) => {
+  const sectionsCarouselContainerRef = useRef(null);
+  const sectionsCarouselBarRef = useRef(null);
+  const sectionsContainerRef = useRef(null);
+  const sectionsHeadingRef = useRef(null);
+  const sectionsListRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const isMobileView = useIsMobileView();
   const carouselRef = useRef(null);
@@ -57,7 +64,101 @@ export const useSections = (sections) => {
     }
   };
 
- 
+   // Sections
+   useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        sectionsContainerRef.current,
+        {
+          y: "+=300",
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: animationParams.duration,
+          scrollTrigger: {
+            trigger: sectionsContainerRef.current,
+            start: "-300px bottom",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        sectionsHeadingRef.current,
+        {
+          y: "+=50",
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: animationParams.duration,
+          scrollTrigger: {
+            trigger: sectionsHeadingRef.current,
+            start: "-100px bottom",
+
+          },
+        }
+      );
+
+      gsap.fromTo(
+        sectionsListRef.current,
+        {
+          y: "+=50",
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: animationParams.duration,
+          scrollTrigger: {
+            trigger: sectionsListRef.current,
+            start: "-100px bottom",
+
+          },
+        }
+      );
+
+      gsap.fromTo(
+        sectionsCarouselBarRef.current,
+        {
+          y: "+50",
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: animationParams.duration,
+          scrollTrigger: {
+            trigger: sectionsCarouselBarRef.current,
+            start: "-300px bottom",
+
+          },
+        }
+      );
+
+      gsap.fromTo(
+        sectionsCarouselContainerRef.current,
+        {
+          y: "+=50",
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: animationParams.duration,
+          scrollTrigger: {
+            trigger: sectionsCarouselContainerRef.current,
+            start: "top bottom",
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
 
   return {
     handlePrevSlide,
@@ -66,6 +167,11 @@ export const useSections = (sections) => {
     carouselSlides,
     currentIndex,
     isMobileView,
+    sectionsCarouselContainerRef,
+    sectionsCarouselBarRef,
+    sectionsContainerRef,
+    sectionsHeadingRef,
+    sectionsListRef,
     carouselRef,
     dots,
   };

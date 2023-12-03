@@ -20,8 +20,10 @@ import Link from "next/link";
 import { footerInfo } from "./helpers";
 import { useRouter } from "next/router";
 import { URLS } from "helpers";
+import { useFooter } from "./useFooter";
 
 export const Footer = () => {
+  const { containerRef, headingRef, buttonRef, secondWrapperRef, copyrightWrapperRef } = useFooter();
   const { push } = useRouter();
 
   const goToContact = () => push(URLS.contact);
@@ -41,16 +43,18 @@ export const Footer = () => {
   );
 
   return (
-    <Container>
+    <Container ref={containerRef}>
       <InnerWrapper>
         <FirstWrapper>
-          <Heading>Any questions?</Heading>
-          <SpecialButton onClick={goToContact}>Contact me</SpecialButton>
+          <Heading ref={headingRef}>Any questions?</Heading>
+          <div ref={buttonRef}>
+            <SpecialButton onClick={goToContact}>Contact me</SpecialButton>
+          </div>
         </FirstWrapper>
         <Divider />
-        <SecondWrapper>
+        <SecondWrapper ref={secondWrapperRef}>
           <LeftWrapper>
-            <CirclePhoto width={144}/>
+            <CirclePhoto width={144} />
             <Paragraph>Maciej Spałek</Paragraph>
           </LeftWrapper>
           <SocialsWrapper>
@@ -71,7 +75,7 @@ export const Footer = () => {
           </SocialsWrapper>
         </SecondWrapper>
         <Divider />
-        <Wrapper>
+        <Wrapper ref={copyrightWrapperRef}>
           <Copyright>{currentYear} | Maciej Spałek</Copyright>
         </Wrapper>
       </InnerWrapper>

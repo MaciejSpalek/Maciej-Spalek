@@ -5,7 +5,6 @@ export interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   touched?: boolean;
   icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
-  register: any
-
+  register: any;
 }
 
