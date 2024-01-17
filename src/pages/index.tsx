@@ -6,15 +6,15 @@ import { convertSections } from "helpers";
 export default Home;
 
 export async function getServerSideProps() {
-  const { data } = await apolloClient.query({
-    query: GET_SECTIONS_QUERY,
-  });
+  // const { data } = await apolloClient.query({
+  //   query: GET_SECTIONS_QUERY,
+  // });
 
-  const sections = convertSections(data?.sections?.data);
+  // const sections = convertSections(data?.sections?.data);
   
   return {
     props: {
-      sections,
+      sections: [],
     },
   };
 }
