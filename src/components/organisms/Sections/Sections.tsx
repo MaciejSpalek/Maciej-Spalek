@@ -12,9 +12,8 @@ import {
   Heading,
   List,
 } from "./Sections.styled";
-import { useHomeContextProvider } from "views/Home/context/HomeContextProvider";
 
-export const Sections = ({ sections }: ISections) => {
+export const Sections = ({ sections = [] }: ISections) => {
   const {
     handlePrevSlide,
     handleNextSlide,

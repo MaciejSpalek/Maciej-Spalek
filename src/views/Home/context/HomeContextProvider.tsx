@@ -9,6 +9,8 @@ export type HomeContent = {
   headerLeftImageRef: any;
   headerHeadingRef: any;
   headerButtonRef: any;
+  about: any;
+  header: any;
 };
 
 export const HomeContext = createContext<HomeContent>({
@@ -19,17 +21,30 @@ export const HomeContext = createContext<HomeContent>({
   headerLeftImageRef: null,
   headerHeadingRef: null,
   headerButtonRef: null,
+  about: {
+    description: "",
+    photo: null,
+  },
+  header: {
+    description: "",
+    first_photo: null,
+    second_photo: null,
+  },
 });
 
 export const useHomeContextProvider = () => useContext(HomeContext);
 
-export const HomeContextProvider = ({ children }) => {
+export const HomeContextProvider = ({ children, data }) => {
   const refs = useHomeAnimations();
+
+  const { about, header } = data;
 
   return (
     <HomeContext.Provider
       value={{
         ...refs,
+        header,
+        about,
       }}
     >
       {children}

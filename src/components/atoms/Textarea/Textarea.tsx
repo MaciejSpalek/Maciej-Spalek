@@ -32,7 +32,6 @@ export const Textarea = ({
           {...props}
         />
       </Wrapper>
-      {/* {touched && <ErrorMessage text={error} />} */}
     </Container>
   );
 };

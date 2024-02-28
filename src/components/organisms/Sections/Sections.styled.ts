@@ -32,6 +32,7 @@ export const ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   min-height: 600px;
+  pointer-events: none;
   :hover div {
     visibility: visible;
   }
@@ -41,14 +42,11 @@ export const ImageWrapper = styled.div`
   }
 `;
 
-export const SlideHeading = styled.div`
+export const SlideHeading = styled.p`
   position: absolute;
-  top: 24px;
-  left: 24px;
-  background-color: ${colors.transparent.black.dark};
   border-radius: 24px;
   color: ${colors.white};
-  padding: 16px 24px;
+  padding: 24px;
   ${getFont('medium', 12, 24)};
   text-transform: uppercase;
   letter-spacing: 7.2px;

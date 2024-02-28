@@ -1,4 +1,4 @@
-import { Button, List, MainImageContainer } from "./PostList.styled";
+import { List, MainImageContainer } from "./PostList.styled";
 import { PostCard, PostPreview } from "components";
 import { Section } from "layouts/Section";
 import { PostListProps } from "./PostList.model";

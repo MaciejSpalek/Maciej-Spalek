@@ -9,7 +9,6 @@ import {
 import Image from "next/image";
 import { useHeader } from "./useHeader";
 import { SpecialButton } from "components";
-import { FirstHeaderPhoto, SecondHeaderPhoto } from "assets";
 import { useHomeContextProvider } from "views/Home/context/HomeContextProvider";
 
 export const Header = () => {
@@ -22,25 +21,28 @@ export const Header = () => {
     headerParagraphRef,
     headerHeadingRef,
     headerButtonRef,
+    header,
   } = useHomeContextProvider();
 
+  const {
+    first_photo: firstPhoto,
+    second_photo: secondPhoto,
+    description,
+  } = header;
+  
   return (
     <Container ref={headerContainerRef}>
       <Heading ref={headerHeadingRef}>Maciej Spałek</Heading>
-      <Paragraph ref={headerParagraphRef}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua minim veniam, quis
-        nostrud.
-      </Paragraph>
+      <Paragraph ref={headerParagraphRef}>{description}</Paragraph>
       <div ref={headerButtonRef}>
         <SpecialButton onClick={handleOnClick}>Contact me</SpecialButton>
       </div>
       <GridList>
         <GridItem ref={headerLeftImageRef}>
-          <Image src={FirstHeaderPhoto} alt="Zdjęcie w windzie" />
+          <Image src={firstPhoto} alt="Zdjęcie w windzie" layout="fill"/>
         </GridItem>
         <GridItem ref={headerRightImageRef}>
-          <Image src={SecondHeaderPhoto} alt="Zdjęcie na rzece Hudson" />
+          <Image src={secondPhoto} alt="Zdjęcie na rzece Hudson" layout="fill" />
         </GridItem>
       </GridList>
     </Container>

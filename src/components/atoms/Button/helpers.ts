@@ -58,8 +58,8 @@ export const disabledHover = css`
 
 // types styles
 export const square = css`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   padding: 0;
   div {
     margin: 0px;

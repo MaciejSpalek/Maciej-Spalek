@@ -16,6 +16,7 @@ export const Wrapper = styled.div<{ error: boolean; touched: boolean }>`
   border-radius: 8px;
   overflow: hidden;
   padding: ${({ isIcon }) => (isIcon ? "0 8px" : 0)};
+  height: 100%;
   :focus-within {
     border: 1px solid
       ${({ error, touched }) =>
@@ -30,6 +31,7 @@ export const StyledInput = styled.textarea<{
 }>`
   padding: 12px;
   width: 100%;
+  height: 100%;
   background: ${colors.grayScale[7]};
   color: ${({ error, touched }) =>
     error && touched ? colors.secondary.main : colors.grayScale[1]};

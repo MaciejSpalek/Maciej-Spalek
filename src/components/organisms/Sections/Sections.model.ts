@@ -1,3 +1,5 @@
+import { ISection } from "types";
+
 export interface ISections {
-    sections: any[];
+    sections: ISection[];
   }

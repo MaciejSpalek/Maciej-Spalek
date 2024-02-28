@@ -25,16 +25,9 @@ export const Button = ({
     if (Icon && (size === ButtonTypes.MEDIUM || size === ButtonTypes.SQUARE)) {
       return (
         <StyledContent>
-          {isLoading && (
-            <StyledIconWrapper disabled={!!disabled} isLoading={isLoading}>
-              <StyledLoader />
-            </StyledIconWrapper>
-          )}
-          {!isLoading && (
-            <StyledIconWrapper disabled={!!disabled} isLoading={isLoading}>
-              <Icon />
-            </StyledIconWrapper>
-          )}
+          <StyledIconWrapper disabled={!!disabled} isLoading={isLoading}>
+            {isLoading ? <StyledLoader /> : <Icon />}
+          </StyledIconWrapper>
           {children && <span>{children}</span>}
         </StyledContent>
       );

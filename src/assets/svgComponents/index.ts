@@ -8,3 +8,5 @@ export * from "./BrushIcon";
 export * from "./RulerAndPenIcon";
 export * from "./HamburgerIcon";
 export * from "./Arrows";
+export * from "./DownloadIcon";
+export * from "./PreviewEyeIcon";

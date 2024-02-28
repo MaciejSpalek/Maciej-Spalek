@@ -1,21 +1,18 @@
 import styled from "styled-components";
-import { colors, devices, flexColumn, flexRow, getFont } from "theme";
+import { colors, flexCenter, flexColumn, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
   overflow: hidden;
   border-radius: 40px;
-  background-color: ${colors.grayScale[1]};
   padding: 24px;
   gap: 64px;
   margin-top: 64px;
-  width: auto;
-  min-width: 600px;
 `;
 
-export const FormWrapper = styled.form`
-  ${flexColumn};
-  gap: 15px;
+export const TopBar = styled.div`
+  ${flexCenter};
+  justify-content: space-between;
 `;
 
 export const Heading = styled.h1`
@@ -25,5 +22,4 @@ export const Heading = styled.h1`
   text-align: start;
   white-space: no-wrap;
   ${getFont("regular", 12, 18)};
-  /* margin-bottom: 40px; */
 `;

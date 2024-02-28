@@ -6,3 +6,4 @@ export * from "./Button";
 export * from "./Input";
 export * from "./Meta";
 export * from "./Logo";
+export * from "./ImageUploader";

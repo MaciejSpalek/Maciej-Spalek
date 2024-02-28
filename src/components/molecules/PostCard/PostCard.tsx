@@ -12,11 +12,11 @@ import { URLS } from "helpers";
 import Link from "next/link";
 
 export const PostCard = ({
-  image,
   description,
-  id,
   onClick,
   state,
+  image,
+  id,
 }: IPostCard) => {
   const isMakeOfferLinkVisible = state === PostStates.available;
   const href = `${URLS.contact}?id=${id}`;

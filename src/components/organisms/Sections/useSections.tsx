@@ -1,7 +1,7 @@
 import "react-alice-carousel/lib/alice-carousel.css";
 import { useIsMobileView } from "hooks";
 import {  useLayoutEffect, useRef, useState } from "react";
-import { DotItem, ImageWrapper } from "./Sections.styled";
+import { DotItem, ImageWrapper, SlideHeading } from "./Sections.styled";
 import Image from "next/image";
 import { animationParams } from "helpers";
 import { gsap } from "gsap";
@@ -23,7 +23,7 @@ export const useSections = (sections) => {
     }
   };
 
-  const dots = sections.map((_, index) => (
+  const dots = sections?.map((_, index) => (
     <DotItem
       key={index}
       isActive={currentIndex === index}

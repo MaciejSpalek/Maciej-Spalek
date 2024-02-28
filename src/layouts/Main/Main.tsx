@@ -12,7 +12,7 @@ export const Main = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    containerRef.current.scrollTo(0, document.body.scrollHeight);
+    containerRef?.current?.scrollTo(0, document.body.scrollHeight);
   }, []);
 
   return (
