@@ -1,1 +1,1 @@
-export const navigation = ["home", "crafts", "images"];
+export const navigation = ["home", "crafts", "posts", "images"];

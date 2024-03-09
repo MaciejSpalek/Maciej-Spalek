@@ -34,10 +34,10 @@ export const HomeContext = createContext<HomeContent>({
 
 export const useHomeContextProvider = () => useContext(HomeContext);
 
-export const HomeContextProvider = ({ children, data }) => {
+export const HomeContextProvider = ({ children, home }) => {
   const refs = useHomeAnimations();
 
-  const { about, header } = data;
+  const { about, header } = home || {};
 
   return (
     <HomeContext.Provider

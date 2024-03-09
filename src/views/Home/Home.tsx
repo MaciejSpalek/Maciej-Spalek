@@ -5,12 +5,14 @@ import React from "react";
 import { HomeContextProvider } from "./context/HomeContextProvider";
 
 export const Home = ({ data }) => {
+  const { home, crafts } = data || {};
+
   return (
-    <HomeContextProvider data={data}>
+    <HomeContextProvider home={home}>
       <Container>
         <Header />
         <About />
-        <Sections sections={data.sections} />
+        <Sections sections={crafts} />
       </Container>
     </HomeContextProvider>
   );

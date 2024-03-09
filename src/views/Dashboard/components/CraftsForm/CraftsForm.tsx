@@ -20,19 +20,15 @@ interface ICraftsForm {
 }
 
 export const CraftsForm = ({ defaultValues }) => {
-  console.log();
   const [crafts, setCrafts] = useState<ICraft[]>(defaultValues.crafts);
-  const { register, handleSubmit, setValue, getValues } = useForm<ICraftsForm>({ defaultValues });
+  const { register, handleSubmit, setValue } = useForm<ICraftsForm>({ defaultValues });
   const [isLoading, setLoading] = useState(false);
 
-  console.log({ watch: getValues(), defaultValues, crafts });
   const onSubmit = async (data: SubmitHandler<ICraftsForm>) => {
     setLoading(true);
 
     try {
       await axiosInstance.put(ENDPOINTS.CRAFT.UPDATE_OR_CREATE, data);
-
-      console.log(data);
       setLoading(false);
     } catch {
       setLoading(false);
@@ -57,10 +53,6 @@ export const CraftsForm = ({ defaultValues }) => {
 
     setCrafts(newCrafts);
   };
-
-  useEffect(() => {
-
-  }, []);
 
   return (
     <Container>

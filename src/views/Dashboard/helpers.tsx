@@ -33,6 +33,10 @@ export const getStep = ({ step, homeDefaultValues, craftsDefaultValues }: IProps
       return <CraftsForm defaultValues={craftsDefaultValues} />;
     }
 
+    case DashboardSteps.POSTS: {
+      return <CraftsForm defaultValues={craftsDefaultValues} />;
+    }
+
     case DashboardSteps.IMAGES: {
       return <></>
     }
