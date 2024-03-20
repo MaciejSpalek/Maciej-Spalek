@@ -8,13 +8,15 @@ import { DashboardSteps } from "helpers";
 import { ICraft, IHome } from "types";
 
 interface IProps {
-  home: IHome;
   crafts: ICraft;
+  home: IHome;
 }
 
 export const Dashboard = ({ home, crafts }: IProps) => {
   const homeDefaultValues: any = { home } || staticHomeInitialValues;
   const craftsDefaultValues: any = { crafts } || [];
+  const postsDefaultValues: any = {};
+
   const [step, setStep] = useState(DashboardSteps.HOME);
 
   return (
@@ -23,7 +25,11 @@ export const Dashboard = ({ home, crafts }: IProps) => {
         <Heading>Dashboard</Heading>
         <Navigation step={step} setStep={setStep} />
       </TopBar>
-      {getStep({ step, homeDefaultValues, craftsDefaultValues })}
+      {getStep({
+        craftsDefaultValues,
+        homeDefaultValues,
+        step,
+      })}
     </Container>
   );
 };

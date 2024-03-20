@@ -1,7 +1,7 @@
 import React from "react";
 import { DashboardSteps } from "helpers";
-import { CraftsForm, HomePageForm } from "./components";
-import { DashboardStepTypes, IHome } from "types";
+import { CraftsForm, HomePageForm, PostForm } from "./components";
+import { DashboardStepTypes, IHome, IPostCard } from "types";
 
 export const staticHomeInitialValues = {
   home: {
@@ -17,13 +17,17 @@ export const staticHomeInitialValues = {
   },
 };
 
-interface IProps {
+interface GetStepProps {
   step: DashboardStepTypes;
   homeDefaultValues: IHome;
-  craftsDefaultValues: any[]
+  craftsDefaultValues: any[];
 }
 
-export const getStep = ({ step, homeDefaultValues, craftsDefaultValues }: IProps) => {
+export const getStep = ({
+  craftsDefaultValues,
+  homeDefaultValues,
+  step,
+}: GetStepProps) => {
   switch (step) {
     case DashboardSteps.HOME: {
       return <HomePageForm defaultValues={homeDefaultValues} />;
@@ -34,11 +38,11 @@ export const getStep = ({ step, homeDefaultValues, craftsDefaultValues }: IProps
     }
 
     case DashboardSteps.POSTS: {
-      return <CraftsForm defaultValues={craftsDefaultValues} />;
+      return <PostForm />;
     }
 
     case DashboardSteps.IMAGES: {
-      return <></>
+      return <></>;
     }
   }
 };

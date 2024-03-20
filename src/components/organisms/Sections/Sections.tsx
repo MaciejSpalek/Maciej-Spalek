@@ -34,8 +34,8 @@ export const Sections = ({ sections = [] }: ISections) => {
     <Container ref={sectionsContainerRef}>
       <Heading ref={sectionsHeadingRef}>what i’m doing</Heading>
       <List ref={sectionsListRef}>
-        {sections.map(({ id, href, title }) => (
-          <li key={id}>
+        {sections.map(({ _id, href, title }) => (
+          <li key={_id}>
             <Section href={href} title={title} />
           </li>
         ))}

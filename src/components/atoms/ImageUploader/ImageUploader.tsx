@@ -11,8 +11,10 @@ import {
   ImageWrapper,
   StyledButton,
   Container,
-  Input
+  Input,
 } from "./ImageUploader.styled";
+import { axiosInstance } from "services/axiosClient";
+import { ENDPOINTS } from "helpers/endpoints";
 
 export const ImageUploader = forwardRef(
   ({ id, setValue, defaultValue = null }: IInput, ref) => {
@@ -23,14 +25,28 @@ export const ImageUploader = forwardRef(
       hiddenFileInput.current.click();
     };
 
-    const handleChange = (event) => {
+    const handleChange = async (event) => {
       const file = event.target.files[0];
+      const formData = new FormData();
+
+      formData.append("file", file);
+
+      const { data: imageUrl } = await axiosInstance.post(
+        ENDPOINTS.IMAGE.UPLOAD,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart-form",
+          },
+        }
+      );
+
+      setValue(id, imageUrl);
 
       if (file && file.type.startsWith("image/")) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          setImage(e.target.result as any);
-          setValue(id, e.target.result);
+          setImage(e.target.result as string);
         };
 
         reader.readAsDataURL(file);
@@ -59,11 +75,7 @@ export const ImageUploader = forwardRef(
             />
           )}
         </ImageWrapper>
-        <Input
-          type="file"
-          onChange={handleChange}
-          ref={hiddenFileInput}
-        />
+        <Input type="file" onChange={handleChange} ref={hiddenFileInput} />
       </Container>
     );
   }

@@ -1,5 +1,5 @@
 export interface ISection {
-  id?: string;
+  _id?: string;
   image: File;
   title: string;
   href: string;

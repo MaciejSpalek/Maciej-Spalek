@@ -102,6 +102,8 @@ export const useFooter = () => {
     });
 
     return () => ctx.revert();
+    
+    //eslint-disable-next-line
   }, []);
 
   return {

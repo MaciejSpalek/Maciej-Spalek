@@ -21,7 +21,9 @@ interface ICraftsForm {
 
 export const CraftsForm = ({ defaultValues }) => {
   const [crafts, setCrafts] = useState<ICraft[]>(defaultValues.crafts);
-  const { register, handleSubmit, setValue } = useForm<ICraftsForm>({ defaultValues });
+  const { register, handleSubmit, setValue } = useForm<ICraftsForm>({
+    defaultValues,
+  });
   const [isLoading, setLoading] = useState(false);
 
   const onSubmit = async (data: SubmitHandler<ICraftsForm>) => {
@@ -40,7 +42,6 @@ export const CraftsForm = ({ defaultValues }) => {
       image: null,
       href: "",
       title: "",
-      posts: [],
     };
 
     setCrafts((prev) => [...prev, newSection]);
@@ -64,7 +65,7 @@ export const CraftsForm = ({ defaultValues }) => {
               Add
             </Button>
           </TopWrapper>
-          {crafts.map(({ href, image, title }, index) => (
+          {crafts?.map(({ href, image, title }, index) => (
             <SectionsRowWrapper key={index}>
               <ImageUploader
                 id={`crafts[${index}].image`}

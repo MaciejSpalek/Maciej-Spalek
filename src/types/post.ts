@@ -15,8 +15,8 @@ export type PostState = 'available' | 'sold_out' | null;
 export interface IPostCard {
   description?: string;
   price?: string;
-  image: File;
-  id?: string;
+  image: string;
+  _id?: string;
   state?: PostState;
   type: PostType;
   onClick: (id: string) => void;
