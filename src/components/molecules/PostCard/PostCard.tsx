@@ -16,17 +16,16 @@ export const PostCard = ({
   onClick,
   state,
   image,
-  id,
+  _id,
 }: IPostCard) => {
   const isMakeOfferLinkVisible = state === PostStates.available;
-  const href = `${URLS.contact}?id=${id}`;
+  const href = `${URLS.contact}?id=${_id}`;
 
   return (
     <Container>
-      <ImageWrapper onClick={() => onClick(id)}>
+      <ImageWrapper onClick={() => onClick(_id)}>
         <Image src={image} alt="title" layout="fill" objectFit="cover" />
       </ImageWrapper>
-
       <DescriptionWrapper>
         <Description>{description}</Description>
         {isMakeOfferLinkVisible && (

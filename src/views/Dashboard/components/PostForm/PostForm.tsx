@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, ImageUploader, Input } from "components";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { axiosInstance } from "services/axiosClient";
+import { useQuery } from "@tanstack/react-query";
 import { ENDPOINTS } from "helpers/endpoints";
 import { IPostCard } from "types";
 import {
@@ -13,15 +14,14 @@ import {
   Section,
   Form,
 } from "./PostForm.styled";
-import { useQuery } from "@tanstack/react-query";
 import { List } from "./components";
 
 export const PostForm = () => {
   const getPosts = async (): Promise<{ data: IPostCard[] }> =>
     await axiosInstance.get(ENDPOINTS.POST.LIST);
 
-  const { data, isFetching } = useQuery<{ data: IPostCard[] }>({
-    queryKey: ["POSTS"],
+  const { data, isFetching, refetch } = useQuery<{ data: IPostCard[] }>({
+    queryKey: ["POST_LIST"],
     queryFn: getPosts,
   });
 
@@ -34,6 +34,7 @@ export const PostForm = () => {
     try {
       await axiosInstance.post(ENDPOINTS.POST.CREATE, data);
       setLoading(false);
+      refetch();
     } catch {
       setLoading(false);
     }
@@ -75,7 +76,7 @@ export const PostForm = () => {
           </SubmitWrapper>
         </Section>
       </Form>
-      <List list={data?.data} isFetching={isFetching} />
+      <List list={data?.data} isFetching={isFetching} refetchList={refetch} />
     </Container>
   );
 };

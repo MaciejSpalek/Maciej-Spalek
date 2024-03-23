@@ -15,7 +15,6 @@ interface IProps {
 export const Dashboard = ({ home, crafts }: IProps) => {
   const homeDefaultValues: any = { home } || staticHomeInitialValues;
   const craftsDefaultValues: any = { crafts } || [];
-  const postsDefaultValues: any = {};
 
   const [step, setStep] = useState(DashboardSteps.HOME);
 

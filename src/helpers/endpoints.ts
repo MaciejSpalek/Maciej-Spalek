@@ -8,11 +8,11 @@ export const ENDPOINTS = {
     GET: "/craft/get",
   },
   POST: {
-    CREATE: '/post/create',
-    GET: '/post/get/:id',
-    LIST: '/post/list',
-    UPDATE: '/post/update/:id',
-    DELETE: '/post/delete/:id',
+    CREATE: "/post/create",
+    GET: "/post/get/:id",
+    LIST: "/post/list",
+    UPDATE: ({ id }) => `/post/update/${id}`,
+    DELETE: ({ id }) => `/post/delete/${id}`,
   },
   IMAGE: {
     UPLOAD: "image/upload",

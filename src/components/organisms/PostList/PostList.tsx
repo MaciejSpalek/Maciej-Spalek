@@ -22,7 +22,7 @@ export const PostList = ({ title, list, image }: PostListProps) => {
       </MainImageContainer>
       <List ref={listRef}>
         {list.map((post) => (
-          <li key={post.id}>
+          <li key={post._id}>
             <PostCard onClick={openModal} {...post} />
           </li>
         ))}
