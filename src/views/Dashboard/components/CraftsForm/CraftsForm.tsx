@@ -60,7 +60,7 @@ export const CraftsForm = ({ defaultValues }) => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Section>
           <TopWrapper>
-            <Heading>Sections</Heading>
+            <Heading>Crafts</Heading>
             <Button type="button" onClick={handleOnAddNewSection}>
               Add
             </Button>

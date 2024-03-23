@@ -26,7 +26,6 @@ export const SubmitWrapper = styled.div`
   align-items: flex-end;
   gap: 16px;
   border-radius: 40px;
-  padding: 24px;
   background-color: ${colors.black};
 `;
 

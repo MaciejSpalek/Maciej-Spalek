@@ -5,7 +5,6 @@ import Image from "next/image";
 
 import { IInput } from "./ImageUploader.model";
 import {
-  StyledPreviewEyeIcon,
   StyledDownloadIcon,
   HiddenWrapper,
   ImageWrapper,
@@ -56,9 +55,6 @@ export const ImageUploader = forwardRef(
     return (
       <Container ref={ref}>
         <HiddenWrapper>
-          <StyledButton type="button" onClick={handleClick}>
-            <StyledPreviewEyeIcon />
-          </StyledButton>
           <StyledButton type="button" onClick={handleClick}>
             <StyledDownloadIcon />
           </StyledButton>

@@ -5,6 +5,8 @@ import Image from "next/image";
 import React from "react";
 import { axiosInstance } from "services/axiosClient";
 import { IPostCard } from "types";
+import { EditPostCell } from "../EditPostCell";
+import { RemovePostCell } from "../RemovePostCell";
 import {
   Container,
   Section,
@@ -29,15 +31,7 @@ const headers = ["Image", "Type", "Description", "Price", "State", "Action"];
 export const List = ({ list, isFetching, refetchList }: IList) => {
   if (isFetching) return null;
 
-  const deletePost = async (id) =>
-    axiosInstance.delete(ENDPOINTS.POST.DELETE({ id }));
 
-  const deleteMutation = useMutation({
-    mutationFn: deletePost,
-    onSuccess: () => {
-      refetchList();
-    },
-  });
 
   return (
     <Container>
@@ -50,8 +44,9 @@ export const List = ({ list, isFetching, refetchList }: IList) => {
           ))}
         </HeaderList>
         <ContentList>
-          {list?.map(
-            ({ _id, image, type, description, price, state }, index) => (
+          {list?.map((post, index) => {
+            const { _id, image, type, description, price, state } = post;
+            return (
               <Row key={_id} last={index === list.length - 1}>
                 <ImageWrapper>
                   <Image src={image} height={60} width={60} />
@@ -61,17 +56,12 @@ export const List = ({ list, isFetching, refetchList }: IList) => {
                 <Cell>{price || ""}</Cell>
                 <Cell>{state || ""}</Cell>
                 <ActionCell>
-                  <Button size="small">Edit</Button>
-                  <Button
-                    onClick={() => deleteMutation.mutate(_id)}
-                    size="small"
-                  >
-                    Remove
-                  </Button>
+                  <EditPostCell refetchList={refetchList} data={post} />
+                  <RemovePostCell refetchList={refetchList} id={_id}/>
                 </ActionCell>
               </Row>
-            )
-          )}
+            );
+          })}
         </ContentList>
       </Section>
     </Container>

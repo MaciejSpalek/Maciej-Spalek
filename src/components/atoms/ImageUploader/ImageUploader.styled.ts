@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors, flexCenter, flexColumn } from "theme";
-import { DownloadIcon, PreviewEyeIcon } from "assets";
+import { DownloadIcon } from "assets";
 
 export const Container = styled.div`
   position: relative;
@@ -32,16 +32,6 @@ export const ImageWrapper = styled.div`
 `;
 
 export const StyledDownloadIcon = styled(DownloadIcon)`
-  width: 42px;
-  height: 42px;
-  :hover path {
-    fill: ${colors.grayScale[7]};
-  }
-  path {
-    fill: ${colors.grayScale[4]};
-  }
-`;
-export const StyledPreviewEyeIcon = styled(PreviewEyeIcon)`
   width: 42px;
   height: 42px;
   :hover path {
