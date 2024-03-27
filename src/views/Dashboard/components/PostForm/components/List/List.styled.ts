@@ -3,13 +3,14 @@ import { colors, flexColumn, flexRow } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
+  gap: 16px;
 `;
 
 export const Section = styled.div`
   ${flexColumn};
-  align-items: center;
+  align-items: flex-end;
   border-radius: 40px;
-  padding: 16px;
+  padding: 24px;
   background-color: ${colors.black};
 `;
 

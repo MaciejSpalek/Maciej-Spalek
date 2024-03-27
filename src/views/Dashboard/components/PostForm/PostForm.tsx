@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Button, ImageUploader, Input } from "components";
+import { Button, ImageUploader, Input, Select } from "components";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { axiosInstance } from "services/axiosClient";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { ENDPOINTS } from "helpers/endpoints";
-import { IPostCard } from "types";
+import { IPostCard, PostTypes } from "types";
 import {
   SubmitWrapper,
   InputWrapper,
@@ -15,26 +15,33 @@ import {
   Form,
 } from "./PostForm.styled";
 import { List } from "./components";
+import { LS_KEYS, QUERY_KEYS } from "helpers";
+
+const types = Object.values(PostTypes).map((type) => ({
+  label: type,
+  value: type,
+}));
 
 export const PostForm = () => {
-  const getPosts = async (): Promise<{ data: IPostCard[] }> =>
-    await axiosInstance.get(ENDPOINTS.POST.LIST);
-
-  const { data, isFetching, refetch } = useQuery<{ data: IPostCard[] }>({
-    queryKey: ["POST_LIST"],
-    queryFn: getPosts,
-  });
-
   const { register, handleSubmit, setValue } = useForm<IPostCard>();
   const [isLoading, setLoading] = useState(false);
+  const queryClient = useQueryClient();
 
-  const onSubmit = async (data: SubmitHandler<IPostCard>) => {
+  const lsType = localStorage.getItem(LS_KEYS.POST_LIST_TYPE);
+
+  const refetchUserData = () => {
+    queryClient.refetchQueries({
+      queryKey: [QUERY_KEYS.POST.LIST({ type: lsType })],
+    });
+  };
+
+  const onSubmit = async (data) => {
     setLoading(true);
 
     try {
       await axiosInstance.post(ENDPOINTS.POST.CREATE, data);
       setLoading(false);
-      refetch();
+      refetchUserData();
     } catch {
       setLoading(false);
     }
@@ -49,18 +56,17 @@ export const PostForm = () => {
           </TopWrapper>
           <InputWrapper>
             <ImageUploader id="image" setValue={setValue} />
-            <Input id="type" register={register} placeholder="Type" fullWidth />
             <Input
               id="state"
               register={register}
               placeholder="State"
               fullWidth
             />
-            <Input
-              id="price"
+            <Select
+              id="type"
               register={register}
-              placeholder="Price"
-              fullWidth
+              placeholder="Type"
+              options={types}
             />
             <Input
               id="description"
@@ -76,7 +82,7 @@ export const PostForm = () => {
           </SubmitWrapper>
         </Section>
       </Form>
-      <List list={data?.data} isFetching={isFetching} refetchList={refetch} />
+      <List />
     </Container>
   );
 };

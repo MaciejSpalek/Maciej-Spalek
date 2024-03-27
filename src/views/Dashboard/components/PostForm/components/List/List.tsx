@@ -1,40 +1,36 @@
-import { useMutation } from "@tanstack/react-query";
-import { Button } from "components";
-import { ENDPOINTS } from "helpers/endpoints";
-import Image from "next/image";
 import React from "react";
-import { axiosInstance } from "services/axiosClient";
-import { IPostCard } from "types";
+import Image from "next/image";
+import { Filters } from "../Filters";
+import { usePostListQuery } from "queries";
 import { EditPostCell } from "../EditPostCell";
 import { RemovePostCell } from "../RemovePostCell";
 import {
-  Container,
-  Section,
-  Row,
-  Cell,
+  ImageWrapper,
+  ContentList,
   HeaderList,
   ActionCell,
-  ImageWrapper,
   HeaderCell,
   HeaderItem,
-  ContentList,
+  Container,
+  Section,
+  Cell,
+  Row,
 } from "./List.styled";
-
-interface IList {
-  refetchList: () => void;
-  isFetching: boolean;
-  list: IPostCard[];
-}
+import { LS_KEYS } from "helpers";
+import { IPost } from "types";
 
 const headers = ["Image", "Type", "Description", "Price", "State", "Action"];
 
-export const List = ({ list, isFetching, refetchList }: IList) => {
+export const List = () => {
+  const type = localStorage.getItem(LS_KEYS.POST_LIST_TYPE) as IPost["type"];
+  const { data, isFetching, isError, refetch } = usePostListQuery({ type });
+
+  if (isError) return <div>error</div>;
   if (isFetching) return null;
-
-
 
   return (
     <Container>
+      <Filters />
       <Section>
         <HeaderList>
           {headers.map((header) => (
@@ -44,10 +40,10 @@ export const List = ({ list, isFetching, refetchList }: IList) => {
           ))}
         </HeaderList>
         <ContentList>
-          {list?.map((post, index) => {
+          {data.map((post, index) => {
             const { _id, image, type, description, price, state } = post;
             return (
-              <Row key={_id} last={index === list.length - 1}>
+              <Row key={_id} last={index === data.length - 1}>
                 <ImageWrapper>
                   <Image src={image} height={60} width={60} />
                 </ImageWrapper>
@@ -56,8 +52,8 @@ export const List = ({ list, isFetching, refetchList }: IList) => {
                 <Cell>{price || ""}</Cell>
                 <Cell>{state || ""}</Cell>
                 <ActionCell>
-                  <EditPostCell refetchList={refetchList} data={post} />
-                  <RemovePostCell refetchList={refetchList} id={_id}/>
+                  <EditPostCell refetchList={refetch} data={post} />
+                  <RemovePostCell refetchList={refetch} id={_id} />
                 </ActionCell>
               </Row>
             );

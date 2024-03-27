@@ -1,5 +1,5 @@
 export const PostTypes = {
-  graphicDesign: 'graphi-design',
+  graphicDesign: 'graphic-design',
   painting: "painting",
   drawing: "drawing",
   photography: "photography",

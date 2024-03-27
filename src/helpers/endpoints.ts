@@ -10,7 +10,7 @@ export const ENDPOINTS = {
   POST: {
     CREATE: "/post/create",
     GET: "/post/get/:id",
-    LIST: "/post/list",
+    LIST: ({ type }) => `/post/list${type ? `?type=${type}` : ""}`,
     UPDATE: ({ id }) => `/post/update/${id}`,
     DELETE: ({ id }) => `/post/delete/${id}`,
   },

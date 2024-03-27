@@ -10,7 +10,6 @@ import { Button, Dialog } from "components";
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
 import { IPost } from "types";
-import { breakpoints } from "theme";
 
 interface IRemovePostCell {
   refetchList: () => void;

@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+// import { useMutation } from "@tanstack/react-query";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { Form, InputWrapper, BottomWrapper } from "./EditPostCell.styled";
-import { Button, Dialog, ImageUploader, Input } from "components";
+import { Button, Dialog, ImageUploader, Input, Select } from "components";
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
-import { IPost } from "types";
-import { breakpoints } from "theme";
+import { IPost, PostTypes } from "types";
 
 interface IEditPostCell {
   refetchList: () => void;
   data: IPost;
 }
+
+const types = Object.values(PostTypes).map((type) => ({
+  label: type,
+  value: type,
+}));
 
 export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
   const [isLoading, setLoading] = useState(false);
@@ -57,12 +61,7 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
       <Button size="small" onClick={toggle}>
         Edit
       </Button>
-      <Dialog
-        size="md"
-        title="Edit post"
-        toggle={toggle}
-        isOpen={isOpen}
-      >
+      <Dialog size="md" title="Edit post" toggle={toggle} isOpen={isOpen}>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <InputWrapper>
             <ImageUploader
@@ -70,18 +69,17 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
               setValue={setValue}
               defaultValue={data.image}
             />
-            <Input id="type" register={register} placeholder="Type" fullWidth />
             <Input
               id="state"
               register={register}
               placeholder="State"
               fullWidth
             />
-            <Input
-              id="price"
+            <Select
+              id="type"
               register={register}
-              placeholder="Price"
-              fullWidth
+              placeholder="Type"
+              options={types}
             />
             <Input
               id="description"

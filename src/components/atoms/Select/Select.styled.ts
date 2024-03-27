@@ -8,7 +8,7 @@ export const Container = styled.div<{ fullWidth?: boolean }>`
   max-width: ${({ fullWidth }) => (fullWidth ? '100%' : '300px')};
 `;
 
-export const Wrapper = styled.div<{ error: boolean; touched: boolean; isIcon: boolean }>`
+export const Wrapper = styled.div<{ error: boolean; touched: boolean; }>`
   ${flexRow};
   border: 1px solid
     ${({ error, touched }) => (error && touched ? colors.secondary.main : colors.grayscale.tertiary)};
@@ -21,7 +21,7 @@ export const Wrapper = styled.div<{ error: boolean; touched: boolean; isIcon: bo
   }
 `;
 
-export const StyledInput = styled.input<{ fullWidth?: boolean; touched: boolean; error: boolean }>`
+export const StyledSelect = styled.select<{ fullWidth?: boolean; touched: boolean; error: boolean }>`
   ${getFont('medium', 12, 18)};
   padding: 0 12px;
   width: 100%;
@@ -29,6 +29,7 @@ export const StyledInput = styled.input<{ fullWidth?: boolean; touched: boolean;
   background: ${colors.grayScale[7]};
   color: ${({ error, touched }) =>
     error && touched ? colors.secondary.main : colors.grayScale[1]};
+  text-transform: capitalize;
   border: none;
   outline: 0;
 
@@ -42,3 +43,8 @@ export const Label = styled.label`
   background: ${colors.white};
   color: ${colors.grayscale.tertiary};
 `;
+
+export const Option = styled.option`
+  color: ${colors.background.light};
+`;
+
