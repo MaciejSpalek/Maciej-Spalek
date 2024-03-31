@@ -10,14 +10,19 @@ import {
   TopWrapper,
   SubmitWrapper,
 } from "./CraftsForm.styled";
-import { Button, ImageUploader, Input } from "components";
+import { Button, ImageUploader, Input, Select } from "components";
 import { ENDPOINTS } from "helpers/endpoints";
 import { axiosInstance } from "services/axiosClient";
-import { ICraft } from "types";
+import { ICraft, PostTypes } from "types";
 
 interface ICraftsForm {
   crafts: ICraft[];
 }
+
+const types = Object.values(PostTypes).map((type) => ({
+  label: type,
+  value: type,
+}));
 
 export const CraftsForm = ({ defaultValues }) => {
   const [crafts, setCrafts] = useState<ICraft[]>(defaultValues.crafts);
@@ -42,6 +47,7 @@ export const CraftsForm = ({ defaultValues }) => {
       image: null,
       href: "",
       title: "",
+      type: "drawing",
     };
 
     setCrafts((prev) => [...prev, newSection]);
@@ -71,6 +77,7 @@ export const CraftsForm = ({ defaultValues }) => {
                 id={`crafts[${index}].image`}
                 setValue={setValue}
                 defaultValue={image}
+                buttonStyle
               />
               <InputWrapper>
                 <Input
@@ -86,6 +93,12 @@ export const CraftsForm = ({ defaultValues }) => {
                   defaultValue={href}
                   placeholder="href"
                   fullWidth
+                />
+                <Select
+                  id={`crafts[${index}].type`}
+                  register={register}
+                  placeholder="Type"
+                  options={types}
                 />
                 <Button
                   onClick={() => handleOnRemoveSection({ title })}

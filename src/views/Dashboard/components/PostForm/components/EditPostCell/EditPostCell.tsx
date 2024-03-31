@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { useMutation } from "@tanstack/react-query";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { Form, InputWrapper, BottomWrapper } from "./EditPostCell.styled";
@@ -29,21 +28,6 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
 
   const toggle = () => setOpen((prev) => !prev);
 
-  // const updatePost = async ({ id, values }) =>
-  //   axiosInstance.put(ENDPOINTS.POST.UPDATE({ id }), values);
-  // const updateMutation = useMutation({
-  //   mutationFn: updatePost,
-  //   onSuccess: () => {
-  //     refetchList();
-  //   },
-  // });
-
-  // const onSubmit = async (values: SubmitHandler<IPost>) => {
-  //   try {
-  //     updateMutation.mutate({ id, values });
-  //   } catch {}
-  // };
-
   const onSubmit = async (data: SubmitHandler<IPost>) => {
     setLoading(true);
 
@@ -68,6 +52,7 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
               id="image"
               setValue={setValue}
               defaultValue={data.image}
+              buttonStyle
             />
             <Input
               id="state"
@@ -89,8 +74,8 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
             />
           </InputWrapper>
           <BottomWrapper>
-            <Button type="submit" fullWidth>
-              Edit
+            <Button isLoading={isLoading} type="submit" fullWidth>
+              Submit
             </Button>
           </BottomWrapper>
         </Form>

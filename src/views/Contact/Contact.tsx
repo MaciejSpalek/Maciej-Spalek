@@ -8,6 +8,7 @@ import {
   Heading,
   Title,
   Subtitle,
+  ButtonWrapper
 } from "./Contact.styled";
 import { useContact } from "./useContact";
 
@@ -60,9 +61,12 @@ export const Contact = () => {
           placeholder="Message"
           rows={5}
         />
+        <ButtonWrapper>
+
         <Button type="submit" fullWidth>
-          Submit
+          Send
         </Button>
+        </ButtonWrapper>
       </FormWrapper>
     </Container>
   );

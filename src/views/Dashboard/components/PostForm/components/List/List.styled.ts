@@ -1,9 +1,25 @@
 import styled from "styled-components";
-import { colors, flexColumn, flexRow } from "theme";
+import { colors, flexColumn, flexRow, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
   gap: 16px;
+`;
+
+export const TopWrapper = styled.div`
+  ${flexRow};
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+`;
+
+export const Heading = styled.p`
+  ${getFont("regular", 12, 18)};
+  letter-spacing: 7.2px;
+  line-height: 32px;
+  color: ${colors.grayScale[4]};
+  margin: 0;
+  text-transform: uppercase;
 `;
 
 export const Section = styled.div`
@@ -16,11 +32,11 @@ export const Section = styled.div`
 
 export const Row = styled.li<{ last: boolean }>`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   align-items: center;
   width: 100%;
   gap: 16px;
-  padding: 16px;
+  padding: 16px 0;
   border-bottom: ${({ last }) => (last ? "none" : "1px solid")};
   border-color: ${colors.grayScale[2]};
 `;
@@ -46,18 +62,18 @@ export const HeaderCell = styled.p`
 export const ContentList = styled.ul`
   ${flexColumn};
   gap: 16px;
-  padding: 0 16px 16px;
+  padding: 0;
   border-bottom: 1px solid ${colors.grayScale[2]};
   overflow-x: auto;
 `;
 
 export const HeaderList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   align-items: center;
   width: 100%;
   gap: 16px;
-  padding: 0 16px 16px;
+  padding: 0;
   border-bottom: 1px solid ${colors.grayScale[2]};
   overflow-x: auto;
 `;

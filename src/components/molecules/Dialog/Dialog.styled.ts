@@ -39,6 +39,7 @@ export const Divider = styled.hr`
 
 export const DialogContent = styled.div`
   ${flexCenter}
+  padding: 0;
 `;
 
 export const Title = styled.h1`

@@ -39,6 +39,11 @@ export const LeftWrapper = styled.div`
   }
 `;
 
+export const ButtonWrapper = styled.div`
+  ${flexRow};
+  justify-content: flex-end;
+`;
+
 export const TextWrapper = styled.div`
   ${flexColumn};
   align-items: flex-start;

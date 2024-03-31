@@ -30,7 +30,7 @@ export const Dialog = ({ children, title, isOpen, toggle, size }: IDialog) => {
       <StyledDialog size={dialogSize} ref={ref}>
         <TopWrapper>
           <Title>{title}</Title>
-          <Button size="square" onClick={toggle} icon={CloseIcon}></Button>
+          <Button  size="square" onClick={toggle} icon={CloseIcon}></Button>
         </TopWrapper>
         <Divider />
         <DialogContent>{children}</DialogContent>

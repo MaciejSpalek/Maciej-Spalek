@@ -1,27 +1,38 @@
 import { useQuery } from "@tanstack/react-query";
+
+import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
 import { QUERY_KEYS } from "helpers/queryKeys";
-import { axiosInstance } from "services/axiosClient";
-import { IPost, PostType } from "types";
+import { IPost, IPostListFilters } from "types";
+import { getQueryParams } from "helpers";
 
 interface IProps {
-  type?: PostType;
+  filters?: IPostListFilters;
+  enabled?: boolean;
 }
 
-export const usePostListQuery = (filters: IProps) => {
-  const getPosts = async ({ queryKey }): Promise<{ data: IPost[] }> => {
-    const filters = queryKey[0][1];
-    return await axiosInstance.get(ENDPOINTS.POST.LIST(filters));
+export const usePostListQuery = ({
+  enabled = true,
+  filters,
+}: IProps) => {
+  const getPosts = async (): Promise<{ data: IPost[] }> => {
+    const queryParams = getQueryParams(filters);
+    return await axiosInstance.get(ENDPOINTS.POST.LIST(queryParams));
+  };
+
+  const triggerParams: IProps = {
+    filters,
+    enabled,
   };
 
   const { data, isFetching, isError, refetch } = useQuery<{ data: IPost[] }>({
-    queryKey: [QUERY_KEYS.POST.LIST(filters)],
+    queryKey: [QUERY_KEYS.POST.LIST(triggerParams)],
     queryFn: getPosts,
+    enabled,
   });
 
   const fetchedData = data?.data;
 
-  console.log(fetchedData);
   return {
     data: fetchedData,
     refetch,

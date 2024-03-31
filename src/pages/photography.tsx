@@ -9,13 +9,13 @@ export default Photography;
 export async function getServerSideProps() {
   try {
     const craftResponse = await fetch(
-      "http://localhost:5000/api/craft/get/photography"
+      `http://localhost:5000/api/craft/get/${PostTypes.photography}`
     );
     const sectionsResponse = await fetch(
       "http://localhost:5000/api/craft/get-all"
     );
     const postsResponse = await fetch(
-      `http://localhost:5000/api/post/list?type=${PostTypes.photography}`
+      `http://localhost:5000/api/post/list?type=${PostTypes.photography}&limit=10`
     );
 
     if (!craftResponse.ok) {
@@ -44,4 +44,3 @@ export async function getServerSideProps() {
     };
   }
 }
-

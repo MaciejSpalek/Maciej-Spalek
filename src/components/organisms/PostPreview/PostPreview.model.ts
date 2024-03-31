@@ -1,5 +1,5 @@
-import { IPostCard } from "types";
+import { IPost } from "types";
 
 export interface PostPreviewProps {
-  list: IPostCard[]
+  list: IPost[]
 }

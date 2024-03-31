@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, flexCenter, flexColumn } from "theme";
+import { colors, flexCenter, flexColumn, flexRow, getFont } from "theme";
 import { DownloadIcon } from "assets";
 
 export const Container = styled.div`
@@ -53,4 +53,60 @@ export const HiddenWrapper = styled.div`
   visibility: hidden;
   padding: 12px;
   z-index: 999;
+`;
+
+export const ButtonContainer = styled.div`
+  ${flexRow};
+  position: relative;
+  height: 50px;
+  gap: 16px;
+`;
+
+export const FileButton = styled.button`
+  ${flexCenter};
+  justify-content: flex-start;
+  gap: 16px;
+  height: 52px;
+  background-color: ${colors.grayScale[7]};
+  border-radius: 8px;
+  padding: 0 16px 0 0;
+  border: none;
+  overflow: hidden;
+  color: ${colors.grayScale[2]};
+  ${getFont('semibold', 14)};
+  cursor: pointer;
+  transition: 0.5s ease;
+  white-space: nowrap;
+
+  :hover {
+    background-color: ${colors.grayScale[3]};
+
+    path {
+      fill: ${colors.grayScale[2]};
+      transition: 0.5s ease;
+    }
+  }
+`;
+
+export const FileImageWrapper = styled.div`
+  ${flexCenter};
+  width: auto;
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1/1;
+`;
+
+export const FileTextWrapper = styled.div`
+  ${flexCenter};
+`;
+
+export const SmallDownloadIcon = styled(DownloadIcon)`
+  width: 32px;
+  height: 32px;
+
+  path {
+    fill: ${colors.grayScale[2]};
+    transition: 0.5s ease;
+    
+  }
 `;

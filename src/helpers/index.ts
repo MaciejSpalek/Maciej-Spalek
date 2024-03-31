@@ -1,5 +1,6 @@
 export * from "./animationParams";
 export * from "./localStorageKeys";
+export * from "./localStorage";
 export * from "./conversion";
 export * from "./queryKeys";
 export * from "./array";

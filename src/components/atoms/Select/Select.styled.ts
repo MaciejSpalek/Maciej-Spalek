@@ -32,11 +32,6 @@ export const StyledSelect = styled.select<{ fullWidth?: boolean; touched: boolea
   text-transform: capitalize;
   border: none;
   outline: 0;
-
-  ::placeholder {
-    color: ${colors.grayScale[2]};
-    font-size: 18px;
-  }
 `;
 
 export const Label = styled.label`

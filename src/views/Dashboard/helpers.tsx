@@ -1,7 +1,7 @@
 import React from "react";
 import { DashboardSteps } from "helpers";
 import { CraftsForm, HomePageForm, PostForm } from "./components";
-import { DashboardStepTypes, IHome, IPostCard } from "types";
+import { DashboardStepTypes, IHome } from "types";
 
 export const staticHomeInitialValues = {
   home: {
@@ -39,10 +39,6 @@ export const getStep = ({
 
     case DashboardSteps.POSTS: {
       return <PostForm />;
-    }
-
-    case DashboardSteps.IMAGES: {
-      return <></>;
     }
   }
 };

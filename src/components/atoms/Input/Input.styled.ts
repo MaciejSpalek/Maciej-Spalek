@@ -33,8 +33,7 @@ export const StyledInput = styled.input<{ fullWidth?: boolean; touched: boolean;
   outline: 0;
 
   ::placeholder {
-    color: ${colors.grayScale[2]};
-    font-size: 18px;
+    color: ${colors.grayScale[3]};
   }
 `;
 

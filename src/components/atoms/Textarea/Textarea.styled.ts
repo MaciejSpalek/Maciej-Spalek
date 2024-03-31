@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors, flexColumn, flexRow } from "theme";
+import { colors, flexColumn, flexRow, getFont } from "theme";
 
 export const Container = styled.div<{ fullWidth?: boolean }>`
   ${flexColumn};
@@ -24,28 +24,25 @@ export const Wrapper = styled.div<{ error: boolean; touched: boolean }>`
   }
 `;
 
-export const StyledInput = styled.textarea<{
+interface IInput {
   fullWidth?: boolean;
   touched: boolean;
   error: boolean;
-}>`
+}
+export const StyledInput = styled.textarea<IInput>`
   padding: 12px;
   width: 100%;
   height: 100%;
   background: ${colors.grayScale[7]};
   color: ${({ error, touched }) =>
     error && touched ? colors.secondary.main : colors.grayScale[1]};
-  font-family: "Inter Regular";
-  font-size: 18px;
-  font-weight: 500;
+  ${getFont('medium', 12, 18)};
   resize: none;
   border: none;
   outline: 0;
-  color: ${colors.grayScale[1]};
 
   ::placeholder {
-    color: ${colors.grayScale[2]};
-    font-size: 18px;
+    color: ${colors.grayScale[3]};
   }
 `;
 

@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useQueryClient } from "@tanstack/react-query";
 
-import { Form, Heading, Section } from "./Filters.styled";
+import { FieldWrapper, Form, Heading, Section } from "./Filters.styled";
 import { Button, Select } from "components";
-import { LS_KEYS, QUERY_KEYS } from "helpers";
+import { generateArray, ls, LS_KEYS, QUERY_KEYS } from "helpers";
 import { PostTypes } from "types";
 
 const getOptions = () => {
@@ -17,43 +17,57 @@ const getOptions = () => {
   return [allOption, ...restTypes];
 };
 
+const limitOptions = generateArray(1, 10).map((limit) => ({
+  label: (limit * 10).toString(),
+  value: (limit * 10).toString(),
+}));
+
 export const Filters = () => {
-  const lsType = localStorage.getItem(LS_KEYS.POST_LIST_TYPE);
+  const lsPostFilters = ls.get(LS_KEYS.POST_LIST_FILTERS);
+  const { type: lsType, limit: lsLimit } = lsPostFilters || {};
+
   const { register, handleSubmit, watch } = useForm({
-    defaultValues: { type: lsType },
+    defaultValues: { type: lsType, limit: lsLimit },
   });
   const queryClient = useQueryClient();
 
   const selectOptions = getOptions();
   const type = watch("type");
+  const limit = watch("limit");
 
-  const refetchUserData = async ({ type }) => {
+  const refetchPosts = async () =>
     await queryClient.refetchQueries({
-      queryKey: [QUERY_KEYS.POST.LIST({ type })],
+      queryKey: [QUERY_KEYS.POST.LIST({})],
     });
-  };
 
   const onSubmit = () => {
-    refetchUserData({ type: lsType });
+    refetchPosts();
   };
 
   useEffect(() => {
     if (null != type) {
-      localStorage.setItem(LS_KEYS.POST_LIST_TYPE, type);
+      ls.set({ key: LS_KEYS.POST_LIST_FILTERS, value: { type, limit } });
     }
-  }, [type]);
+  }, [type, limit]);
 
   return (
     <Section>
       <Heading>Filters</Heading>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Select
-          id="type"
-          options={selectOptions}
-          register={register}
-          placeholder="Type"
-          name="type"
-        />
+        <FieldWrapper>
+          <Select
+            id="type"
+            options={selectOptions}
+            register={register}
+            name="type"
+          />
+          <Select
+            id="limit"
+            options={limitOptions}
+            register={register}
+            name="limit"
+          />
+        </FieldWrapper>
         <Button type="submit">Save</Button>
       </Form>
     </Section>

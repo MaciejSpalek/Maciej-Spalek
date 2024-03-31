@@ -15,49 +15,69 @@ import {
   Section,
   Cell,
   Row,
+  TopWrapper,
+  Heading,
 } from "./List.styled";
-import { LS_KEYS } from "helpers";
-import { IPost } from "types";
+import { ls, LS_KEYS } from "helpers";
+import { AddPostDialog } from "../AddPostDialog";
 
-const headers = ["Image", "Type", "Description", "Price", "State", "Action"];
+const headers = [
+  "No.",
+  "Image",
+  "Type",
+  "Description",
+  "Price",
+  "State",
+  "Action",
+];
 
 export const List = () => {
-  const type = localStorage.getItem(LS_KEYS.POST_LIST_TYPE) as IPost["type"];
-  const { data, isFetching, isError, refetch } = usePostListQuery({ type });
+  const postListFilters = ls.get(LS_KEYS.POST_LIST_FILTERS);
+  const { data, isFetching, isError, refetch } = usePostListQuery({
+    filters: postListFilters,
+  });
 
   if (isError) return <div>error</div>;
-  if (isFetching) return null;
 
   return (
     <Container>
       <Filters />
       <Section>
+        <TopWrapper>
+          <Heading>Posts</Heading>
+          <AddPostDialog />
+        </TopWrapper>
         <HeaderList>
           {headers.map((header) => (
-            <HeaderItem>
+            <HeaderItem key={header}>
               <HeaderCell>{header}</HeaderCell>
             </HeaderItem>
           ))}
         </HeaderList>
         <ContentList>
-          {data.map((post, index) => {
-            const { _id, image, type, description, price, state } = post;
-            return (
-              <Row key={_id} last={index === data.length - 1}>
-                <ImageWrapper>
-                  <Image src={image} height={60} width={60} />
-                </ImageWrapper>
-                <Cell>{type}</Cell>
-                <Cell>{description || ""}</Cell>
-                <Cell>{price || ""}</Cell>
-                <Cell>{state || ""}</Cell>
-                <ActionCell>
-                  <EditPostCell refetchList={refetch} data={post} />
-                  <RemovePostCell refetchList={refetch} id={_id} />
-                </ActionCell>
-              </Row>
-            );
-          })}
+          {isFetching ? (
+            <p>Loading...</p>
+          ) : (
+            data.map((post, index) => {
+              const { _id, image, type, description, price, state } = post;
+              return (
+                <Row key={_id} last={index === data.length - 1}>
+                  <Cell>{index + 1}.</Cell>
+                  <ImageWrapper>
+                    <Image src={image} height={60} width={60} />
+                  </ImageWrapper>
+                  <Cell>{type}</Cell>
+                  <Cell>{description || ""}</Cell>
+                  <Cell>{price || ""}</Cell>
+                  <Cell>{state || ""}</Cell>
+                  <ActionCell>
+                    <EditPostCell refetchList={refetch} data={post} />
+                    <RemovePostCell refetchList={refetch} id={_id} />
+                  </ActionCell>
+                </Row>
+              );
+            })
+          )}
         </ContentList>
       </Section>
     </Container>

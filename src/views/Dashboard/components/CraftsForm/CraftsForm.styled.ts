@@ -52,6 +52,7 @@ export const AboutRowWrapper = styled.div`
 export const SectionsRowWrapper = styled.div`
   display: grid;
   grid-template-columns: minmax(100px, 15%) 1fr;
+  align-items: center;
   gap: 16px;
   width: 100%;
 `;

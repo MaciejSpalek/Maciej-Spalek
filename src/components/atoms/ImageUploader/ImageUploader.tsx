@@ -11,12 +11,16 @@ import {
   StyledButton,
   Container,
   Input,
+  ButtonContainer,
+  FileButton,
+  FileImageWrapper,
+  SmallDownloadIcon,
 } from "./ImageUploader.styled";
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
 
 export const ImageUploader = forwardRef(
-  ({ id, setValue, defaultValue = null }: IInput, ref) => {
+  ({ id, setValue, buttonStyle, defaultValue = null }: IInput, ref) => {
     const [image, setImage] = useState<string>(defaultValue?.toString());
     const hiddenFileInput = useRef(null);
 
@@ -51,6 +55,31 @@ export const ImageUploader = forwardRef(
         reader.readAsDataURL(file);
       }
     };
+
+    if (buttonStyle) {
+      return (
+        <ButtonContainer ref={ref}>
+          <FileButton type="button" onClick={handleClick}>
+            <FileImageWrapper>
+              {image ? (
+                <Image
+                  src={image}
+                  loading="eager"
+                  alt={id}
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+              ) : (
+                <SmallDownloadIcon />
+              )}
+            </FileImageWrapper>
+            {image ? "Uploaded" : "Upload file"}
+          </FileButton>
+          <Input type="file" onChange={handleChange} ref={hiddenFileInput} />
+        </ButtonContainer>
+      );
+    }
 
     return (
       <Container ref={ref}>

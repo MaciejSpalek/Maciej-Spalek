@@ -9,13 +9,13 @@ export default Paintings;
 export async function getServerSideProps() {
   try {
     const craftResponse = await fetch(
-      "http://localhost:5000/api/craft/get/paintings"
+      `http://localhost:5000/api/craft/get/${PostTypes.painting}`
     );
     const sectionsResponse = await fetch(
       "http://localhost:5000/api/craft/get-all"
     );
     const postsResponse = await fetch(
-      `http://localhost:5000/api/post/list?type=${PostTypes.painting}`
+      `http://localhost:5000/api/post/list?type=${PostTypes.painting}&limit=10`
     );
 
     if (!craftResponse.ok) {

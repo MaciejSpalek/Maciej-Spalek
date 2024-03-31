@@ -1,8 +1,8 @@
-import { IPostCard } from "./post";
+import { PostType } from "./post";
 
 export interface ICraft {
-  image: File;
+  image: string;
   title: string;
   href: string;
-  posts?: IPostCard[];
+  type: PostType
 }

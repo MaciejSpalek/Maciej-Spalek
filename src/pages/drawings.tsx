@@ -8,13 +8,13 @@ export default Drawings;
 export async function getServerSideProps() {
   try {
     const craftResponse = await fetch(
-      "http://localhost:5000/api/craft/get/drawings"
+      `http://localhost:5000/api/craft/get/${PostTypes.drawing}`
     );
     const sectionsResponse = await fetch(
       "http://localhost:5000/api/craft/get-all"
     );
     const postsResponse = await fetch(
-      `http://localhost:5000/api/post/list?type=${PostTypes.drawing}`
+      `http://localhost:5000/api/post/list?type=${PostTypes.drawing}&limit=10`
     );
 
     if (!craftResponse.ok) {

@@ -23,10 +23,11 @@ export const BaseButton = styled.button<IBaseButton>`
   }
 `;
 
-export const StyledIconWrapper = styled.div<{
+interface IStyledIconWrapper {
   disabled: boolean;
   isLoading: boolean;
-}>`
+}
+export const StyledIconWrapper = styled.div<IStyledIconWrapper>`
   position: ${({ isLoading }) => (isLoading ? "absolute" : "static")};
   ${flexCenter};
   width: auto;

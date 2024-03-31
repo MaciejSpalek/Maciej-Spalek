@@ -21,6 +21,10 @@ export interface IPost {
   state?: PostState;
   type: PostType;
 }
+
+export interface IPostListFilters {
+  type: IPost['type']
+}
 export interface IPostCard extends IPost {
   onClick: (id: string) => void;
 }

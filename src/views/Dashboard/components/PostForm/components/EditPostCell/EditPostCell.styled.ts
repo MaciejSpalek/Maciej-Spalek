@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { colors, flexColumn, flexRow } from "theme";
+import { flexCenter, flexColumn, flexRow } from "theme";
 
 export const InputWrapper = styled.div`
-  ${flexRow};
-  align-items: flex-start;
+  ${flexCenter};
   gap: 16px;
 `;
 
