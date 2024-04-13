@@ -17,4 +17,6 @@ export const ENDPOINTS = {
   IMAGE: {
     UPLOAD: "image/upload",
   },
+  SEND_EMAIL: "email/send",
+  LOGIN: '/auth/login'
 };

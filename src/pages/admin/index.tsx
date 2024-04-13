@@ -19,7 +19,6 @@ export async function getServerSideProps() {
     const crafts = await craftsResponse.json();
     const home = await homeResponse.json();
 
-    console.log({ crafts, home });
     return {
       props: {
         home: home?.[0]?.home || null,

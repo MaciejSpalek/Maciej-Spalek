@@ -15,16 +15,15 @@ export const PostList = ({
   image,
   type,
 }: PostListProps) => {
-  const filters = { type };
   const { imageRef, listRef } = usePostList();
   const [limit, setLimit] = useState(10);
   const [enabled, setEnabled] = useState(false);
   const router = useRouter();
 
+  const filters = { type, limit };
   const { data: fetchedList, isFetching } = usePostListQuery({
     filters,
     enabled,
-    limit,
   });
 
   const list = fetchedList || initialList || [];

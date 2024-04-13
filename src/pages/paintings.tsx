@@ -29,6 +29,7 @@ export async function getServerSideProps() {
     const craft = await craftResponse.json();
     const posts = await postsResponse.json();
 
+    console.log(craft);
     return {
       props: {
         data: { sections, craft, posts },

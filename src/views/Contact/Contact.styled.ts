@@ -50,22 +50,22 @@ export const TextWrapper = styled.div`
 `;
 
 export const Title = styled.p`
+  ${getFont("semibold", 32, 72)};
   color: ${colors.white};
   margin: 0;
   line-height: 100%;
-  ${getFont("semibold", 32, 72)};
 `;
 
 export const Subtitle = styled.p`
-  color: ${colors.grayScale[5]};
   ${getFont("regular", 16)};
+  color: ${colors.grayScale[5]};
 `;
 
 export const Heading = styled.h1`
+  ${getFont("regular", 12, 18)};
   color: ${colors.grayScale[4]};
   letter-spacing: 7.2px;
   text-transform: uppercase;
-  ${getFont("regular", 12, 18)};
   margin-bottom: 40px;
 
   @media ${devices.md} {

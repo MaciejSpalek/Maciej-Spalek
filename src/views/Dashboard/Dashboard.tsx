@@ -6,6 +6,7 @@ import { Container, Heading, TopBar } from "./Dashboard.styled";
 import { getStep, staticHomeInitialValues } from "./helpers";
 import { DashboardSteps } from "helpers";
 import { ICraft, IHome } from "types";
+import { Protected } from "layouts/Protected";
 
 interface IProps {
   crafts: ICraft;
@@ -19,16 +20,18 @@ export const Dashboard = ({ home, crafts }: IProps) => {
   const [step, setStep] = useState(DashboardSteps.HOME);
 
   return (
-    <Container>
-      <TopBar>
-        <Heading>Dashboard</Heading>
-        <Navigation step={step} setStep={setStep} />
-      </TopBar>
-      {getStep({
-        craftsDefaultValues,
-        homeDefaultValues,
-        step,
-      })}
-    </Container>
+    <Protected>
+      <Container>
+        <TopBar>
+          <Heading>Dashboard</Heading>
+          <Navigation step={step} setStep={setStep} />
+        </TopBar>
+        {getStep({
+          craftsDefaultValues,
+          homeDefaultValues,
+          step,
+        })}
+      </Container>
+    </Protected>
   );
 };

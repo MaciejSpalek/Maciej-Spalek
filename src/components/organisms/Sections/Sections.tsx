@@ -29,7 +29,6 @@ export const Sections = ({ sections = [] }: ISections) => {
     sectionsHeadingRef,
     sectionsListRef,
   } = useSections(sections);
-
   return (
     <Container ref={sectionsContainerRef}>
       <Heading ref={sectionsHeadingRef}>what i’m doing</Heading>
