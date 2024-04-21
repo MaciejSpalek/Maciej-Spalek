@@ -1,7 +1,9 @@
+import { IPost } from "./post";
+
 export interface ISection {
   _id?: string;
   image: string;
   title: string;
   href: string;
-  type
+  type: IPost['type']
 }

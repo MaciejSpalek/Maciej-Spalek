@@ -3,17 +3,18 @@ import { IPost, ISection } from "types";
 import { Container } from "./Craft.styled";
 
 interface ICraft {
-  craft: ISection;
   sections: ISection[];
+  craft: ISection;
   posts: IPost[];
+  postsAmount: number;
 }
 
-export const Craft = ({ craft, sections, posts }: ICraft) => {
+export const Craft = ({ craft, sections, posts, postsAmount }: ICraft) => {
   const { title, image, type } = craft;
 
   return (
     <Container>
-      <PostList title={title} initialList={posts} image={image} type={type} />
+      <PostList title={title} initialList={posts} image={image} type={type} postsAmount={postsAmount}/>
       <Sections sections={sections} />
     </Container>
   );

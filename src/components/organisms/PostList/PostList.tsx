@@ -11,6 +11,7 @@ import { usePostListQuery } from "queries";
 
 export const PostList = ({
   initialList,
+  postsAmount,
   title,
   image,
   type,
@@ -27,7 +28,7 @@ export const PostList = ({
   });
 
   const list = fetchedList || initialList || [];
-  const isLoadingMoreButtonVisible = list.length;
+  const isLoadingMoreButtonVisible = postsAmount >= limit;
 
   const handleOnButton = () => {
     setLimit((prev) => (prev += 10));

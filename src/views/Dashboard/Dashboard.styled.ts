@@ -10,9 +10,23 @@ export const Container = styled.div`
   margin-top: 64px;
 `;
 
+export const Wrapper = styled.div`
+  ${flexCenter};
+  align-items: center;
+  width: auto;
+`;
+
 export const TopBar = styled.div`
   ${flexCenter};
   justify-content: space-between;
+`;
+
+export const ArrowButton = styled.button`
+  ${flexCenter};
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-right: 8px;
 `;
 
 export const Heading = styled.h1`

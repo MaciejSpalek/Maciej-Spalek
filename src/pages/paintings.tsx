@@ -11,11 +11,17 @@ export async function getServerSideProps() {
     const craftResponse = await fetch(
       `http://localhost:5000/api/craft/get/${PostTypes.painting}`
     );
+    
     const sectionsResponse = await fetch(
       "http://localhost:5000/api/craft/get-all"
     );
+
     const postsResponse = await fetch(
       `http://localhost:5000/api/post/list?type=${PostTypes.painting}&limit=10`
+    );
+
+    const postsAmountResponse = await fetch(
+      `http://localhost:5000/api/post/amount?type=${PostTypes.painting}`
     );
 
     if (!craftResponse.ok) {
@@ -25,14 +31,14 @@ export async function getServerSideProps() {
       };
     }
 
+    const postsAmount = await postsAmountResponse.json();
     const sections = await sectionsResponse.json();
     const craft = await craftResponse.json();
     const posts = await postsResponse.json();
 
-    console.log(craft);
     return {
       props: {
-        data: { sections, craft, posts },
+        data: { sections, craft, posts, postsAmount },
       },
     };
   } catch (error) {

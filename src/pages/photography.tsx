@@ -18,6 +18,10 @@ export async function getServerSideProps() {
       `http://localhost:5000/api/post/list?type=${PostTypes.photography}&limit=10`
     );
 
+    const postsAmountResponse = await fetch(
+      `http://localhost:5000/api/post/amount?type=${PostTypes.painting}`
+    );
+
     if (!craftResponse.ok) {
       console.error(`Nieudane zapytanie. Status: ${craftResponse.status}`);
       return {
@@ -25,13 +29,14 @@ export async function getServerSideProps() {
       };
     }
 
+    const postsAmount = await postsAmountResponse.json();
     const sections = await sectionsResponse.json();
     const craft = await craftResponse.json();
     const posts = await postsResponse.json();
 
     return {
       props: {
-        data: { sections, craft, posts },
+        data: { sections, craft, posts, postsAmount },
       },
     };
   } catch (error) {
