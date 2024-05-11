@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button, CirclePhoto, Input, Textarea } from "components";
 import {
   Container,
@@ -14,6 +14,8 @@ import { useContact } from "./useContact";
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
 import { useMutation } from "@tanstack/react-query";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { contactFormValidationSchema } from "./validation";
 
 interface IFormInput {
   name: string;
@@ -23,18 +25,32 @@ interface IFormInput {
 
 export const Contact = () => {
   const { containerRef, formWrapperRef, leftWrapperRef } = useContact();
-  const { register, handleSubmit } = useForm<IFormInput>();
+  const {
+    register,
+    handleSubmit,
+    resetField,
+    formState: { errors },
+  } = useForm<IFormInput>({
+    resolver: yupResolver(contactFormValidationSchema),
+    mode: "onChange",
+  });
 
+  console.log({ errors });
   const sendEmail = async (payload) =>
     axiosInstance.post(ENDPOINTS.SEND_EMAIL, payload);
 
   const sendEmailMutation = useMutation({
     mutationFn: sendEmail,
+    onSuccess: () => {
+      resetField("message");
+    },
   });
 
-  const onSubmit = async (data: SubmitHandler<IFormInput>) => {
+  const onSubmit = async (data: IFormInput) => {
     await sendEmailMutation.mutate(data);
   };
+
+  const isLoading = sendEmailMutation.isPending;
 
   return (
     <Container ref={containerRef}>
@@ -51,17 +67,35 @@ export const Contact = () => {
             veniam, quis nostrud.
           </Subtitle>
         </TextWrapper>
-        <Input register={register} fullWidth id="name" placeholder="Name" />
-        <Input register={register} fullWidth id="email" placeholder="Email" />
+        <Input
+          error={errors?.name?.message}
+          register={register}
+          fullWidth
+          id="name"
+          placeholder="Name"
+        />
+        <Input
+          error={errors?.email?.message}
+          register={register}
+          fullWidth
+          id="email"
+          placeholder="Email"
+        />
         <Textarea
           register={register}
           fullWidth
           id="message"
           placeholder="Message"
+          error={errors?.message?.message}
           rows={5}
         />
         <ButtonWrapper>
-          <Button type="submit" fullWidth>
+          <Button
+            isLoading={isLoading}
+            disabled={isLoading}
+            type="submit"
+            fullWidth
+          >
             Send
           </Button>
         </ButtonWrapper>

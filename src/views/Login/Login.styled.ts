@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, devices, flexColumn, flexRow, getFont } from "theme";
+import { colors, devices, flexColumn, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
@@ -9,8 +9,10 @@ export const Container = styled.div`
   padding: 24px;
   gap: 64px;
   margin-top: 64px;
-  width: auto;
-  min-width: 600px;
+  
+  @media ${devices.md} {
+    max-width: 600px;
+  }
 `;
 
 export const FormWrapper = styled.form`
@@ -25,5 +27,4 @@ export const Heading = styled.h1`
   text-align: start;
   white-space: no-wrap;
   ${getFont("regular", 12, 18)};
-  /* margin-bottom: 40px; */
 `;

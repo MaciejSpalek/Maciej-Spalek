@@ -29,7 +29,7 @@ export const PostList = ({
 
   const list = fetchedList || initialList || [];
   const isLoadingMoreButtonVisible = postsAmount >= limit;
-
+console.log({postsAmount, limit})
   const handleOnButton = () => {
     setLimit((prev) => (prev += 10));
     setEnabled(true);

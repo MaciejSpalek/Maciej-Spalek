@@ -8,6 +8,7 @@ import {
   StyledIconWrapper,
   StyledLoader,
 } from "./Button.styled";
+import { CircularProgress } from "../CircularProgress";
 
 export const Button = ({
   icon: Icon,
@@ -26,7 +27,7 @@ export const Button = ({
       return (
         <StyledContent>
           <StyledIconWrapper disabled={!!disabled} isLoading={isLoading}>
-            {isLoading ? <StyledLoader /> : <Icon />}
+            {isLoading ? <CircularProgress size={24} /> : <Icon />}
           </StyledIconWrapper>
           {children && <span>{children}</span>}
         </StyledContent>
@@ -37,10 +38,10 @@ export const Button = ({
       <StyledContent>
         {isLoading && (
           <StyledIconWrapper disabled={!!disabled} isLoading={isLoading}>
-            <StyledLoader />
+            <CircularProgress size={24} />
           </StyledIconWrapper>
         )}
-        <Wrapper isLoading={isLoading}>{children}</Wrapper>
+        <Wrapper>{children}</Wrapper>
       </StyledContent>
     );
   };

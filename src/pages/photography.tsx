@@ -11,15 +11,17 @@ export async function getServerSideProps() {
     const craftResponse = await fetch(
       `http://localhost:5000/api/craft/get/${PostTypes.photography}`
     );
+    
     const sectionsResponse = await fetch(
       "http://localhost:5000/api/craft/get-all"
     );
+
     const postsResponse = await fetch(
       `http://localhost:5000/api/post/list?type=${PostTypes.photography}&limit=10`
     );
 
     const postsAmountResponse = await fetch(
-      `http://localhost:5000/api/post/amount?type=${PostTypes.painting}`
+      `http://localhost:5000/api/post/amount?type=${PostTypes.photography}`
     );
 
     if (!craftResponse.ok) {

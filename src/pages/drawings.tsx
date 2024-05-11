@@ -20,7 +20,7 @@ export async function getServerSideProps() {
     );
 
     const postsAmountResponse = await fetch(
-      `http://localhost:5000/api/post/amount?type=${PostTypes.painting}`
+      `http://localhost:5000/api/post/amount?type=${PostTypes.drawing}`
     );
 
     if (!craftResponse.ok) {

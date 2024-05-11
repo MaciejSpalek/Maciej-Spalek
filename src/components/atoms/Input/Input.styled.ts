@@ -1,37 +1,51 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { colors, flexColumn, flexRow, getFont } from "theme";
 
-import { colors, flexColumn, flexRow, getFont } from 'theme';
+interface IContainer {
+  fullWidth?: boolean;
+}
 
-export const Container = styled.div<{ fullWidth?: boolean }>`
+interface IWrapper {
+  error: boolean;
+  isIcon: boolean;
+}
+
+interface IInput {
+  fullWidth?: boolean;
+  error: boolean;
+}
+
+export const Container = styled.div<IContainer>`
   ${flexColumn};
   align-items: flex-start;
-  max-width: ${({ fullWidth }) => (fullWidth ? '100%' : '300px')};
+  max-width: ${({ fullWidth }) => (fullWidth ? "100%" : "300px")};
 `;
 
-export const Wrapper = styled.div<{ error: boolean; touched: boolean; isIcon: boolean }>`
+export const Wrapper = styled.div<IWrapper>`
   ${flexRow};
   border: 1px solid
-    ${({ error, touched }) => (error && touched ? colors.secondary.main : colors.grayscale.tertiary)};
+    ${({ error }) =>
+      error ? colors.secondary.main : colors.grayscale.tertiary};
   border-radius: 8px;
   overflow: hidden;
-  padding: ${({ isIcon }) => (isIcon ? '0 8px' : 0)};
+  padding: ${({ isIcon }) => (isIcon ? "0 8px" : 0)};
   :focus-within {
     border: 1px solid
-      ${({ error, touched }) => (error && touched ? colors.secondary.main : colors.primary.main)};
+      ${({ error }) => (error ? colors.secondary.main : colors.primary.main)};
   }
 `;
 
-export const StyledInput = styled.input<{ fullWidth?: boolean; touched: boolean; error: boolean }>`
-  ${getFont('medium', 12, 18)};
+export const StyledInput = styled.input<IInput>`
+  ${getFont("medium", 12, 18)};
   padding: 0 12px;
   width: 100%;
   height: 52px;
-  background: ${colors.grayScale[7]};
-  color: ${({ error, touched }) =>
-    error && touched ? colors.secondary.main : colors.grayScale[1]};
+  background: ${({ error }) =>
+    error ? colors.label.red.light : colors.grayScale[7]};
+  color: ${({ error }) =>
+    error ? colors.secondary.main : colors.grayScale[1]};
   border: none;
   outline: 0;
-
   ::placeholder {
     color: ${colors.grayScale[3]};
   }
@@ -40,4 +54,10 @@ export const StyledInput = styled.input<{ fullWidth?: boolean; touched: boolean;
 export const Label = styled.label`
   background: ${colors.white};
   color: ${colors.grayscale.tertiary};
+`;
+
+export const ErrorMessage = styled.p`
+  color: ${colors.label.red.medium};
+  margin: 6px 2px;
+  ${getFont("medium", 12)};
 `;

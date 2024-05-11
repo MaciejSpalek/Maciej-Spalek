@@ -4,7 +4,7 @@ import { Container } from "./CircularProgress.styled";
 
 export const CircularProgress = ({
   size = 48,
-  strokeWidth = 3,
+  strokeWidth = 2.5,
   percentage = 80,
 }) => {
   const viewBox = `0 0 ${size} ${size}`;
@@ -28,9 +28,9 @@ export const CircularProgress = ({
         r={radius}
         cx={size / 2}
         cy={size / 2}
-        stroke={colors.primary.main}
+        stroke={colors.grayScale[3]}
         transform={`rotate(-90 ${size / 2} ${size / 2})`}
-        // strokeDasharray={[dash, circumference - dash] }
+        stroke-dasharray={[dash, circumference - dash] }
         strokeLinecap="round"
       />
     </Container>

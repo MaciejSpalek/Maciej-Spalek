@@ -28,7 +28,6 @@ interface IStyledIconWrapper {
   isLoading: boolean;
 }
 export const StyledIconWrapper = styled.div<IStyledIconWrapper>`
-  position: ${({ isLoading }) => (isLoading ? "absolute" : "static")};
   ${flexCenter};
   width: auto;
   margin-right: 8px;
@@ -44,9 +43,8 @@ export const StyledContent = styled.div`
   ${flexCenter};
 `;
 
-export const Wrapper = styled.div<{ isLoading: boolean }>`
+export const Wrapper = styled.div`
   ${flexCenter};
-  opacity: ${({ isLoading }) => isLoading && 0};
 `;
 
 export const StyledLoader = styled(LogoIcon)`

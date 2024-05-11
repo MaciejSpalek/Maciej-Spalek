@@ -26,16 +26,17 @@ export const Wrapper = styled.div<{ error: boolean; touched: boolean }>`
 
 interface IInput {
   fullWidth?: boolean;
-  touched: boolean;
   error: boolean;
 }
+
 export const StyledInput = styled.textarea<IInput>`
   padding: 12px;
   width: 100%;
   height: 100%;
-  background: ${colors.grayScale[7]};
-  color: ${({ error, touched }) =>
-    error && touched ? colors.secondary.main : colors.grayScale[1]};
+  background: ${({ error }) =>
+    error ? colors.label.red.light : colors.grayScale[7]};
+  color: ${({ error }) =>
+    error ? colors.secondary.main : colors.grayScale[1]};
   ${getFont('medium', 12, 18)};
   resize: none;
   border: none;
@@ -49,4 +50,10 @@ export const StyledInput = styled.textarea<IInput>`
 export const Label = styled.label`
   background: ${colors.white};
   color: ${colors.grayscale.tertiary};
+`;
+
+export const ErrorMessage = styled.p`
+  color: ${colors.label.red.medium};
+  margin: 6px 2px;
+  ${getFont("medium", 12)};
 `;

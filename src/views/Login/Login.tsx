@@ -4,8 +4,11 @@ import { Container, FormWrapper, Heading } from "./Login.styled";
 import { useMutation } from "@tanstack/react-query";
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
-import { setCookie } from "helpers/cookies";
-import { Protected } from "layouts/Protected";
+import { getCookie, setCookie } from "helpers/cookies";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { URLS } from "helpers";
+
 
 interface IFormInput {
   name: string;
@@ -14,7 +17,9 @@ interface IFormInput {
 
 export const Login = () => {
   const { register, handleSubmit } = useForm<IFormInput>();
+  const { push } = useRouter();
 
+  const token = getCookie("ms_auth_token");
   const logIn = async (payload) => axiosInstance.post(ENDPOINTS.LOGIN, payload);
 
   const loginMutation = useMutation({
@@ -30,24 +35,28 @@ export const Login = () => {
     });
   };
 
+  useEffect(() => {
+    if (token) {
+      push(URLS.admin.dashboard);
+    }
+  }, [token]);
+
   return (
-    <Protected>
-      <Container>
-        <Heading>Admin panel</Heading>
-        <FormWrapper onSubmit={handleSubmit(onSubmit)}>
-          <Input register={register} fullWidth id="name" placeholder="Login" />
-          <Input
-            register={register}
-            fullWidth
-            id="password"
-            placeholder="Password"
-            type="password"
-          />
-          <Button type="submit" fullWidth>
-            Submit
-          </Button>
-        </FormWrapper>
-      </Container>
-    </Protected>
+    <Container>
+      <Heading>Admin panel</Heading>
+      <FormWrapper onSubmit={handleSubmit(onSubmit)}>
+        <Input register={register} fullWidth id="name" placeholder="Login" />
+        <Input
+          register={register}
+          fullWidth
+          id="password"
+          placeholder="Password"
+          type="password"
+        />
+        <Button type="submit" fullWidth>
+          Submit
+        </Button>
+      </FormWrapper>
+    </Container>
   );
 };

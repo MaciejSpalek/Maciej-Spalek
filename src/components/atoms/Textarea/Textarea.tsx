@@ -1,6 +1,10 @@
 import React from "react";
-import { Container, StyledInput, Wrapper } from "./Textarea.styled";
-// import { ErrorMessage } from 'components';
+import {
+  Container,
+  StyledInput,
+  Wrapper,
+  ErrorMessage,
+} from "./Textarea.styled";
 import { ITextarea } from "./Textarea.model";
 
 export const Textarea = ({
@@ -9,21 +13,17 @@ export const Textarea = ({
   fullWidth,
   error,
   id,
-  onChange,
-  touched,
   rows,
   register,
   ...props
 }: ITextarea): JSX.Element => {
   return (
     <Container fullWidth={fullWidth}>
-      <Wrapper error={!!error} touched={!!touched}>
+      <Wrapper error={!!error}>
         <StyledInput
           placeholder={placeholder}
           aria-label={placeholder}
-          onChange={onChange}
           error={!!error}
-          touched={!!touched}
           type={type}
           name={id}
           rows={rows}
@@ -32,6 +32,7 @@ export const Textarea = ({
           {...props}
         />
       </Wrapper>
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </Container>
   );
 };

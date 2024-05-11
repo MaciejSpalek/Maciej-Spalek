@@ -4,10 +4,15 @@ import { CircularProgress } from "components";
 
 import { Container } from "./LoadingWrapper.styled";
 
-export const LoadingWrapper = () => {
+interface ILoadingWrapper {
+  height?: string;
+  size?: number;
+}
+
+export const LoadingWrapper = ({ height, size }: ILoadingWrapper) => {
   return (
-    <Container>
-      <CircularProgress />
+    <Container height={height}>
+      <CircularProgress size={size} />
     </Container>
   );
 };
