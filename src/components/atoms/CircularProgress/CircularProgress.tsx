@@ -30,7 +30,7 @@ export const CircularProgress = ({
         cy={size / 2}
         stroke={colors.grayScale[3]}
         transform={`rotate(-90 ${size / 2} ${size / 2})`}
-        stroke-dasharray={[dash, circumference - dash] }
+        strokeDasharray={`${dash},${circumference - dash}`}
         strokeLinecap="round"
       />
     </Container>
