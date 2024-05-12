@@ -31,7 +31,7 @@ export const Contact = () => {
     resetField,
     formState: { errors },
   } = useForm<IFormInput>({
-    resolver: yupResolver(contactFormValidationSchema),
+    resolver: yupResolver<IFormInput>(contactFormValidationSchema),
     mode: "onChange",
   });
 
