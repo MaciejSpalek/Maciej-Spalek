@@ -31,11 +31,10 @@ export const Contact = () => {
     resetField,
     formState: { errors },
   } = useForm<IFormInput>({
-    resolver: yupResolver<IFormInput>(contactFormValidationSchema),
+    resolver: yupResolver<any>(contactFormValidationSchema),
     mode: "onChange",
   });
 
-  console.log({ errors });
   const sendEmail = async (payload) =>
     axiosInstance.post(ENDPOINTS.SEND_EMAIL, payload);
 

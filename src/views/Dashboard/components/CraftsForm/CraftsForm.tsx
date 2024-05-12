@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import {
   Container,
   Heading,
@@ -31,7 +31,7 @@ export const CraftsForm = ({ defaultValues }) => {
   });
   const [isLoading, setLoading] = useState(false);
 
-  const onSubmit = async (data: SubmitHandler<ICraftsForm>) => {
+  const onSubmit = async (data: ICraftsForm) => {
     setLoading(true);
 
     try {

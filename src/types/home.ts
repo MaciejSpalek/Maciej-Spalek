@@ -1,11 +1,11 @@
 export interface IHeader {
-  first_photo: File;
-  second_photo: File;
+  first_photo: string;
+  second_photo: string;
   description: string;
 }
 
 export interface IAbout {
-  photo: File;
+  photo: string;
   description: string;
 }
 
