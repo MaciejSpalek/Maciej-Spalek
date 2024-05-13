@@ -9,19 +9,19 @@ export default Photography;
 export async function getServerSideProps() {
   try {
     const craftResponse = await fetch(
-      `http://localhost:5000/api/craft/get/${PostTypes.photography}`
+      `${process.env.NEXT_PUBLIC_API_URL}/craft/get/${PostTypes.photography}`
     );
     
     const sectionsResponse = await fetch(
-      "http://localhost:5000/api/craft/get-all"
+      `${process.env.NEXT_PUBLIC_API_URL}/craft/get-all`
     );
 
     const postsResponse = await fetch(
-      `http://localhost:5000/api/post/list?type=${PostTypes.photography}&limit=10`
+      `${process.env.NEXT_PUBLIC_API_URL}/post/list?type=${PostTypes.photography}&limit=10`
     );
 
     const postsAmountResponse = await fetch(
-      `http://localhost:5000/api/post/amount?type=${PostTypes.photography}`
+      `${process.env.NEXT_PUBLIC_API_URL}/post/amount?type=${PostTypes.photography}`
     );
 
     if (!craftResponse.ok) {

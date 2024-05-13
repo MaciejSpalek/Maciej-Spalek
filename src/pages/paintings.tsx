@@ -9,19 +9,19 @@ export default Paintings;
 export async function getServerSideProps() {
   try {
     const craftResponse = await fetch(
-      `http://localhost:5000/api/craft/get/${PostTypes.painting}`
+      `${process.env.NEXT_PUBLIC_API_URL}/craft/get/${PostTypes.painting}`
     );
     
     const sectionsResponse = await fetch(
-      "http://localhost:5000/api/craft/get-all"
+      `${process.env.NEXT_PUBLIC_API_URL}/craft/get-all`
     );
 
     const postsResponse = await fetch(
-      `http://localhost:5000/api/post/list?type=${PostTypes.painting}&limit=10`
+      `${process.env.NEXT_PUBLIC_API_URL}/post/list?type=${PostTypes.painting}&limit=10`
     );
 
     const postsAmountResponse = await fetch(
-      `http://localhost:5000/api/post/amount?type=${PostTypes.painting}`
+      `${process.env.NEXT_PUBLIC_API_URL}/post/amount?type=${PostTypes.painting}`
     );
 
     if (!craftResponse.ok) {
