@@ -27,13 +27,15 @@ export const Protected = ({ children }: IProtected) => {
       setAuthState("failed");
       push(URLS.admin.login);
     }
-  }, [authState]);
+  }, [authState, push]);
 
   if (authState === "loading") {
     return <LoadingWrapper height="100vh" />;
   }
 
   if (authState === "success") {
-    return children;
+    return <>{children}</>;
   }
+
+  return null;
 };

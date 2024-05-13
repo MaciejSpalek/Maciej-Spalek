@@ -28,7 +28,7 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
 
   const toggle = () => setOpen((prev) => !prev);
 
-  const onSubmit = async (data: SubmitHandler<IPost>) => {
+  const onSubmit = async (data: IPost) => {
     setLoading(true);
 
     try {

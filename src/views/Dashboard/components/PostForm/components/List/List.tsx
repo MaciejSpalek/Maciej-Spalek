@@ -64,7 +64,7 @@ export const List = () => {
                 <Row key={_id} last={index === data.length - 1}>
                   <Cell>{index + 1}.</Cell>
                   <ImageWrapper>
-                    <Image src={image} height={60} width={60} />
+                    <Image src={image} height={60} width={60} alt={description}/>
                   </ImageWrapper>
                   <Cell>{type}</Cell>
                   <Cell>{description || ""}</Cell>

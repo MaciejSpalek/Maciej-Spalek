@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button, Input } from "components";
 import { Container, FormWrapper, Heading } from "./Login.styled";
 import { useMutation } from "@tanstack/react-query";
@@ -26,7 +26,7 @@ export const Login = () => {
     mutationFn: logIn,
   });
 
-  const onSubmit = async (data: SubmitHandler<IFormInput>) => {
+  const onSubmit = async (data: IFormInput) => {
     await loginMutation.mutate(data, {
       onSuccess: ({ data }) => {
         const { token } = data;
@@ -39,7 +39,7 @@ export const Login = () => {
     if (token) {
       push(URLS.admin.dashboard);
     }
-  }, [token]);
+  }, [token, push]);
 
   return (
     <Container>
