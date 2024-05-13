@@ -4,9 +4,9 @@ export default Home;
 
 export async function getServerSideProps() {
   try {
-    const homeResponse = await fetch("http://localhost:5000/api/home/get");
+    const homeResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/home/get`);
     const craftsResponse = await fetch(
-      "http://localhost:5000/api/craft/get-all"
+      `${process.env.NEXT_PUBLIC_API_URL}/craft/get-all`
     );
 
     if (!homeResponse.ok) {
