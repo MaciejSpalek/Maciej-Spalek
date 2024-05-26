@@ -34,7 +34,7 @@ export const useSections = (sections) => {
   const renderCarouselSlides = () =>
     sections.map(({ id, image, title }) => (
       <ImageWrapper key={id}>
-        <Image src={image} layout="fill" objectFit="cover" alt={title} />
+        <Image src={image} layout="fill" objectFit="cover" objectPosition="center" alt={title} />
       </ImageWrapper>
     ));
 

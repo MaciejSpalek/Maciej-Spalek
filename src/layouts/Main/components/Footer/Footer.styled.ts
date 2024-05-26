@@ -14,9 +14,13 @@ export const Container = styled.footer`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 64px 24px 32px;
   border-radius: 40px 40px 0px 0px;
   background-color: ${colors.grayScale[1]};
+  padding: 64px 16px 32px;
+  
+  @media ${devices.md} {
+    padding: 64px 24px 32px;
+  }
 `;
 
 export const FirstWrapper = styled.div`
@@ -72,7 +76,7 @@ export const Heading = styled.h2`
   color: ${colors.white};
   line-height: 100%;
   text-align: center;
-  ${getFont("medium", 40, 94)};
+  ${getFont("medium", 32, 72)};
 `;
 
 export const Paragraph = styled.p`
