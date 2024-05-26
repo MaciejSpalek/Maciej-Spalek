@@ -1,19 +1,24 @@
 import styled from "styled-components";
-import { colors, flexColumn, getFont } from "theme";
+import { colors, devices, flexColumn, getFont } from "theme";
 
 export const Container = styled.header`
   ${flexColumn};
-  justify-content: center;
+  justify-content: space-between;
   overflow: hidden;
-  padding: 128px 24px 24px 24px;
-  min-height: calc(100vh - 60px);
+  /* min-height: calc(100vh - 60px); */
   background-color: ${colors.grayScale[1]};
   border-radius: 48px;
   gap: 16px;
+  padding: 128px 16px 16px;
+
+  @media ${devices.md} {
+    padding: 128px 24px 24px 24px;
+    gap: 16px;
+  }
 `;
 
 export const Heading = styled.h1`
-  ${getFont("semibold", 46, 72)};
+  ${getFont("semibold", 32, 72)};
   color: ${colors.white};
   text-align: center;
   margin: 0;
@@ -33,10 +38,14 @@ export const GridList = styled.ul`
   grid-template-columns: 1fr 1fr;
   width: 100%;
   list-style: none;
-  gap: 24px;
   padding: 0;
   margin: 0;
   margin-top: 48px;
+  gap: 16px;
+
+  @media ${devices.md} {
+    gap: 24px;
+  }
 `;
 
 export const GridItem = styled.li`

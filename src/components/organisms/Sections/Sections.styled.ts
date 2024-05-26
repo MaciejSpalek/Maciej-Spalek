@@ -1,13 +1,20 @@
 import styled from "styled-components";
-import { colors, devices, flexCenter, flexColumn, flexRow, getFont } from "theme";
+import {
+  colors,
+  devices,
+  flexCenter,
+  flexColumn,
+  flexRow,
+  getFont,
+} from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
   gap: 16px;
-  padding: 50px 24px 48px;
+  padding: 50px 16px 24px;
   background-color: ${colors.grayScale[1]};
   border-radius: 40px;
-  
+
   @media ${devices.md} {
     padding: 100px 24px 48px;
   }
@@ -31,8 +38,10 @@ export const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 600px;
   pointer-events: none;
+  @media ${devices.md} {
+    min-height: 600px;
+  }
   :hover div {
     visibility: visible;
   }
@@ -47,16 +56,20 @@ export const SlideHeading = styled.p`
   border-radius: 24px;
   color: ${colors.white};
   padding: 24px;
-  ${getFont('medium', 12, 24)};
+  ${getFont("medium", 12, 24)};
   text-transform: uppercase;
   letter-spacing: 7.2px;
-  z-index:1;
+  z-index: 1;
 `;
 
 export const CarouselContainer = styled.div`
   position: relative;
   ${flexRow};
   .alice-carousel__stage-item {
+    aspect-ratio: 1 / 1;
+    @media ${devices.md} {
+      aspect-ratio: auto;
+    }
     border-radius: 40px;
     overflow: hidden;
   }
@@ -65,7 +78,7 @@ export const CarouselContainer = styled.div`
 export const CarouselBar = styled.div`
   ${flexCenter};
   padding: 0 32px;
-  
+
   @media ${devices.md} {
     justify-content: space-between;
   }

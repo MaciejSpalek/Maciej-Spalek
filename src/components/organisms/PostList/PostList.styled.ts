@@ -30,6 +30,10 @@ export const MainImageContainer = styled.div`
   position: relative;
   ${flexCenter};
   border-radius: 28px;
-  height: 800px; 
   overflow: hidden;
+  
+  aspect-ratio: 4 / 5;
+  @media ${devices.md} {
+    height: 800px; 
+  }
 `;

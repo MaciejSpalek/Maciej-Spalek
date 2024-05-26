@@ -9,16 +9,13 @@ export const HeadingWrapper = styled.div`
   ${flexCenter};
   @media ${devices.md} {
     justify-content: flex-start;
-    
   }
 `;
 
 export const Heading = styled.h1`
   color: ${colors.grayScale[1]};
-  ${getFont("semibold", 52, 72)};
+  ${getFont("semibold", 42, 72)};
   text-transform: capitalize;
-
-
 `;
 
 export const Content = styled.div`
