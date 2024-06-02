@@ -26,7 +26,8 @@ export const useFooter = () => {
           duration: animationParams.duration,
           scrollTrigger: {
             trigger: containerRef.current,
-            start: isMobileView ? "top bottom" : "-50px bottom",
+            start: "top bottom",
+            markers: true
           },
         }
       );
@@ -44,7 +45,7 @@ export const useFooter = () => {
           delay: 0.25,
           scrollTrigger: {
             trigger: headingRef.current,
-            start: "-200px bottom",
+            start: "top bottom",
           },
         }
       );
@@ -61,7 +62,7 @@ export const useFooter = () => {
           duration: animationParams.duration,
           scrollTrigger: {
             trigger: buttonRef.current,
-            start: "-200px bottom",
+            start: "top bottom",
           },
         }
       );
@@ -82,29 +83,12 @@ export const useFooter = () => {
           },
         }
       );
-
-      gsap.fromTo(
-        copyrightWrapperRef.current,
-        {
-          y: "+=50",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: copyrightWrapperRef.current,
-            start: "-300px bottom",
-          },
-        }
-      );
     });
 
     return () => ctx.revert();
     
     //eslint-disable-next-line
-  }, []);
+  }, [isMobileView]);
 
   return {
     secondWrapperRef,
