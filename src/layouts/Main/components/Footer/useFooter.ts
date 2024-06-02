@@ -27,7 +27,6 @@ export const useFooter = () => {
           scrollTrigger: {
             trigger: containerRef.current,
             start: "top bottom",
-            markers: true
           },
         }
       );
