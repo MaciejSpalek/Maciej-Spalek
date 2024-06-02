@@ -16,7 +16,6 @@ export const useSections = (sections) => {
   const isMobileView = useIsMobileView();
   const carouselRef = useRef(null);
 
-
   const handleDotClick = (index) => {
     setCurrentIndex(index);
     if (carouselRef.current) {
@@ -71,102 +70,98 @@ export const useSections = (sections) => {
     }
   };
 
-  useEffect(() => {
-    console.log("Container dimensions:", sectionsContainerRef?.current?.getBoundingClientRect()); 
-
-  }, [isMobileView]);
-  
-
   // Sections
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        sectionsContainerRef.current,
-        {
-          y: "+=300",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: sectionsContainerRef.current,
-            start: 'top bottom',
+    if (!isMobileView) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          sectionsContainerRef.current,
+          {
+            y: "+=300",
+            opacity: 0,
           },
-        }
-      );
+          {
+            y: 0,
+            opacity: 1,
+            duration: animationParams.duration,
+            scrollTrigger: {
+              trigger: sectionsContainerRef.current,
+              start: "top bottom",
+            },
+          }
+        );
 
-      gsap.fromTo(
-        sectionsHeadingRef.current,
-        {
-          y: "+=50",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: sectionsHeadingRef.current,
-            start: "top bottom",
+        gsap.fromTo(
+          sectionsHeadingRef.current,
+          {
+            y: "+=50",
+            opacity: 0,
           },
-        }
-      );
+          {
+            y: 0,
+            opacity: 1,
+            duration: animationParams.duration,
+            scrollTrigger: {
+              trigger: sectionsHeadingRef.current,
+              start: "top bottom",
+            },
+          }
+        );
 
-      gsap.fromTo(
-        sectionsListRef.current,
-        {
-          y: "+=50",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: sectionsListRef.current,
-            start: "top bottom",
+        gsap.fromTo(
+          sectionsListRef.current,
+          {
+            y: "+=50",
+            opacity: 0,
           },
-        }
-      );
+          {
+            y: 0,
+            opacity: 1,
+            duration: animationParams.duration,
+            scrollTrigger: {
+              trigger: sectionsListRef.current,
+              start: "top bottom",
+            },
+          }
+        );
 
-      gsap.fromTo(
-        sectionsCarouselBarRef.current,
-        {
-          y: "+50",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: sectionsCarouselBarRef.current,
-            start: "top bottom",
+        gsap.fromTo(
+          sectionsCarouselBarRef.current,
+          {
+            y: "+50",
+            opacity: 0,
           },
-        }
-      );
+          {
+            y: 0,
+            opacity: 1,
+            duration: animationParams.duration,
+            scrollTrigger: {
+              trigger: sectionsCarouselBarRef.current,
+              start: "top bottom",
+            },
+          }
+        );
 
-      gsap.fromTo(
-        sectionsCarouselContainerRef.current,
-        {
-          y: "+=50",
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: sectionsCarouselContainerRef.current,
-            start: "top bottom",
+        gsap.fromTo(
+          sectionsCarouselContainerRef.current,
+          {
+            y: "+=50",
+            opacity: 0,
           },
-        }
-      );
-    });
+          {
+            y: 0,
+            opacity: 1,
+            duration: animationParams.duration,
+            scrollTrigger: {
+              trigger: sectionsCarouselContainerRef.current,
+              start: "top bottom",
+            },
+          }
+        );
+      });
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    }
   }, [isMobileView]);
 
   return {

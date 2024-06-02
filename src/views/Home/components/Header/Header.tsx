@@ -30,7 +30,7 @@ export const Header = () => {
     second_photo: secondPhoto,
     description,
   } = header;
-  
+
   return (
     <Container ref={headerContainerRef}>
       <Heading ref={headerHeadingRef}>Maciej Spałek</Heading>
@@ -40,10 +40,20 @@ export const Header = () => {
       </div>
       <GridList>
         <GridItem ref={headerLeftImageRef}>
-          <StyledImage src={firstPhoto} alt="Zdjęcie w windzie" layout="fill" />
+          <StyledImage
+            src={firstPhoto}
+            alt="Zdjęcie w windzie"
+            layout="fill"
+            objectFit="cover"
+          />
         </GridItem>
         <GridItem ref={headerRightImageRef}>
-          <StyledImage src={secondPhoto} alt="Zdjęcie na rzece Hudson" layout="fill" />
+          <StyledImage
+            src={secondPhoto}
+            alt="Zdjęcie na rzece Hudson"
+            layout="fill"
+            objectFit="cover"
+          />
         </GridItem>
       </GridList>
     </Container>

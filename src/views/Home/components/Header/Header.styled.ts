@@ -50,11 +50,10 @@ export const GridList = styled.ul`
 `;
 
 export const GridItem = styled.li`
+  position: relative;
   aspect-ratio: 1 / 1;
 `;
 
 export const StyledImage = styled(Image)`
   border-radius: 24px;
 `;
-
-
