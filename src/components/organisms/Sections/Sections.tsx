@@ -13,7 +13,7 @@ import {
   List,
 } from "./Sections.styled";
 
-export const Sections = ({ sections = [] }: ISections) => {
+export const Sections = ({ sections = [],  }: ISections) => {
   const {
     handlePrevSlide,
     handleNextSlide,

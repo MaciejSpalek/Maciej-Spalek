@@ -3,14 +3,17 @@ import { devices, flexCenter, colors } from "theme";
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   width: 100%;
   list-style: none;
   padding: 0;
-  gap: 48px 16px;
-  
+  gap: 8px;
+  margin: 8px;
+
   @media ${devices.sm} {
     grid-template-columns: repeat(2, 1fr);
+    margin: 16px;
+    gap: 48px 16px;
   }
 
   @media ${devices.md} {
@@ -31,9 +34,9 @@ export const MainImageContainer = styled.div`
   ${flexCenter};
   border-radius: 28px;
   overflow: hidden;
-  
   aspect-ratio: 4 / 5;
+
   @media ${devices.md} {
-    height: 800px; 
+    max-height: 600px;
   }
 `;

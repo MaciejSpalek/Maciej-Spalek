@@ -5,7 +5,7 @@ export const Meta = () => {
   return (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Spwrtt</title>
+      <title>Maciej Spałek</title>
     </Head>
   );
 };

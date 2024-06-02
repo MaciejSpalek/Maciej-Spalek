@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from "react";
 import { animationParams } from "helpers";
 
 import { gsap } from "gsap";
-
+import { useIsMobileView } from "hooks";
 
 export const useHomeAnimations = () => {
   const aboutSectionContainerRef = useRef(null);
@@ -13,7 +13,8 @@ export const useHomeAnimations = () => {
   const headerHeadingRef = useRef(null);
   const headerButtonRef = useRef(null);
 
-
+  const isMobileView = useIsMobileView();
+  console.log(isMobileView);
   // Header animations
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -21,11 +22,13 @@ export const useHomeAnimations = () => {
         headerContainerRef.current,
         {
           y: "+=300",
+          opacity: 0,
         },
         {
           y: 0,
           duration: animationParams.duration,
           opacity: 1,
+          delay: 0.5,
         }
       );
 
@@ -37,9 +40,9 @@ export const useHomeAnimations = () => {
         },
         {
           y: 0,
-          duration: 1,
+          duration: animationParams.duration,
           opacity: 1,
-          delay: .25
+          delay: 1,
         }
       );
 
@@ -52,8 +55,8 @@ export const useHomeAnimations = () => {
         {
           y: 0,
           opacity: 1,
-          duration: 1,
-          delay: 0.5
+          duration: animationParams.duration,
+          delay: 1.25,
         }
       );
 
@@ -67,7 +70,7 @@ export const useHomeAnimations = () => {
           y: 0,
           opacity: 1,
           duration: animationParams.duration,
-          delay: 0.75
+          delay: 1.5,
         }
       );
 
@@ -81,12 +84,8 @@ export const useHomeAnimations = () => {
           y: 0,
           opacity: 1,
           duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: headerLeftImageRef.current,
-            start: "top bottom",
-          },
-        },
-        
+          delay: 1.5,
+        }
       );
 
       gsap.fromTo(
@@ -99,10 +98,7 @@ export const useHomeAnimations = () => {
           y: 0,
           opacity: 1,
           duration: animationParams.duration,
-          scrollTrigger: {
-            trigger: headerRightImageRef.current,
-            start: "top bottom",
-          },
+          delay: 1.5,
         }
       );
     });
@@ -124,16 +120,15 @@ export const useHomeAnimations = () => {
           opacity: 1,
           duration: animationParams.duration,
           scrollTrigger: {
-            trigger: headerRightImageRef.current,
-            start: "bottom bottom",
+            trigger: aboutSectionContainerRef.current,
+            start: `${isMobileView ? "200px" : "300px"} bottom`,
           },
         }
       );
     });
 
     return () => ctx.revert();
-  }, []);
-
+  }, [isMobileView]);
 
   return {
     headerContainerRef,
@@ -143,6 +138,5 @@ export const useHomeAnimations = () => {
     headerHeadingRef,
     headerButtonRef,
     aboutSectionContainerRef,
-   
   };
 };

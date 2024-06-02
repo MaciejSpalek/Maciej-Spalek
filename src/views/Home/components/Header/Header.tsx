@@ -5,6 +5,7 @@ import {
   GridList,
   GridItem,
   Paragraph,
+  StyledImage,
 } from "./Header.styled";
 import Image from "next/image";
 import { useHeader } from "./useHeader";
@@ -39,10 +40,10 @@ export const Header = () => {
       </div>
       <GridList>
         <GridItem ref={headerLeftImageRef}>
-          <Image src={firstPhoto} alt="Zdjęcie w windzie" layout="fill"/>
+          <StyledImage src={firstPhoto} alt="Zdjęcie w windzie" layout="fill" />
         </GridItem>
         <GridItem ref={headerRightImageRef}>
-          <Image src={secondPhoto} alt="Zdjęcie na rzece Hudson" layout="fill" />
+          <StyledImage src={secondPhoto} alt="Zdjęcie na rzece Hudson" layout="fill" />
         </GridItem>
       </GridList>
     </Container>

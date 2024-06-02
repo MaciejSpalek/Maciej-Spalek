@@ -27,7 +27,7 @@ export const Filters = () => {
   const { type: lsType, limit: lsLimit } = lsPostFilters || {};
 
   const { register, handleSubmit, watch } = useForm({
-    defaultValues: { type: lsType, limit: lsLimit },
+    defaultValues: { type: lsType || "", limit: lsLimit || '10' },
   });
   const queryClient = useQueryClient();
 
@@ -45,9 +45,7 @@ export const Filters = () => {
   };
 
   useEffect(() => {
-    if (null != type) {
-      ls.set({ key: LS_KEYS.POST_LIST_FILTERS, value: { type, limit } });
-    }
+    ls.set({ key: LS_KEYS.POST_LIST_FILTERS, value: { type, limit } });
   }, [type, limit]);
 
   return (

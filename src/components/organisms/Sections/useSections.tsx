@@ -1,7 +1,7 @@
 import "react-alice-carousel/lib/alice-carousel.css";
 import { useIsMobileView } from "hooks";
-import {  useLayoutEffect, useRef, useState } from "react";
-import { DotItem, ImageWrapper, SlideHeading } from "./Sections.styled";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { DotItem, ImageWrapper } from "./Sections.styled";
 import Image from "next/image";
 import { animationParams } from "helpers";
 import { gsap } from "gsap";
@@ -15,6 +15,7 @@ export const useSections = (sections) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const isMobileView = useIsMobileView();
   const carouselRef = useRef(null);
+
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
@@ -34,7 +35,13 @@ export const useSections = (sections) => {
   const renderCarouselSlides = () =>
     sections.map(({ id, image, title }) => (
       <ImageWrapper key={id}>
-        <Image src={image} layout="fill" objectFit="cover" objectPosition="center" alt={title} />
+        <Image
+          src={image}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          alt={title}
+        />
       </ImageWrapper>
     ));
 
@@ -64,8 +71,14 @@ export const useSections = (sections) => {
     }
   };
 
-   // Sections
-   useLayoutEffect(() => {
+  useEffect(() => {
+    console.log("Container dimensions:", sectionsContainerRef?.current?.getBoundingClientRect()); 
+
+  }, [isMobileView]);
+  
+
+  // Sections
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         sectionsContainerRef.current,
@@ -79,7 +92,7 @@ export const useSections = (sections) => {
           duration: animationParams.duration,
           scrollTrigger: {
             trigger: sectionsContainerRef.current,
-            start: "-300px bottom",
+            start: 'top bottom',
           },
         }
       );
@@ -96,8 +109,7 @@ export const useSections = (sections) => {
           duration: animationParams.duration,
           scrollTrigger: {
             trigger: sectionsHeadingRef.current,
-            start: "-100px bottom",
-
+            start: "top bottom",
           },
         }
       );
@@ -114,8 +126,7 @@ export const useSections = (sections) => {
           duration: animationParams.duration,
           scrollTrigger: {
             trigger: sectionsListRef.current,
-            start: "-100px bottom",
-
+            start: "top bottom",
           },
         }
       );
@@ -132,8 +143,7 @@ export const useSections = (sections) => {
           duration: animationParams.duration,
           scrollTrigger: {
             trigger: sectionsCarouselBarRef.current,
-            start: "-300px bottom",
-
+            start: "top bottom",
           },
         }
       );
@@ -157,8 +167,7 @@ export const useSections = (sections) => {
     });
 
     return () => ctx.revert();
-  }, []);
-
+  }, [isMobileView]);
 
   return {
     handlePrevSlide,

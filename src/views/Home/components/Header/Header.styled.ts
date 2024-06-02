@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styled from "styled-components";
 import { colors, devices, flexColumn, getFont } from "theme";
 
@@ -49,7 +50,11 @@ export const GridList = styled.ul`
 `;
 
 export const GridItem = styled.li`
-  border-radius: 24px;
   aspect-ratio: 1 / 1;
-  overflow: hidden;
 `;
+
+export const StyledImage = styled(Image)`
+  border-radius: 24px;
+`;
+
+

@@ -1,10 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { animationParams } from "helpers";
 
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { gsap } from "gsap";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const useContact = () => {
   const containerRef = useRef<HTMLDivElement>(null);
