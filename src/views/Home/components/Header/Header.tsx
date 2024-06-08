@@ -45,6 +45,9 @@ export const Header = () => {
             alt="Zdjęcie w windzie"
             layout="fill"
             objectFit="cover"
+            priority={true}
+            loading="eager"
+
           />
         </GridItem>
         <GridItem ref={headerRightImageRef}>
@@ -53,6 +56,8 @@ export const Header = () => {
             alt="Zdjęcie na rzece Hudson"
             layout="fill"
             objectFit="cover"
+            priority={true}
+            loading="eager"
           />
         </GridItem>
       </GridList>
