@@ -47,7 +47,7 @@ export const Header = () => {
             objectFit="cover"
             priority={true}
             loading="eager"
-            sizes="(max-width: 768px) 220px, 600px"
+            sizes="(max-width: 768px) 300px, 600px"
           />
         </GridItem>
         <GridItem ref={headerRightImageRef}>
@@ -58,7 +58,7 @@ export const Header = () => {
             objectFit="cover"
             priority={true}
             loading="eager"
-            sizes="(max-width: 768px) 220px, 600px"
+            sizes="(max-width: 768px) 300px, 600px"
           />
         </GridItem>
       </GridList>
