@@ -12,7 +12,9 @@ export const DesktopNavigation = ({ toggle }: DesktopNavigation) => {
   return (
     <List>
       <ListRenderer navigation={leftNavigation} toggle={toggle} />
-      <Logo />
+      <li>
+        <Logo />
+      </li>
       <ListRenderer navigation={rightNavigation} toggle={toggle} />
     </List>
   );

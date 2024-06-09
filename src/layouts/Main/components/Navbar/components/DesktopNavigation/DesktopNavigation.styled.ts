@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, devices, flexColumn, getFont } from "theme";
+import { devices, flexColumn } from "theme";
 
 export const List = styled.ul`
   ${flexColumn};
