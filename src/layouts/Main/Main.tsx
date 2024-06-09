@@ -12,7 +12,6 @@ export const Main = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // ScrollTrigger.normalizeScroll(true);
     containerRef?.current?.scrollTo(0, document.body.scrollHeight);
   }, []);
 
