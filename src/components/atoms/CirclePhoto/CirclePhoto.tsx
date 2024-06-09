@@ -16,7 +16,7 @@ export const CirclePhoto = ({ width }: ICirclePhoto) => (
       alt="it's me"
       priority
       layout="responsive"
-      sizes="(max-width: 768px) 600px, 400px"
+      sizes="(min-width: 780px) 233px, (min-width: 560px) 500px, calc(90vw + 14px)"
     />
   </ImageWrapper>
 );
