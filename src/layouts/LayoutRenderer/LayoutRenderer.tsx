@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useRouter } from "next/router";
 import { Dashboard } from "layouts/Dashboard";
 import { Main } from "layouts/Main";
+import { Meta } from "components";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,7 @@ export const LayoutRenderer = ({ children }) => {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Meta />
       {isAdminPanel ? (
         <Dashboard>{children}</Dashboard>
       ) : (
