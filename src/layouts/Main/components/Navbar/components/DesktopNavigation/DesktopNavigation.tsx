@@ -10,7 +10,7 @@ interface DesktopNavigation {
 
 export const DesktopNavigation = ({ toggle }: DesktopNavigation) => {
   return (
-    <List>
+    <List id="primary-navigation">
       <ListRenderer navigation={leftNavigation} toggle={toggle} />
       <li>
         <Logo />

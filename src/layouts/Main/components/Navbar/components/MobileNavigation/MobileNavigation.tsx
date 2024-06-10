@@ -21,13 +21,18 @@ export const MobileNavigation = () => {
     <Container>
       <TopBar>
         <Logo />
-        <Hamburger onClick={toggle}>
+        <Hamburger
+          onClick={toggle}
+          aria-controls="navigation"
+          aria-expanded={isOpen}
+          aria-label="Menu"
+        >
           <Line isOpen={isOpen} />
         </Hamburger>
       </TopBar>
       {isOpen && (
-        <Collapsed>
-          <ListRenderer navigation={navList} toggle={toggle} />
+        <Collapsed id="navigation" aria-hidden={!isOpen}>
+          <ListRenderer navigation={navList} toggle={toggle} isOpen={isOpen} />
         </Collapsed>
       )}
     </Container>
