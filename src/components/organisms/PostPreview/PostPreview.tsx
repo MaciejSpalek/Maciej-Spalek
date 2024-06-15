@@ -25,7 +25,8 @@ export const PostPreview = ({ list }: PostPreviewProps) => {
   const listIds = list.map(({ _id }) => _id);
   const currentPostId = router.query.photo?.toString();
   const currentIndex = listIds?.indexOf(currentPostId);
-  const { image } = list?.find(({ _id }) => _id === currentPostId) || {};
+  const { image, description } =
+    list?.find(({ _id }) => _id === currentPostId) || {};
 
   const closePreview = () => {
     router.query = _.omit(router.query, "photo");
@@ -65,9 +66,10 @@ export const PostPreview = ({ list }: PostPreviewProps) => {
         <ImageWrapper>
           <Image
             objectFit="contain"
+            alt={description}
+            loading="eager"
             layout="fill"
             src={image}
-            alt=""
             priority
           />
         </ImageWrapper>

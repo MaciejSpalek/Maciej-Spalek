@@ -28,7 +28,7 @@ export const Heading = styled.h2`
   ${getFont("regular", 12, 18)};
   letter-spacing: 7.2px;
   line-height: 32px;
-  color: ${colors.grayScale[4]};
+  color: ${colors.grayScale[3]};
   margin: 0;
   text-transform: uppercase;
   margin-bottom: 40px;

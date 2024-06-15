@@ -23,7 +23,7 @@ export const ListRenderer = ({
   return (
     <>
       {navigation.map(({ href, text }) => (
-        <li key={text} aria-hidden={!isOpen}>
+        <li key={text}>
           <Link href={href} passHref>
             <Anchor onClick={toggle} isActive={pathname === href}>
               {text.toUpperCase()}
