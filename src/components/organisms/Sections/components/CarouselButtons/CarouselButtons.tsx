@@ -5,10 +5,10 @@ import { LeftRectangleArrowIcon, RightRectangleArrowIcon } from "assets";
 export const CarouselButtons = ({ handlePrevSlide, handleNextSlide }) => {
   return (
     <CarouselButtonsWrapper>
-      <IconButton onClick={handlePrevSlide}>
-        <LeftRectangleArrowIcon />
+      <IconButton aria-label="Show previous image" onClick={handlePrevSlide}>
+        <LeftRectangleArrowIcon  />
       </IconButton>
-      <IconButton onClick={handleNextSlide}>
+      <IconButton aria-label="Show next image" onClick={handleNextSlide}>
         <RightRectangleArrowIcon />
       </IconButton>
     </CarouselButtonsWrapper>

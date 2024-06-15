@@ -88,7 +88,7 @@ export const Paragraph = styled.p`
 
 export const Copyright = styled.span`
   text-align: center;
-  color: ${colors.grayScale[2]};
+  color: ${colors.grayScale[3]};
   line-height: 150%;
   ${getFont("regular", 16, 18)};
 `;
