@@ -7,7 +7,6 @@ import {
   Paragraph,
   StyledImage,
 } from "./Header.styled";
-import Image from "next/image";
 import { useHeader } from "./useHeader";
 import { SpecialButton } from "components";
 import { useHomeContextProvider } from "views/Home/context/HomeContextProvider";

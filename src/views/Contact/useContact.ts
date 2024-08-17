@@ -10,7 +10,6 @@ export const useContact = () => {
   const subtitleRef = useRef(null);
   const titleRef = useRef(null);
 
-  // Header animations
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       gsap.fromTo(

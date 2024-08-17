@@ -6,7 +6,7 @@ import { colors } from "theme/colors";
 export const Container = styled.div`
   position: relative;
   ${flexColumn};
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: ${colors.white};
   overflow: hidden;

@@ -10,18 +10,14 @@ import { Button, Dialog } from "components";
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
 import { IPost } from "types";
-
-interface IRemovePostCell {
-  refetchList: () => void;
-  id: IPost["_id"];
-}
+import { IRemovePostCell } from "./RemovePostCell.model";
 
 export const RemovePostCell = ({ refetchList, id }: IRemovePostCell) => {
   const [isOpen, setOpen] = useState(false);
 
   const toggle = () => setOpen((prev) => !prev);
 
-  const deletePost = async (id) =>
+  const deletePost = async (id: IPost["_id"]) =>
     axiosInstance.delete(ENDPOINTS.POST.DELETE({ id }));
 
   const deleteMutation = useMutation({

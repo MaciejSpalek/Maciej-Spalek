@@ -20,16 +20,7 @@ import {
 } from "./List.styled";
 import { ls, LS_KEYS } from "helpers";
 import { AddPostDialog } from "../AddPostDialog";
-
-const headers = [
-  "No.",
-  "Image",
-  "Type",
-  "Description",
-  "Price",
-  "State",
-  "Action",
-];
+import { headers } from "./List.model";
 
 export const List = () => {
   const postListFilters = ls.get(LS_KEYS.POST_LIST_FILTERS);

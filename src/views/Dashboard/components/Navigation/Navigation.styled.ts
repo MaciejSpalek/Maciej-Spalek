@@ -11,7 +11,7 @@ export const ListItem = styled.li`
   ${flexColumn};
 `;
 
-export const Button = styled.button<{ isActive: boolean }>`
+export const Button = styled.button<{ isActive?: boolean }>`
   ${getFont("semibold", 16)};
   cursor: pointer;
   color: ${({ isActive }) => (isActive ? colors.grayScale[2] : colors.black)};

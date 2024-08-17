@@ -1,3 +1,4 @@
+import { LeftRectangleArrowIcon } from "assets";
 import styled from "styled-components";
 import { colors, flexCenter, flexColumn, getFont } from "theme";
 
@@ -27,6 +28,10 @@ export const ArrowButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   margin-right: 8px;
+`;
+
+export const StyledLeftRectangleArrowIcon = styled(LeftRectangleArrowIcon)`
+  color: ${colors.grayScale[1]}
 `;
 
 export const Heading = styled.h1`

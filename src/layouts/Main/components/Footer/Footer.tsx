@@ -23,20 +23,31 @@ import { URLS } from "helpers";
 import { useFooter } from "./useFooter";
 
 export const Footer = () => {
-  const { containerRef, headingRef, buttonRef, secondWrapperRef, copyrightWrapperRef } = useFooter();
+  const {
+    containerRef,
+    headingRef,
+    buttonRef,
+    secondWrapperRef,
+    copyrightWrapperRef,
+  } = useFooter();
   const { push } = useRouter();
 
   const goToContact = () => push(URLS.contact);
 
   const currentYear = new Date().getFullYear();
 
-  const renderNavLink = ({ href, name }) => (
+  interface ILink {
+    href: string;
+    name: string;
+  }
+
+  const renderNavLink = ({ href, name }: ILink) => (
     <Link href={href} passHref>
       <Anchor>{name}</Anchor>
     </Link>
   );
 
-  const renderSocialLink = ({ href, name }) => (
+  const renderSocialLink = ({ href, name }: ILink) => (
     <Anchor rel="noopener noreferrer" target="_blank" href={href}>
       {name}
     </Anchor>

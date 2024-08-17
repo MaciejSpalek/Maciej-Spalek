@@ -16,37 +16,38 @@ import { ENDPOINTS } from "helpers/endpoints";
 import { useMutation } from "@tanstack/react-query";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { contactFormValidationSchema } from "./validation";
-
-interface IFormInput {
-  name: string;
-  email: string;
-  message: string;
-}
+import { useMessage } from "hooks";
 
 export const Contact = () => {
   const { containerRef, formWrapperRef, leftWrapperRef } = useContact();
+  const { message } = useMessage();
+
   const {
     register,
     handleSubmit,
-    resetField,
+    reset,
     formState: { errors },
   } = useForm<IFormInput>({
     resolver: yupResolver<any>(contactFormValidationSchema),
     mode: "onChange",
   });
 
-  const sendEmail = async (payload) =>
+  const sendEmail = async (payload: IFormInput) =>
     axiosInstance.post(ENDPOINTS.SEND_EMAIL, payload);
 
   const sendEmailMutation = useMutation({
     mutationFn: sendEmail,
     onSuccess: () => {
-      resetField("message");
+      reset();
+      message.success("Successfully sent");
+    },
+    onError: () => {
+      message.error("Something went wrong");
     },
   });
 
   const onSubmit = async (data: IFormInput) => {
-    await sendEmailMutation.mutate(data);
+    sendEmailMutation.mutate(data);
   };
 
   const isLoading = sendEmailMutation.isPending;
