@@ -1,9 +1,17 @@
 import { Button, Input } from "components";
-import { Container, FormWrapper, Heading } from "./Login.styled";
+import {
+  Container,
+  FormWrapper,
+  Heading,
+  BottomWrapper,
+  BackButton,
+  StyledLeftRectangleArrowIcon,
+} from "./Login.styled";
 import { useLogin } from "./useLogin";
 
 export const Login = () => {
-  const { register, handleOnSubmit, errors, isLoading } = useLogin();
+  const { register, handleOnSubmit, errors, isLoading, goBackToDashboard } =
+    useLogin();
 
   return (
     <Container>
@@ -24,14 +32,20 @@ export const Login = () => {
           placeholder="Password"
           type="password"
         />
-        <Button
-          type="submit"
-          fullWidth
-          isLoading={isLoading}
-          disabled={isLoading}
-        >
-          Submit
-        </Button>
+        <BottomWrapper>
+          <BackButton type="button" onClick={goBackToDashboard}>
+            <StyledLeftRectangleArrowIcon />
+            Back
+          </BackButton>
+          <Button
+            type="submit"
+            fullWidth
+            isLoading={isLoading}
+            disabled={isLoading}
+          >
+            Submit
+          </Button>
+        </BottomWrapper>
       </FormWrapper>
     </Container>
   );

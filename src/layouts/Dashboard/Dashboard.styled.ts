@@ -16,6 +16,7 @@ export const InnerWrapper = styled.div`
   ${flexColumn};
   max-width: ${breakpoints.lg}px;
   padding: 0 ${getFluidSize(8, 16)} 64px;
+  overflow: auto;
 `;
 
 export const MainWrapper = styled.main`
