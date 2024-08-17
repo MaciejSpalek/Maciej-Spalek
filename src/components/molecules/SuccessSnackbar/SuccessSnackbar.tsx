@@ -18,3 +18,5 @@ export const SuccessSnackbar = forwardRef((props: any, ref: any) => {
     </StyledSnackbarContent>
   );
 });
+
+SuccessSnackbar.displayName = "ErrorSnackbar"

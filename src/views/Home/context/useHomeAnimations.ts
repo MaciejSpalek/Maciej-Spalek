@@ -105,7 +105,7 @@ export const useHomeAnimations = () => {
 
       return () => ctx.revert();
     }
-  }, [isMobileView, animationParams.duration]);
+  }, [isMobileView]);
 
   // About section animation
   useLayoutEffect(() => {
@@ -131,7 +131,7 @@ export const useHomeAnimations = () => {
 
       return () => ctx.revert();
     }
-  }, [isMobileView, animationParams.duration]);
+  }, [isMobileView]);
 
   return {
     headerContainerRef,
