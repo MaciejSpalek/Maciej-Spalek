@@ -1,1 +1,3 @@
-export const navigation = ["home", "crafts", "posts"];
+import { DashboardStepTypes } from "types";
+
+export const navigation: DashboardStepTypes[] = ["home", "crafts", "posts"];

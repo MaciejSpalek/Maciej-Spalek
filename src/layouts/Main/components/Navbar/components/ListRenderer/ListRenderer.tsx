@@ -9,14 +9,13 @@ interface INavigation {
 }
 interface IListRenderer {
   navigation: INavigation[];
-  toggle: () => void;
+  toggle?: () => void;
   isOpen?: boolean;
 }
 
 export const ListRenderer = ({
   navigation,
   toggle,
-  isOpen,
 }: IListRenderer): JSX.Element => {
   const { pathname } = useRouter();
 

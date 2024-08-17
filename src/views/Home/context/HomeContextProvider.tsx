@@ -1,40 +1,48 @@
-import { createContext, useContext } from "react";
+import { createContext, ReactNode, useContext } from "react";
 import { useHomeAnimations } from "./useHomeAnimations";
+import { IAbout, IHeader, IHome } from "types";
 
-export type HomeContent = {
-  aboutSectionContainerRef: any;
-  headerContainerRef: any;
-  headerParagraphRef: any;
-  headerRightImageRef: any;
-  headerLeftImageRef: any;
-  headerHeadingRef: any;
-  headerButtonRef: any;
-  about: any;
-  header: any;
-};
+export interface HomeContent {
+  aboutSectionContainerRef: React.RefObject<HTMLElement>;
+  headerContainerRef: React.RefObject<HTMLElement>;
+  headerParagraphRef: React.RefObject<HTMLParagraphElement>;
+  headerRightImageRef: React.RefObject<HTMLLIElement>;
+  headerLeftImageRef: React.RefObject<HTMLLIElement>;
+  headerHeadingRef: React.RefObject<HTMLHeadingElement>;
+  headerButtonRef: React.RefObject<HTMLDivElement>;
+  about: IAbout;
+  header: IHeader;
+}
 
 export const HomeContext = createContext<HomeContent>({
-  aboutSectionContainerRef: null,
-  headerContainerRef: null,
-  headerParagraphRef: null,
-  headerRightImageRef: null,
-  headerLeftImageRef: null,
-  headerHeadingRef: null,
-  headerButtonRef: null,
+  aboutSectionContainerRef: { current: null },
+  headerContainerRef: { current: null },
+  headerParagraphRef: { current: null },
+  headerRightImageRef: { current: null },
+  headerLeftImageRef: { current: null },
+  headerHeadingRef: { current: null },
+  headerButtonRef: { current: null },
   about: {
     description: "",
-    photo: null,
+    photo: "",
   },
   header: {
     description: "",
-    first_photo: null,
-    second_photo: null,
+    first_photo: "",
+    second_photo: "",
   },
 });
 
-export const useHomeContextProvider = () => useContext(HomeContext);
+interface IHomeContextProvider {
+  children: ReactNode;
+  home: IHome
+}
 
-export const HomeContextProvider = ({ children, home }) => {
+export const useHomeContextProvider = () => useContext(HomeContext);
+export const HomeContextProvider = ({
+  children,
+  home,
+}: IHomeContextProvider) => {
   const refs = useHomeAnimations();
 
   const { about, header } = home || {};

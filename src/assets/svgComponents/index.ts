@@ -9,3 +9,5 @@ export * from "./RulerAndPenIcon";
 export * from "./Arrows";
 export * from "./DownloadIcon";
 export * from "./PreviewEyeIcon";
+export * from "./CheckmarkIcon";
+export * from "./ErrorIcon";

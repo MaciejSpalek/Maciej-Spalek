@@ -1,3 +1,7 @@
+export const COOKIES = {
+  MS_AUTH_TOKEN: 'ms_auth_token'
+}
+
 export const getCookie = (name: string) => {
   if (typeof window !== "undefined") {
     const value = `; ${document.cookie}`;

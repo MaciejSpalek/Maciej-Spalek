@@ -18,7 +18,7 @@ interface IFormInput {
   home: IHome;
 }
 
-export const HomePageForm = ({ defaultValues }) => {
+export const HomePageForm = ({ defaultValues }: any) => {
   const { register, handleSubmit, setValue, getValues } = useForm<IFormInput>({
     defaultValues,
   });

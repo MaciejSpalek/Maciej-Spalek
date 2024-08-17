@@ -11,7 +11,6 @@ import { useHomeContextProvider } from "views/Home/context/HomeContextProvider";
 
 export const About = () => {
   const { aboutSectionContainerRef, about } = useHomeContextProvider();
-  const { description } = about;
 
   return (
     <Container ref={aboutSectionContainerRef}>
@@ -20,7 +19,7 @@ export const About = () => {
         <CirclePhoto width={233} />
       </LeftWrapper>
       <RightWrapper>
-        <Paragraph>{description}</Paragraph>
+        <Paragraph>{about.description}</Paragraph>
       </RightWrapper>
     </Container>
   );

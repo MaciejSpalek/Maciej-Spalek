@@ -2,18 +2,18 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import {
+  ArrowButton,
   Container,
+  Wrapper,
   Heading,
   TopBar,
-  Wrapper,
-  ArrowButton,
+  StyledLeftRectangleArrowIcon,
 } from "./Dashboard.styled";
 import { getStep, staticHomeInitialValues } from "./helpers";
-import { LeftRectangleArrowIcon } from "assets";
+import { DashboardStepTypes, ICraft, IHome } from "types";
 import { DashboardSteps, URLS } from "helpers";
 import { Protected } from "layouts/Protected";
 import { Navigation } from "./components";
-import { ICraft, IHome } from "types";
 
 interface IProps {
   crafts: ICraft;
@@ -25,7 +25,7 @@ export const Dashboard = ({ home, crafts }: IProps) => {
   const craftsDefaultValues: any = { crafts } || [];
   const { push } = useRouter();
 
-  const [step, setStep] = useState(DashboardSteps.HOME);
+  const [step, setStep] = useState<DashboardStepTypes>(DashboardSteps.HOME);
 
   const goToWebPage = () => push(URLS.home);
 
@@ -35,7 +35,7 @@ export const Dashboard = ({ home, crafts }: IProps) => {
         <TopBar>
           <Wrapper>
             <ArrowButton onClick={goToWebPage}>
-              <LeftRectangleArrowIcon />
+              <StyledLeftRectangleArrowIcon />
             </ArrowButton>
             <Heading>Dashboard</Heading>
           </Wrapper>

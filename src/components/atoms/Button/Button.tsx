@@ -6,7 +6,6 @@ import {
   StyledContent,
   Wrapper,
   StyledIconWrapper,
-  StyledLoader,
 } from "./Button.styled";
 import { CircularProgress } from "../CircularProgress";
 

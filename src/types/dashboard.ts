@@ -1,1 +1,1 @@
-export type DashboardStepTypes = "home" | "images" | "crafts" | "posts";
+export type DashboardStepTypes = "home" | "crafts" | "posts";
