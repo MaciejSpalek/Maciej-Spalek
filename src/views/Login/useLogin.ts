@@ -55,11 +55,14 @@ export const useLogin = () => {
 
   const handleOnSubmit = handleSubmit(onSubmit);
 
+  const goBackToDashboard = () => {
+    push(URLS.home)
+  }
   useEffect(() => {
     if (token) {
       push(URLS.admin.dashboard);
     }
   }, [token, push]);
 
-  return { register, handleOnSubmit, errors, isLoading };
+  return { register, handleOnSubmit, errors, isLoading, goBackToDashboard };
 };
