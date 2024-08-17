@@ -1,4 +1,6 @@
-export const ErrorIcon = (props: any) => (
+import React from "react";
+
+export const ErrorIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     width="20"
     height="20"
