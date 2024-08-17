@@ -1,4 +1,4 @@
-export const InstagramIcon = (props) => (
+export const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
 	<svg width="11" height="11" viewBox="0 0 11 11" fill="none" {...props}>
 		<g clipPath="url(#clip0)">
 			<path
