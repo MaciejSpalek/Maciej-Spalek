@@ -53,7 +53,6 @@ export const Button = ({
       outline={!!outline}
       onClick={onClick}
       size={size}
-      {...props}
     >
       {content()}
     </BaseButton>
