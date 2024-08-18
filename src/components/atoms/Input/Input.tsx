@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import { Container, StyledInput, Wrapper, ErrorMessage } from "./Input.styled";
 import { IInput } from "./Input.model";
 
-export const Input = forwardRef(
+export const Input = forwardRef<HTMLDivElement, IInput>(
   (
     {
       type = "text",
@@ -19,7 +19,7 @@ export const Input = forwardRef(
   ) => {
     return (
       <Container fullWidth={fullWidth} ref={ref}>
-        <Wrapper isIcon={!!Icon}>
+        <Wrapper error={!!error} isIcon={!!Icon}>
           {Icon && <Icon />}
           <StyledInput
             placeholder={placeholder}

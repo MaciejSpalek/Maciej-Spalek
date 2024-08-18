@@ -16,7 +16,7 @@ import { Protected } from "layouts/Protected";
 import { Navigation } from "./components";
 
 interface IProps {
-  crafts: ICraft;
+  crafts: ICraft[];
   home: IHome;
 }
 

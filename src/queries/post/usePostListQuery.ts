@@ -31,7 +31,7 @@ export const usePostListQuery = ({
     enabled,
   });
 
-  const fetchedData = data?.data || [];
+  const fetchedData = data?.data || null
 
   return {
     data: fetchedData,

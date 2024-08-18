@@ -1,8 +1,12 @@
 import React from "react";
 import { Craft } from "components";
-import { PostTypes } from "types";
+import { ICraftPage, PostTypes } from "types";
 
-const Photography = ({ data }) => <Craft {...data} />;
+interface IPhotography {
+  data: ICraftPage;
+}
+
+const Photography = ({ data }: IPhotography) => <Craft {...data} />;
 
 export default Photography;
 
@@ -11,7 +15,7 @@ export async function getServerSideProps() {
     const craftResponse = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/craft/get/${PostTypes.photography}`
     );
-    
+
     const sectionsResponse = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/craft/get-all`
     );
@@ -23,7 +27,6 @@ export async function getServerSideProps() {
     const postsAmountResponse = await fetch(
       `${process.env.NEXT_PUBLIC_API_URL}/post/amount?type=${PostTypes.photography}`
     );
-
     if (!craftResponse.ok) {
       console.error(`Nieudane zapytanie. Status: ${craftResponse.status}`);
       return {
@@ -46,7 +49,7 @@ export async function getServerSideProps() {
 
     return {
       props: {
-        data: { craft: {}, sections: [], posts: [] },
+        data: { craft: {}, sections: [], posts: [], postsAmount: 0 },
       },
     };
   }
