@@ -1,8 +1,12 @@
 import React from "react";
 import { Craft } from "components";
-import { PostTypes } from "types";
+import { ICraftPage, PostTypes } from "types";
 
-const Paintings = ({ data }) => <Craft {...data} />;
+interface IPaintings {
+  data: ICraftPage;
+}
+
+const Paintings = ({ data }: IPaintings) => <Craft {...data} />;
 
 export default Paintings;
 
@@ -25,7 +29,6 @@ export async function getServerSideProps() {
     );
 
     if (!craftResponse.ok) {
-      console.error(`Nieudane zapytanie. Status: ${craftResponse.status}`);
       return {
         notFound: true,
       };
@@ -42,11 +45,10 @@ export async function getServerSideProps() {
       },
     };
   } catch (error) {
-    console.error("Błąd podczas pobierania danych:", error);
 
     return {
       props: {
-        data: { craft: {}, sections: [] },
+        data: { craft: {}, sections: [], postsAmount: 0 },
       },
     };
   }

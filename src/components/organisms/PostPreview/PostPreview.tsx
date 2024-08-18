@@ -16,7 +16,7 @@ import {
   RightRectangleArrowIcon,
 } from "assets";
 
-import { PostPreviewProps } from "./PostPreview.model";
+import { ActionType, PostPreviewProps } from "./PostPreview.model";
 import Image from "next/image";
 
 export const PostPreview = ({ list }: PostPreviewProps) => {
@@ -26,14 +26,14 @@ export const PostPreview = ({ list }: PostPreviewProps) => {
   const currentPostId = router.query.photo?.toString();
   const currentIndex = listIds?.indexOf(currentPostId);
   const { image, description } =
-    list?.find(({ _id }) => _id === currentPostId) || {};
-
+    list.find(({ _id }) => _id === currentPostId) || {};
+    
   const closePreview = () => {
     router.query = _.omit(router.query, "photo");
     router.push(router);
   };
 
-  const changePhoto = (type = "increment") => {
+  const changePhoto = (type: ActionType = "increment") => {
     if (type === "increment") {
       router.query.photo = listIds[currentIndex + 1];
     } else {
@@ -43,7 +43,7 @@ export const PostPreview = ({ list }: PostPreviewProps) => {
     router.push(router);
   };
 
-  const showChangePhotoButton = (type) => {
+  const showChangePhotoButton = (type: ActionType) => {
     if (type === "increment") {
       return currentIndex < listIds?.length - 1;
     } else {

@@ -10,7 +10,6 @@ export async function getServerSideProps() {
     );
 
     if (!homeResponse.ok) {
-      console.error(`Nieudane zapytanie. Status: ${homeResponse.status}`);
       return {
         notFound: true,
       };
@@ -25,8 +24,6 @@ export async function getServerSideProps() {
       },
     };
   } catch (error) {
-    console.error("Błąd podczas pobierania danych:", error);
-
     return {
       props: {
         data: null,

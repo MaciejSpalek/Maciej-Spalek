@@ -20,7 +20,7 @@ export const Button = ({
   fullWidth = false,
   type = "button",
   ...props
-}: IButton): JSX.Element => {
+}: IButton) => {
   const content = () => {
     if (Icon && (size === ButtonTypes.MEDIUM || size === ButtonTypes.SQUARE)) {
       return (

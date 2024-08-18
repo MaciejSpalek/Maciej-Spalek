@@ -21,7 +21,7 @@ interface IDialog {
 }
 
 export const Dialog = ({ children, title, isOpen, toggle, size }: IDialog) => {
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
 
   const dialogSize = breakpoints[size];
 

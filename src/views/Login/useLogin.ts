@@ -30,7 +30,6 @@ export const useLogin = () => {
   });
 
   const isLoading = loginMutation.isPending;
-  console.log({ errors });
 
   const onSubmit = (data: IForm) => {
     clearErrors();
@@ -45,7 +44,6 @@ export const useLogin = () => {
         const errors = error?.response?.data || {};
         const errorsArray: any[] = Object.entries(errors);
 
-        console.log({ errors, errorsArray });
         errorsArray.forEach(([key, value]) => {
           setError(key, { message: value });
         });

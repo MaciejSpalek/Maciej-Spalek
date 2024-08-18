@@ -8,6 +8,7 @@ import { PostListProps } from "./PostList.model";
 import { useRouter } from "next/router";
 import { usePostList } from "./usePostList";
 import { usePostListQuery } from "queries";
+import { IPost, IPostCard } from "types";
 
 export const PostList = ({
   initialList,
@@ -35,7 +36,7 @@ export const PostList = ({
     setEnabled(true);
   };
 
-  const openModal = (id) => {
+  const openModal = (id: IPost["_id"]) => {
     router.query.photo = id;
     router.push(router);
   };
@@ -43,7 +44,14 @@ export const PostList = ({
   return (
     <Section title={title}>
       <MainImageContainer ref={imageRef}>
-        <Image src={image} layout="fill" objectFit="cover" alt="image" loading="eager" priority />
+        <Image
+          src={image}
+          layout="fill"
+          objectFit="cover"
+          alt="image"
+          loading="eager"
+          priority
+        />
       </MainImageContainer>
       <List ref={listRef}>
         {list.map((post) => (
