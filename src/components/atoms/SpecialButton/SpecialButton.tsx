@@ -8,10 +8,9 @@ export const SpecialButton = ({
   onClick,
   fullWidth = false,
   type = "button",
-  ...props
 }: ISpecialButton): JSX.Element => {
   return (
-    <BaseButton fullWidth={fullWidth} onClick={onClick} type={type} {...props}>
+    <BaseButton fullWidth={fullWidth} onClick={onClick} type={type}>
       <p>{children}</p>
       <IconWrapper>
         <RightCircleArrowIcon />
