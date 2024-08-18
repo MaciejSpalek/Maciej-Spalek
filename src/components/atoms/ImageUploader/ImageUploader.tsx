@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import React, { forwardRef, useRef, useState } from "react";
-
 import Image from "next/image";
 
 import { IInput } from "./ImageUploader.model";
@@ -19,7 +18,7 @@ import {
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
 
-export const ImageUploader = forwardRef(
+export const ImageUploader = forwardRef<HTMLDivElement, IInput>(
   ({ id, setValue, buttonStyle, defaultValue = null }: IInput, ref) => {
     const [image, setImage] = useState<string>(defaultValue?.toString());
     const hiddenFileInput = useRef(null);
