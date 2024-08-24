@@ -20,7 +20,7 @@ export const usePostListQuery = ({
     return await axiosInstance.get(ENDPOINTS.POST.LIST(queryParams));
   };
 
-  const triggerParams: IProps = {
+  const triggerParams = { 
     filters,
     enabled,
   };

@@ -24,6 +24,7 @@ export const Protected = ({ children }: IChildren) => {
       setAuthState("failed");
       push(URLS.admin.login);
     }
+    //eslint-disable-next-line
   }, [authState, push]);
 
   if (authState === "loading") {

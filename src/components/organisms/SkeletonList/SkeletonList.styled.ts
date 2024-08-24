@@ -18,7 +18,7 @@ export const List = styled.ul`
   padding: 0;
 `;
 
-export const Skeleton = styled.div<{ minHeight: boolean }>`
+export const Skeleton = styled.div<{ minHeight: number }>`
   min-height: ${({ minHeight }) => minHeight}px;
   width: auto;
   background-color: ${colors.grayscale.secondary};

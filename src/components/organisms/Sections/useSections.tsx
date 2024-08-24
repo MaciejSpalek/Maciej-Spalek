@@ -1,12 +1,14 @@
 import "react-alice-carousel/lib/alice-carousel.css";
 import { useIsMobileView } from "hooks";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { DotItem, ImageWrapper } from "./Sections.styled";
 import Image from "next/image";
 import { animationParams } from "helpers";
 import { gsap } from "gsap";
+import { ISections } from "./Sections.model";
+import AliceCarousel from "react-alice-carousel";
 
-export const useSections = (sections) => {
+export const useSections = (sections: ISections['sections']) => {
   const sectionsCarouselContainerRef = useRef(null);
   const sectionsCarouselBarRef = useRef(null);
   const sectionsContainerRef = useRef(null);
@@ -14,16 +16,16 @@ export const useSections = (sections) => {
   const sectionsListRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const isMobileView = useIsMobileView();
-  const carouselRef = useRef(null);
+  const carouselRef = useRef<AliceCarousel | null>(null);
 
-  const handleDotClick = (index) => {
+  const handleDotClick = (index: number) => {
     setCurrentIndex(index);
     if (carouselRef.current) {
       carouselRef.current.slideTo(index);
     }
   };
 
-  const dots = sections?.map((_, index) => (
+  const dots = sections.map((_: any, index: number) => (
     <DotItem
       key={index}
       isActive={currentIndex === index}
@@ -32,8 +34,8 @@ export const useSections = (sections) => {
   ));
 
   const renderCarouselSlides = () =>
-    sections.map(({ id, image, title }) => (
-      <ImageWrapper key={id}>
+    sections.map(({ _id, image, title }) => (
+      <ImageWrapper key={_id}>
         <Image
           src={image}
           layout="fill"

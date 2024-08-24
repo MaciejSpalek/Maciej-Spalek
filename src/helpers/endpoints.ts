@@ -10,13 +10,13 @@ export const ENDPOINTS = {
   POST: {
     CREATE: "/post/create",
     GET: "/post/get/:id",
-    LIST: (queryParams) => `/post/list${queryParams}`,
-    UPDATE: ({ id }) => `/post/update/${id}`,
-    DELETE: ({ id }) => `/post/delete/${id}`,
+    LIST: (queryParams: string) => `/post/list${queryParams}`,
+    UPDATE: ({ id }: { id: string | undefined }) => `/post/update/${id}`,
+    DELETE: ({ id }: { id: string | undefined }) => `/post/delete/${id}`,
   },
   IMAGE: {
     UPLOAD: "image/upload",
   },
   SEND_EMAIL: "email/send",
-  LOGIN: '/auth/login'
+  LOGIN: "/auth/login",
 };

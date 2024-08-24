@@ -14,7 +14,7 @@ export const PostStates = {
 export type PostType = "drawing" | "painting" | "photography" | "graphic-design";
 export type PostState = "available" | "sold_out" | null;
 export interface IPost {
-  description?: string;
+  description: string;
   price?: string;
   image: string;
   _id?: string;
@@ -23,8 +23,9 @@ export interface IPost {
 }
 
 export interface IPostListFilters {
-  type: IPost['type']
+  [key: string]: string | number | boolean | undefined;
 }
+
 export interface IPostCard extends IPost {
   onClick: (id: IPost['_id']) => void;
 }

@@ -49,7 +49,7 @@ export const List = () => {
           {isFetching ? (
             <p>Loading...</p>
           ) : (
-            data.map((post, index) => {
+            data?.map((post, index) => {
               const { _id, image, type, description, price, state } = post;
               return (
                 <Row key={_id} last={index === data.length - 1}>

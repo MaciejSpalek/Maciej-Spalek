@@ -5,7 +5,8 @@ interface ISet {
 
 export const ls = {
   get: (key: string) => {
-    return JSON.parse(window.localStorage.getItem(key));
+    const item = window.localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
   },
   set: ({ key, value }: ISet) => {
     const storedValue = value instanceof Function ? value(key) : value;
