@@ -1,17 +1,10 @@
 import { useEffect, useRef } from "react";
 import { animationParams } from "helpers";
-import { useIntersectionObserver } from "./useIntersectionObserver";
 import { gsap } from "gsap";
 
 export const useSectionsHook = () => {
-  // const { ref: containerRef, alreadyShown: isContainerVisible } =
-  //   useIntersectionObserver({ threshold: 0.25 });
-
-  // const { ref: headingRef, alreadyShown: isHeadingVisible } =
-  //   useIntersectionObserver({ threshold: 0.5 });
-
-  const containerRef = useRef();
-  const headingRef = useRef();
+  const containerRef = useRef(null);
+  const headingRef = useRef(null);
 
   useEffect(() => {
     gsap.fromTo(

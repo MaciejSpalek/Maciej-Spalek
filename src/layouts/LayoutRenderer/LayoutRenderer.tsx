@@ -6,7 +6,7 @@ import { Dashboard } from "layouts/Dashboard";
 import { Main } from "layouts/Main";
 import { Meta } from "components";
 import { IChildren } from "types";
-import { NotificationsProvider } from "providers/NotificationProvider";
+import { NotificationsProvider } from "providers";
 
 const queryClient = new QueryClient();
 

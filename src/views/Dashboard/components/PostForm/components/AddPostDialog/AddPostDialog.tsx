@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { axiosInstance } from "services/axiosClient";
 import { useQueryClient } from "@tanstack/react-query";
 import { ENDPOINTS } from "helpers/endpoints";
-import { IPostCard, PostTypes } from "types";
+import { IPost, IPostCard, PostTypes } from "types";
 import { QUERY_KEYS } from "helpers";
 import { FieldsWrapper, SubmitWrapper, Form } from "./AddPostDialog.styled";
 
@@ -21,13 +21,13 @@ export const AddPostDialog = () => {
 
   const refetchPostList = () => {
     queryClient.refetchQueries({
-      queryKey: [QUERY_KEYS.POST.LIST({ })],
+      queryKey: [QUERY_KEYS.POST.LIST({})],
     });
   };
 
   const toggle = () => setOpen((prev) => !prev);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: IPost) => {
     setLoading(true);
 
     try {
