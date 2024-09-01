@@ -37,10 +37,11 @@ export const useLogin = () => {
     loginMutation.mutate(data, {
       onSuccess: ({ data }) => {
         const { token } = data;
-        setCookie("ms_auth_token", token, { date: new Date("2030-01-01") });
+        setCookie(COOKIES.MS_AUTH_TOKEN, token, { date: new Date("2030-01-01") });
         message.success("Successfully logged in");
       },
       onError: (error: any) => {
+        console.log(error);
         const errors = error?.response?.data || {};
         const errorsArray: any[] = Object.entries(errors);
 

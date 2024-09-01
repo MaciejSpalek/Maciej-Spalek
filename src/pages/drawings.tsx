@@ -27,12 +27,6 @@ export async function getServerSideProps() {
       `${process.env.NEXT_PUBLIC_API_URL}/post/amount?type=${PostTypes.drawing}`
     );
 
-    if (!craftResponse.ok) {
-      return {
-        notFound: true,
-      };
-    }
-
     const postsAmount = await postsAmountResponse.json();
     const sections = await sectionsResponse.json();
     const craft = await craftResponse.json();
