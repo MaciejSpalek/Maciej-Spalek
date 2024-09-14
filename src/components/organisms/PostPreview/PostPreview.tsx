@@ -31,7 +31,7 @@ export const PostPreview = ({ list }: PostPreviewProps) => {
 
   const closePreview = () => {
     router.query = _.omit(router.query, "photo");
-    router.push(router);
+    router.push(router, undefined, { shallow: true });
   };
 
   const changePhoto = (type: ActionType = "increment") => {
@@ -41,7 +41,7 @@ export const PostPreview = ({ list }: PostPreviewProps) => {
       router.query.photo = listIds[currentIndex - 1];
     }
 
-    router.push(router);
+    router.push(router, undefined, { shallow: true });
   };
 
   const showChangePhotoButton = (type: ActionType) => {

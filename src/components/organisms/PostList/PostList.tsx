@@ -38,7 +38,7 @@ export const PostList = ({
 
   const openModal = (id: IPost["_id"]) => {
     router.query.photo = id;
-    router.push(router);
+    router.push(router, undefined, { shallow: true });
   };
 
   return (
