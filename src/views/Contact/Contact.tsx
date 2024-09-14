@@ -16,12 +16,13 @@ import { ENDPOINTS } from "helpers/endpoints";
 import { useMutation } from "@tanstack/react-query";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { contactFormValidationSchema } from "./validation";
-import { useMessage } from "hooks";
+import { useIsMobileView, useMessage } from "hooks";
 import { IFormInput } from "./Contact.model";
 
 export const Contact = () => {
   const { containerRef, formWrapperRef, leftWrapperRef } = useContact();
   const { message } = useMessage();
+const isMobileView = useIsMobileView();
 
   const {
     register,
@@ -95,7 +96,7 @@ export const Contact = () => {
             isLoading={isLoading}
             disabled={isLoading}
             type="submit"
-            fullWidth
+            fullWidth={isMobileView}
           >
             Send
           </Button>

@@ -8,6 +8,7 @@ export interface IBaseButton {
   disabled: boolean;
   fullWidth: boolean;
 }
+
 export interface IButton extends IAttributes<HTMLButtonElement> {
   icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   outline?: boolean;

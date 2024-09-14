@@ -8,7 +8,7 @@ import { PostListProps } from "./PostList.model";
 import { useRouter } from "next/router";
 import { usePostList } from "./usePostList";
 import { usePostListQuery } from "queries";
-import { IPost, IPostCard } from "types";
+import { IPost } from "types";
 
 export const PostList = ({
   initialList,
