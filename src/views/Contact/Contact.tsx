@@ -22,7 +22,7 @@ import { IFormInput } from "./Contact.model";
 export const Contact = () => {
   const { containerRef, formWrapperRef, leftWrapperRef } = useContact();
   const { message } = useMessage();
-const isMobileView = useIsMobileView();
+  const isMobileView = useIsMobileView();
 
   const {
     register,
@@ -96,7 +96,7 @@ const isMobileView = useIsMobileView();
             isLoading={isLoading}
             disabled={isLoading}
             type="submit"
-            fullWidth={isMobileView}
+            fullWidth={!!isMobileView}
           >
             Send
           </Button>
