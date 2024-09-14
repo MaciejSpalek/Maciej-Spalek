@@ -15,9 +15,9 @@ export const BaseButton = styled.button<IBaseButton>`
   cursor: pointer;
   min-height: 50px;
   border-radius: 8px;
-  width: ${({ fullWidth }) => fullWidth && "100%"};
   ${({ outline, disabled }) => getStyles(outline, disabled)};
   ${({ size }) => getButtonSize(size)};
+  width: ${({ fullWidth }) => fullWidth ? "100%" : 'auto'};
   :hover {
     ${({ outline, disabled }) => getHover(outline, disabled)};
   }

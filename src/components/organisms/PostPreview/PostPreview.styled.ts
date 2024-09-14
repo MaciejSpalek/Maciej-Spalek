@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { flexCenter } from "theme";
+import { devices, flexCenter } from "theme";
 import { colors } from "theme/colors";
 
 export const Container = styled.div`
@@ -35,8 +35,8 @@ const arrowButtonCss = css`
   top: 50%;
   transform: translateY(-50%);
   background-color: ${colors.transparent.dark};
-  width: 64px;
-  height: 64px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -51,21 +51,30 @@ const arrowButtonCss = css`
 `;
 
 export const LeftArrowButton = styled.button`
-  left: 24px;
+  left: 16px;
   ${arrowButtonCss};
+  @media ${devices.md} {
+    width: 64px;
+    height: 64px;
+  }
 `;
 
 export const RightArrowButton = styled.button`
-  right: 24px;
+  right: 16px;
   ${arrowButtonCss};
+  @media ${devices.md} {
+    width: 64px;
+    height: 64px;
+  }
 `;
 
 export const CloseIconButton = styled.button`
   ${flexCenter};
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: auto;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: none;
   padding: 4px;
@@ -73,9 +82,13 @@ export const CloseIconButton = styled.button`
   z-index: 9999;
   background-color: ${colors.transparent.dark};
 
+  @media ${devices.md} {
+    width: 64px;
+    height: 64px;
+  }
   svg {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     path {
       fill: ${colors.white};
     }
