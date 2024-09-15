@@ -17,9 +17,9 @@ export const PostList = ({
   image,
   type,
 }: PostListProps) => {
+  const [enabled, setEnabled] = useState(false);
   const { imageRef, listRef } = usePostList();
   const [limit, setLimit] = useState(10);
-  const [enabled, setEnabled] = useState(false);
   const router = useRouter();
 
   const filters = { type, limit };

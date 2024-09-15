@@ -20,7 +20,6 @@ export const InnerWrapper = styled.div`
 
 export const MainWrapper = styled.main`
   ${flexColumn};
-
   @media ${devices.md} {
     margin: 0;
   }

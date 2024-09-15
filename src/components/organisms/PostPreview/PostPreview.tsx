@@ -18,16 +18,17 @@ import {
 
 import { ActionType, PostPreviewProps } from "./PostPreview.model";
 import Image from "next/image";
+import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 export const PostPreview = ({ list }: PostPreviewProps) => {
   const router = useRouter();
-
   const listIds = list.map(({ _id }) => _id);
   const currentPostId = router.query.photo?.toString();
   const currentIndex = listIds?.indexOf(currentPostId);
   const { image, description } = list.find(
     ({ _id }) => _id === currentPostId
   ) || { image: "" };
+
 
   const closePreview = () => {
     router.query = _.omit(router.query, "photo");
@@ -57,6 +58,8 @@ export const PostPreview = ({ list }: PostPreviewProps) => {
   const isOpen = null != router.query.photo && null != listIds;
 
   if (!isOpen) return null;
+  
+  useLockBodyScroll()
 
   return (
     <Container>
