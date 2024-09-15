@@ -14,6 +14,7 @@
     "@hookform/resolvers": "3.3.4",
     "@tanstack/react-query": "5.40.1",
     "@tanstack/react-query-devtools": "5.40.1",
+    "@uidotdev/usehooks": "^2.4.1",
     "axios": "1.6.5",
     "date-fns": "2.29.2",
     "gsap": "3.12.2",
