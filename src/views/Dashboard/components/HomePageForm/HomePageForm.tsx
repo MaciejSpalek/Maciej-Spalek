@@ -77,7 +77,7 @@ export const HomePageForm = ({ defaultValues }: any) => {
         </Section>
 
         <SubmitWrapper>
-          <Button type="submit" fullWidth isLoading={isLoading}>
+          <Button type="submit" isLoading={isLoading}>
             Submit
           </Button>
         </SubmitWrapper>

@@ -67,7 +67,7 @@ export const AddPostDialog = () => {
             />
           </FieldsWrapper>
           <SubmitWrapper>
-            <Button type="submit" fullWidth isLoading={isLoading}>
+            <Button type="submit" isLoading={isLoading}>
               Submit
             </Button>
           </SubmitWrapper>

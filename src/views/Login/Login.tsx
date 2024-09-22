@@ -39,7 +39,6 @@ export const Login = () => {
           </BackButton>
           <Button
             type="submit"
-            fullWidth
             isLoading={isLoading}
             disabled={isLoading}
           >
