@@ -100,7 +100,6 @@ export const CraftsForm = ({ defaultValues }: any) => {
                 <Button
                   onClick={() => handleOnRemoveSection({ title })}
                   type="button"
-                  fullWidth
                 >
                   Remove
                 </Button>
@@ -109,7 +108,7 @@ export const CraftsForm = ({ defaultValues }: any) => {
           ))}
         </Section>
         <SubmitWrapper>
-          <Button type="submit" fullWidth isLoading={isLoading}>
+          <Button type="submit" isLoading={isLoading}>
             Submit
           </Button>
         </SubmitWrapper>

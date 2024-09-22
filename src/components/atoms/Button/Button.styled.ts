@@ -27,9 +27,10 @@ interface IStyledIconWrapper {
   disabled: boolean;
   isLoading: boolean;
 }
+
 export const StyledIconWrapper = styled.div<IStyledIconWrapper>`
   ${flexCenter};
-  width: auto;
+  width: 50px;
   margin-right: 8px;
   svg path {
     transition: 0.3s ease-in-out;

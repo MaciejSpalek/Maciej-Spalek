@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { breakpoints, flexCenter, flexColumn, flexRow, getFont } from "theme";
+import { flexCenter, flexColumn, flexRow, getFont } from "theme";
 import { colors } from "theme/colors";
 
 export const Backdrop = styled.div<{ isOpen: boolean }>`
@@ -23,6 +23,8 @@ export const StyledDialog = styled.div<{ size: number }>`
   padding: 24px;
   border-radius: 40px;
   background-color: ${colors.black};
+  border: 1px solid ${colors.grayScale[2]};
+
 `;
 
 export const TopWrapper = styled.div`

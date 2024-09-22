@@ -20,8 +20,6 @@ export const Button = ({
   fullWidth = false,
   type = "button",
 }: IButton) => {
-
-  console.log(fullWidth);
   const content = () => {
     if (Icon && (size === ButtonTypes.MEDIUM || size === ButtonTypes.SQUARE)) {
       return (
