@@ -30,11 +30,11 @@ export const Button = styled.button`
 `;
 
 export const MainImageContainer = styled.div`
-  position: relative;
   ${flexCenter};
+  position: relative;
   border-radius: 28px;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
+  min-height: 600px;
 
   @media ${devices.md} {
     max-height: 600px;
