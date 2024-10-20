@@ -34,7 +34,7 @@ export const MainImageContainer = styled.div`
   position: relative;
   border-radius: 28px;
   overflow: hidden;
-  min-height: 600px;
+  aspect-ratio: 1/1;
 
   @media ${devices.md} {
     aspect-ratio: 16 / 9;
