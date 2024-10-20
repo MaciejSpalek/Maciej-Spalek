@@ -48,6 +48,7 @@ export const PostList = ({
           src={image}
           layout="fill"
           objectFit="cover"
+          objectPosition="center"
           alt="image"
           loading="eager"
           priority

@@ -37,6 +37,6 @@ export const MainImageContainer = styled.div`
   aspect-ratio: 4 / 5;
 
   @media ${devices.md} {
-    max-height: 600px;
+    aspect-ratio: 16 / 9;
   }
 `;

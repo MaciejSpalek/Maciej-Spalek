@@ -39,8 +39,11 @@ export const ImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   pointer-events: none;
+  aspect-ratio: 1/1;
+
   @media ${devices.md} {
-    min-height: 600px;
+    aspect-ratio: 16/9;
+
   }
   :hover div {
     visibility: visible;
@@ -66,9 +69,9 @@ export const CarouselContainer = styled.div`
   position: relative;
   ${flexRow};
   .alice-carousel__stage-item {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1/1;
     @media ${devices.md} {
-      aspect-ratio: auto;
+      aspect-ratio: 16/9;
     }
     border-radius: 40px;
     overflow: hidden;
