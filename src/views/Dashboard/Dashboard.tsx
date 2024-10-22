@@ -9,7 +9,7 @@ import {
   TopBar,
   StyledLeftRectangleArrowIcon,
 } from "./Dashboard.styled";
-import { getStep, staticHomeInitialValues } from "./helpers";
+import { getStep } from "./helpers";
 import { DashboardStepTypes, ICraft, IHome } from "types";
 import { DashboardSteps, URLS } from "helpers";
 import { Protected } from "layouts/Protected";
@@ -21,8 +21,8 @@ interface IProps {
 }
 
 export const Dashboard = ({ home, crafts }: IProps) => {
-  const homeDefaultValues: any = { home } || staticHomeInitialValues;
-  const craftsDefaultValues: any = { crafts } || [];
+  const homeDefaultValues: any = { home };
+  const craftsDefaultValues: any = { crafts };
   const { push } = useRouter();
 
   const [step, setStep] = useState<DashboardStepTypes>(DashboardSteps.HOME);
