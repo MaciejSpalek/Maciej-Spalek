@@ -77,6 +77,7 @@ export const HeaderList = styled.ul`
   padding: 0;
   border-bottom: 1px solid ${colors.grayScale[2]};
   overflow-x: auto;
+  list-style: none;
 `;
 
 export const ActionCell = styled.div`

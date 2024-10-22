@@ -4,7 +4,7 @@ import { colors, flexCenter, flexColumn, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
-  overflow: hidden;
+  /* overflow-y:; */
   border-radius: 40px;
   padding: 24px;
   gap: 64px;
