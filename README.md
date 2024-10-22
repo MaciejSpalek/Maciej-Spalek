@@ -43,4 +43,4 @@ This website is my art portfolio, I show here my paintings, drawings and photogr
 
 ## Backend repository
 
-<https://github.com/MaciejSpalek/QuizTime-backend.git>
+<https://github.com/MaciejSpalek/maciejspalek-backend>
