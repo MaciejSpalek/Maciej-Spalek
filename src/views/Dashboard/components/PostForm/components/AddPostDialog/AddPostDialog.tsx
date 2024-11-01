@@ -65,6 +65,12 @@ export const AddPostDialog = () => {
               options={types}
               fullWidth
             />
+            <Input
+              id="created_at"
+              register={register}
+              fullWidth
+              type="date"
+            />
           </FieldsWrapper>
           <SubmitWrapper>
             <Button type="submit" isLoading={isLoading}>

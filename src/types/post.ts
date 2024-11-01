@@ -13,6 +13,7 @@ export const PostStates = {
 
 export type PostType = "drawing" | "painting" | "photography" | "graphic-design";
 export type PostState = "available" | "sold_out" | null;
+
 export interface IPost {
   description: string;
   price?: string;
@@ -20,6 +21,7 @@ export interface IPost {
   _id?: string;
   state?: PostState;
   type: PostType;
+  created_at?: Date
 }
 
 export interface IPostListFilters {

@@ -72,6 +72,12 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
               placeholder="Description"
               fullWidth
             />
+            <Input
+              id="created_at"
+              register={register}
+              fullWidth
+              type="date"
+            />
           </InputWrapper>
           <BottomWrapper>
             <Button isLoading={isLoading} type="submit">
