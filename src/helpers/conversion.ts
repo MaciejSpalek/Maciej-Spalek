@@ -1,4 +1,6 @@
-export const getQueryParams = (paramsObject?: Record<string, string | number | boolean | undefined>): string => {
+export const getQueryParams = (
+  paramsObject?: Record<string, string | number | boolean | undefined>
+) => {
   if (!paramsObject || !Object.keys(paramsObject).length) return "";
 
   const stringParams: Record<string, string> = {};
@@ -8,6 +10,6 @@ export const getQueryParams = (paramsObject?: Record<string, string | number | b
       stringParams[key] = String(value);
     }
   });
-  
+
   return "?" + new URLSearchParams(stringParams).toString();
 };
