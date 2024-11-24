@@ -62,11 +62,10 @@ export const Contact = () => {
       </LeftWrapper>
       <FormWrapper ref={formWrapperRef} onSubmit={handleSubmit(onSubmit)}>
         <TextWrapper>
-          <Title>{"Let's Collaborate!"}</Title>
+          <Title>Let's talk!</Title>
           <Subtitle>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua minim
-            veniam, quis nostrud.
+            If you have any questions or you're interested in any of the artworks,
+            feel free to send me a private message — I’d love to hear from you!
           </Subtitle>
         </TextWrapper>
         <Input
