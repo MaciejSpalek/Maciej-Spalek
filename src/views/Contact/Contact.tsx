@@ -65,7 +65,7 @@ export const Contact = () => {
           <Title>Let's talk!</Title>
           <Subtitle>
             If you have any questions or you're interested in any of the artworks,
-            feel free to send me a private message — I’d love to hear from you!
+            feel free to send me a private message — I'd love to hear from you!
           </Subtitle>
         </TextWrapper>
         <Input
