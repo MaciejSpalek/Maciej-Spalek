@@ -9,6 +9,12 @@ import { URLS } from "helpers";
 import { IForm } from "./Login.model";
 import { useMessage } from "hooks";
 
+interface ErrorResponse {
+  response?: {
+    data: { [key: string]: string };
+  };
+}
+
 export const useLogin = () => {
   const {
     register,
@@ -17,6 +23,7 @@ export const useLogin = () => {
     clearErrors,
     formState: { errors },
   } = useForm<IForm>();
+
   const { push } = useRouter();
   const { message } = useMessage();
 
@@ -37,13 +44,14 @@ export const useLogin = () => {
     loginMutation.mutate(data, {
       onSuccess: ({ data }) => {
         const { token } = data;
-        setCookie(COOKIES.MS_AUTH_TOKEN, token, { date: new Date("2030-01-01") });
+        setCookie(COOKIES.MS_AUTH_TOKEN, token, {
+          date: new Date("2030-01-01"),
+        });
         message.success("Successfully logged in");
       },
-      onError: (error: any) => {
-        console.log(error);
-        const errors = error?.response?.data || {};
-        const errorsArray: any[] = Object.entries(errors);
+      onError: (error) => {
+        const errors = (error as ErrorResponse)?.response?.data || {};
+        const errorsArray = Object.entries(errors) as [keyof IForm, string][];
 
         errorsArray.forEach(([key, value]) => {
           setError(key, { message: value });
@@ -55,8 +63,8 @@ export const useLogin = () => {
   const handleOnSubmit = handleSubmit(onSubmit);
 
   const goBackToDashboard = () => {
-    push(URLS.home)
-  }
+    push(URLS.home);
+  };
   useEffect(() => {
     if (token) {
       push(URLS.admin.dashboard);

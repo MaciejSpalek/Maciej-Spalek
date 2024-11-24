@@ -24,7 +24,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/__tests__/conversion.test.ts"  ],
   "exclude": [
     "node_modules"
   ]
