@@ -9,6 +9,7 @@ import {
   Title,
   Subtitle,
   ButtonWrapper,
+  ReCaptchaWrapper,
 } from "./Contact.styled";
 import { useContact } from "./useContact";
 import { axiosInstance } from "services/axiosClient";
@@ -18,11 +19,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { contactFormValidationSchema } from "./validation";
 import { useIsMobileView, useMessage } from "hooks";
 import { IFormInput } from "./Contact.model";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useState } from "react";
 
 export const Contact = () => {
   const { containerRef, formWrapperRef, leftWrapperRef } = useContact();
   const { message } = useMessage();
   const isMobileView = useIsMobileView();
+  const [verified, setVerified] = useState<boolean>(false);
 
   const {
     register,
@@ -64,8 +68,9 @@ export const Contact = () => {
         <TextWrapper>
           <Title>Let's talk!</Title>
           <Subtitle>
-            If you have any questions or you're interested in any of the artworks,
-            feel free to send me a private message — I'd love to hear from you!
+            If you have any questions or you're interested in any of the
+            artworks, feel free to send me a private message — I'd love to hear
+            from you!
           </Subtitle>
         </TextWrapper>
         <Input
@@ -91,9 +96,15 @@ export const Contact = () => {
           rows={5}
         />
         <ButtonWrapper>
+          <ReCAPTCHA
+            sitekey="6Ld1-IwqAAAAABxmp4_e3OFYorcmwtvEDNO0dcZc"
+            onChange={(value) => setVerified(!!value)}
+            // style=";-webkit-transform:scale(0.77);;-webkit-transform-origin:0 0;"
+            style={{ transform: 'scale(0.85)', transformOrigin: '0 0', border: 'none'}}
+          />
           <Button
             isLoading={isLoading}
-            disabled={isLoading}
+            disabled={isLoading || !verified}
             type="submit"
             fullWidth={!!isMobileView}
           >

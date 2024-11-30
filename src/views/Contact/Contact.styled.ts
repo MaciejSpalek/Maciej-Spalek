@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { colors, devices, flexColumn, flexRow, getFont } from "theme";
 
 export const Container = styled.div`
@@ -38,10 +38,33 @@ export const LeftWrapper = styled.div`
     width: min-content;
   }
 `;
+export const GlobalStyle = createGlobalStyle`
+.g-recaptcha {
+  width: 100% !important;
+  transform: scale(0.9) !important;
+  transform-origin: center !important;
+
+  @media (max-width: 768px) {
+    transform: scale(1) !important;
+  }
+}
+`;
 
 export const ButtonWrapper = styled.div`
-  ${flexRow};
-  justify-content: flex-end;
+  ${flexColumn};
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  @media ${devices.md} {
+    ${flexRow};
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 `;
 
 export const TextWrapper = styled.div`

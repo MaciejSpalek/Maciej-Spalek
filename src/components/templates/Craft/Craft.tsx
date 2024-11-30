@@ -4,7 +4,7 @@ import { ICraftPage } from "types";
 
 export const Craft = ({ craft, sections, posts, postsAmount }: ICraftPage) => {
   const { title, image, type } = craft;
-  console.log(posts);
+
   return (
     <Container>
       <PostList

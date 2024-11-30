@@ -4,7 +4,10 @@ import Head from "next/head";
 export const Meta = () => {
   return (
     <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover"  />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1 viewport-fit=cover"
+      />
       <meta
         name="description"
         content="Discover my paintings, drawings, and photographs. Explore a gallery of unique art and stunning photography."
@@ -32,6 +35,7 @@ export const Meta = () => {
       />
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+      <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lfw7IwqAAAAAAmS_Xe3S3xRa-GUSiIzBdOQfwf-"></script>
     </Head>
   );
 };
