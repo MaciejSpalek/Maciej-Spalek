@@ -99,7 +99,6 @@ export const Contact = () => {
           <ReCAPTCHA
             sitekey="6Ld1-IwqAAAAABxmp4_e3OFYorcmwtvEDNO0dcZc"
             onChange={(value) => setVerified(!!value)}
-            // style=";-webkit-transform:scale(0.77);;-webkit-transform-origin:0 0;"
             style={{ transform: 'scale(0.85)', transformOrigin: '0 0', border: 'none'}}
           />
           <Button
