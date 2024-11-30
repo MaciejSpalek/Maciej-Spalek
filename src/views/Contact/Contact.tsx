@@ -9,7 +9,6 @@ import {
   Title,
   Subtitle,
   ButtonWrapper,
-  ReCaptchaWrapper,
 } from "./Contact.styled";
 import { useContact } from "./useContact";
 import { axiosInstance } from "services/axiosClient";
