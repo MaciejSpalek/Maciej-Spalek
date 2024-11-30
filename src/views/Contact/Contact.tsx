@@ -96,7 +96,7 @@ export const Contact = () => {
         />
         <ButtonWrapper>
           <ReCAPTCHA
-            sitekey="6Ld1-IwqAAAAABxmp4_e3OFYorcmwtvEDNO0dcZc"
+            sitekey={process.env.NEXT_PUBLIC_SITE_KEY as string}
             onChange={(value) => setVerified(!!value)}
             style={{ transform: 'scale(0.85)', transformOrigin: '0 0', border: 'none'}}
           />
