@@ -41,7 +41,6 @@ export const useLogin = () => {
         message.success("Successfully logged in");
       },
       onError: (error: any) => {
-        console.log(error);
         const errors = error?.response?.data || {};
         const errorsArray: any[] = Object.entries(errors);
 
