@@ -35,7 +35,6 @@ export const Meta = () => {
       />
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-      <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lfw7IwqAAAAAAmS_Xe3S3xRa-GUSiIzBdOQfwf-"></script>
     </Head>
   );
 };
