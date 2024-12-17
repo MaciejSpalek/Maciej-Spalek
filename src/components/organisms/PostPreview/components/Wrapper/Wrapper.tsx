@@ -18,10 +18,10 @@ import {
 
 import { ActionType, PostPreviewProps } from "./PostPreview.model";
 import Image from "next/image";
-import { useLockBodyScroll } from "@uidotdev/usehooks";
+// import { useLockBodyScroll } from "@uidotdev/usehooks";
 
 export const Wrapper = ({ list }: PostPreviewProps) => {
-  useLockBodyScroll()
+  // useLockBodyScroll()
 
   const router = useRouter();
   const listIds = list.map(({ _id }) => _id);
