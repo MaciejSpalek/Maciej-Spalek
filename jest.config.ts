@@ -17,7 +17,6 @@ const config: Config = {
   ],
   moduleNameMapper: {
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-    "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$": `<rootDir>/__mocks__/fileMock.js`,
     "^@/components/(.*)$": "<rootDir>/components/$1",
     "^@/pages/(.*)$": "<rootDir>/pages/$1",
   },
@@ -25,10 +24,7 @@ const config: Config = {
   transform: {
     "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
   },
-  transformIgnorePatterns: [
-    "/node_modules/(?!(@uidotdev/usehooks)/)",
-    "^.+\\.module\\.(css|sass|scss)$",
-  ],
+  transformIgnorePatterns: ["^.+\\.module\\.(css|sass|scss)$"],
   testEnvironment: "jest-environment-jsdom",
 };
 

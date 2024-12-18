@@ -5,7 +5,7 @@ const createTestQueryClient = () =>
   new QueryClient({
     defaultOptions: {
       queries: {
-        retry: false, 
+        retry: false,
       },
     },
   });
@@ -17,4 +17,3 @@ export const TestProvider = (children: React.ReactNode) => {
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 };
-
