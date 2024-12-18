@@ -13,7 +13,7 @@ export const CirclePhoto = ({ width }: ICirclePhoto) => (
       src={SecondHeaderPhoto}
       loading="eager"
       quality={100}
-      alt="it's me"
+      alt="Maciej Spałek"
       priority
       layout="responsive"
       sizes="(min-width: 780px) 233px, (min-width: 560px) 500px, calc(90vw + 14px)"
