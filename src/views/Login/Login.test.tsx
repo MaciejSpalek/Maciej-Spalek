@@ -1,9 +1,8 @@
-import { Login } from "./Login";
 import { screen } from "@testing-library/react";
+import { Login } from "./Login";
 import { TestProvider } from "__mocks__";
 
-describe("Login tests", () => {
-  
+describe("Login", () => {
   test("check if view shows all elements", () => {
     TestProvider(<Login />);
 
