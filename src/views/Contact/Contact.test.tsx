@@ -1,4 +1,4 @@
-import { screen, waitFor } from "@testing-library/dom";
+import { screen, waitFor } from "@testing-library/react";
 import { Contact } from "./Contact";
 import { TestProvider } from "__mocks__";
 import userEvent from "@testing-library/user-event";
@@ -40,7 +40,11 @@ describe("Contact view", () => {
 
     await waitFor(() => {
       expect(nameInput).toHaveValue(nameText);
+    });
+    await waitFor(() => {
       expect(emailInput).toHaveValue(emailText);
+    });
+    await waitFor(() => {
       expect(messageInput).toHaveValue(messageText);
     });
   });
