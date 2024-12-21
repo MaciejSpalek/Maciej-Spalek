@@ -18,11 +18,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { contactFormValidationSchema } from "./validation";
 import { useIsMobileView, useMessage } from "hooks";
 import { IFormInput } from "./Contact.model";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useState } from "react";
 
 export const Contact = () => {
   const { containerRef, formWrapperRef, leftWrapperRef } = useContact();
   const { message } = useMessage();
   const isMobileView = useIsMobileView();
+  const [verified, setVerified] = useState<boolean>(false);
 
   const {
     register,
@@ -92,9 +95,14 @@ export const Contact = () => {
           rows={5}
         />
         <ButtonWrapper>
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_SITE_KEY as string}
+            onChange={(value) => setVerified(!!value)}
+            style={{ transform: 'scale(0.85)', transformOrigin: '0 0', border: 'none'}}
+          />
           <Button
             isLoading={isLoading}
-            disabled={isLoading}
+            disabled={isLoading || !verified}
             type="submit"
             fullWidth={!!isMobileView}
           >
