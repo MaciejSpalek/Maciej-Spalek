@@ -11,6 +11,7 @@ export const useContact = () => {
   const titleRef = useRef(null);
 
   useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
     let ctx = gsap.context(() => {
       gsap.fromTo(
         containerRef.current,

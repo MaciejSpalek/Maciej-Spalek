@@ -4,6 +4,10 @@ import { TestProvider } from "__mocks__";
 import userEvent from "@testing-library/user-event";
 
 describe("Contact view", () => {
+  beforeEach(() => {
+    process.env.NEXT_PUBLIC_SITE_KEY = "mocked-site-key";
+  });
+
   test("should display all elements", () => {
     TestProvider(<Contact />);
 

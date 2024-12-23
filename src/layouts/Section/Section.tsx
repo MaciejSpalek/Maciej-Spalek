@@ -10,6 +10,7 @@ export const Section = ({ title, children }: SectionProps) => {
   const headingRef = useRef(null);
 
   useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
     if (!isMobileView) {
       const ctx = gsap.context(() => {
         gsap.fromTo(

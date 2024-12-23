@@ -12,6 +12,7 @@ export const useFooter = () => {
   const copyrightWrapperRef = useRef(null);
 
   useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
     if (!isMobileView) {
       const ctx = gsap.context(() => {
         gsap.fromTo(

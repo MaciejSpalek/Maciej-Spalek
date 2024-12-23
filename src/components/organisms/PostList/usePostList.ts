@@ -9,6 +9,7 @@ export const usePostList = () => {
   const listRef = useRef(null);
 
   useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
     if (!isMobileView) {
       const ctx = gsap.context(() => {
         gsap.fromTo(
