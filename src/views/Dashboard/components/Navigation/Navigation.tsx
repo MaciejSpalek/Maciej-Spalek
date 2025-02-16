@@ -13,6 +13,7 @@ export const Navigation = ({ step, setStep }: INavigation) => {
     deleteCookie(COOKIES.MS_AUTH_TOKEN);
     router.push(URLS.admin.login);
   };
+  
   return (
     <List>
       {navigation.map((element) => (
