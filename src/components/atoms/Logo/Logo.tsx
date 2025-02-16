@@ -1,8 +1,6 @@
 import React from "react";
-import { Anchor, ImageWrapper } from "./Logo.styled";
+import { Anchor, ImageWrapper, LogoImage } from "./Logo.styled";
 import Link from "next/link";
-import Image from "next/image";
-import { logo } from "assets/images";
 import { URLS } from "helpers";
 
 export const Logo = () => {
@@ -10,7 +8,7 @@ export const Logo = () => {
     <Link href={URLS.home} passHref>
       <Anchor>
         <ImageWrapper>
-          <Image quality={100} loading="eager" src={logo} alt="logo" priority />
+          <LogoImage />
         </ImageWrapper>
       </Anchor>
     </Link>
