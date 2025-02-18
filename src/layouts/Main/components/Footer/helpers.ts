@@ -16,7 +16,6 @@ export const footerInfo = [
       list: [
         { name: "Instagram", href: 'https://www.instagram.com/spwrtt/' },
         { name: "Facebook", href: 'https://www.facebook.com/MaciekSpalek/' },
-        { name: "LinkedIn", href: 'https://www.linkedin.com/in/maciej-spalek/' },
       ],
     },
   ];

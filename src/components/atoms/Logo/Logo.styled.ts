@@ -1,6 +1,6 @@
 import { LogoIcon } from "assets";
 import styled from "styled-components";
-import { colors, flexCenter } from "theme";
+import { colors, devices, flexCenter } from "theme";
 
 export const Anchor = styled.a`
   display: flex;
@@ -11,12 +11,11 @@ export const Anchor = styled.a`
 
 export const ImageWrapper = styled.div`
   ${flexCenter};
-  max-width: 2rem;
   aspect-ratio: 1 / 1;
 `;
 
 export const LogoImage = styled(LogoIcon)`
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   color: ${colors.black}
 `;
