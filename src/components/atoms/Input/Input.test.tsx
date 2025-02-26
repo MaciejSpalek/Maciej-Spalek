@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { Input } from "./Input";
 import { TestProvider } from "__mocks__";
 import userEvent from "@testing-library/user-event";
@@ -39,7 +39,7 @@ describe("Input component", () => {
 
   test("checks error message", async () => {
     const error = "example error text";
-    
+
     TestProvider(
       <Input
         register={() => {}}
