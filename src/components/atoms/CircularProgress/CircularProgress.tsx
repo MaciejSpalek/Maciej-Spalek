@@ -13,7 +13,7 @@ export const CircularProgress = ({
   const dash = (percentage * circumference) / 100;
 
   return (
-    <Container width={size} height={size} viewBox={viewBox}>
+    <Container width={size} height={size} viewBox={viewBox} role="progressbar">
       <circle
         strokeWidth={`${strokeWidth}px`}
         stroke={colors.transparent.main}

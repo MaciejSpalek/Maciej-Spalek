@@ -21,7 +21,7 @@ jest.mock("gsap", () => {
           remove: jest.fn(),
           clear: jest.fn(),
         };
-        callback(); // Wykonaj przekazany callback
+        callback(); 
         return ctx;
       }),
     };
