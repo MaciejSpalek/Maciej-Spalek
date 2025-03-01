@@ -5,3 +5,4 @@ export * from "./home";
 export * from "./craft";
 export * from "./dashboard";
 export * from "./sizes";
+export * from "./article";
