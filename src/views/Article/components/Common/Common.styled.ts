@@ -3,13 +3,13 @@ import { colors, devices, flexCenter, flexColumn, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
+  gap: 24px;
   align-items: start;
 `;
 
-export const MainImageContainer = styled.div`
+export const ImageWrapper = styled.div`
   ${flexCenter};
   position: relative;
-  border-radius: 28px;
   overflow: hidden;
   aspect-ratio: 1/1;
 
@@ -23,6 +23,7 @@ export const Heading = styled.h2`
   ${getFont("regular", 24)};
   text-transform: uppercase;
   text-align: start;
+  margin: 0;
 
 `;
 
@@ -30,4 +31,5 @@ export const Paragraph = styled.p`
   color: ${colors.grayScale[1]};
   ${getFont("regular", 18)};
   text-align: justify;
+  margin: 0
 `;

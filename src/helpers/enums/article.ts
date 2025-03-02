@@ -1,4 +1,4 @@
 export const ARTICLE_BLOCK_TYPE = {
   COMMON: "common",
-  HINT: "medium",
+  HINT: "hint",
 };
