@@ -4,6 +4,7 @@ import {
   Heading,
   MainImageContainer,
   Paragraph,
+  BlocksWrapper
 } from "./Article.styled";
 import { IArticle } from "types";
 import { articleBlocks } from "./helpers";
@@ -17,7 +18,7 @@ interface ArticleProps {
 export const Article = ({ data }: ArticleProps) => {
   const { blocks, description, image, title } = data;
   const imageRef = useRef<HTMLImageElement>(null);
-
+  console.log({ blocks });
   return (
     <Container>
       <Section title={title}>
@@ -32,15 +33,17 @@ export const Article = ({ data }: ArticleProps) => {
             priority
           />
         </MainImageContainer>
-        
+
         <div>
           <Heading>Introduction</Heading>
           <Paragraph>{description}</Paragraph>
         </div>
-        
-        {blocks?.map((data) => (
-          <div key={data._id}>{articleBlocks({ data })[data.type]}</div>
-        ))}
+
+        <BlocksWrapper>
+          {blocks?.map((data) => (
+            <div key={data._id}>{articleBlocks({ data })[data.type]}</div>
+          ))}
+        </BlocksWrapper>
 
         <div>
           <Heading>Summary</Heading>

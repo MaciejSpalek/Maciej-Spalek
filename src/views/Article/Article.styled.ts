@@ -6,6 +6,11 @@ export const Container = styled.div`
   gap: 5rem;
 `;
 
+export const BlocksWrapper = styled.div`
+  ${flexColumn};
+  gap: 24px;
+`;
+
 export const MainImageContainer = styled.div`
   ${flexCenter};
   position: relative;
