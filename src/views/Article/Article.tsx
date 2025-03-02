@@ -18,7 +18,7 @@ interface ArticleProps {
 export const Article = ({ data }: ArticleProps) => {
   const { blocks, description, image, title } = data;
   const imageRef = useRef<HTMLImageElement>(null);
-  console.log({ blocks });
+
   return (
     <Container>
       <Section title={title}>

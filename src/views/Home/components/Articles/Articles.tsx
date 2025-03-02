@@ -1,11 +1,49 @@
 import React from "react";
-import { Container } from "./Articles.styled";
+import {
+  Container,
+  Heading,
+  ArticleThumbnail,
+  ArticlesContainer,
+  ImageWrapper,
+  ThumbnailHeading,
+} from "./Articles.styled";
 import { useArticlesListQuery } from "queries";
+import Image from "next/image";
+import { URLS } from "helpers";
+import { useRouter } from "next/router";
 
 export const Articles = () => {
   const { data: articles } = useArticlesListQuery();
+  const router = useRouter();
 
-  return <Container>
-    
-  </Container>;
+  const goToArticle = ({ id }: { id: string }) => {
+    router.push(URLS.article({ id }));
+  };
+  console.log({ articles });
+  return (
+    <Container>
+      <Heading>Articles</Heading>
+      <ArticlesContainer>
+        {articles?.map((article, index) => (
+          <ArticleThumbnail>
+            <ImageWrapper
+              onClick={() => goToArticle({ id: article._id })}
+              key={index}
+            >
+              <Image
+                src={article.image}
+                layout="fill"
+                objectFit="cover"
+                objectPosition="center"
+                alt="image"
+                loading="eager"
+                priority
+              />
+            </ImageWrapper>
+            <ThumbnailHeading>{article.title || "dupa"}</ThumbnailHeading>
+          </ArticleThumbnail>
+        ))}
+      </ArticlesContainer>
+    </Container>
+  );
 };

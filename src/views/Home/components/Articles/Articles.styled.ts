@@ -1,27 +1,33 @@
-import { CirclePhoto } from "components";
 import styled from "styled-components";
-import { colors, flexCenter, flexColumn, getFont, devices } from "theme";
+import { colors, flexCenter, getFont, flexColumn } from "theme";
 
 export const Container = styled.header`
-  ${flexCenter};
-  flex-direction: column;
-  min-height: 400px;
-
-  @media ${devices.md} {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  ${flexColumn};
+  align-items: flex-start;
+  gap: 32px;
 `;
 
-export const LeftWrapper = styled.div`
-  ${flexColumn};
+export const ArticlesContainer = styled.header`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+  cursor: pointer;
+`;
 
-  @media ${devices.md} {
-    justify-content: space-between;
-    align-items: flex-start;
-    align-self: stretch;
-    width: min-content;
-  }
+export const ImageWrapper = styled.div`
+  ${flexCenter};
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  width: 100%;
+`;
+
+export const ArticleThumbnail = styled.div`
+  ${flexColumn};
+  gap: 16px;
+  width: 100%;
 `;
 
 export const Heading = styled.h2`
@@ -31,47 +37,26 @@ export const Heading = styled.h2`
   color: ${colors.grayScale[3]};
   margin: 0;
   text-transform: uppercase;
-  margin-bottom: 40px;
-
-  @media ${devices.md} {
-    margin: 0;
-  }
 `;
 
-export const StyledCirclePhoto = styled(CirclePhoto)<{}>`
-  width: calc(100% - 2 * 16px);
-  aspect-ratio: 1 / 1;
-  margin-bottom: 40px;
-  max-width: 500px;
-  border: 1px solid red;
-
-  @media ${devices.md} {
-    width: 233px;
-    height: 233px;
-    margin: 0;
-  }
-`;
-
-export const RightWrapper = styled.div`
-  ${flexCenter};
-  width: 100%;
-
-  @media ${devices.md} {
-    align-self: flex-start;
-    width: 50%;
-  }
-`;
-
-export const Paragraph = styled.p`
-  ${getFont("medium", 26, 40)};
+export const ThumbnailHeading = styled.h2`
+  ${getFont("medium", 8, 14)};
   color: ${colors.grayScale[1]};
-  text-align: center;
-  word-break: keep-all;
-  margin-top: 40px;
-
-  @media ${devices.md} {
-    margin: 0;
-    text-align: left;
-    word-break: normal;
-  }
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  line-height: 100%;
 `;
+
+// export const Paragraph = styled.p`
+//   ${getFont("medium", 26, 40)};
+//   color: ${colors.grayScale[1]};
+//   text-align: center;
+//   word-break: keep-all;
+//   margin-top: 40px;
+
+//   @media ${devices.md} {
+//     margin: 0;
+//     text-align: left;
+//     word-break: normal;
+//   }
+// `;
