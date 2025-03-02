@@ -8,4 +8,5 @@ export const URLS = {
     dashboard: "/admin",
     login: "/admin/login",
   },
+  article: ({ id }: { id: string }) => `/article/${id}`,
 };
