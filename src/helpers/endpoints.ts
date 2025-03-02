@@ -14,6 +14,9 @@ export const ENDPOINTS = {
     UPDATE: ({ id }: { id: string | undefined }) => `/post/update/${id}`,
     DELETE: ({ id }: { id: string | undefined }) => `/post/delete/${id}`,
   },
+  ARTICLE: {
+    LIST: '/article/list'
+  },
   IMAGE: {
     UPLOAD: "image/upload",
   },
