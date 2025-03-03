@@ -12,7 +12,6 @@ export const ArticlesContainer = styled.header`
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   width: 100%;
-  cursor: pointer;
 `;
 
 export const ImageWrapper = styled.div`
@@ -28,6 +27,7 @@ export const ArticleThumbnail = styled.div`
   ${flexColumn};
   gap: 16px;
   width: 100%;
+  cursor: pointer;
 `;
 
 export const Heading = styled.h2`
