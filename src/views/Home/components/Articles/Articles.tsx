@@ -19,7 +19,7 @@ export const Articles = () => {
   const goToArticle = ({ id }: { id: string }) => {
     router.push(URLS.article({ id }));
   };
-  console.log({ articles });
+
   return (
     <Container>
       <Heading>Articles</Heading>
