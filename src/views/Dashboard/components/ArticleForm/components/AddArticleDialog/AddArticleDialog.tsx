@@ -19,7 +19,7 @@ import { Block } from "./components/Block";
 import { convertPaylaod } from "./helpers";
 
 export const AddArticleDialog = () => {
-  const { register, handleSubmit, setValue, getValues, watch } =
+  const { register, handleSubmit, setValue, watch } =
     useForm<IArticle>();
   const [isLoading, setLoading] = useState(false);
   const [isOpen, setOpen] = useState(false);
@@ -64,6 +64,7 @@ export const AddArticleDialog = () => {
   };
 
   const blocks = watch("blocks") || [];
+
   return (
     <>
       <Button onClick={toggle}>Add article</Button>
