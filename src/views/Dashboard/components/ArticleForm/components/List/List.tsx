@@ -31,7 +31,7 @@ export const List = () => {
       <Filters />
       <Section>
         <TopWrapper>
-          <Heading>Posts</Heading>
+          <Heading>Articles</Heading>
           <AddArticleDialog />
         </TopWrapper>
         <HeaderList>
@@ -50,6 +50,7 @@ export const List = () => {
               return (
                 <Row key={_id} last={index === data.length - 1}>
                   <Cell>{index + 1}.</Cell>
+                  <Cell>{_id}</Cell>
                   <Cell>
                     <ImageWrapper>
                       <Image

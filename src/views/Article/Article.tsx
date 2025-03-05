@@ -4,7 +4,8 @@ import {
   Heading,
   MainImageContainer,
   Paragraph,
-  BlocksWrapper
+  BlocksWrapper,
+  Wrapper
 } from "./Article.styled";
 import { IArticle } from "types";
 import { articleBlocks } from "./helpers";
@@ -34,10 +35,10 @@ export const Article = ({ data }: ArticleProps) => {
           />
         </MainImageContainer>
 
-        <div>
+        <Wrapper>
           <Heading>Introduction</Heading>
           <Paragraph>{description}</Paragraph>
-        </div>
+        </Wrapper>
 
         <BlocksWrapper>
           {blocks?.map((data) => (
@@ -45,10 +46,10 @@ export const Article = ({ data }: ArticleProps) => {
           ))}
         </BlocksWrapper>
 
-        <div>
+        <Wrapper>
           <Heading>Summary</Heading>
           <Paragraph>{description}</Paragraph>
-        </div>
+        </Wrapper>
       </Section>
     </Container>
   );

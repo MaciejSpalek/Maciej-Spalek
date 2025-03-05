@@ -46,7 +46,7 @@ export const Cell = styled.p`
   font-size: 12px;
   font-weight: 500;
   white-space: pre-wrap;
-  min-width: 120px;
+  min-width: 190px;
 `;
 
 export const ImageWrapper = styled.div`
@@ -58,6 +58,7 @@ export const HeaderCell = styled.p`
   color: ${colors.white};
   font-size: 16px;
   font-weight: 500;
+
 `;
 
 export const ContentList = styled.ul`
@@ -88,5 +89,5 @@ export const ActionCell = styled.div`
 `;
 
 export const HeaderItem = styled.li`
-  min-width: 120px;
+  min-width: 190px;
 `;

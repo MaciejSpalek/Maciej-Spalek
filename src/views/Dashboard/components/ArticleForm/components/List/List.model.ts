@@ -1,1 +1,1 @@
-export const headers = ["No.", "Image", "Title", "Action"];
+export const headers = ["No.", "ID", "Image", "Title", "Action"];

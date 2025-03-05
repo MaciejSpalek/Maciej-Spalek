@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageUploader, Input, Select, Textarea } from "components";
 
-import { FieldsWrapper, Container } from "./Block.styled";
+import { FieldsWrapper, Container, Iterator } from "./Block.styled";
 import { ARTICLE_BLOCK_TYPE } from "helpers";
 import { BlockProps } from "./Block.model";
 
@@ -13,7 +13,7 @@ export const Block = ({ index, register, setValue }: BlockProps) => {
 
   return (
     <Container>
-      <p>{index + 1}.Block</p>
+      <Iterator>Block no.{index + 1}</Iterator>
       <FieldsWrapper>
         <Select
           id={`blocks[${index}].type`}
