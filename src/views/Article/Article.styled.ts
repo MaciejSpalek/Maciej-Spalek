@@ -11,6 +11,11 @@ export const BlocksWrapper = styled.div`
   gap: 24px;
 `;
 
+export const Wrapper = styled.h2`
+  ${flexColumn};
+  align-items: flex-start;
+`;
+
 export const MainImageContainer = styled.div`
   ${flexCenter};
   position: relative;
