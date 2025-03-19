@@ -21,8 +21,9 @@ export const Article = ({ data }: ArticleProps) => {
   const imageRef = useRef<HTMLImageElement>(null);
 
   return (
-    <Container>
-      <Section title={title}>
+    <Section title={title}>
+        <Container>
+
         <MainImageContainer ref={imageRef}>
           <Image
             src={image}
@@ -32,7 +33,7 @@ export const Article = ({ data }: ArticleProps) => {
             alt="image"
             loading="eager"
             priority
-          />
+            />
         </MainImageContainer>
 
         <Wrapper>
@@ -50,7 +51,7 @@ export const Article = ({ data }: ArticleProps) => {
           <Heading>Summary</Heading>
           <Paragraph>{description}</Paragraph>
         </Wrapper>
-      </Section>
     </Container>
+      </Section>
   );
 };

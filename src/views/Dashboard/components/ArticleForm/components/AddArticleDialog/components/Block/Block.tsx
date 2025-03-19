@@ -38,6 +38,7 @@ export const Block = ({ index, register, setValue }: BlockProps) => {
           register={register}
           placeholder="Description"
           fullWidth
+          rows={8}
         />
       </FieldsWrapper>
     </Container>

@@ -25,10 +25,9 @@ export const Articles = () => {
       <Heading>Articles</Heading>
       <ArticlesContainer>
         {articles?.map((article, index) => (
-          <ArticleThumbnail>
+          <ArticleThumbnail key={index}>
             <ImageWrapper
               onClick={() => goToArticle({ id: article._id })}
-              key={index}
             >
               <Image
                 src={article.image}

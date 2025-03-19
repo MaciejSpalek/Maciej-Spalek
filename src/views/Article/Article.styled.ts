@@ -3,7 +3,6 @@ import { colors, devices, flexCenter, flexColumn, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
-  gap: 5rem;
 `;
 
 export const BlocksWrapper = styled.div`
