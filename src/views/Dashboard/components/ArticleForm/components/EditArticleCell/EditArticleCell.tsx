@@ -1,13 +1,27 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { Form, InputWrapper, BottomWrapper } from "./EditArticleCell.styled";
-import { Button, Dialog, ImageUploader, Input, Select } from "components";
+import {
+  Form,
+  InputWrapper,
+  BottomWrapper,
+  FieldsWrapper,
+  BlockWrapper,
+} from "./EditArticleCell.styled";
+import {
+  Button,
+  Dialog,
+  ImageUploader,
+  Input,
+  Select,
+  Textarea,
+} from "components";
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
-import { IArticle, IPost, PostTypes } from "types";
+import { IArticle, IArticleCommonBlockType, IPost, PostTypes } from "types";
+import { Block } from "../AddArticleDialog/components";
 
-interface IEditPostCell {
+interface IEditArticleCell {
   refetchList: () => void;
   data: IArticle;
 }
@@ -17,10 +31,10 @@ const types = Object.values(PostTypes).map((type) => ({
   value: type,
 }));
 
-export const EditArticleCell = ({ refetchList, data }: IEditPostCell) => {
+export const EditArticleCell = ({ refetchList, data }: IEditArticleCell) => {
   const [isLoading, setLoading] = useState(false);
   const [isOpen, setOpen] = useState(false);
-  const { register, handleSubmit, setValue } = useForm<IPost>({
+  const { register, handleSubmit, setValue, watch } = useForm<IArticle>({
     defaultValues: data,
   });
 
@@ -28,11 +42,11 @@ export const EditArticleCell = ({ refetchList, data }: IEditPostCell) => {
 
   const toggle = () => setOpen((prev) => !prev);
 
-  const onSubmit = async (data: IPost) => {
+  const onSubmit = async (data: IArticle) => {
     setLoading(true);
 
     try {
-      await axiosInstance.put(ENDPOINTS.POST.UPDATE({ id: _id }), data);
+      await axiosInstance.put(ENDPOINTS.ARTICLE.UPDATE({ id: _id }), data);
       setLoading(false);
       refetchList();
     } catch {
@@ -40,47 +54,67 @@ export const EditArticleCell = ({ refetchList, data }: IEditPostCell) => {
     }
   };
 
+  const handleAddEmptyBlock = () => {
+    const blocks = watch("blocks") || [];
+    const initialBlock: IArticleCommonBlockType = {
+      description: "",
+      image: "",
+      title: "",
+      type: "common",
+      _id: "",
+    };
+
+    setValue("blocks", [
+      ...(blocks as IArticleCommonBlockType[]),
+      initialBlock,
+    ]);
+  };
+
+  const blocks = watch("blocks") || [];
+
   return (
     <>
       <Button size="small" onClick={toggle}>
         Edit
       </Button>
-      <Dialog size="md" title="Edit post" toggle={toggle} isOpen={isOpen}>
+      <Dialog size="md" title="Edit article" toggle={toggle} isOpen={isOpen}>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <InputWrapper>
-            <ImageUploader
-              id="image"
-              setValue={setValue}
-              defaultValue={data.image}
-              buttonStyle
-            />
+          <FieldsWrapper>
+            <ImageUploader buttonStyle id="image" setValue={setValue} />
             <Input
-              id="state"
+              id="title"
               register={register}
-              placeholder="State"
+              placeholder="Title"
               fullWidth
             />
-            <Select
-              id="type"
-              register={register}
-              placeholder="Type"
-              options={types}
-            />
-            <Input
+            <Textarea
               id="description"
               register={register}
               placeholder="Description"
               fullWidth
+              rows={8}
             />
-            <Input
-              id="created_at"
+            <Textarea
+              id="summary"
               register={register}
+              placeholder="Summary"
               fullWidth
-              type="date"
+              rows={8}
             />
-          </InputWrapper>
+            <Button onClick={handleAddEmptyBlock}>Add new block</Button>
+          </FieldsWrapper>
+          <BlockWrapper>
+            {blocks.map((_, index) => (
+              <Block
+                key={index}
+                index={index}
+                register={register}
+                setValue={setValue}
+              />
+            ))}
+          </BlockWrapper>
           <BottomWrapper>
-            <Button isLoading={isLoading} type="submit">
+            <Button type="submit" isLoading={isLoading}>
               Submit
             </Button>
           </BottomWrapper>
