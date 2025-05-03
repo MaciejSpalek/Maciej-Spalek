@@ -10,7 +10,8 @@ export const Container = styled.div`
   background-color: ${colors.label.green.light};
   margin: 65px 0;
   width: 100%;
-
+  align-self: center;
+  
   @media ${devices.md} {
     min-width: 480px;
     max-width: 640px;

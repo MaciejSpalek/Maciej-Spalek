@@ -17,12 +17,10 @@ export const Common = ({ data }: CommonProps) => {
       <ImageWrapper>
         <Image
           src={image}
+          objectFit="contain"
           layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          alt="image"
+          alt={title}
           loading="eager"
-          priority
         />
       </ImageWrapper>
     </Container>

@@ -7,6 +7,7 @@ export const Container = styled.div`
 
 export const BlocksWrapper = styled.div`
   ${flexColumn};
+  align-items: center;
   gap: 24px;
 `;
 
