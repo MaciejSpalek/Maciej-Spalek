@@ -8,7 +8,7 @@ import {
   HeaderRowWrapper,
   SubmitWrapper,
 } from "./HomePageForm.styled";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button, ImageUploader, Textarea } from "components";
 import { ENDPOINTS } from "helpers/endpoints";
 import { axiosInstance } from "services/axiosClient";
@@ -18,14 +18,13 @@ interface IFormInput {
   home: IHome;
 }
 
-export const HomePageForm = ({ defaultValues }) => {
-  const { register, handleSubmit, setValue, getValues } =
-    useForm<IFormInput>({
-      defaultValues,
-    });
+export const HomePageForm = ({ defaultValues }: any) => {
+  const { register, handleSubmit, setValue, getValues } = useForm<IFormInput>({
+    defaultValues,
+  });
   const [isLoading, setLoading] = useState(false);
 
-  const onSubmit = async (data: SubmitHandler<IFormInput>) => {
+  const onSubmit = async (data: IFormInput) => {
     setLoading(true);
     try {
       await axiosInstance.put(ENDPOINTS.HOME.UPDATE_OR_CREATE, data);
@@ -78,7 +77,7 @@ export const HomePageForm = ({ defaultValues }) => {
         </Section>
 
         <SubmitWrapper>
-          <Button type="submit" fullWidth isLoading={isLoading}>
+          <Button type="submit" isLoading={isLoading}>
             Submit
           </Button>
         </SubmitWrapper>

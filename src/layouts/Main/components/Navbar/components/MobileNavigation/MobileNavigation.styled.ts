@@ -3,13 +3,15 @@ import { colors, flexCenter, flexColumn } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
-  padding: 24px;
+  padding: 16px 8px;
+
 `;
 
 export const TopBar = styled.div`
   ${flexCenter};
   justify-content: space-between;
   background-color: ${colors.white};
+  maxHeight: 60px;
 `;
 
 export const Collapsed = styled.ul`

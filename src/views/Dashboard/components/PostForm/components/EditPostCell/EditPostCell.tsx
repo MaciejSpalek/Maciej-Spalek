@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import { Form, InputWrapper, BottomWrapper } from "./EditPostCell.styled";
 import { Button, Dialog, ImageUploader, Input, Select } from "components";
@@ -28,7 +28,7 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
 
   const toggle = () => setOpen((prev) => !prev);
 
-  const onSubmit = async (data: SubmitHandler<IPost>) => {
+  const onSubmit = async (data: IPost) => {
     setLoading(true);
 
     try {
@@ -72,9 +72,15 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
               placeholder="Description"
               fullWidth
             />
+            <Input
+              id="created_at"
+              register={register}
+              fullWidth
+              type="date"
+            />
           </InputWrapper>
           <BottomWrapper>
-            <Button isLoading={isLoading} type="submit" fullWidth>
+            <Button isLoading={isLoading} type="submit">
               Submit
             </Button>
           </BottomWrapper>

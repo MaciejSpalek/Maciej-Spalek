@@ -8,6 +8,7 @@ import { PostListProps } from "./PostList.model";
 import { useRouter } from "next/router";
 import { usePostList } from "./usePostList";
 import { usePostListQuery } from "queries";
+import { IPost } from "types";
 
 export const PostList = ({
   initialList,
@@ -16,9 +17,9 @@ export const PostList = ({
   image,
   type,
 }: PostListProps) => {
+  const [enabled, setEnabled] = useState(false);
   const { imageRef, listRef } = usePostList();
   const [limit, setLimit] = useState(10);
-  const [enabled, setEnabled] = useState(false);
   const router = useRouter();
 
   const filters = { type, limit };
@@ -29,21 +30,29 @@ export const PostList = ({
 
   const list = fetchedList || initialList || [];
   const isLoadingMoreButtonVisible = postsAmount >= limit;
-console.log({postsAmount, limit})
+
   const handleOnButton = () => {
     setLimit((prev) => (prev += 10));
     setEnabled(true);
   };
 
-  const openModal = (id) => {
+  const openModal = (id: IPost["_id"]) => {
     router.query.photo = id;
-    router.push(router);
+    router.push(router, undefined, { shallow: true });
   };
 
   return (
     <Section title={title}>
       <MainImageContainer ref={imageRef}>
-        <Image src={image} layout="fill" objectFit="cover" alt="image" />
+        <Image
+          src={image}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          alt="image"
+          loading="eager"
+          priority
+        />
       </MainImageContainer>
       <List ref={listRef}>
         {list.map((post) => (

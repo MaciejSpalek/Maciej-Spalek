@@ -1,6 +1,5 @@
-import Link from "next/link";
 import styled from "styled-components";
-import { flexCenter, flexColumn, getFont } from "theme";
+import { devices, flexCenter, flexColumn, getFont } from "theme";
 import { colors } from "theme/colors";
 
 export const Container = styled.div`
@@ -38,11 +37,15 @@ export const HiddenWrapper = styled.div`
 
 export const DescriptionWrapper = styled.div`
   ${flexColumn};
-  padding: 16px;
+  padding: 8px;
+
+   @media ${devices.md} {
+    padding: 16px;
+  }
 `;
 
 export const Description = styled.p`
-  ${getFont("medium", 12, 14)};
+  ${getFont("medium", 8, 14)};
   color: ${colors.grayScale[1]};
   text-transform: uppercase;
   letter-spacing: 2.2px;

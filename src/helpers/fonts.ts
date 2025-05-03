@@ -1,6 +1,6 @@
 import { breakpoints } from "theme";
 
-export const getFluidSize = (minValue, maxValue) => {
+export const getFluidSize = (minValue: number, maxValue: number) => {
   const minWidthPx = breakpoints.xs;
   const maxWidthPx = breakpoints.lg;
 

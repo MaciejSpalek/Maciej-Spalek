@@ -20,39 +20,40 @@ import Link from "next/link";
 import { footerInfo } from "./helpers";
 import { useRouter } from "next/router";
 import { URLS } from "helpers";
-import { useFooter } from "./useFooter";
+
+interface ILink {
+  href: string;
+  name: string;
+}
 
 export const Footer = () => {
-  const { containerRef, headingRef, buttonRef, secondWrapperRef, copyrightWrapperRef } = useFooter();
   const { push } = useRouter();
 
   const goToContact = () => push(URLS.contact);
 
   const currentYear = new Date().getFullYear();
 
-  const renderNavLink = ({ href, name }) => (
+  const renderNavLink = ({ href, name }: ILink) => (
     <Link href={href} passHref>
       <Anchor>{name}</Anchor>
     </Link>
   );
 
-  const renderSocialLink = ({ href, name }) => (
+  const renderSocialLink = ({ href, name }: ILink) => (
     <Anchor rel="noopener noreferrer" target="_blank" href={href}>
       {name}
     </Anchor>
   );
 
   return (
-    <Container ref={containerRef}>
+    <Container>
       <InnerWrapper>
         <FirstWrapper>
-          <Heading ref={headingRef}>Any questions?</Heading>
-          <div ref={buttonRef}>
-            <SpecialButton onClick={goToContact}>Contact me</SpecialButton>
-          </div>
+          <Heading>Any questions?</Heading>
+          <SpecialButton onClick={goToContact}>Contact me</SpecialButton>
         </FirstWrapper>
         <Divider />
-        <SecondWrapper ref={secondWrapperRef}>
+        <SecondWrapper>
           <LeftWrapper>
             <CirclePhoto width={144} />
             <Paragraph>Maciej Spałek</Paragraph>
@@ -75,7 +76,7 @@ export const Footer = () => {
           </SocialsWrapper>
         </SecondWrapper>
         <Divider />
-        <Wrapper ref={copyrightWrapperRef}>
+        <Wrapper>
           <Copyright>{currentYear} | Maciej Spałek</Copyright>
         </Wrapper>
       </InnerWrapper>

@@ -16,38 +16,43 @@ import { ENDPOINTS } from "helpers/endpoints";
 import { useMutation } from "@tanstack/react-query";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { contactFormValidationSchema } from "./validation";
-
-interface IFormInput {
-  name: string;
-  email: string;
-  message: string;
-}
+import { useIsMobileView, useMessage } from "hooks";
+import { IFormInput } from "./Contact.model";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useState } from "react";
 
 export const Contact = () => {
   const { containerRef, formWrapperRef, leftWrapperRef } = useContact();
+  const { message } = useMessage();
+  const isMobileView = useIsMobileView();
+  const [verified, setVerified] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
-    resetField,
+    reset,
     formState: { errors },
   } = useForm<IFormInput>({
-    resolver: yupResolver(contactFormValidationSchema),
+    resolver: yupResolver<any>(contactFormValidationSchema),
     mode: "onChange",
   });
 
-  console.log({ errors });
-  const sendEmail = async (payload) =>
+  const sendEmail = async (payload: IFormInput) =>
     axiosInstance.post(ENDPOINTS.SEND_EMAIL, payload);
 
   const sendEmailMutation = useMutation({
     mutationFn: sendEmail,
     onSuccess: () => {
-      resetField("message");
+      reset();
+      message.success("Successfully sent");
+    },
+    onError: () => {
+      message.error("Something went wrong");
     },
   });
 
   const onSubmit = async (data: IFormInput) => {
-    await sendEmailMutation.mutate(data);
+    sendEmailMutation.mutate(data);
   };
 
   const isLoading = sendEmailMutation.isPending;
@@ -60,11 +65,11 @@ export const Contact = () => {
       </LeftWrapper>
       <FormWrapper ref={formWrapperRef} onSubmit={handleSubmit(onSubmit)}>
         <TextWrapper>
-          <Title>{"Let's Collaborate!"}</Title>
+          <Title>Let's talk!</Title>
           <Subtitle>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua minim
-            veniam, quis nostrud.
+            If you have any questions or you're interested in any of the
+            artworks, feel free to send me a private message — I'd love to hear
+            from you!
           </Subtitle>
         </TextWrapper>
         <Input
@@ -90,11 +95,16 @@ export const Contact = () => {
           rows={5}
         />
         <ButtonWrapper>
+          <ReCAPTCHA
+            sitekey={process.env.NEXT_PUBLIC_SITE_KEY as string}
+            onChange={(value) => setVerified(!!value)}
+            style={{ transform: 'scale(0.85)', transformOrigin: '0 0', border: 'none'}}
+          />
           <Button
             isLoading={isLoading}
-            disabled={isLoading}
+            disabled={isLoading || !verified}
             type="submit"
-            fullWidth
+            fullWidth={!!isMobileView}
           >
             Send
           </Button>

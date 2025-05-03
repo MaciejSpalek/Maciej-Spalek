@@ -13,7 +13,7 @@ export const Title = styled.p`
   text-transform: uppercase;
   margin: 0;
   transition: 0.5s ease;
-  ${getFont("medium", 32, 94)};
+  ${getFont("medium", 24, 94)};
 
   &:hover,
   &:focus {

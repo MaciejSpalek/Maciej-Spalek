@@ -28,7 +28,7 @@ export const Heading = styled.h2`
   ${getFont("regular", 12, 18)};
   letter-spacing: 7.2px;
   line-height: 32px;
-  color: ${colors.grayScale[4]};
+  color: ${colors.grayScale[3]};
   margin: 0;
   text-transform: uppercase;
   margin-bottom: 40px;
@@ -54,7 +54,7 @@ export const StyledCirclePhoto = styled(CirclePhoto)<{}>`
 
 export const RightWrapper = styled.div`
   ${flexCenter};
-  width: 75%;
+  width: 100%;
 
   @media ${devices.md} {
     align-self: flex-start;
@@ -66,10 +66,12 @@ export const Paragraph = styled.p`
   ${getFont("medium", 26, 40)};
   color: ${colors.grayScale[1]};
   text-align: center;
+  word-break: keep-all;
   margin-top: 40px;
 
   @media ${devices.md} {
     margin: 0;
     text-align: left;
+    word-break: normal;
   }
 `;

@@ -40,8 +40,20 @@ export const LeftWrapper = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  ${flexRow};
-  justify-content: flex-end;
+  ${flexColumn};
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  @media ${devices.md} {
+    ${flexRow};
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 `;
 
 export const TextWrapper = styled.div`

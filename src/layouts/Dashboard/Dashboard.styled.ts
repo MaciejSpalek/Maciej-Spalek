@@ -6,7 +6,7 @@ import { colors } from "theme/colors";
 export const Container = styled.div`
   position: relative;
   ${flexColumn};
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: ${colors.white};
   overflow: hidden;
@@ -16,6 +16,7 @@ export const InnerWrapper = styled.div`
   ${flexColumn};
   max-width: ${breakpoints.lg}px;
   padding: 0 ${getFluidSize(8, 16)} 64px;
+  overflow: auto;
 `;
 
 export const MainWrapper = styled.main`

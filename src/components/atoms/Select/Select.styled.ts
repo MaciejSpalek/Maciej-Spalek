@@ -14,7 +14,7 @@ export const Wrapper = styled.div<{ error: boolean; touched: boolean; }>`
     ${({ error, touched }) => (error && touched ? colors.secondary.main : colors.grayscale.tertiary)};
   border-radius: 8px;
   overflow: hidden;
-  padding: ${({ isIcon }) => (isIcon ? '0 8px' : 0)};
+  padding: 0;
   :focus-within {
     border: 1px solid
       ${({ error, touched }) => (error && touched ? colors.secondary.main : colors.primary.main)};

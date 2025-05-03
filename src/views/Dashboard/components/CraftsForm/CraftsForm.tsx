@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import {
   Container,
   Heading,
@@ -14,24 +14,21 @@ import { Button, ImageUploader, Input, Select } from "components";
 import { ENDPOINTS } from "helpers/endpoints";
 import { axiosInstance } from "services/axiosClient";
 import { ICraft, PostTypes } from "types";
-
-interface ICraftsForm {
-  crafts: ICraft[];
-}
+import { ICraftsForm, IHandleOnRemoveSectionProps } from "./CraftForm.model";
 
 const types = Object.values(PostTypes).map((type) => ({
   label: type,
   value: type,
 }));
 
-export const CraftsForm = ({ defaultValues }) => {
+export const CraftsForm = ({ defaultValues }: any) => {
   const [crafts, setCrafts] = useState<ICraft[]>(defaultValues.crafts);
   const { register, handleSubmit, setValue } = useForm<ICraftsForm>({
     defaultValues,
   });
   const [isLoading, setLoading] = useState(false);
 
-  const onSubmit = async (data: SubmitHandler<ICraftsForm>) => {
+  const onSubmit = async (data: ICraftsForm) => {
     setLoading(true);
 
     try {
@@ -44,7 +41,7 @@ export const CraftsForm = ({ defaultValues }) => {
 
   const handleOnAddNewSection = () => {
     const newSection: ICraft = {
-      image: null,
+      image: "",
       href: "",
       title: "",
       type: "drawing",
@@ -53,7 +50,7 @@ export const CraftsForm = ({ defaultValues }) => {
     setCrafts((prev) => [...prev, newSection]);
   };
 
-  const handleOnRemoveSection = ({ title }) => {
+  const handleOnRemoveSection = ({ title }: IHandleOnRemoveSectionProps) => {
     const newCrafts = crafts.filter(
       ({ title: currentTitle }) => title !== currentTitle
     );
@@ -103,7 +100,6 @@ export const CraftsForm = ({ defaultValues }) => {
                 <Button
                   onClick={() => handleOnRemoveSection({ title })}
                   type="button"
-                  fullWidth
                 >
                   Remove
                 </Button>
@@ -112,7 +108,7 @@ export const CraftsForm = ({ defaultValues }) => {
           ))}
         </Section>
         <SubmitWrapper>
-          <Button type="submit" fullWidth isLoading={isLoading}>
+          <Button type="submit" isLoading={isLoading}>
             Submit
           </Button>
         </SubmitWrapper>

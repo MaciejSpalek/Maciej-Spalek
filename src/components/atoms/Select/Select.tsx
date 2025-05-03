@@ -4,7 +4,7 @@ import { Container, StyledSelect, Wrapper, Option } from "./Select.styled";
 // import { ErrorMessage } from 'components';
 import { ISelect } from "./Select.model";
 
-export const Select = forwardRef(
+export const Select = forwardRef<HTMLDivElement, ISelect>(
   (
     {
       placeholder,
@@ -20,7 +20,7 @@ export const Select = forwardRef(
   ) => {
     return (
       <Container fullWidth={fullWidth} ref={ref}>
-        <Wrapper>
+        <Wrapper error={!!error} touched={!!touched}>
           <StyledSelect
             placeholder={placeholder}
             aria-label={placeholder}

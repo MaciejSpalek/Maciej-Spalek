@@ -46,6 +46,7 @@ export const Cell = styled.p`
   font-size: 12px;
   font-weight: 500;
   white-space: pre-wrap;
+  min-width: 120px;
 `;
 
 export const ImageWrapper = styled.div`
@@ -76,14 +77,16 @@ export const HeaderList = styled.ul`
   padding: 0;
   border-bottom: 1px solid ${colors.grayScale[2]};
   overflow-x: auto;
+  list-style: none;
 `;
 
 export const ActionCell = styled.div`
   ${flexRow};
+  min-width: 120px;
   gap: 16px;
   padding: 0;
 `;
 
 export const HeaderItem = styled.li`
-  min-width: 70px;
+  min-width: 120px;
 `;

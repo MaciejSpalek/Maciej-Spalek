@@ -1,35 +1,29 @@
 import React from "react";
 import { Craft } from "components";
-import { PostTypes } from "types";
+import { ICraftPage, PostTypes } from "types";
 
-const Paintings = ({ data }) => <Craft {...data} />;
+interface IPaintings {
+  data: ICraftPage;
+}
+
+const Paintings = ({ data }: IPaintings) => <Craft {...data} />;
 
 export default Paintings;
 
 export async function getServerSideProps() {
   try {
     const craftResponse = await fetch(
-      `http://localhost:5000/api/craft/get/${PostTypes.painting}`
+      `${process.env.NEXT_PUBLIC_API_URL}/craft/get/${PostTypes.painting}`
     );
-    
     const sectionsResponse = await fetch(
-      "http://localhost:5000/api/craft/get-all"
+      `${process.env.NEXT_PUBLIC_API_URL}/craft/get-all`
     );
-
     const postsResponse = await fetch(
-      `http://localhost:5000/api/post/list?type=${PostTypes.painting}&limit=10`
+      `${process.env.NEXT_PUBLIC_API_URL}/post/list?type=${PostTypes.painting}&limit=10`
     );
-
     const postsAmountResponse = await fetch(
-      `http://localhost:5000/api/post/amount?type=${PostTypes.painting}`
+      `${process.env.NEXT_PUBLIC_API_URL}/post/amount?type=${PostTypes.painting}`
     );
-
-    if (!craftResponse.ok) {
-      console.error(`Nieudane zapytanie. Status: ${craftResponse.status}`);
-      return {
-        notFound: true,
-      };
-    }
 
     const postsAmount = await postsAmountResponse.json();
     const sections = await sectionsResponse.json();
@@ -42,11 +36,10 @@ export async function getServerSideProps() {
       },
     };
   } catch (error) {
-    console.error("Błąd podczas pobierania danych:", error);
 
     return {
       props: {
-        data: { craft: {}, sections: [] },
+        data: { craft: {}, sections: [], postsAmount: 0 },
       },
     };
   }

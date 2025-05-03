@@ -6,18 +6,18 @@ export const leftNavigation = [
     text: "home",
   },
   {
-    href: URLS.paintings,
-    text: "paintings",
+    href: URLS.photography,
+    text: "photography",
   },
 ];
 
 export const rightNavigation = [
   {
-    href: URLS.drawings,
-    text: "drawings",
+    href: URLS.paintings,
+    text: "paintings",
   },
   {
-    href: URLS.photography,
-    text: "photography",
+    href: URLS.drawings,
+    text: "drawings",
   },
 ];

@@ -6,11 +6,8 @@ let headers = {
   Accept: "application/json",
 };
 
-// const API_DEV = "https://spwrtt.usermd.net/api";
-export const API_LOCAL = "http://localhost:5000/api";
-
 export const axiosInstance = axios.create({
-  baseURL: API_LOCAL,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
   headers,
 });
 

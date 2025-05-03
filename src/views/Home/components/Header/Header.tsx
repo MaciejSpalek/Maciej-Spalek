@@ -5,8 +5,8 @@ import {
   GridList,
   GridItem,
   Paragraph,
+  StyledImage,
 } from "./Header.styled";
-import Image from "next/image";
 import { useHeader } from "./useHeader";
 import { SpecialButton } from "components";
 import { useHomeContextProvider } from "views/Home/context/HomeContextProvider";
@@ -29,7 +29,7 @@ export const Header = () => {
     second_photo: secondPhoto,
     description,
   } = header;
-  
+
   return (
     <Container ref={headerContainerRef}>
       <Heading ref={headerHeadingRef}>Maciej Spałek</Heading>
@@ -39,10 +39,26 @@ export const Header = () => {
       </div>
       <GridList>
         <GridItem ref={headerLeftImageRef}>
-          <Image src={firstPhoto} alt="Zdjęcie w windzie" layout="fill"/>
+          <StyledImage
+            src={firstPhoto}
+            alt="Zdjęcie w windzie"
+            layout="fill"
+            objectFit="cover"
+            priority={true}
+            loading="eager"
+            sizes="(min-width: 1340px) 588px, calc(46.08vw - 20px)"
+          />
         </GridItem>
         <GridItem ref={headerRightImageRef}>
-          <Image src={secondPhoto} alt="Zdjęcie na rzece Hudson" layout="fill" />
+          <StyledImage
+            src={secondPhoto}
+            alt="Zdjęcie na rzece Hudson"
+            layout="fill"
+            objectFit="cover"
+            priority={true}
+            loading="eager"
+            sizes="(min-width: 1340px) 588px, calc(46.08vw - 20px)"
+          />
         </GridItem>
       </GridList>
     </Container>

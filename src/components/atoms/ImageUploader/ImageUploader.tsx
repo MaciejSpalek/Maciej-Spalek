@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import React, { forwardRef, useRef, useState } from "react";
-
 import Image from "next/image";
 
 import { IInput } from "./ImageUploader.model";
@@ -19,20 +18,20 @@ import {
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
 
-export const ImageUploader = forwardRef(
-  ({ id, setValue, buttonStyle, defaultValue = null }: IInput, ref) => {
+export const ImageUploader = forwardRef<HTMLDivElement, IInput>(
+  ({ id, setValue, buttonStyle, defaultValue = "" }: IInput, ref) => {
     const [image, setImage] = useState<string>(defaultValue?.toString());
-    const hiddenFileInput = useRef(null);
+    const hiddenFileInput = useRef<HTMLInputElement>(null);
 
     const handleClick = () => {
-      hiddenFileInput.current.click();
+      hiddenFileInput?.current?.click();
     };
 
-    const handleChange = async (event) => {
-      const file = event.target.files[0];
+    const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target?.files?.[0];
       const formData = new FormData();
 
-      formData.append("file", file);
+      formData.append("file", file as File);
 
       const { data: imageUrl } = await axiosInstance.post(
         ENDPOINTS.IMAGE.UPLOAD,
@@ -49,7 +48,7 @@ export const ImageUploader = forwardRef(
       if (file && file.type.startsWith("image/")) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          setImage(e.target.result as string);
+          setImage(e.target?.result as string);
         };
 
         reader.readAsDataURL(file);

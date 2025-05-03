@@ -21,16 +21,20 @@ interface IDialog {
 }
 
 export const Dialog = ({ children, title, isOpen, toggle, size }: IDialog) => {
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
 
   const dialogSize = breakpoints[size];
 
   return (
-    <Backdrop isOpen={isOpen}>
-      <StyledDialog size={dialogSize} ref={ref}>
+    <Backdrop isOpen={isOpen} onClick={toggle}>
+      <StyledDialog
+        size={dialogSize}
+        ref={ref}
+        onClick={(e) => e.stopPropagation()}
+      >
         <TopWrapper>
           <Title>{title}</Title>
-          <Button  size="square" onClick={toggle} icon={CloseIcon}></Button>
+          <Button size="square" onClick={toggle} icon={CloseIcon}></Button>
         </TopWrapper>
         <Divider />
         <DialogContent>{children}</DialogContent>

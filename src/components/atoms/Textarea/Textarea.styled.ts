@@ -8,19 +8,18 @@ export const Container = styled.div<{ fullWidth?: boolean }>`
   max-width: ${({ fullWidth }) => (fullWidth ? "100%" : "300px")};
 `;
 
-export const Wrapper = styled.div<{ error: boolean; touched: boolean }>`
+export const Wrapper = styled.div<{ error: boolean }>`
   ${flexRow};
   border: 1px solid
-    ${({ error, touched }) =>
-      error && touched ? colors.secondary.main : colors.grayscale.tertiary};
+    ${({ error }) =>
+      error ? colors.secondary.main : colors.grayscale.tertiary};
   border-radius: 8px;
   overflow: hidden;
-  padding: ${({ isIcon }) => (isIcon ? "0 8px" : 0)};
+  padding: 0;
   height: 100%;
   :focus-within {
     border: 1px solid
-      ${({ error, touched }) =>
-        error && touched ? colors.secondary.main : colors.primary.main};
+      ${({ error }) => (error ? colors.secondary.main : colors.primary.main)};
   }
 `;
 
@@ -37,7 +36,7 @@ export const StyledInput = styled.textarea<IInput>`
     error ? colors.label.red.light : colors.grayScale[7]};
   color: ${({ error }) =>
     error ? colors.secondary.main : colors.grayScale[1]};
-  ${getFont('medium', 12, 18)};
+  ${getFont("medium", 12, 18)};
   resize: none;
   border: none;
   outline: 0;

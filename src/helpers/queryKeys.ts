@@ -1,5 +1,8 @@
 export const QUERY_KEYS = {
   POST: {
-    LIST: (filters) => ["POST_LIST", filters],
+    LIST: <T>(filters: T) => ["POST_LIST", filters],
+  },
+  ARTICLE: {
+    LIST: <T>(filters: T) => ["ARTICLE_LIST", filters],
   },
 };

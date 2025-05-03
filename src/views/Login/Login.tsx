@@ -1,61 +1,50 @@
-import { SubmitHandler, useForm } from "react-hook-form";
 import { Button, Input } from "components";
-import { Container, FormWrapper, Heading } from "./Login.styled";
-import { useMutation } from "@tanstack/react-query";
-import { axiosInstance } from "services/axiosClient";
-import { ENDPOINTS } from "helpers/endpoints";
-import { getCookie, setCookie } from "helpers/cookies";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { URLS } from "helpers";
-
-
-interface IFormInput {
-  name: string;
-  password: string;
-}
+import {
+  Container,
+  FormWrapper,
+  Heading,
+  BottomWrapper,
+  BackButton,
+  StyledLeftRectangleArrowIcon,
+} from "./Login.styled";
+import { useLogin } from "./useLogin";
 
 export const Login = () => {
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const { push } = useRouter();
-
-  const token = getCookie("ms_auth_token");
-  const logIn = async (payload) => axiosInstance.post(ENDPOINTS.LOGIN, payload);
-
-  const loginMutation = useMutation({
-    mutationFn: logIn,
-  });
-
-  const onSubmit = async (data: SubmitHandler<IFormInput>) => {
-    await loginMutation.mutate(data, {
-      onSuccess: ({ data }) => {
-        const { token } = data;
-        setCookie("ms_auth_token", token, { date: new Date("2030-01-01") });
-      },
-    });
-  };
-
-  useEffect(() => {
-    if (token) {
-      push(URLS.admin.dashboard);
-    }
-  }, [token]);
+  const { register, handleOnSubmit, errors, isLoading, goBackToDashboard } =
+    useLogin();
 
   return (
     <Container>
       <Heading>Admin panel</Heading>
-      <FormWrapper onSubmit={handleSubmit(onSubmit)}>
-        <Input register={register} fullWidth id="name" placeholder="Login" />
+      <FormWrapper onSubmit={handleOnSubmit}>
         <Input
+          error={errors?.name?.message}
+          register={register}
+          fullWidth
+          id="name"
+          placeholder="Login"
+        />
+        <Input
+          error={errors?.password?.message}
           register={register}
           fullWidth
           id="password"
           placeholder="Password"
           type="password"
         />
-        <Button type="submit" fullWidth>
-          Submit
-        </Button>
+        <BottomWrapper>
+          <BackButton type="button" onClick={goBackToDashboard}>
+            <StyledLeftRectangleArrowIcon />
+            Back
+          </BackButton>
+          <Button
+            type="submit"
+            isLoading={isLoading}
+            disabled={isLoading}
+          >
+            Submit
+          </Button>
+        </BottomWrapper>
       </FormWrapper>
     </Container>
   );

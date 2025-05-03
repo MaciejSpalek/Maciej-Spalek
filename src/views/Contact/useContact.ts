@@ -1,10 +1,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { animationParams } from "helpers";
 
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { gsap } from "gsap";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const useContact = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,8 +10,8 @@ export const useContact = () => {
   const subtitleRef = useRef(null);
   const titleRef = useRef(null);
 
-  // Header animations
   useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
     let ctx = gsap.context(() => {
       gsap.fromTo(
         containerRef.current,

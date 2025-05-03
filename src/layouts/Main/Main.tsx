@@ -2,15 +2,15 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 import { Navbar, Footer } from "./components";
-import { Meta } from "components";
 import { Container, InnerWrapper, MainWrapper } from "./Main.styled";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { IChildren } from "types";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Main = ({ children }) => {
+export const Main = ({ children }: IChildren) => {
   const containerRef = useRef<HTMLDivElement>(null);
-
+  
   useEffect(() => {
     containerRef?.current?.scrollTo(0, document.body.scrollHeight);
   }, []);
@@ -19,7 +19,6 @@ export const Main = ({ children }) => {
     <Container>
       <Navbar />
       <InnerWrapper ref={containerRef}>
-        <Meta />
         <MainWrapper>{children}</MainWrapper>
       </InnerWrapper>
       <Footer />

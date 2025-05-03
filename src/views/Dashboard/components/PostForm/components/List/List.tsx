@@ -20,16 +20,7 @@ import {
 } from "./List.styled";
 import { ls, LS_KEYS } from "helpers";
 import { AddPostDialog } from "../AddPostDialog";
-
-const headers = [
-  "No.",
-  "Image",
-  "Type",
-  "Description",
-  "Price",
-  "State",
-  "Action",
-];
+import { headers } from "./List.model";
 
 export const List = () => {
   const postListFilters = ls.get(LS_KEYS.POST_LIST_FILTERS);
@@ -58,14 +49,21 @@ export const List = () => {
           {isFetching ? (
             <p>Loading...</p>
           ) : (
-            data.map((post, index) => {
+            data?.map((post, index) => {
               const { _id, image, type, description, price, state } = post;
               return (
                 <Row key={_id} last={index === data.length - 1}>
                   <Cell>{index + 1}.</Cell>
-                  <ImageWrapper>
-                    <Image src={image} height={60} width={60} />
-                  </ImageWrapper>
+                  <Cell>
+                    <ImageWrapper>
+                      <Image
+                        src={image}
+                        height={60}
+                        width={60}
+                        alt={description}
+                      />
+                    </ImageWrapper>
+                  </Cell>
                   <Cell>{type}</Cell>
                   <Cell>{description || ""}</Cell>
                   <Cell>{price || ""}</Cell>

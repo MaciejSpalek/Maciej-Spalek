@@ -6,7 +6,6 @@ import {
   StyledContent,
   Wrapper,
   StyledIconWrapper,
-  StyledLoader,
 } from "./Button.styled";
 import { CircularProgress } from "../CircularProgress";
 
@@ -20,8 +19,7 @@ export const Button = ({
   isLoading = false,
   fullWidth = false,
   type = "button",
-  ...props
-}: IButton): JSX.Element => {
+}: IButton) => {
   const content = () => {
     if (Icon && (size === ButtonTypes.MEDIUM || size === ButtonTypes.SQUARE)) {
       return (
@@ -54,7 +52,6 @@ export const Button = ({
       outline={!!outline}
       onClick={onClick}
       size={size}
-      {...props}
     >
       {content()}
     </BaseButton>
