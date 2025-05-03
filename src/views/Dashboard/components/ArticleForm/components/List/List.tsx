@@ -20,9 +20,13 @@ import {
 import { AddArticleDialog } from "../AddArticleDialog";
 import { headers } from "./List.model";
 import { RemoveArticleCell } from "../RemoveArticleCell";
+import { ls, LS_KEYS } from "helpers";
 
 export const List = () => {
-  const { data, isFetching, isError, refetch } = useArticlesListQuery();
+  const articleListFilters = ls.get(LS_KEYS.ARTICLE_LIST_FILTERS);
+  const { data, isFetching, isError, refetch } = useArticlesListQuery({
+    filters: articleListFilters,
+  });
 
   if (isError) return <div>error</div>;
 
@@ -53,12 +57,7 @@ export const List = () => {
                   <Cell>{_id}</Cell>
                   <Cell>
                     <ImageWrapper>
-                      <Image
-                        src={image}
-                        height={60}
-                        width={60}
-                        alt={title}
-                      />
+                      <Image src={image} height={60} width={60} alt={title} />
                     </ImageWrapper>
                   </Cell>
                   <Cell>{title || ""}</Cell>

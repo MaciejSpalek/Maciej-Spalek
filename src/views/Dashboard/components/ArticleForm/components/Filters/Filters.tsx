@@ -5,17 +5,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import { FieldWrapper, Form, Heading, Section } from "./Filters.styled";
 import { Button, Select } from "components";
 import { generateArray, ls, LS_KEYS, QUERY_KEYS } from "helpers";
-import { PostTypes } from "types";
-
-const getOptions = () => {
-  const allOption = { label: "All", value: "" };
-  const restTypes = Object.values(PostTypes).map((type) => ({
-    label: type,
-    value: type,
-  }));
-
-  return [allOption, ...restTypes];
-};
 
 const limitOptions = generateArray(1, 10).map((limit) => ({
   label: (limit * 10).toString(),
@@ -23,30 +12,28 @@ const limitOptions = generateArray(1, 10).map((limit) => ({
 }));
 
 export const Filters = () => {
-  const lsPostFilters = ls.get(LS_KEYS.POST_LIST_FILTERS);
-  const { type: lsType, limit: lsLimit } = lsPostFilters || {};
+  const lsArticleFilters = ls.get(LS_KEYS.ARTICLE_LIST_FILTERS);
+  const { limit: lsLimit } = lsArticleFilters || {};
 
   const { register, handleSubmit, watch } = useForm({
-    defaultValues: { type: lsType || "", limit: lsLimit || '10' },
+    defaultValues: { limit: lsLimit || "10" },
   });
   const queryClient = useQueryClient();
 
-  const selectOptions = getOptions();
-  const type = watch("type");
   const limit = watch("limit");
 
-  const refetchPosts = async () =>
+  const refetchArticles = async () =>
     await queryClient.refetchQueries({
-      queryKey: [QUERY_KEYS.POST.LIST({})],
+      queryKey: [QUERY_KEYS.ARTICLE.LIST({})],
     });
 
   const onSubmit = () => {
-    refetchPosts();
+    refetchArticles();
   };
 
   useEffect(() => {
-    ls.set({ key: LS_KEYS.POST_LIST_FILTERS, value: { type, limit } });
-  }, [type, limit]);
+    ls.set({ key: LS_KEYS.ARTICLE_LIST_FILTERS, value: { limit } });
+  }, [limit]);
 
   return (
     <Section>
