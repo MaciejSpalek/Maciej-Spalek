@@ -3,15 +3,22 @@ import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
 import { QUERY_KEYS } from "helpers/queryKeys";
 import { IArticle } from "types";
+import { getQueryParams } from "helpers";
 
-export const useArticlesListQuery = () => {
+interface IProps {
+  filters?: {
+    [key: string]: string | number | boolean | undefined;
+  };
+}
+export const useArticlesListQuery = ({ filters = {} }: IProps) => {
   const getArticleList = async (): Promise<{ data: IArticle[] }> => {
-    return await axiosInstance.get(ENDPOINTS.ARTICLE.LIST);
+    const queryParams = getQueryParams(filters);
+    return await axiosInstance.get(ENDPOINTS.ARTICLE.LIST(queryParams));
   };
 
   const { data, isFetching, isError, refetch } = useQuery<{ data: IArticle[] }>(
     {
-      queryKey: [QUERY_KEYS.ARTICLE.LIST],
+      queryKey: [QUERY_KEYS.ARTICLE.LIST({ filters })],
       queryFn: getArticleList,
     }
   );

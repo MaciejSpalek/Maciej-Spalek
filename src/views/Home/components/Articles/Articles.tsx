@@ -13,7 +13,7 @@ import { URLS } from "helpers";
 import { useRouter } from "next/router";
 
 export const Articles = () => {
-  const { data: articles } = useArticlesListQuery();
+  const { data: articles } = useArticlesListQuery({ filters: {} });
   const router = useRouter();
 
   const goToArticle = ({ id }: { id: string }) => {

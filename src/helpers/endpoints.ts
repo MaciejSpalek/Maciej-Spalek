@@ -19,7 +19,7 @@ export const ENDPOINTS = {
     GET: ({ id }: { id: string }) => `/article/${id}`,
     UPDATE: ({ id }: { id: string }) => `/article/${id}`,
     DELETE: ({ id }: { id: string }) => `/article/${id}`,
-    LIST: "/article/list",
+    LIST: (queryParams: string) => `/article/list${queryParams}`,
   },
   IMAGE: {
     UPLOAD: "image/upload",

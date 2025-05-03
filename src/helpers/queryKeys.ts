@@ -3,6 +3,6 @@ export const QUERY_KEYS = {
     LIST: <T>(filters: T) => ["POST_LIST", filters],
   },
   ARTICLE: {
-    LIST: ["ARTICLES_LIST"],
+    LIST: <T>(filters: T) => ["ARTICLE_LIST", filters],
   },
 };
