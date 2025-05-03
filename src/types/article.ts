@@ -1,7 +1,7 @@
 export type IArticleBlockType = "common" | "hint";
 
 export type IArticleCommonBlockType = {
-  _id?: string;
+  _id: string;
   type: "common";
   title: string;
   description: string;
@@ -9,7 +9,7 @@ export type IArticleCommonBlockType = {
 };
 
 export type IArticleHintBlockType = {
-  _id?: string;
+  _id: string;
   type: "hint";
   description: string;
 };

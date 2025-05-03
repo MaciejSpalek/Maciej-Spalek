@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
+import React, { Fragment, useRef } from "react";
 import {
   Container,
   Heading,
   MainImageContainer,
   Paragraph,
   BlocksWrapper,
-  Wrapper
+  Wrapper,
 } from "./Article.styled";
 import { IArticle } from "types";
 import { articleBlocks } from "./helpers";
@@ -22,8 +22,7 @@ export const Article = ({ data }: ArticleProps) => {
 
   return (
     <Section title={title}>
-        <Container>
-
+      <Container>
         <MainImageContainer ref={imageRef}>
           <Image
             src={image}
@@ -33,7 +32,7 @@ export const Article = ({ data }: ArticleProps) => {
             alt="image"
             loading="eager"
             priority
-            />
+          />
         </MainImageContainer>
 
         <Wrapper>
@@ -43,7 +42,7 @@ export const Article = ({ data }: ArticleProps) => {
 
         <BlocksWrapper>
           {blocks?.map((data) => (
-            <div key={data._id}>{articleBlocks({ data })[data.type]}</div>
+            <Fragment key={data._id}>{articleBlocks({ data })[data.type]}</Fragment>
           ))}
         </BlocksWrapper>
 
@@ -51,7 +50,7 @@ export const Article = ({ data }: ArticleProps) => {
           <Heading>Summary</Heading>
           <Paragraph>{description}</Paragraph>
         </Wrapper>
-    </Container>
-      </Section>
+      </Container>
+    </Section>
   );
 };

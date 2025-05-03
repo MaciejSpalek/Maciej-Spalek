@@ -1,24 +1,16 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 
 import {
   Form,
-  InputWrapper,
   BottomWrapper,
   FieldsWrapper,
   BlockWrapper,
 } from "./EditArticleCell.styled";
-import {
-  Button,
-  Dialog,
-  ImageUploader,
-  Input,
-  Select,
-  Textarea,
-} from "components";
+import { Button, Dialog, ImageUploader, Input, Textarea } from "components";
 import { axiosInstance } from "services/axiosClient";
 import { ENDPOINTS } from "helpers/endpoints";
-import { IArticle, IArticleCommonBlockType, IPost, PostTypes } from "types";
+import { IArticle, IArticleCommonBlockType } from "types";
 import { Block } from "../AddArticleDialog/components";
 
 interface IEditArticleCell {
@@ -26,27 +18,32 @@ interface IEditArticleCell {
   data: IArticle;
 }
 
-const types = Object.values(PostTypes).map((type) => ({
-  label: type,
-  value: type,
-}));
-
 export const EditArticleCell = ({ refetchList, data }: IEditArticleCell) => {
   const [isLoading, setLoading] = useState(false);
   const [isOpen, setOpen] = useState(false);
-  const { register, handleSubmit, setValue, watch } = useForm<IArticle>({
+  const formData = useForm<IArticle>({
     defaultValues: data,
   });
 
-  const { _id } = data;
+  const { register, handleSubmit, setValue, watch } = formData;
+
+  const { _id, image } = data;
 
   const toggle = () => setOpen((prev) => !prev);
 
   const onSubmit = async (data: IArticle) => {
     setLoading(true);
 
+    const convertedData = {
+      ...data,
+      blocks: data.blocks.map(({ _id, ...rest }) => rest),
+    };
     try {
-      await axiosInstance.put(ENDPOINTS.ARTICLE.UPDATE({ id: _id }), data);
+      await axiosInstance.put(
+        ENDPOINTS.ARTICLE.UPDATE({ id: _id }),
+        convertedData
+      );
+      
       setLoading(false);
       refetchList();
     } catch {
@@ -78,47 +75,55 @@ export const EditArticleCell = ({ refetchList, data }: IEditArticleCell) => {
         Edit
       </Button>
       <Dialog size="md" title="Edit article" toggle={toggle} isOpen={isOpen}>
-        <Form onSubmit={handleSubmit(onSubmit)}>
-          <FieldsWrapper>
-            <ImageUploader buttonStyle id="image" setValue={setValue} />
-            <Input
-              id="title"
-              register={register}
-              placeholder="Title"
-              fullWidth
-            />
-            <Textarea
-              id="description"
-              register={register}
-              placeholder="Description"
-              fullWidth
-              rows={8}
-            />
-            <Textarea
-              id="summary"
-              register={register}
-              placeholder="Summary"
-              fullWidth
-              rows={8}
-            />
-            <Button onClick={handleAddEmptyBlock}>Add new block</Button>
-          </FieldsWrapper>
-          <BlockWrapper>
-            {blocks.map((_, index) => (
-              <Block
-                key={index}
-                index={index}
-                register={register}
+        <FormProvider {...formData}>
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <FieldsWrapper>
+              <ImageUploader
+                buttonStyle
+                id="image"
                 setValue={setValue}
+                defaultValue={image}
               />
-            ))}
-          </BlockWrapper>
-          <BottomWrapper>
-            <Button type="submit" isLoading={isLoading}>
-              Submit
-            </Button>
-          </BottomWrapper>
-        </Form>
+              <Input
+                id="title"
+                register={register}
+                placeholder="Title"
+                fullWidth
+              />
+              <Textarea
+                id="description"
+                register={register}
+                placeholder="Description"
+                fullWidth
+                rows={8}
+              />
+              <Textarea
+                id="summary"
+                register={register}
+                placeholder="Summary"
+                fullWidth
+                rows={8}
+              />
+              <Button onClick={handleAddEmptyBlock}>Add new block</Button>
+            </FieldsWrapper>
+            <BlockWrapper>
+              {blocks.map((block, index) => (
+                <Block
+                  key={index}
+                  index={index}
+                  register={register}
+                  setValue={setValue}
+                  data={block}
+                />
+              ))}
+            </BlockWrapper>
+            <BottomWrapper>
+              <Button type="submit" isLoading={isLoading}>
+                Submit
+              </Button>
+            </BottomWrapper>
+          </Form>
+        </FormProvider>
       </Dialog>
     </>
   );
