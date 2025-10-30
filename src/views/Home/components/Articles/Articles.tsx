@@ -20,15 +20,17 @@ export const Articles = () => {
     router.push(URLS.article({ id }));
   };
 
+  if (!articles?.length) {
+    return null;
+}
+
   return (
     <Container>
       <Heading>Articles</Heading>
       <ArticlesContainer>
         {articles?.map((article, index) => (
           <ArticleThumbnail key={index}>
-            <ImageWrapper
-              onClick={() => goToArticle({ id: article._id })}
-            >
+            <ImageWrapper onClick={() => goToArticle({ id: article._id })}>
               <Image
                 src={article.image}
                 layout="fill"

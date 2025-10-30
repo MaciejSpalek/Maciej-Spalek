@@ -11,6 +11,7 @@ import { usePostListQuery } from "queries";
 import { IPost } from "types";
 
 export const PostList = ({
+  hideDescription,
   initialList,
   postsAmount,
   title,
@@ -29,7 +30,7 @@ export const PostList = ({
   });
 
   const list = fetchedList || initialList || [];
-  const isLoadingMoreButtonVisible = postsAmount >= limit;
+  const isLoadingMoreButtonVisible = null != postsAmount && postsAmount >= limit;
 
   const handleOnButton = () => {
     setLimit((prev) => (prev += 10));
@@ -43,7 +44,7 @@ export const PostList = ({
 
   return (
     <Section title={title}>
-      <MainImageContainer ref={imageRef}>
+      {null != image && <MainImageContainer ref={imageRef}>
         <Image
           src={image}
           layout="fill"
@@ -53,19 +54,22 @@ export const PostList = ({
           loading="eager"
           priority
         />
-      </MainImageContainer>
+      </MainImageContainer>}\
+
       <List ref={listRef}>
         {list.map((post) => (
           <li key={post._id}>
-            <PostCard onClick={openModal} {...post} />
+            <PostCard onClick={openModal} hideDescription={hideDescription} {...post} />
           </li>
         ))}
       </List>
+
       {isLoadingMoreButtonVisible && (
         <Button isLoading={isFetching} onClick={handleOnButton}>
           Load more
         </Button>
       )}
+
       <PostPreview list={list} />
     </Section>
   );

@@ -11,14 +11,18 @@ import { IArticle } from "types";
 import { articleBlocks } from "./helpers";
 import { Section } from "layouts/Section";
 import Image from "next/image";
+import { URLS } from "helpers";
+import { useRouter } from "next/router";
 
 interface ArticleProps {
   data: IArticle;
 }
 
 export const Article = ({ data }: ArticleProps) => {
-  const { blocks, description, image, title } = data;
+  const { blocks, description, image, title } = data || {};
   const imageRef = useRef<HTMLImageElement>(null);
+  console.log({ data });
+  const router = useRouter();
 
   return (
     <Section title={title}>
@@ -42,7 +46,9 @@ export const Article = ({ data }: ArticleProps) => {
 
         <BlocksWrapper>
           {blocks?.map((data) => (
-            <Fragment key={data._id}>{articleBlocks({ data })[data.type]}</Fragment>
+            <Fragment key={data._id}>
+              {articleBlocks({ data })[data.type]}
+            </Fragment>
           ))}
         </BlocksWrapper>
 

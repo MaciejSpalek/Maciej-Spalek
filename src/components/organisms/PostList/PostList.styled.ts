@@ -3,7 +3,7 @@ import { devices, flexCenter, colors } from "theme";
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   width: 100%;
   list-style: none;
   padding: 0;
