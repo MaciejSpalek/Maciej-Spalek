@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import {
-  colors,
-  devices,
-  flexCenter,
-  flexColumn,
-  flexRow,
-  getFont,
+	colors,
+	devices,
+	flexCenter,
+	flexColumn,
+	flexRow,
+	getFont,
 } from "theme";
 
 export const Container = styled.div`
@@ -116,6 +116,6 @@ export const DotItem = styled.div<{ isActive: boolean }>`
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background-color: ${({ isActive }) =>
-    isActive ? colors.white : colors.grayScale[2]};
+		isActive ? colors.white : colors.grayScale[2]};
   cursor: pointer;
 `;

@@ -1,13 +1,13 @@
-import { IArticleCommonBlockType, IArticleHintBlockType } from "types";
+import type { IArticleCommonBlockType, IArticleHintBlockType } from "types";
 
 export const getImage = ({
-  data,
+	data,
 }: {
-  data: IArticleCommonBlockType | IArticleHintBlockType | undefined;
+	data: IArticleCommonBlockType | IArticleHintBlockType | undefined;
 }) => {
-  if (data?.type === "common") {
-    return data.image;
-  }
+	if (data?.type === "common") {
+		return data.image;
+	}
 
-  return "";
+	return "";
 };

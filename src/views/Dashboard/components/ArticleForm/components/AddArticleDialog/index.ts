@@ -1,1 +1,1 @@
-export * from './AddArticleDialog';
+export * from "./AddArticleDialog";

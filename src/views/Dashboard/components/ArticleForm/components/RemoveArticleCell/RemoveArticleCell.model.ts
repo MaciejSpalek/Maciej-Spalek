@@ -1,4 +1,4 @@
 export interface IRemoveArticleCell {
-    refetchList: () => void;
-    id: string;
-  }
+	refetchList: () => void;
+	id: string;
+}

@@ -1,10 +1,10 @@
 export interface SectionProps {
-  title: string;
-  href: string;
-  id: number;
+	title: string;
+	href: string;
+	id: number;
 }
 
 export interface ICarouselButtons {
-  handlePrevSlide: () => void;
-  handleNextSlide: () => void;
+	handlePrevSlide: () => void;
+	handleNextSlide: () => void;
 }

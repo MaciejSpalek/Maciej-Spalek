@@ -1,16 +1,16 @@
-import { IPost, PostType } from "./post";
-import { ISection } from "./section";
+import type { IPost, PostType } from "./post";
+import type { ISection } from "./section";
 
 export interface ICraft {
-  image: string;
-  title: string;
-  href: string;
-  type: PostType
+	image: string;
+	title: string;
+	href: string;
+	type: PostType;
 }
 
 export interface ICraftPage {
-  sections: ISection[];
-  craft: ISection;
-  posts: IPost[];
-  postsAmount: number;
+	sections: ISection[];
+	craft: ISection;
+	posts: IPost[];
+	postsAmount: number;
 }

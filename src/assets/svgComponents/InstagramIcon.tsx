@@ -1,5 +1,13 @@
 export const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
-	<svg width="11" height="11" viewBox="0 0 11 11" fill="none" {...props}>
+	<svg
+		width="11"
+		height="11"
+		viewBox="0 0 11 11"
+		fill="none"
+		role="img"
+		aria-label="Instagram Icon"
+		{...props}
+	>
 		<g clipPath="url(#clip0)">
 			<path
 				d="M7.65528 1.31885H3.34277C2.15191 1.31885 1.18652 2.27868 1.18652 3.4627V7.75039C1.18652 8.93441 2.15191 9.89424 3.34277 9.89424H7.65528C8.84614 9.89424 9.81153 8.93441 9.81153 7.75039V3.4627C9.81153 2.27868 8.84614 1.31885 7.65528 1.31885Z"

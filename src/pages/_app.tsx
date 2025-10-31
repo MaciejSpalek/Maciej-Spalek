@@ -1,21 +1,22 @@
-import React, { ReactNode } from "react";
+import type React from "react";
+import type { ReactNode } from "react";
 import "../styles/globals.css";
 import { LayoutRenderer } from "layouts/LayoutRenderer";
 
 interface IApp<P extends Record<string, unknown> = {}> {
-  Component: React.ComponentType<P>;
-  pageProps: P;
+	Component: React.ComponentType<P>;
+	pageProps: P;
 }
 
 const App = <P extends Record<string, unknown>>({
-  Component,
-  pageProps,
+	Component,
+	pageProps,
 }: IApp<P>): ReactNode => {
-  return (
-    <LayoutRenderer>
-      <Component {...pageProps} />
-    </LayoutRenderer>
-  );
+	return (
+		<LayoutRenderer>
+			<Component {...pageProps} />
+		</LayoutRenderer>
+	);
 };
 
 export default App;

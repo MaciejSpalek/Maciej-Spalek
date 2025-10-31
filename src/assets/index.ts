@@ -1,2 +1,2 @@
-export * from "./svgComponents";
 export * from "./images";
+export * from "./svgComponents";

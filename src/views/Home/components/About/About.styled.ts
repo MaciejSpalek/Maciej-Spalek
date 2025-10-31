@@ -1,6 +1,5 @@
-import { CirclePhoto } from "components";
 import styled from "styled-components";
-import { colors, flexCenter, flexColumn, getFont, devices } from "theme";
+import { colors, devices, flexCenter, flexColumn, getFont } from "theme";
 
 export const Container = styled.header`
   ${flexCenter};

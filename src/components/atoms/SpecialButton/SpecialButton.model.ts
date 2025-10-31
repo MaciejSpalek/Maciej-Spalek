@@ -1,12 +1,12 @@
-import { IAttributes } from "types/interfaces";
+import type { IAttributes } from "types/interfaces";
 
 type TButton = "submit" | "button" | "reset";
 
 export interface IBaseButton {
-  fullWidth: boolean;
+	fullWidth: boolean;
 }
 
 export interface ISpecialButton extends IAttributes<HTMLButtonElement> {
-  fullWidth?: boolean;
-  type?: TButton;
+	fullWidth?: boolean;
+	type?: TButton;
 }

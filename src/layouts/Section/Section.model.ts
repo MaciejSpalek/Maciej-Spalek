@@ -1,5 +1,5 @@
-import { IChildren } from "types";
+import type { IChildren } from "types";
 
 export interface SectionProps extends IChildren {
-  title?: string;
+	title?: string;
 }

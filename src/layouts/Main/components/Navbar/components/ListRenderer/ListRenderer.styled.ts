@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors, devices, flexColumn, getFont } from "theme";
 
 interface IAnchor {
-  isActive: boolean
+	isActive: boolean;
 }
 
 export const List = styled.ul`
@@ -19,7 +19,7 @@ export const Anchor = styled.a<IAnchor>`
   text-decoration: ${({ isActive }) => (isActive ? "underline" : "none")};
   :hover {
     color: ${({ isActive }) =>
-      isActive ? colors.grayScale[3] : colors.grayScale[3]};
+			isActive ? colors.grayScale[3] : colors.grayScale[3]};
   }
 
   @media ${devices.md} {

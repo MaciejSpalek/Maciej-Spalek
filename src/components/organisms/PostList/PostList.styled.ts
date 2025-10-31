@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { devices, flexCenter, colors } from "theme";
+import { colors, devices, flexCenter } from "theme";
 
 export const List = styled.ul`
   display: grid;

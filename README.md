@@ -29,17 +29,19 @@ This website is my art portfolio, I show here my paintings, drawings and photogr
 
 ## Tech/framework used
 
-| Tech                       | Description                                                                                       |
-| -------------------------- | ------------------------------------------------------------------------------------------------- |
-| Next.js                    | The React Framework for the Web.                                                                  |
-| TypeScript                 | A language for application-scale JavaScript.                                                      |
-| Tanstack / React Query     | Missing data-fetching library for web applications                                                |
-| Styled Components          | A React package to manage styles in applications                                                  |
-| Axios                      | It's a Javascript library used to make HTTP requests from node.js                                 |
-| React-hook-form            | Library to build forms                                                                            |
-| GSAP                       | Framework-agnostic JavaScript animation library                                                   |
-| Jest/React testing library | Tool for Unit tests                                                                                        |
-| Cypress                    | Tool for e2e tests |
+| Tech                       | Description                                                        |
+|----------------------------|--------------------------------------------------------------------|
+| Next.js                    | The React Framework for the Web.                                   |
+| TypeScript                 | A language for application-scale JavaScript.                       |
+| Tanstack / React Query     | Missing data-fetching library for web applications                 |
+| Styled Components          | A React package to manage styles in applications                   |
+| Axios                      | It's a Javascript library used to make HTTP requests from node.js  |
+| React-hook-form            | Library to build forms                                             |
+| GSAP                       | Framework-agnostic JavaScript animation library                    |
+| Jest/React testing library | Tool for Unit tests                                                |
+| Cypress                    | Tool for e2e tests                                                 |
+| Biome                      | Fast all-in-one linter and formatter for clean, consistent code    |
+| Husky                      | Runs Git hooks to automate tasks like linting before commits       |
 
 &nbsp;
 

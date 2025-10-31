@@ -1,9 +1,9 @@
-import { ICraft } from "types";
+import type { ICraft } from "types";
 
 export interface IHandleOnRemoveSectionProps {
-  title: string;
+	title: string;
 }
 
 export interface ICraftsForm {
-  crafts: ICraft[];
+	crafts: ICraft[];
 }

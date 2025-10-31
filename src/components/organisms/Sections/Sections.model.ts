@@ -1,5 +1,5 @@
-import { ISection } from "types";
+import type { ISection } from "types";
 
 export interface ISections {
-    sections: ISection[];
-  }
+	sections: ISection[];
+}

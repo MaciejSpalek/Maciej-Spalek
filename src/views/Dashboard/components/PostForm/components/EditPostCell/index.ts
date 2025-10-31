@@ -1,1 +1,1 @@
-export * from './EditPostCell';
+export * from "./EditPostCell";

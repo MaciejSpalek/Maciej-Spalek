@@ -12,7 +12,7 @@ export const Wrapper = styled.div<{ error: boolean }>`
   ${flexRow};
   border: 1px solid
     ${({ error }) =>
-      error ? colors.secondary.main : colors.grayscale.tertiary};
+			error ? colors.secondary.main : colors.grayscale.tertiary};
   border-radius: 8px;
   overflow: hidden;
   padding: 0;
@@ -24,8 +24,8 @@ export const Wrapper = styled.div<{ error: boolean }>`
 `;
 
 interface IInput {
-  fullWidth?: boolean;
-  error: boolean;
+	fullWidth?: boolean;
+	error: boolean;
 }
 
 export const StyledInput = styled.textarea<IInput>`
@@ -33,9 +33,9 @@ export const StyledInput = styled.textarea<IInput>`
   width: 100%;
   height: 100%;
   background: ${({ error }) =>
-    error ? colors.label.red.light : colors.grayScale[7]};
+		error ? colors.label.red.light : colors.grayScale[7]};
   color: ${({ error }) =>
-    error ? colors.secondary.main : colors.grayScale[1]};
+		error ? colors.secondary.main : colors.grayScale[1]};
   ${getFont("medium", 12, 18)};
   resize: none;
   border: none;

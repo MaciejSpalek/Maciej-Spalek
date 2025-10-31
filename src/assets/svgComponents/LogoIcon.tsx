@@ -1,19 +1,21 @@
 export const LogoIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    version="1.0"
-    width="627.231654pt"
-    height="1161.381150pt"
-    viewBox="0 0 627.231654 1161.381150"
-    preserveAspectRatio="xMidYMid meet"
-    {...props}
-  >
-    <g
-      transform="translate(-717.501895,1612.000796) scale(0.100000,-0.100000)"
-      fill="currentColor"
-      stroke="none"
-    >
-      <path
-        d="M8745 14550 l-1570 -1570 2673 -2673 2672 -2672 -1102 -1103 -1103
+	<svg
+		version="1.0"
+		width="627.231654pt"
+		height="1161.381150pt"
+		viewBox="0 0 627.231654 1161.381150"
+		preserveAspectRatio="xMidYMid meet"
+		role="img"
+		aria-label="Logo Icon"
+		{...props}
+	>
+		<g
+			transform="translate(-717.501895,1612.000796) scale(0.100000,-0.100000)"
+			fill="currentColor"
+			stroke="none"
+		>
+			<path
+				d="M8745 14550 l-1570 -1570 2673 -2673 2672 -2672 -1102 -1103 -1103
 -1102 -1102 1103 c-607 606 -1103 1104 -1103 1107 0 3 296 301 658 663 l657
 657 655 -655 655 -655 -212 -212 -213 -213 -441 439 -441 439 -232 -232 -231
 -231 675 -675 675 -675 672 672 673 673 -1117 1117 c-615 615 -1122 1118
@@ -24,7 +26,7 @@ export const LogoIcon = (props: React.SVGProps<SVGSVGElement>) => (
 12 0 454 442 454 455 0 13 -1332 1345 -1345 1345 -13 0 -1345 -1333 -1345
 -1345 0 -14 2223 -2235 2235 -2233 6 1 512 505 1125 1120 l1115 1118 -1565
 1565 -1565 1565 -1570 -1570z"
-      />
-    </g>
-  </svg>
+			/>
+		</g>
+	</svg>
 );

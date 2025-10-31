@@ -12,7 +12,7 @@ export const Container = styled.div`
   border-radius: 12px;
   cursor: pointer;
   padding: 0 28px;
-  ${getFont('medium', 10, 12)};
+  ${getFont("medium", 10, 12)};
   color: ${colors.label.red.light};
   border: 1px solid ${colors.grayScale[2]};
   background-color: ${colors.transparent.dark};

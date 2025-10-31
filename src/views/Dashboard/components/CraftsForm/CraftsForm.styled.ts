@@ -1,12 +1,5 @@
 import styled from "styled-components";
-import {
-  colors,
-  flexColumn,
-  getFont,
-  devices,
-  flexCenter,
-  flexRow,
-} from "theme";
+import { colors, flexCenter, flexColumn, flexRow, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};
@@ -76,4 +69,3 @@ export const Heading = styled.h2`
   margin: 0;
   text-transform: uppercase;
 `;
-

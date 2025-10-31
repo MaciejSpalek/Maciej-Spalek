@@ -1,7 +1,7 @@
 import _ from "lodash";
-import { IArticle } from "types";
+import type { IArticle } from "types";
 
 export const convertPaylaod = ({ data }: { data: IArticle }) => {
-  const newBlocks = data.blocks.map((block) => _.omit(block, ["_id"]));
-  return { ...data, blocks: newBlocks };
+	const newBlocks = data.blocks.map((block) => _.omit(block, ["_id"]));
+	return { ...data, blocks: newBlocks };
 };

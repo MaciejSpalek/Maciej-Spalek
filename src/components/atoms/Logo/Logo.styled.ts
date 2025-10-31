@@ -1,6 +1,6 @@
 import { LogoIcon } from "assets";
 import styled from "styled-components";
-import { colors, devices, flexCenter } from "theme";
+import { colors, flexCenter } from "theme";
 
 export const Anchor = styled.a`
   display: flex;

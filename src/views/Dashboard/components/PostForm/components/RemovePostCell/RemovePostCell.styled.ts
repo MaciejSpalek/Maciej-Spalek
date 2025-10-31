@@ -16,6 +16,6 @@ export const Form = styled.form`
 `;
 
 export const Description = styled.p`
-  ${getFont('medium', 12, 18)};
+  ${getFont("medium", 12, 18)};
   color: ${colors.white};
 `;

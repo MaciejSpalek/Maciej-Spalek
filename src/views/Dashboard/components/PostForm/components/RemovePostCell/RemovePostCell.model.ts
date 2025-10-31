@@ -1,6 +1,6 @@
-import { IPost } from "types";
+import type { IPost } from "types";
 
 export interface IRemovePostCell {
-    refetchList: () => void;
-    id: IPost["_id"];
-  }
+	refetchList: () => void;
+	id: IPost["_id"];
+}

@@ -1,34 +1,27 @@
-import { RefObject, useEffect, useRef } from "react";
+import { type RefObject, useEffect, useRef } from "react";
 
 export const useEventListener = <T extends HTMLElement = HTMLDivElement>(
-  eventName: string,
-  handler: Function,
-  element?: RefObject<T>
+	eventName: string,
+	handler: (event: Event) => void,
+	element?: RefObject<T>,
 ) => {
-  const savedHandler = useRef<Function>();
-  useEffect(() => {
-    const targetElement: T | Window = element?.current || window;
+	const savedHandler = useRef<(event: Event) => void>();
 
-    if (!(targetElement && targetElement.addEventListener)) {
-      return;
-    }
+	useEffect(() => {
+		const targetElement: T | Window = element?.current || window;
 
-    if (savedHandler.current !== handler) {
-      savedHandler.current = handler;
-    }
+		if (!targetElement?.addEventListener) return;
 
-    const eventListener = (event: Event) => {
-      // eslint-disable-next-line no-extra-boolean-cast
-      if (!!savedHandler?.current) {
-        savedHandler.current(event);
-      }
-    };
+		savedHandler.current = handler;
 
-    targetElement.addEventListener(eventName, eventListener);
+		const eventListener = (event: Event) => {
+			savedHandler.current?.(event);
+		};
 
-    // eslint-disable-next-line consistent-return
-    return () => {
-      targetElement.removeEventListener(eventName, eventListener);
-    };
-  }, [eventName, element, handler]);
+		targetElement.addEventListener(eventName, eventListener);
+
+		return () => {
+			targetElement.removeEventListener(eventName, eventListener);
+		};
+	}, [eventName, element, handler]);
 };

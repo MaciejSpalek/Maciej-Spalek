@@ -1,1 +1,1 @@
-export * from './AddPostDialog';
+export * from "./AddPostDialog";
