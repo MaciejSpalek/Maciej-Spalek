@@ -1,6 +1,6 @@
-import { DashboardStepTypes } from "types";
+import type { DashboardStepTypes } from "types";
 
 export interface INavigation {
-  step: DashboardStepTypes;
-  setStep: (element: DashboardStepTypes) => void;
+	step: DashboardStepTypes;
+	setStep: (element: DashboardStepTypes) => void;
 }

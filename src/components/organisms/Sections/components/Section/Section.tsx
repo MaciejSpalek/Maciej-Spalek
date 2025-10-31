@@ -1,16 +1,13 @@
-import React from "react";
-import { Container, Title } from "./Section.styled";
-import { SectionProps } from "./Section.model";
 import Link from "next/link";
+import type { SectionProps } from "./Section.model";
+import { Container, Title } from "./Section.styled";
 
 export const Section = ({ href, title }: SectionProps) => {
-  return (
-    <Link href={href}>
-      <a>
-        <Container>
-          <Title>{title}</Title>
-        </Container>
-      </a>
-    </Link>
-  );
+	return (
+		<Link href={href}>
+			<Container>
+				<Title>{title}</Title>
+			</Container>
+		</Link>
+	);
 };

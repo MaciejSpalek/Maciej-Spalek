@@ -1,1 +1,1 @@
-export * from './RemoveArticleCell';
+export * from "./RemoveArticleCell";

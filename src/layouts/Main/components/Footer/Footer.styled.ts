@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import {
-  breakpoints,
-  colors,
-  devices,
-  flexCenter,
-  flexColumn,
-  getFont,
+	breakpoints,
+	colors,
+	devices,
+	flexCenter,
+	flexColumn,
+	getFont,
 } from "theme";
 
 export const Container = styled.footer`

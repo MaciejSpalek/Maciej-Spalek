@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {flexColumn, getFont, colors, devices, flexRow} from "theme";
+import { colors, devices, flexColumn, flexRow, getFont } from "theme";
 
 export const Container = styled.div`
   ${flexColumn};

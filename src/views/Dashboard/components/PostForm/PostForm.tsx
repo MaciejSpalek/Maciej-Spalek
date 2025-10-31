@@ -1,9 +1,8 @@
-import React from "react";
-import { Container } from "./PostForm.styled";
 import { List } from "./components";
+import { Container } from "./PostForm.styled";
 
 export const PostForm = () => (
-  <Container>
-    <List />
-  </Container>
+	<Container>
+		<List />
+	</Container>
 );

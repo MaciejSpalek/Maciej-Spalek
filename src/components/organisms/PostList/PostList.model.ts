@@ -1,10 +1,10 @@
-import { IPost } from "types";
+import type { IPost } from "types";
 
 export interface PostListProps {
-  title?: string;
-  image?: string;
-  postsAmount?: number;
-  initialList: IPost[];
-  type: IPost['type'];
-  hideDescription?: boolean;
+	title?: string;
+	image?: string;
+	postsAmount?: number;
+	initialList: IPost[];
+	type: IPost["type"];
+	hideDescription?: boolean;
 }

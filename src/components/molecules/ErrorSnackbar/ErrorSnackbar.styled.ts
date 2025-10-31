@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import { ErrorIcon } from "assets";
 import { SnackbarContent } from "notistack";
+import styled from "styled-components";
 import { colors, getFont } from "theme";
-import { CloseIcon, ErrorIcon } from "assets";
 
 export const StyledSnackbarContent = styled(SnackbarContent)`
   position: relative;

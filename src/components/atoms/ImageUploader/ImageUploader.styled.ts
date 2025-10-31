@@ -1,6 +1,6 @@
+import { DownloadIcon } from "assets";
 import styled from "styled-components";
 import { colors, flexCenter, flexColumn, flexRow, getFont } from "theme";
-import { DownloadIcon } from "assets";
 
 export const Container = styled.div`
   position: relative;
@@ -73,7 +73,7 @@ export const FileButton = styled.button`
   border: none;
   overflow: hidden;
   color: ${colors.grayScale[2]};
-  ${getFont('semibold', 14)};
+  ${getFont("semibold", 14)};
   cursor: pointer;
   transition: 0.5s ease;
   white-space: nowrap;

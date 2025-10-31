@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { IBaseButton } from "./SpecialButton.model";
 import { colors, flexCenter, getFont } from "theme";
+import type { IBaseButton } from "./SpecialButton.model";
 
 export const BaseButton = styled.button<IBaseButton>`
   position: relative;
@@ -8,7 +8,7 @@ export const BaseButton = styled.button<IBaseButton>`
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
   height: 52px;
   gap: 10px;
-  ${getFont('semibold', 18)};
+  ${getFont("semibold", 18)};
   letter-spacing: -0.27px;
   line-height: 32px;
   transition: .3s ease-in-out;

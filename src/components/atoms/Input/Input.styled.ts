@@ -2,17 +2,17 @@ import styled from "styled-components";
 import { colors, flexColumn, flexRow, getFont } from "theme";
 
 interface IContainer {
-  fullWidth?: boolean;
+	fullWidth?: boolean;
 }
 
 interface IWrapper {
-  error: boolean;
-  isIcon: boolean;
+	error: boolean;
+	isIcon: boolean;
 }
 
 interface IInput {
-  fullWidth?: boolean;
-  error: boolean;
+	fullWidth?: boolean;
+	error: boolean;
 }
 
 export const Container = styled.div<IContainer>`
@@ -25,7 +25,7 @@ export const Wrapper = styled.div<IWrapper>`
   ${flexRow};
   border: 1px solid
     ${({ error }) =>
-      error ? colors.secondary.main : colors.grayscale.tertiary};
+			error ? colors.secondary.main : colors.grayscale.tertiary};
   border-radius: 8px;
   overflow: hidden;
   padding: ${({ isIcon }) => (isIcon ? "0 8px" : 0)};
@@ -41,9 +41,9 @@ export const StyledInput = styled.input<IInput>`
   width: 100%;
   height: 52px;
   background: ${({ error }) =>
-    error ? colors.label.red.light : colors.grayScale[7]};
+		error ? colors.label.red.light : colors.grayScale[7]};
   color: ${({ error }) =>
-    error ? colors.secondary.main : colors.grayScale[1]};
+		error ? colors.secondary.main : colors.grayScale[1]};
   border: none;
   outline: 0;
   ::placeholder {

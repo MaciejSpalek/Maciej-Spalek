@@ -38,7 +38,7 @@ export const Line = styled.div<{ isOpen: boolean }>`
   height: 3px;
   background-color: #333;
   transition: 0.2s ease-in-out;
-  background-color: ${({ isOpen }) => isOpen && colors.white };
+  background-color: ${({ isOpen }) => isOpen && colors.white};
 
   :before {
     content: "";

@@ -1,6 +1,6 @@
-import { IPost } from "types";
+import type { IPost } from "types";
 
-export type ActionType = 'increment' | 'decrement';
+export type ActionType = "increment" | "decrement";
 export interface PostPreviewProps {
-  list: IPost[]
+	list: IPost[];
 }

@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import { getButtonSize, getHover, getStyles } from "./helpers";
 import { LogoIcon } from "assets";
-import { IBaseButton } from "./Button.model";
-import { flexCenter, colors, fullRotateAnimation } from "theme";
+import styled from "styled-components";
+import { colors, flexCenter, fullRotateAnimation } from "theme";
+import type { IBaseButton } from "./Button.model";
+import { getButtonSize, getHover, getStyles } from "./helpers";
 
 export const BaseButton = styled.button<IBaseButton>`
   ${flexCenter};
@@ -17,15 +17,15 @@ export const BaseButton = styled.button<IBaseButton>`
   border-radius: 8px;
   ${({ outline, disabled }) => getStyles(outline, disabled)};
   ${({ size }) => getButtonSize(size)};
-  width: ${({ fullWidth }) => fullWidth ? "100%" : 'auto'};
+  width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
   :hover {
     ${({ outline, disabled }) => getHover(outline, disabled)};
   }
 `;
 
 interface IStyledIconWrapper {
-  disabled: boolean;
-  isLoading: boolean;
+	disabled: boolean;
+	isLoading: boolean;
 }
 
 export const StyledIconWrapper = styled.div<IStyledIconWrapper>`

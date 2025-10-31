@@ -21,6 +21,6 @@ export const Button = styled.button<{ isActive?: boolean }>`
 
   :hover {
     color: ${({ isActive }) =>
-      isActive ? colors.grayScale[3] : colors.grayScale[3]};
+			isActive ? colors.grayScale[3] : colors.grayScale[3]};
   }
 `;

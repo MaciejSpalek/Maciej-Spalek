@@ -82,26 +82,26 @@ export const medium = css`
 
 // handlers
 export const getButtonSize = (size: string) => {
-  switch (size) {
-    case ButtonTypes.SQUARE:
-      return square;
-    case ButtonTypes.SMALL:
-      return small;
-    default:
-      return medium;
-  }
+	switch (size) {
+		case ButtonTypes.SQUARE:
+			return square;
+		case ButtonTypes.SMALL:
+			return small;
+		default:
+			return medium;
+	}
 };
 
 export const getHover = (outline: boolean, disabled: boolean) => {
-  if (outline && !disabled) return outlineHover;
-  else if ((disabled && !outline) || (outline && disabled))
-    return disabledHover;
-  return primaryHover;
+	if (outline && !disabled) return outlineHover;
+	else if ((disabled && !outline) || (outline && disabled))
+		return disabledHover;
+	return primaryHover;
 };
 
 export const getStyles = (outline: boolean, disabled: boolean) => {
-  if (outline && !disabled) return outlineStyles;
-  else if (disabled && !outline) return disabledStyles;
-  else if (outline && disabled) return outlineWithDisabledStyles;
-  return defaultStyles;
+	if (outline && !disabled) return outlineStyles;
+	else if (disabled && !outline) return disabledStyles;
+	else if (outline && disabled) return outlineWithDisabledStyles;
+	return defaultStyles;
 };

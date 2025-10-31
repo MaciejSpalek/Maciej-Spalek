@@ -1,38 +1,37 @@
-import React from "react";
+import type { ITextarea } from "./Textarea.model";
 import {
-  Container,
-  StyledInput,
-  Wrapper,
-  ErrorMessage,
+	Container,
+	ErrorMessage,
+	StyledInput,
+	Wrapper,
 } from "./Textarea.styled";
-import { ITextarea } from "./Textarea.model";
 
 export const Textarea = ({
-  type = "text",
-  placeholder,
-  fullWidth,
-  error,
-  id,
-  rows,
-  register,
-  ...props
+	type = "text",
+	placeholder,
+	fullWidth,
+	error,
+	id,
+	rows,
+	register,
+	...props
 }: ITextarea): JSX.Element => {
-  return (
-    <Container fullWidth={fullWidth}>
-      <Wrapper error={!!error}>
-        <StyledInput
-          placeholder={placeholder}
-          aria-label={placeholder}
-          error={!!error}
-          type={type}
-          name={id}
-          rows={rows}
-          id={id}
-          {...register(id)}
-          {...props}
-        />
-      </Wrapper>
-      {error && <ErrorMessage>{error}</ErrorMessage>}
-    </Container>
-  );
+	return (
+		<Container fullWidth={fullWidth}>
+			<Wrapper error={!!error}>
+				<StyledInput
+					placeholder={placeholder}
+					aria-label={placeholder}
+					error={!!error}
+					type={type}
+					name={id}
+					rows={rows}
+					id={id}
+					{...register(id)}
+					{...props}
+				/>
+			</Wrapper>
+			{error && <ErrorMessage>{error}</ErrorMessage>}
+		</Container>
+	);
 };

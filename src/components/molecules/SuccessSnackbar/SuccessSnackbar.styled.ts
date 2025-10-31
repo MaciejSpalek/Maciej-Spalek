@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { SnackbarContent } from "notistack";
-import { colors, getFont } from "theme";
 import { CheckmarkIcon } from "assets";
+import { SnackbarContent } from "notistack";
+import styled from "styled-components";
+import { colors, getFont } from "theme";
 
 export const StyledSnackbarContent = styled(SnackbarContent)`
   position: relative;
