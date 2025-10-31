@@ -33,9 +33,9 @@ export const Section = ({ title, children }: SectionProps) => {
 
   return (
     <Container>
-      <HeadingWrapper ref={headingRef}>
+      {title && <HeadingWrapper ref={headingRef}>
         <Heading>{title}</Heading>
-      </HeadingWrapper>
+      </HeadingWrapper>}
       <Content>{children}</Content>
     </Container>
   );

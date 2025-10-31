@@ -12,6 +12,7 @@ import { URLS } from "helpers";
 import Link from "next/link";
 
 export const PostCard = ({
+  hideDescription = false,
   description,
   onClick,
   state,
@@ -27,7 +28,7 @@ export const PostCard = ({
         <Image src={image} alt="title" layout="fill" objectFit="cover" />
       </ImageWrapper>
       <DescriptionWrapper>
-        <Description>{description}</Description>
+        {!hideDescription && <Description>{description}</Description>}
         {isMakeOfferLinkVisible && (
           <Link href={href}>
             <LinkContent>make offer</LinkContent>

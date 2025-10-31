@@ -20,11 +20,11 @@ export const StyledDialog = styled.div<{ size: number }>`
   ${flexColumn};
   gap: 16px;
   max-width: ${({ size }) => `${size}px`};
+  max-height: calc(100vh - 48px);
   padding: 24px;
   border-radius: 40px;
   background-color: ${colors.black};
   border: 1px solid ${colors.grayScale[2]};
-
 `;
 
 export const TopWrapper = styled.div`
@@ -40,8 +40,9 @@ export const Divider = styled.hr`
 `;
 
 export const DialogContent = styled.div`
-  ${flexCenter}
+  ${flexColumn};
   padding: 0;
+  overflow: auto;
 `;
 
 export const Title = styled.h1`
