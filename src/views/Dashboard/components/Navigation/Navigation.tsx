@@ -2,7 +2,6 @@ import React from "react";
 import { navigation } from "./helpers";
 import { List, ListItem, Button as NavButton } from "./Navigation.styled";
 import { INavigation } from "./Navigation.model";
-import { Button } from "components";
 import { COOKIES, deleteCookie } from "helpers/cookies";
 import { useRouter } from "next/router";
 import { URLS } from "helpers";

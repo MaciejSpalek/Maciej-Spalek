@@ -14,6 +14,13 @@ export const ENDPOINTS = {
     UPDATE: ({ id }: { id: string | undefined }) => `/post/update/${id}`,
     DELETE: ({ id }: { id: string | undefined }) => `/post/delete/${id}`,
   },
+  ARTICLE: {
+    CREATE: "/article/create",
+    GET: ({ id }: { id: string }) => `/article/${id}`,
+    UPDATE: ({ id }: { id: string }) => `/article/${id}`,
+    DELETE: ({ id }: { id: string }) => `/article/${id}`,
+    LIST: (queryParams: string) => `/article/list${queryParams}`,
+  },
   IMAGE: {
     UPLOAD: "image/upload",
   },

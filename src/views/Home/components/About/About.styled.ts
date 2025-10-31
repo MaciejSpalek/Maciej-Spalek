@@ -28,26 +28,12 @@ export const Heading = styled.h2`
   ${getFont("regular", 12, 18)};
   letter-spacing: 7.2px;
   line-height: 32px;
-  color: ${colors.grayScale[3]};
+  color: ${colors.grayScale[2]};
   margin: 0;
   text-transform: uppercase;
   margin-bottom: 40px;
 
   @media ${devices.md} {
-    margin: 0;
-  }
-`;
-
-export const StyledCirclePhoto = styled(CirclePhoto)<{}>`
-  width: calc(100% - 2 * 16px);
-  aspect-ratio: 1 / 1;
-  margin-bottom: 40px;
-  max-width: 500px;
-  border: 1px solid red;
-
-  @media ${devices.md} {
-    width: 233px;
-    height: 233px;
     margin: 0;
   }
 `;

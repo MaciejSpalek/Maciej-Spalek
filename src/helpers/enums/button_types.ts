@@ -7,5 +7,6 @@ export enum ButtonTypes {
 export enum DashboardSteps {
   HOME = 'home',
   CRAFTS = 'crafts',
-  POSTS = 'posts'
+  POSTS = 'posts',
+  ARTICLES = 'articles'
 }

@@ -15,7 +15,7 @@ export const footerInfo = [
       isSocial: true,
       list: [
         { name: "Instagram", href: 'https://www.instagram.com/spwrtt/' },
-        { name: "Facebook", href: 'https://www.facebook.com/MaciekSpalek/' },
+        { name: "Facebook", href: 'https://www.facebook.com/profile.php?id=61583029648396' },
       ],
     },
   ];

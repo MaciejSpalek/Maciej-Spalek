@@ -30,4 +30,5 @@ export interface IPostListFilters {
 
 export interface IPostCard extends IPost {
   onClick: (id: IPost['_id']) => void;
+  hideDescription?: boolean;
 }
