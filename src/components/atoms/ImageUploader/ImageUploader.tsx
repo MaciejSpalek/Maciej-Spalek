@@ -1,5 +1,3 @@
-/* eslint-disable react/display-name */
-
 import { ENDPOINTS } from "helpers/endpoints";
 import Image from "next/image";
 import type React from "react";

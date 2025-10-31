@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { forwardRef } from "react";
 import type { IInput } from "./Input.model";
 import { Container, ErrorMessage, StyledInput, Wrapper } from "./Input.styled";

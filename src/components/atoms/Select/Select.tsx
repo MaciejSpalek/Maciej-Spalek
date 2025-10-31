@@ -1,5 +1,3 @@
-/* eslint-disable react/display-name */
-
 import { forwardRef } from "react";
 import type { ISelect } from "./Select.model";
 import { Container, Option, StyledSelect, Wrapper } from "./Select.styled";

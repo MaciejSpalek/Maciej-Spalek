@@ -1,5 +1,3 @@
-// Import components
-
 import { LoadingWrapper } from "components";
 import { URLS } from "helpers";
 import { COOKIES, getCookie } from "helpers/cookies";
@@ -25,7 +23,6 @@ export const Protected = ({ children }: IChildren) => {
 			setAuthState("failed");
 			push(URLS.admin.login);
 		}
-		//eslint-disable-next-line
 	}, [authState, push, token]);
 
 	if (authState === "loading") {
