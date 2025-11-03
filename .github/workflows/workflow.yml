@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build-and-test:
+    name: Run Biome, Tests and Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Set up Node.js environment
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # 4️⃣ Run Biome to check formatting and linting
+      - name: Run Biome check
+        run: npx biome check .
+
+      # 5️⃣ Run unit tests with Jest
+      - name: Run tests
+        run: npm test -- --ci --coverage
+
+      # 6️⃣ Build the project to ensure it compiles successfully
+      - name: Build project
+        run: npm run build
