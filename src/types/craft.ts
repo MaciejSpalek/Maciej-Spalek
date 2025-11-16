@@ -13,4 +13,6 @@ export interface ICraftPage {
 	craft: ISection;
 	posts: IPost[];
 	postsAmount: number;
+	hideDescription?: boolean;
+	isPreview?: boolean;
 }

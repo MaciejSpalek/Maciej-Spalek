@@ -31,7 +31,14 @@ export async function getServerSideProps() {
 
 		return {
 			props: {
-				data: { sections, craft, posts, postsAmount },
+				data: {
+					sections,
+					craft,
+					posts,
+					postsAmount,
+					hideDescription: true,
+					isPreview: false,
+				},
 			},
 		};
 	} catch {

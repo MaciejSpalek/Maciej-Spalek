@@ -26,14 +26,16 @@ export const PostCard = ({
 			<ImageWrapper onClick={() => onClick(_id)}>
 				<Image src={image} alt="title" layout="fill" objectFit="cover" />
 			</ImageWrapper>
-			<DescriptionWrapper>
-				{!hideDescription && <Description>{description}</Description>}
-				{isMakeOfferLinkVisible && (
-					<Link href={href}>
-						<LinkContent>make offer</LinkContent>
-					</Link>
-				)}
-			</DescriptionWrapper>
+			{!hideDescription && (
+				<DescriptionWrapper>
+					<Description>{description}</Description>
+					{isMakeOfferLinkVisible && (
+						<Link href={href}>
+							<LinkContent>make offer</LinkContent>
+						</Link>
+					)}
+				</DescriptionWrapper>
+			)}
 		</Container>
 	);
 };

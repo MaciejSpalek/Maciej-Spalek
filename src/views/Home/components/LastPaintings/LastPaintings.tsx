@@ -11,6 +11,7 @@ export const LastPaintings = ({ posts }: ILastPaintingsProps) => {
 	const goToPaintings = () => {
 		router.push(URLS.paintings);
 	};
+
 	return (
 		<Container>
 			<HeadingWrapper>
@@ -24,6 +25,7 @@ export const LastPaintings = ({ posts }: ILastPaintingsProps) => {
 				initialList={limitedPosts}
 				type="painting"
 				hideDescription
+				isPreview={false}
 			/>
 		</Container>
 	);

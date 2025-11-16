@@ -1,9 +1,10 @@
 import type { IAttributes } from "types/interfaces";
 
-type TButton = "submit" | "button" | "reset";
+type ButtonType = "submit" | "button" | "reset";
+type Size = "small" | "medium" | "square" | "large";
 
 export interface IBaseButton {
-	size: string;
+	size: Size;
 	outline: boolean;
 	disabled: boolean;
 	fullWidth: boolean;
@@ -15,6 +16,6 @@ export interface IButton extends IAttributes<HTMLButtonElement> {
 	disabled?: boolean;
 	fullWidth?: boolean;
 	isLoading?: boolean;
-	size?: "small" | "medium" | "square";
-	type?: TButton;
+	size?: Size;
+	type?: ButtonType;
 }
