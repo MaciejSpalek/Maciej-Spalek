@@ -57,38 +57,51 @@ export const disabledHover = css`
 `;
 
 // types styles
-export const square = css`
-  width: 50px;
-  height: 50px;
-  padding: 0;
-  div {
-    margin: 0px;
-  }
-`;
 
-export const small = css`
+export const smallSizeCss = css`
   width: auto;
   height: 32px;
   font-size: 11px;
   padding: 0 16px;
 `;
 
-export const medium = css`
+export const mediumSizeCss = css`
   width: auto;
   height: 40px;
   font-size: 14px;
   padding: 0 24px;
 `;
 
+export const largeSizeCss = css`
+  width: auto;
+  height:56px;
+  font-size: 18px;
+  padding: 0 24px;
+`;
+
+export const squareSizeCss = css`
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  div {
+    margin: 0;
+  }
+`;
+
 // handlers
 export const getButtonSize = (size: string) => {
 	switch (size) {
 		case ButtonTypes.SQUARE:
-			return square;
+			return squareSizeCss;
+
 		case ButtonTypes.SMALL:
-			return small;
+			return smallSizeCss;
+
+		case ButtonTypes.LARGE:
+			return largeSizeCss;
+
 		default:
-			return medium;
+			return mediumSizeCss;
 	}
 };
 

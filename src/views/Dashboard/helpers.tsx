@@ -1,5 +1,4 @@
 import { DashboardSteps } from "helpers";
-import React from "react";
 import type { DashboardStepTypes, IHome } from "types";
 import { ArticleForm, CraftsForm, HomePageForm, PostForm } from "./components";
 

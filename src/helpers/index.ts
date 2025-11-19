@@ -1,6 +1,7 @@
 export * from "./animationParams";
 export * from "./array";
 export * from "./conversion";
+export * from "./endpoints";
 export * from "./enums";
 export * from "./fonts";
 export * from "./localStorage";
