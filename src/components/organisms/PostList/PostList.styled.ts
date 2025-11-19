@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, devices, flexCenter } from "theme";
+import { devices, flexCenter } from "theme";
 
 export const List = styled.ul`
   display: grid;
@@ -8,25 +8,15 @@ export const List = styled.ul`
   list-style: none;
   padding: 0;
   gap: 8px;
-  margin: 8px;
 
   @media ${devices.sm} {
     grid-template-columns: repeat(2, 1fr);
-    margin: 16px;
-    gap: 48px 16px;
+    gap: 16px;
   }
 
   @media ${devices.md} {
     grid-template-columns: repeat(3, 1fr);
   }
-`;
-
-export const Button = styled.button`
-  ${flexCenter};
-  background-color: ${colors.transparent.main};
-  border: none;
-  padding: 0;
-  margin: 0;
 `;
 
 export const MainImageContainer = styled.div`

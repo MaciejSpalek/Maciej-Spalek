@@ -30,7 +30,6 @@ interface IStyledIconWrapper {
 
 export const StyledIconWrapper = styled.div<IStyledIconWrapper>`
   ${flexCenter};
-  width: 50px;
   margin-right: 8px;
   svg path {
     transition: 0.3s ease-in-out;

@@ -21,7 +21,7 @@ export const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 28px;
+  border-radius: 12px;
   overflow: hidden;
 `;
 

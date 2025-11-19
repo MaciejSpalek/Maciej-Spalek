@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { usePostListQuery } from "queries";
 import { useState } from "react";
 import type { IPost } from "types";
+import { URLS } from "../../../helpers";
 import type { PostListProps } from "./PostList.model";
 import { List, MainImageContainer } from "./PostList.styled";
 import { usePostList } from "./usePostList";
@@ -12,6 +13,7 @@ import { usePostList } from "./usePostList";
 export const PostList = ({
 	hideDescription,
 	initialList,
+	isPreview = true,
 	postsAmount,
 	title,
 	image,
@@ -42,6 +44,18 @@ export const PostList = ({
 		router.push(router, undefined, { shallow: true });
 	};
 
+	const goToPostView = (id: IPost["_id"]) => {
+		router.push(URLS.post({ id }));
+	};
+
+	const handleOnPostClick = (id: IPost["_id"]) => {
+		if (isPreview) {
+			openModal(id);
+		} else {
+			goToPostView(id);
+		}
+	};
+
 	return (
 		<Section title={title}>
 			{null != image && (
@@ -57,12 +71,11 @@ export const PostList = ({
 					/>
 				</MainImageContainer>
 			)}
-			\
 			<List ref={listRef}>
 				{list.map((post) => (
 					<li key={post._id}>
 						<PostCard
-							onClick={openModal}
+							onClick={handleOnPostClick}
 							hideDescription={hideDescription}
 							{...post}
 						/>

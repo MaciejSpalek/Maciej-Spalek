@@ -6,15 +6,15 @@ export const leftNavigation = [
 		text: "home",
 	},
 	{
-		href: URLS.photography,
-		text: "photography",
+		href: URLS.paintings,
+		text: "paintings",
 	},
 ];
 
 export const rightNavigation = [
 	{
-		href: URLS.paintings,
-		text: "paintings",
+		href: URLS.photography,
+		text: "photography",
 	},
 	{
 		href: URLS.drawings,

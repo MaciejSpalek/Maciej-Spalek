@@ -7,4 +7,5 @@ export interface PostListProps {
 	initialList: IPost[];
 	type: IPost["type"];
 	hideDescription?: boolean;
+	isPreview?: boolean;
 }
