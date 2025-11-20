@@ -5,7 +5,7 @@ const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
 	images: {
-		domains: ["localhost", "spwrtt.usermd.net"],
+		domains: ["localhost", "spwrtt.usermd.net", "dev.spwrtt.usermd.net"],
 	},
 };
 
