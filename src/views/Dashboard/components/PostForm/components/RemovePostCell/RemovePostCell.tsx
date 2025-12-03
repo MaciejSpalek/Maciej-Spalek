@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { Button, Dialog } from "components";
 import { ENDPOINTS } from "helpers/endpoints";
-import React, { useState } from "react";
+import { useState } from "react";
 import { axiosInstance } from "services/axiosClient";
 import type { IPost } from "types";
 import type { IRemovePostCell } from "./RemovePostCell.model";

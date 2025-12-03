@@ -133,7 +133,7 @@ export const List = styled.ul`
 `;
 
 export const InnerWrapper = styled.div`
-  ${flexColumn}
+  ${flexColumn};
   justify-content: space-between;
   width: 100%;
   gap: 32px;

@@ -1,7 +1,6 @@
 import { LS_KEYS, ls } from "helpers";
 import Image from "next/image";
 import { usePostListQuery } from "queries";
-import React from "react";
 import { CircularProgress } from "../../../../../../components";
 import { AddPostDialog } from "../AddPostDialog";
 import { EditPostCell } from "../EditPostCell";

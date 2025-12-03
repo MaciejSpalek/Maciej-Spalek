@@ -1,6 +1,6 @@
 import { Button, Dialog, ImageUploader, Input, Select } from "components";
 import { ENDPOINTS } from "helpers/endpoints";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { axiosInstance } from "services/axiosClient";
 import { type IPost, PostTypes } from "types";
