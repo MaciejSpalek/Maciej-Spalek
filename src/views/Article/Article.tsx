@@ -1,7 +1,7 @@
 import { Section } from "layouts/Section";
 import Image from "next/image";
 import { Fragment, useRef } from "react";
-import type { IArticle } from "types";
+import type { ArticleProps } from "./Article.model";
 import {
 	BlocksWrapper,
 	Container,
@@ -12,12 +12,8 @@ import {
 } from "./Article.styled";
 import { articleBlocks } from "./helpers";
 
-interface ArticleProps {
-	data: IArticle;
-}
-
 export const Article = ({ data }: ArticleProps) => {
-	const { blocks, description, image, title } = data || {};
+	const { blocks, description, image, title, summary } = data || {};
 	const imageRef = useRef<HTMLImageElement>(null);
 
 	return (
@@ -36,7 +32,7 @@ export const Article = ({ data }: ArticleProps) => {
 				</MainImageContainer>
 
 				<Wrapper>
-					<Heading>Introduction</Heading>
+					<Heading>Wstęp</Heading>
 					<Paragraph>{description}</Paragraph>
 				</Wrapper>
 
@@ -49,8 +45,8 @@ export const Article = ({ data }: ArticleProps) => {
 				</BlocksWrapper>
 
 				<Wrapper>
-					<Heading>Summary</Heading>
-					<Paragraph>{description}</Paragraph>
+					<Heading>Podsumowanie</Heading>
+					<Paragraph>{summary}</Paragraph>
 				</Wrapper>
 			</Container>
 		</Section>

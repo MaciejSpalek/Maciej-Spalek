@@ -24,7 +24,11 @@ const types = Object.values(PostTypes).map((type) => ({
 	value: type,
 }));
 
-export const CraftsForm = ({ defaultValues }: any) => {
+export const CraftsForm = ({
+	defaultValues,
+}: {
+	defaultValues: { crafts: ICraft[] };
+}) => {
 	const [crafts, setCrafts] = useState<ICraft[]>(defaultValues.crafts);
 	const { register, handleSubmit, setValue } = useForm<ICraftsForm>({
 		defaultValues,
@@ -66,9 +70,9 @@ export const CraftsForm = ({ defaultValues }: any) => {
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<Section>
 					<TopWrapper>
-						<Heading>Crafts</Heading>
+						<Heading>Profesje</Heading>
 						<Button type="button" onClick={handleOnAddNewSection}>
-							Add
+							Dodaj
 						</Button>
 					</TopWrapper>
 					{crafts?.map(({ href, image, title, type }, index) => (
@@ -104,7 +108,7 @@ export const CraftsForm = ({ defaultValues }: any) => {
 									onClick={() => handleOnRemoveSection({ title })}
 									type="button"
 								>
-									Remove
+									Usuń
 								</Button>
 							</InputWrapper>
 						</SectionsRowWrapper>
@@ -112,7 +116,7 @@ export const CraftsForm = ({ defaultValues }: any) => {
 				</Section>
 				<SubmitWrapper>
 					<Button type="submit" isLoading={isLoading}>
-						Submit
+						Zapisz
 					</Button>
 				</SubmitWrapper>
 			</Form>

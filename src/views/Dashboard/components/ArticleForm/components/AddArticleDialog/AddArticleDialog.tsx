@@ -66,8 +66,8 @@ export const AddArticleDialog = () => {
 
 	return (
 		<>
-			<Button onClick={toggle}>Add article</Button>
-			<Dialog size="md" title="Add article" toggle={toggle} isOpen={isOpen}>
+			<Button onClick={toggle}>Dodaj artykuł</Button>
+			<Dialog size="md" title="Dodaj artykuł" toggle={toggle} isOpen={isOpen}>
 				<FormProvider {...methods}>
 					<Form onSubmit={handleSubmit(onSubmit)}>
 						<FieldsWrapper>
@@ -75,24 +75,24 @@ export const AddArticleDialog = () => {
 							<Input
 								id="title"
 								register={register}
-								placeholder="Title"
+								placeholder="Tytuł"
 								fullWidth
 							/>
 							<Textarea
 								id="description"
 								register={register}
-								placeholder="Description"
+								placeholder="Opis"
 								fullWidth
 								rows={8}
 							/>
 							<Textarea
 								id="summary"
 								register={register}
-								placeholder="Summary"
+								placeholder="Podsumowanie"
 								fullWidth
 								rows={8}
 							/>
-							<Button onClick={handleAddEmptyBlock}>Add new block</Button>
+							<Button onClick={handleAddEmptyBlock}>Dodaj nową sekcję</Button>
 						</FieldsWrapper>
 						<BlockWrapper>
 							{blocks.map((block, index) => (
@@ -107,7 +107,7 @@ export const AddArticleDialog = () => {
 						</BlockWrapper>
 						<SubmitWrapper>
 							<Button type="submit" isLoading={isLoading}>
-								Submit
+								Dodaj
 							</Button>
 						</SubmitWrapper>
 					</Form>

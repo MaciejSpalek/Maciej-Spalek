@@ -2,6 +2,7 @@ import { LS_KEYS, ls } from "helpers";
 import Image from "next/image";
 import { usePostListQuery } from "queries";
 import React from "react";
+import { CircularProgress } from "../../../../../../components";
 import { AddPostDialog } from "../AddPostDialog";
 import { EditPostCell } from "../EditPostCell";
 import { Filters } from "../Filters";
@@ -35,7 +36,7 @@ export const List = () => {
 			<Filters />
 			<Section>
 				<TopWrapper>
-					<Heading>Posts</Heading>
+					<Heading>Posty</Heading>
 					<AddPostDialog />
 				</TopWrapper>
 				<HeaderList>
@@ -47,7 +48,7 @@ export const List = () => {
 				</HeaderList>
 				<ContentList>
 					{isFetching ? (
-						<p>Loading...</p>
+						<CircularProgress />
 					) : (
 						data?.map((post, index) => {
 							const { _id, image, type, description, price, state } = post;

@@ -14,7 +14,7 @@ export const defaultStyles = css`
 
 export const outlineStyles = css`
   border: 2px solid ${colors.primary.main};
-  background: ${colors.white};
+  background: transparent;
   color: ${colors.primary.main};
   svg path {
     fill: ${colors.primary.main};

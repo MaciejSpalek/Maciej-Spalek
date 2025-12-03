@@ -29,15 +29,17 @@ export const RemovePostCell = ({ refetchList, id }: IRemovePostCell) => {
 	return (
 		<>
 			<Button size="small" onClick={toggle}>
-				Remove
+				Usuń
 			</Button>
-			<Dialog size="sm" title="Remove post" toggle={toggle} isOpen={isOpen}>
+			<Dialog size="sm" title="Usuń post" toggle={toggle} isOpen={isOpen}>
 				<DialogContent>
-					<Description>Are you sure to remove this post?</Description>
+					<Description>Czy na pewno usunąć ten post?</Description>
 					<ButtonWrapper>
-						<Button onClick={toggle}>Cancel</Button>
+						<Button outline onClick={toggle}>
+							Wróć
+						</Button>
 						<Button onClick={() => deleteMutation.mutate(id)}>
-							Yes, remove
+							Tak, usuń!
 						</Button>
 					</ButtonWrapper>
 				</DialogContent>

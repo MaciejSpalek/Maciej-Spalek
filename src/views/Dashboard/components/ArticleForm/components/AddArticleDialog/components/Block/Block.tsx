@@ -6,7 +6,7 @@ import { getImage } from "./helpers";
 
 export const Block = ({ index, register, setValue, data }: BlockProps) => {
 	const blockTypes = Object.values(ARTICLE_BLOCK_TYPE).map((type) => ({
-		label: type,
+		label: type === "common" ? "Zwykły" : "Wskazówka",
 		value: type,
 	}));
 
@@ -17,12 +17,12 @@ export const Block = ({ index, register, setValue, data }: BlockProps) => {
 
 	return (
 		<Container>
-			<Iterator>Block no.{index + 1}</Iterator>
+			<Iterator>Sekcja {index + 1}</Iterator>
 			<FieldsWrapper>
 				<Select
 					id={`blocks[${index}].type`}
 					register={register}
-					placeholder="Type"
+					placeholder="Typ"
 					options={blockTypes}
 					fullWidth
 				/>
@@ -38,14 +38,14 @@ export const Block = ({ index, register, setValue, data }: BlockProps) => {
 					<Input
 						id={`blocks[${index}].title`}
 						register={register}
-						placeholder="Title"
+						placeholder="Tytuł"
 						fullWidth
 					/>
 				)}
 				<Textarea
 					id={`blocks[${index}].description`}
 					register={register}
-					placeholder="Description"
+					placeholder="Opis"
 					fullWidth
 					rows={8}
 				/>

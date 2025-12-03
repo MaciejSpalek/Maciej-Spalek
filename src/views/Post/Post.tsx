@@ -58,13 +58,13 @@ export const Post = ({ data, posts }: PostProps) => {
 							icon={LeftRectangleArrowIcon}
 							onClick={() => router.back()}
 						>
-							Back
+							WRÓĆ
 						</Button>
 					</ButtonWrapper>
 				</Wrapper>
 			</Container>
 			<SimilarPaintingsWrapper>
-				<SimilarPaintingsText>Similar paintings</SimilarPaintingsText>
+				<SimilarPaintingsText>INNE OBRAZY</SimilarPaintingsText>
 				<PostList
 					postsAmount={9}
 					initialList={filteredPosts}

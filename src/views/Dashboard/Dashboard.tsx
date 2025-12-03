@@ -20,8 +20,9 @@ interface IProps {
 }
 
 export const Dashboard = ({ home, crafts }: IProps) => {
-	const homeDefaultValues: any = { home };
-	const craftsDefaultValues: any = { crafts };
+	const homeDefaultValues = { home };
+	const craftsDefaultValues: { crafts: ICraft[] } = { crafts };
+
 	const { push } = useRouter();
 
 	const [step, setStep] = useState<DashboardStepTypes>(DashboardSteps.HOME);
@@ -36,7 +37,7 @@ export const Dashboard = ({ home, crafts }: IProps) => {
 						<ArrowButton onClick={goToWebPage}>
 							<StyledLeftRectangleArrowIcon />
 						</ArrowButton>
-						<Heading>Dashboard</Heading>
+						<Heading>Panel</Heading>
 					</Wrapper>
 					<Navigation step={step} setStep={setStep} />
 				</TopBar>

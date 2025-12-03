@@ -54,13 +54,17 @@ export const setCookie = (
 	}
 };
 
-export const deleteCookie = (name: string): void => {
-	if (typeof window !== "undefined") {
-		const cookieName = encodeURIComponent(name);
-		document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+export const deleteCookie = (name: string, path?: string, domain?: string) => {
+	if (getCookie(name)) {
+		console.log("deleting cookie");
+		document.cookie =
+			name +
+			"=" +
+			(path ? ";path=" + path : "") +
+			(domain ? ";domain=" + domain : "") +
+			";expires=Thu, 01 Jan 1970 00:00:01 GMT";
 	}
 };
-
 export const getExpireDate = (tokenLifeTime: number): Date => {
 	const getSecondsSinceEpoch = (): number => {
 		const date = new Date();

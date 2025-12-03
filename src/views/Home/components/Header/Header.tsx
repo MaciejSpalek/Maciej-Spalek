@@ -34,7 +34,7 @@ export const Header = () => {
 			<Heading ref={headerHeadingRef}>Maciej Spałek</Heading>
 			<Paragraph ref={headerParagraphRef}>{description}</Paragraph>
 			<div ref={headerButtonRef}>
-				<SpecialButton onClick={handleOnClick}>Contact me</SpecialButton>
+				<SpecialButton onClick={handleOnClick}>KONTAKT</SpecialButton>
 			</div>
 			<GridList>
 				<GridItem ref={headerLeftImageRef}>

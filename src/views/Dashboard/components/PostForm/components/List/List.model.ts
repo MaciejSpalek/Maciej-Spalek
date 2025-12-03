@@ -1,9 +1,9 @@
 export const headers = [
-	"No.",
-	"Image",
-	"Type",
-	"Description",
-	"Price",
-	"State",
-	"Action",
+	"Nr",
+	"Zdjęcie",
+	"Typ",
+	"Opis",
+	"Cena",
+	"Stan",
+	"Akcja",
 ];

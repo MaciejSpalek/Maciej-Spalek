@@ -15,9 +15,9 @@ export const LastPaintings = ({ posts }: ILastPaintingsProps) => {
 	return (
 		<Container>
 			<HeadingWrapper>
-				<Heading>Last paintings</Heading>
+				<Heading>Najnowsze obrazy</Heading>
 				<Button outline onClick={goToPaintings}>
-					MORE
+					WIĘCEJ
 				</Button>
 			</HeadingWrapper>
 			<PostList

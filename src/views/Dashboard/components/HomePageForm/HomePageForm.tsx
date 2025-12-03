@@ -41,7 +41,7 @@ export const HomePageForm = ({ defaultValues }: any) => {
 		<Container>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<Section>
-					<Heading>Header</Heading>
+					<Heading>Nagłówek</Heading>
 					<HeaderRowWrapper>
 						<ImageUploader
 							id="home.header.first_photo"
@@ -60,7 +60,7 @@ export const HomePageForm = ({ defaultValues }: any) => {
 							placeholder="description"
 						/>
 					</HeaderRowWrapper>
-					<Heading>About me</Heading>
+					<Heading>O mnie</Heading>
 					<AboutRowWrapper>
 						<ImageUploader
 							id="home.about.photo"
