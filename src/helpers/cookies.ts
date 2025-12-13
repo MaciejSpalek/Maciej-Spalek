@@ -56,7 +56,6 @@ export const setCookie = (
 
 export const deleteCookie = (name: string, path?: string, domain?: string) => {
 	if (getCookie(name)) {
-		console.log("deleting cookie");
 		document.cookie =
 			name +
 			"=" +

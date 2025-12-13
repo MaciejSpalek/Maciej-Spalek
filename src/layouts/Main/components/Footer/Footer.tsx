@@ -48,8 +48,8 @@ export const Footer = () => {
 		<Container>
 			<InnerWrapper>
 				<FirstWrapper>
-					<Heading>Jeżeli spodobał Ci się jakiś obraz,</Heading>
-					<Heading>skontaktuj się ze mną!</Heading>
+					<Heading>Jesteś zainteresowany którymś z obrazów?</Heading>
+					<Heading>Skontaktuj się ze mną!</Heading>
 					<SpecialButton onClick={goToContact}>KONTAKT</SpecialButton>
 				</FirstWrapper>
 				<Divider />

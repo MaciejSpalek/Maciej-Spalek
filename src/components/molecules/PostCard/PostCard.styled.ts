@@ -5,7 +5,6 @@ import { colors } from "theme/colors";
 export const Container = styled.div`
   ${flexColumn};
   height: auto;
-  border-radius: 28px;
   cursor: pointer;
 
   :hover div {
@@ -21,7 +20,6 @@ export const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  border-radius: 12px;
   overflow: hidden;
 `;
 
