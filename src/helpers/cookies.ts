@@ -54,16 +54,20 @@ export const setCookie = (
 	}
 };
 
-export const deleteCookie = (name: string, path?: string, domain?: string) => {
-	if (getCookie(name)) {
-		document.cookie =
-			name +
-			"=" +
-			(path ? ";path=" + path : "") +
-			(domain ? ";domain=" + domain : "") +
-			";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+export const deleteCookie = ({
+	name,
+	path,
+}: {
+	name: string;
+	path: string;
+}) => {
+	const cookie = getCookie(name);
+
+	if (cookie) {
+		document.cookie = `${name}=; expires=${new Date(0).toUTCString()}; path=${path};`;
 	}
 };
+
 export const getExpireDate = (tokenLifeTime: number): Date => {
 	const getSecondsSinceEpoch = (): number => {
 		const date = new Date();

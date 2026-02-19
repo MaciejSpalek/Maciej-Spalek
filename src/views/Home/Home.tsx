@@ -19,10 +19,10 @@ export const Home = ({ data }: IHome) => {
 		<HomeContextProvider home={home}>
 			<Container>
 				<Header />
-				{/*<LastPaintings posts={posts} />*/}
-				{/*<Articles />*/}
-				{/*<About />*/}
-				{/*<Sections sections={crafts} />*/}
+				<LastPaintings posts={posts} />
+				<Articles />
+				<About />
+				<Sections sections={crafts} />
 			</Container>
 		</HomeContextProvider>
 	);

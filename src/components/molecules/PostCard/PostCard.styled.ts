@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { devices, flexCenter, flexColumn, getFont } from "theme";
+import { devices, flexColumn, getFont } from "theme";
 import { colors } from "theme/colors";
 
 export const Container = styled.div`
@@ -21,16 +21,7 @@ export const ImageWrapper = styled.div`
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-`;
-
-export const HiddenWrapper = styled.div`
-  ${flexCenter};
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background-color: ${colors.transparent.medium};
-  visibility: hidden;
+  border-radius: 12px;
 `;
 
 export const DescriptionWrapper = styled.div`

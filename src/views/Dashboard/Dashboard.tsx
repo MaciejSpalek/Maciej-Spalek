@@ -1,5 +1,4 @@
 import { DashboardSteps, URLS } from "helpers";
-import { Protected } from "layouts/Protected";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import type { DashboardStepTypes, ICraft, IHome } from "types";
@@ -30,23 +29,21 @@ export const Dashboard = ({ home, crafts }: IProps) => {
 	const goToWebPage = () => push(URLS.home);
 
 	return (
-		<Protected>
-			<Container>
-				<TopBar>
-					<Wrapper>
-						<ArrowButton onClick={goToWebPage}>
-							<StyledLeftRectangleArrowIcon />
-						</ArrowButton>
-						<Heading>Panel</Heading>
-					</Wrapper>
-					<Navigation step={step} setStep={setStep} />
-				</TopBar>
-				{getStep({
-					craftsDefaultValues,
-					homeDefaultValues,
-					step,
-				})}
-			</Container>
-		</Protected>
+		<Container>
+			<TopBar>
+				<Wrapper>
+					<ArrowButton onClick={goToWebPage}>
+						<StyledLeftRectangleArrowIcon />
+					</ArrowButton>
+					<Heading>Panel</Heading>
+				</Wrapper>
+				<Navigation step={step} setStep={setStep} />
+			</TopBar>
+			{getStep({
+				craftsDefaultValues,
+				homeDefaultValues,
+				step,
+			})}
+		</Container>
 	);
 };

@@ -1,4 +1,3 @@
-import { URLS } from "helpers";
 import { COOKIES, deleteCookie } from "helpers/cookies";
 import { useRouter } from "next/router";
 import { navigation } from "./helpers";
@@ -9,8 +8,8 @@ export const Navigation = ({ step, setStep }: INavigation) => {
 	const router = useRouter();
 
 	const logout = () => {
-		deleteCookie(COOKIES.MS_AUTH_TOKEN);
-		router.push(URLS.admin.login);
+		deleteCookie({ name: COOKIES.MS_AUTH_TOKEN, path: router.pathname });
+		window.location.reload();
 	};
 
 	return (
