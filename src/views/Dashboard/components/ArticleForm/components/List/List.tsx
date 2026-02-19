@@ -1,3 +1,4 @@
+import { CircularProgress } from "components";
 import { LS_KEYS, ls } from "helpers";
 import Image from "next/image";
 import { useArticlesListQuery } from "queries";
@@ -34,7 +35,7 @@ export const List = () => {
 			<Filters />
 			<Section>
 				<TopWrapper>
-					<Heading>Articles</Heading>
+					<Heading>Artykuły</Heading>
 					<AddArticleDialog />
 				</TopWrapper>
 				<HeaderList>
@@ -46,7 +47,7 @@ export const List = () => {
 				</HeaderList>
 				<ContentList>
 					{isFetching ? (
-						<p>Loading...</p>
+						<CircularProgress />
 					) : (
 						data?.map((article, index) => {
 							const { _id, image, title } = article;

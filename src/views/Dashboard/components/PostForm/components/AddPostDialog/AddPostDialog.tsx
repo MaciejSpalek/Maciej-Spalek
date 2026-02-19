@@ -41,27 +41,27 @@ export const AddPostDialog = () => {
 
 	return (
 		<>
-			<Button onClick={toggle}>Add post</Button>
-			<Dialog size="md" title="Add post" toggle={toggle} isOpen={isOpen}>
+			<Button onClick={toggle}>Nowy post</Button>
+			<Dialog size="md" title="Nowy post" toggle={toggle} isOpen={isOpen}>
 				<Form onSubmit={handleSubmit(onSubmit)}>
 					<FieldsWrapper>
 						<ImageUploader buttonStyle id="image" setValue={setValue} />
 						<Input
 							id="description"
 							register={register}
-							placeholder="Description"
+							placeholder="Opis"
 							fullWidth
 						/>
 						<Input
 							id="state"
 							register={register}
-							placeholder="State"
+							placeholder="Stan"
 							fullWidth
 						/>
 						<Select
 							id="type"
 							register={register}
-							placeholder="Type"
+							placeholder="Typ"
 							options={types}
 							fullWidth
 						/>
@@ -69,7 +69,7 @@ export const AddPostDialog = () => {
 					</FieldsWrapper>
 					<SubmitWrapper>
 						<Button type="submit" isLoading={isLoading}>
-							Submit
+							Dodaj
 						</Button>
 					</SubmitWrapper>
 				</Form>

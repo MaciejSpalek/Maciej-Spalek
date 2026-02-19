@@ -15,7 +15,7 @@ export const Login = () => {
 
 	return (
 		<Container>
-			<Heading>Admin panel</Heading>
+			<Heading>Panel admina</Heading>
 			<FormWrapper onSubmit={handleOnSubmit}>
 				<Input
 					error={errors?.name?.message}
@@ -29,16 +29,16 @@ export const Login = () => {
 					register={register}
 					fullWidth
 					id="password"
-					placeholder="Password"
+					placeholder="Hasło"
 					type="password"
 				/>
 				<BottomWrapper>
 					<BackButton type="button" onClick={goBackToDashboard}>
 						<StyledLeftRectangleArrowIcon />
-						Back
+						Powrót
 					</BackButton>
 					<Button type="submit" isLoading={isLoading} disabled={isLoading}>
-						Submit
+						Wyślij
 					</Button>
 				</BottomWrapper>
 			</FormWrapper>

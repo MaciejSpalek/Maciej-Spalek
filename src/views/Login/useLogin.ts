@@ -1,10 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
 import { URLS } from "helpers";
-import { COOKIES, getCookie, setCookie } from "helpers/cookies";
+import { COOKIES, setCookie } from "helpers/cookies";
 import { ENDPOINTS } from "helpers/endpoints";
 import { useMessage } from "hooks";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { axiosInstance } from "services/axiosClient";
 import type { IForm } from "./Login.model";
@@ -27,8 +26,6 @@ export const useLogin = () => {
 	const { push } = useRouter();
 	const { message } = useMessage();
 
-	const token = getCookie(COOKIES.MS_AUTH_TOKEN);
-
 	const logIn = async (payload: IForm) =>
 		axiosInstance.post(ENDPOINTS.LOGIN, payload);
 
@@ -48,6 +45,7 @@ export const useLogin = () => {
 					date: new Date("2030-01-01"),
 				});
 				message.success("Successfully logged in");
+				window.location.reload();
 			},
 			onError: (error) => {
 				const errors = (error as ErrorResponse)?.response?.data || {};
@@ -65,11 +63,6 @@ export const useLogin = () => {
 	const goBackToDashboard = () => {
 		push(URLS.home);
 	};
-	useEffect(() => {
-		if (token) {
-			push(URLS.admin.dashboard);
-		}
-	}, [token, push]);
 
 	return { register, handleOnSubmit, errors, isLoading, goBackToDashboard };
 };

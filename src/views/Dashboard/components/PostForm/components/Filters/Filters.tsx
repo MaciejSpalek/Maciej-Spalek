@@ -1,13 +1,13 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { Button, Select } from "components";
 import { generateArray, LS_KEYS, ls, QUERY_KEYS } from "helpers";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { PostTypes } from "types";
 import { FieldWrapper, Form, Heading, Section } from "./Filters.styled";
 
 const getOptions = () => {
-	const allOption = { label: "All", value: "" };
+	const allOption = { label: "Wszystkie", value: "" };
 	const restTypes = Object.values(PostTypes).map((type) => ({
 		label: type,
 		value: type,
@@ -49,7 +49,7 @@ export const Filters = () => {
 
 	return (
 		<Section>
-			<Heading>Filters</Heading>
+			<Heading>Filtry</Heading>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<FieldWrapper>
 					<Select
@@ -65,7 +65,7 @@ export const Filters = () => {
 						name="limit"
 					/>
 				</FieldWrapper>
-				<Button type="submit">Save</Button>
+				<Button type="submit">Zapisz</Button>
 			</Form>
 		</Section>
 	);

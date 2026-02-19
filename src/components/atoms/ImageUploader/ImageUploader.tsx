@@ -72,7 +72,7 @@ export const ImageUploader = forwardRef<HTMLDivElement, IInput>(
 								<SmallDownloadIcon />
 							)}
 						</FileImageWrapper>
-						{image ? "Uploaded" : "Upload file"}
+						{image ? "Dodany" : "Dodaj plik"}
 					</FileButton>
 					<Input type="file" onChange={handleChange} ref={hiddenFileInput} />
 				</ButtonContainer>

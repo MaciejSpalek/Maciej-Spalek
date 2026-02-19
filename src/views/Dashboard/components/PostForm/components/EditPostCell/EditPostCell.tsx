@@ -1,6 +1,6 @@
 import { Button, Dialog, ImageUploader, Input, Select } from "components";
 import { ENDPOINTS } from "helpers/endpoints";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { axiosInstance } from "services/axiosClient";
 import { type IPost, PostTypes } from "types";
@@ -42,9 +42,9 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
 	return (
 		<>
 			<Button size="small" onClick={toggle}>
-				Edit
+				Edytuj
 			</Button>
-			<Dialog size="md" title="Edit post" toggle={toggle} isOpen={isOpen}>
+			<Dialog size="md" title="Edytuj post" toggle={toggle} isOpen={isOpen}>
 				<Form onSubmit={handleSubmit(onSubmit)}>
 					<InputWrapper>
 						<ImageUploader
@@ -56,26 +56,26 @@ export const EditPostCell = ({ refetchList, data }: IEditPostCell) => {
 						<Input
 							id="state"
 							register={register}
-							placeholder="State"
+							placeholder="Stan"
 							fullWidth
 						/>
 						<Select
 							id="type"
 							register={register}
-							placeholder="Type"
+							placeholder="Typ"
 							options={types}
 						/>
 						<Input
 							id="description"
 							register={register}
-							placeholder="Description"
+							placeholder="Opis"
 							fullWidth
 						/>
 						<Input id="created_at" register={register} fullWidth type="date" />
 					</InputWrapper>
 					<BottomWrapper>
 						<Button isLoading={isLoading} type="submit">
-							Submit
+							Edytuj
 						</Button>
 					</BottomWrapper>
 				</Form>

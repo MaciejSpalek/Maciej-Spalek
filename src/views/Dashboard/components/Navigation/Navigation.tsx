@@ -1,4 +1,3 @@
-import { URLS } from "helpers";
 import { COOKIES, deleteCookie } from "helpers/cookies";
 import { useRouter } from "next/router";
 import { navigation } from "./helpers";
@@ -7,25 +6,23 @@ import { List, ListItem, Button as NavButton } from "./Navigation.styled";
 
 export const Navigation = ({ step, setStep }: INavigation) => {
 	const router = useRouter();
+
 	const logout = () => {
-		deleteCookie(COOKIES.MS_AUTH_TOKEN);
-		router.push(URLS.admin.login);
+		deleteCookie({ name: COOKIES.MS_AUTH_TOKEN, path: router.pathname });
+		window.location.reload();
 	};
 
 	return (
 		<List>
-			{navigation.map((element) => (
-				<ListItem key={element}>
-					<NavButton
-						isActive={step === element}
-						onClick={() => setStep(element)}
-					>
-						{element.toUpperCase()}
+			{navigation.map(({ name, type }) => (
+				<ListItem key={type}>
+					<NavButton isActive={step === type} onClick={() => setStep(type)}>
+						{name.toUpperCase()}
 					</NavButton>
 				</ListItem>
 			))}
 			<ListItem>
-				<NavButton onClick={logout}>LOGOUT</NavButton>
+				<NavButton onClick={logout}>WYLOGUJ SIĘ</NavButton>
 			</ListItem>
 		</List>
 	);

@@ -44,10 +44,10 @@ export const Contact = () => {
 		mutationFn: sendEmail,
 		onSuccess: () => {
 			reset();
-			message.success("Successfully sent");
+			message.success("Wysłano poprawnie");
 		},
 		onError: () => {
-			message.error("Something went wrong");
+			message.error("Coś poszło nie tak");
 		},
 	});
 
@@ -60,16 +60,16 @@ export const Contact = () => {
 	return (
 		<Container ref={containerRef}>
 			<LeftWrapper ref={leftWrapperRef}>
-				<Heading>Contact</Heading>
+				<Heading>Kontakt</Heading>
 				<CirclePhoto width={233} />
 			</LeftWrapper>
 			<FormWrapper ref={formWrapperRef} onSubmit={handleSubmit(onSubmit)}>
 				<TextWrapper>
-					<Title>Let's talk!</Title>
+					<Title>Formularz</Title>
 					<Subtitle>
-						If you have any questions or you're interested in any of the
-						artworks, feel free to send me a private message — I'd love to hear
-						from you!
+						Jeśli masz jakieś pytania lub jesteś zainteresowany którymkolwiek z
+						obrazów, wyślij mi wiadomość prywatną na mój e-mail. Napisz, który
+						konkretnie obraz Cię interesuję, a niebawem się odezwę!
 					</Subtitle>
 				</TextWrapper>
 				<Input
@@ -77,20 +77,20 @@ export const Contact = () => {
 					register={register}
 					fullWidth
 					id="name"
-					placeholder="Name"
+					placeholder="Imię"
 				/>
 				<Input
 					error={errors?.email?.message}
 					register={register}
 					fullWidth
 					id="email"
-					placeholder="Email"
+					placeholder="E-mail"
 				/>
 				<Textarea
 					register={register}
 					fullWidth
 					id="message"
-					placeholder="Message"
+					placeholder="Wiadomość"
 					error={errors?.message?.message}
 					rows={5}
 				/>
@@ -110,7 +110,7 @@ export const Contact = () => {
 						type="submit"
 						fullWidth={!!isMobileView}
 					>
-						Send
+						WYŚLIJ
 					</Button>
 				</ButtonWrapper>
 			</FormWrapper>

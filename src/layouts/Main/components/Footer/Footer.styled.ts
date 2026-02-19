@@ -25,6 +25,7 @@ export const Container = styled.footer`
 
 export const FirstWrapper = styled.div`
   ${flexColumn};
+    gap: 32px;
 `;
 
 export const Wrapper = styled.div`
@@ -72,11 +73,12 @@ export const SocialsWrapper = styled.div`
   }
 `;
 
-export const Heading = styled.h2`
+export const Heading = styled.p`
   color: ${colors.white};
   line-height: 100%;
+    margin: 0;
   text-align: center;
-  ${getFont("medium", 32, 72)};
+  ${getFont("medium", 32, 48)};
 `;
 
 export const Paragraph = styled.p`
@@ -105,7 +107,7 @@ export const ListTitle = styled.p`
   line-height: 140%;
   text-align: center;
   ${getFont("medium", 18, 20)};
-
+    white-space: nowrap;
   @media ${devices.md} {
     text-align: left;
   }
@@ -131,7 +133,7 @@ export const List = styled.ul`
 `;
 
 export const InnerWrapper = styled.div`
-  ${flexColumn}
+  ${flexColumn};
   justify-content: space-between;
   width: 100%;
   gap: 32px;

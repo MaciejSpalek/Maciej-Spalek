@@ -3,21 +3,21 @@ import { URLS } from "helpers";
 export const leftNavigation = [
 	{
 		href: URLS.home,
-		text: "home",
+		text: "Główna",
 	},
 	{
 		href: URLS.paintings,
-		text: "paintings",
+		text: "Obrazy",
 	},
 ];
 
 export const rightNavigation = [
 	{
 		href: URLS.photography,
-		text: "photography",
+		text: "Fotografia",
 	},
 	{
 		href: URLS.drawings,
-		text: "drawings",
+		text: "Rysunki",
 	},
 ];
