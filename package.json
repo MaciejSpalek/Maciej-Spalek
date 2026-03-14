@@ -32,6 +32,7 @@
 		"react-google-recaptcha": "^3.1.0",
 		"react-google-recaptcha-v3": "^1.10.1",
 		"react-hook-form": "7.51.4",
+		"react-zoom-pan-pinch": "^3.7.0",
 		"styled-components": "5.3.5",
 		"yup": "1.4.0"
 	},

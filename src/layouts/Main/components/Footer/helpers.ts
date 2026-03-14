@@ -2,16 +2,16 @@ import { URLS } from "helpers";
 
 export const footerInfo = [
 	{
-		title: "Navigation",
+		title: "Podstrony",
 		list: [
-			{ name: "Home", href: URLS.home },
-			{ name: "Paintings", href: URLS.paintings },
-			{ name: "Drawings", href: URLS.drawings },
-			{ name: "Photography", href: URLS.photography },
+			{ name: "Główna", href: URLS.home },
+			{ name: "Obrazy", href: URLS.paintings },
+			{ name: "Rysunki", href: URLS.drawings },
+			{ name: "Fotografia", href: URLS.photography },
 		],
 	},
 	{
-		title: "Socials",
+		title: "Social Media",
 		isSocial: true,
 		list: [
 			{ name: "Instagram", href: "https://www.instagram.com/spwrtt/" },

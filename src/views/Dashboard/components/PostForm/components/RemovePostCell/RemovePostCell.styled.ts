@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors, flexCenter, flexColumn, flexRow, getFont } from "theme";
+import { colors, flexCenter, flexColumn, getFont } from "theme";
 
 export const DialogContent = styled.div`
   ${flexColumn};

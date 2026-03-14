@@ -5,7 +5,6 @@ import type { ILastPaintingsProps } from "./LastPaintings.model";
 import { Container, Heading, HeadingWrapper } from "./LastPaintings.styled";
 
 export const LastPaintings = ({ posts }: ILastPaintingsProps) => {
-	const limitedPosts = posts.slice(0, 3);
 	const router = useRouter();
 
 	const goToPaintings = () => {
@@ -15,14 +14,14 @@ export const LastPaintings = ({ posts }: ILastPaintingsProps) => {
 	return (
 		<Container>
 			<HeadingWrapper>
-				<Heading>Last paintings</Heading>
+				<Heading>Najnowsze obrazy</Heading>
 				<Button outline onClick={goToPaintings}>
-					MORE
+					WIĘCEJ
 				</Button>
 			</HeadingWrapper>
 			<PostList
 				postsAmount={6}
-				initialList={limitedPosts}
+				initialList={posts}
 				type="painting"
 				hideDescription
 				isPreview={false}

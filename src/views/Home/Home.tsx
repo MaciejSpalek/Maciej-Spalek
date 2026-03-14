@@ -20,8 +20,8 @@ export const Home = ({ data }: IHome) => {
 			<Container>
 				<Header />
 				<LastPaintings posts={posts} />
-				<About />
 				<Articles />
+				<About />
 				<Sections sections={crafts} />
 			</Container>
 		</HomeContextProvider>

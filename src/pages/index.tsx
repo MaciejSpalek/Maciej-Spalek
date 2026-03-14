@@ -13,7 +13,7 @@ export async function getServerSideProps() {
 		);
 
 		const postsResponse = await fetch(
-			`${process.env.NEXT_PUBLIC_API_URL}/post/list?type=${PostTypes.painting}&limit=3`,
+			`${process.env.NEXT_PUBLIC_API_URL}/post/list?type=${PostTypes.painting}&limit=6`,
 		);
 
 		if (!homeResponse.ok || !postsResponse.ok || !craftsResponse.ok) {

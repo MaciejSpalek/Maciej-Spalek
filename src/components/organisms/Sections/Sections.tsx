@@ -32,7 +32,7 @@ export const Sections = ({ sections = [] }: ISections) => {
 
 	return (
 		<Container ref={sectionsContainerRef}>
-			<Heading ref={sectionsHeadingRef}>what i’m doing</Heading>
+			<Heading ref={sectionsHeadingRef}>Zobacz czym się zajmuję</Heading>
 			<List ref={sectionsListRef}>
 				{sections.map(({ _id, href, title }) => (
 					<li key={_id}>
@@ -41,7 +41,7 @@ export const Sections = ({ sections = [] }: ISections) => {
 				))}
 			</List>
 			<CarouselBar ref={sectionsCarouselBarRef}>
-				<CarouselHeading>my crafts</CarouselHeading>
+				<CarouselHeading></CarouselHeading>
 				{!isMobileView && (
 					<CarouselButtons
 						handlePrevSlide={handlePrevSlide}

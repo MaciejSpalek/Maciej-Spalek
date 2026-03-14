@@ -14,7 +14,7 @@ export const About = () => {
 	return (
 		<Container ref={aboutSectionContainerRef}>
 			<LeftWrapper>
-				<Heading>About me</Heading>
+				<Heading>O mnie</Heading>
 				<CirclePhoto width={233} />
 			</LeftWrapper>
 			<RightWrapper>

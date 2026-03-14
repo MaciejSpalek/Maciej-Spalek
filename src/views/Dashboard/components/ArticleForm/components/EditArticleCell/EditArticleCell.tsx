@@ -71,9 +71,9 @@ export const EditArticleCell = ({ refetchList, data }: IEditArticleCell) => {
 	return (
 		<>
 			<Button size="small" onClick={toggle}>
-				Edit
+				Edytuj
 			</Button>
-			<Dialog size="md" title="Edit article" toggle={toggle} isOpen={isOpen}>
+			<Dialog size="md" title="Edytuj artykuł" toggle={toggle} isOpen={isOpen}>
 				<FormProvider {...formData}>
 					<Form onSubmit={handleSubmit(onSubmit)}>
 						<FieldsWrapper>
@@ -86,24 +86,24 @@ export const EditArticleCell = ({ refetchList, data }: IEditArticleCell) => {
 							<Input
 								id="title"
 								register={register}
-								placeholder="Title"
+								placeholder="Tytuł"
 								fullWidth
 							/>
 							<Textarea
 								id="description"
 								register={register}
-								placeholder="Description"
+								placeholder="Opis"
 								fullWidth
 								rows={8}
 							/>
 							<Textarea
 								id="summary"
 								register={register}
-								placeholder="Summary"
+								placeholder="Podsumowanie"
 								fullWidth
 								rows={8}
 							/>
-							<Button onClick={handleAddEmptyBlock}>Add new block</Button>
+							<Button onClick={handleAddEmptyBlock}>Dodaj nową sekcję</Button>
 						</FieldsWrapper>
 						<BlockWrapper>
 							{blocks.map((block, index) => (
@@ -118,7 +118,7 @@ export const EditArticleCell = ({ refetchList, data }: IEditArticleCell) => {
 						</BlockWrapper>
 						<BottomWrapper>
 							<Button type="submit" isLoading={isLoading}>
-								Submit
+								Zapisz
 							</Button>
 						</BottomWrapper>
 					</Form>

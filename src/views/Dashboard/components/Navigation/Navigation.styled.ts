@@ -18,7 +18,7 @@ export const Button = styled.button<{ isActive?: boolean }>`
   text-decoration: ${({ isActive }) => (isActive ? "underline" : "none")};
   background-color: ${colors.white};
   border: none;
-
+    white-space: nowrap;
   :hover {
     color: ${({ isActive }) =>
 			isActive ? colors.grayScale[3] : colors.grayScale[3]};

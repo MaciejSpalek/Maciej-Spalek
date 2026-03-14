@@ -58,19 +58,19 @@ export const PostList = ({
 
 	return (
 		<Section title={title}>
-			{null != image && (
-				<MainImageContainer ref={imageRef}>
-					<Image
-						src={image}
-						layout="fill"
-						objectFit="cover"
-						objectPosition="center"
-						alt="image"
-						loading="eager"
-						priority
-					/>
-				</MainImageContainer>
-			)}
+			{/*{null != image && (*/}
+			{/*	<MainImageContainer ref={imageRef}>*/}
+			{/*		<Image*/}
+			{/*			src={image}*/}
+			{/*			layout="fill"*/}
+			{/*			objectFit="cover"*/}
+			{/*			objectPosition="center"*/}
+			{/*			alt="image"*/}
+			{/*			loading="eager"*/}
+			{/*			priority*/}
+			{/*		/>*/}
+			{/*	</MainImageContainer>*/}
+			{/*)}*/}
 			<List ref={listRef}>
 				{list.map((post) => (
 					<li key={post._id}>

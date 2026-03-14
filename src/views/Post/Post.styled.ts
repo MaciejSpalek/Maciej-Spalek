@@ -29,7 +29,6 @@ export const ImageContainer = styled.div<{ ratio: number }>`
     width: 100%;
     aspect-ratio: ${({ ratio }) => ratio};
     overflow: hidden;
-    border-radius: 12px;
     
     @media ${devices.md} {
         max-width: 400px;

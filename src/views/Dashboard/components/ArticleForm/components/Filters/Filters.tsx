@@ -36,7 +36,7 @@ export const Filters = () => {
 
 	return (
 		<Section>
-			<Heading>Filters</Heading>
+			<Heading>Filtry</Heading>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<FieldWrapper>
 					<Select
@@ -46,7 +46,7 @@ export const Filters = () => {
 						name="limit"
 					/>
 				</FieldWrapper>
-				<Button type="submit">Save</Button>
+				<Button type="submit">Zapisz</Button>
 			</Form>
 		</Section>
 	);

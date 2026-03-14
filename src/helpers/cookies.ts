@@ -54,10 +54,17 @@ export const setCookie = (
 	}
 };
 
-export const deleteCookie = (name: string): void => {
-	if (typeof window !== "undefined") {
-		const cookieName = encodeURIComponent(name);
-		document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+export const deleteCookie = ({
+	name,
+	path,
+}: {
+	name: string;
+	path: string;
+}) => {
+	const cookie = getCookie(name);
+
+	if (cookie) {
+		document.cookie = `${name}=; expires=${new Date(0).toUTCString()}; path=${path};`;
 	}
 };
 

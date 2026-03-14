@@ -39,6 +39,6 @@ export const Heading = styled.h1`
   letter-spacing: 7.2px;
   text-transform: uppercase;
   text-align: start;
-  white-space: no-wrap;
+  white-space: nowrap;
   ${getFont("regular", 12, 18)};
 `;

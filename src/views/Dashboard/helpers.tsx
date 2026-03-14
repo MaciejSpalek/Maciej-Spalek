@@ -1,5 +1,5 @@
 import { DashboardSteps } from "helpers";
-import type { DashboardStepTypes, IHome } from "types";
+import type { DashboardStepTypes, ICraft, IHome } from "types";
 import { ArticleForm, CraftsForm, HomePageForm, PostForm } from "./components";
 
 export const staticHomeInitialValues = {
@@ -18,8 +18,8 @@ export const staticHomeInitialValues = {
 
 interface GetStepProps {
 	step: DashboardStepTypes;
-	homeDefaultValues: IHome;
-	craftsDefaultValues: any[];
+	homeDefaultValues: { home: IHome };
+	craftsDefaultValues: { crafts: ICraft[] };
 }
 
 export const getStep = ({
@@ -39,6 +39,7 @@ export const getStep = ({
 		case DashboardSteps.POSTS: {
 			return <PostForm />;
 		}
+
 		case DashboardSteps.ARTICLES: {
 			return <ArticleForm />;
 		}

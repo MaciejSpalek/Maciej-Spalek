@@ -26,11 +26,11 @@ export const Heading = styled.h1`
 `;
 
 export const Paragraph = styled.p`
-  ${getFont("regular", 14, 18)};
+  ${getFont("regular", 14, 28)};
   font-weight: 400;
   line-height: 150%;
   color: ${colors.grayScale[5]};
-  max-width: 50%;
+  max-width: 75%;
   text-align: center;
 `;
 
