@@ -12,27 +12,21 @@ describe("Contact view", () => {
 		TestProvider(<Contact />);
 
 		expect(
-			screen.getByRole("heading", { level: 1, name: /contact/i }),
-		).toBeInTheDocument();
-		expect(screen.getByText(/Let's talk!/i)).toBeInTheDocument();
-		expect(
-			screen.getByText(
-				/If you have any questions or you're interested in any of the artworks, feel free to send me a private message — I'd love to hear from you!/i,
-			),
+			screen.getByRole("heading", { level: 1, name: /Kontakt/i }),
 		).toBeInTheDocument();
 		expect(screen.getByAltText(/maciej spałek/i)).toBeInTheDocument();
-		expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
-		expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
-		expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
-		expect(screen.getByRole("button", { name: /send/i })).toBeInTheDocument();
+		expect(screen.getByLabelText(/Imię/i)).toBeInTheDocument();
+		expect(screen.getByLabelText(/E-mail/i)).toBeInTheDocument();
+		expect(screen.getByLabelText(/Wiadomość/i)).toBeInTheDocument();
+		expect(screen.getByRole("button", { name: /Wyślij/i })).toBeInTheDocument();
 	});
 
 	test("should show correct value in inputs", async () => {
 		TestProvider(<Contact />);
 
-		const nameInput = screen.getByLabelText(/name/i);
-		const emailInput = screen.getByLabelText(/email/i);
-		const messageInput = screen.getByRole("textbox", { name: /message/i });
+		const nameInput = screen.getByLabelText(/Imię/i);
+		const emailInput = screen.getByLabelText(/E-mail/i);
+		const messageInput = screen.getByLabelText(/Wiadomość/i);
 
 		const nameText = "Harry z Tybetu";
 		const emailText = "harryztybetu@gmail.com";
@@ -56,7 +50,7 @@ describe("Contact view", () => {
 	test("should show 'Minimum 2 characters' message for name input", async () => {
 		TestProvider(<Contact />);
 
-		const nameInput = screen.getByLabelText(/name/i);
+		const nameInput = screen.getByLabelText(/Imię/i);
 
 		await userEvent.type(nameInput, "m");
 
@@ -69,7 +63,7 @@ describe("Contact view", () => {
 	test("should show 'Email format is not valid' message for name input", async () => {
 		TestProvider(<Contact />);
 
-		const nameInput = screen.getByLabelText(/email/i);
+		const nameInput = screen.getByLabelText(/E-mail/i);
 
 		await userEvent.type(nameInput, "example text");
 
