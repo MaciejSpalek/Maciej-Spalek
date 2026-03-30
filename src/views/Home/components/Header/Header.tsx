@@ -14,10 +14,7 @@ export const Header = () => {
 
 	const { header } = useHomeContextProvider();
 
-	const {
-		first_photo: firstPhoto,
-		description,
-	} = header;
+	const { first_photo: firstPhoto, description } = header;
 
 	return (
 		<Container>
