@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { colors, devices, flexColumn, getFont } from "theme";
+import { colors, devices, flexCenter, flexColumn, getFont } from "theme";
 
 export const Container = styled.header`
   ${flexColumn};
@@ -34,24 +34,18 @@ export const Paragraph = styled.p`
   text-align: center;
 `;
 
-export const GridList = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+export const ImageWrapper = styled.div`
+  position: relative;
+  min-height: 280px;
+  ${flexCenter};
   width: 100%;
   list-style: none;
   padding: 0;
-  margin: 0;
   margin-top: 48px;
-  gap: 16px;
 
   @media ${devices.md} {
-    gap: 24px;
+    min-height: 680px;
   }
-`;
-
-export const GridItem = styled.li`
-  position: relative;
-  aspect-ratio: 1 / 1;
 `;
 
 export const StyledImage = styled(Image)`

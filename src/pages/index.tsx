@@ -8,6 +8,7 @@ export async function getServerSideProps() {
 		const homeResponse = await fetch(
 			`${process.env.NEXT_PUBLIC_API_URL}/home/get`,
 		);
+
 		const craftsResponse = await fetch(
 			`${process.env.NEXT_PUBLIC_API_URL}/craft/get-all`,
 		);
