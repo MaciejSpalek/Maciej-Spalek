@@ -1,13 +1,12 @@
 import { Button, PostCard, PostPreview } from "components";
 import { Section } from "layouts/Section";
-import Image from "next/image";
 import { useRouter } from "next/router";
 import { usePostListQuery } from "queries";
 import { useState } from "react";
 import type { IPost } from "types";
 import { URLS } from "../../../helpers";
 import type { PostListProps } from "./PostList.model";
-import { List, MainImageContainer } from "./PostList.styled";
+import { List } from "./PostList.styled";
 import { usePostList } from "./usePostList";
 
 export const PostList = ({
@@ -16,11 +15,10 @@ export const PostList = ({
 	isPreview = true,
 	postsAmount,
 	title,
-	image,
 	type,
 }: PostListProps) => {
 	const [enabled, setEnabled] = useState(false);
-	const { imageRef, listRef } = usePostList();
+	const { listRef } = usePostList();
 	const [limit, setLimit] = useState(10);
 	const router = useRouter();
 
@@ -58,19 +56,6 @@ export const PostList = ({
 
 	return (
 		<Section title={title}>
-			{/*{null != image && (*/}
-			{/*	<MainImageContainer ref={imageRef}>*/}
-			{/*		<Image*/}
-			{/*			src={image}*/}
-			{/*			layout="fill"*/}
-			{/*			objectFit="cover"*/}
-			{/*			objectPosition="center"*/}
-			{/*			alt="image"*/}
-			{/*			loading="eager"*/}
-			{/*			priority*/}
-			{/*		/>*/}
-			{/*	</MainImageContainer>*/}
-			{/*)}*/}
 			<List ref={listRef}>
 				{list.map((post) => (
 					<li key={post._id}>
@@ -84,7 +69,7 @@ export const PostList = ({
 			</List>
 			{isLoadingMoreButtonVisible && (
 				<Button isLoading={isFetching} onClick={handleOnButton}>
-					Load more
+					Więcej
 				</Button>
 			)}
 			<PostPreview list={list} />

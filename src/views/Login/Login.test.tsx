@@ -7,11 +7,11 @@ describe("Login", () => {
 		TestProvider(<Login />);
 
 		expect(
-			screen.getByRole("heading", { level: 1, name: /admin panel/i }),
+			screen.getByRole("heading", { level: 1, name: /Panel Admina/i }),
 		).toBeInTheDocument();
-		expect(screen.getByText(/back/i)).toBeInTheDocument();
-		expect(screen.getByText(/submit/i)).toBeInTheDocument();
+		expect(screen.getByText(/Powrót/i)).toBeInTheDocument();
+		expect(screen.getByText(/Wyślij/i)).toBeInTheDocument();
 		expect(screen.getByLabelText("Login")).toBeInTheDocument();
-		expect(screen.getByLabelText("Password")).toBeInTheDocument();
+		expect(screen.getByLabelText("Hasło")).toBeInTheDocument();
 	});
 });
