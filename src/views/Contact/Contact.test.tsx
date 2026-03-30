@@ -47,7 +47,7 @@ describe("Contact view", () => {
 		});
 	});
 
-	test("should show 'Minimum 2 characters' message for name input", async () => {
+	test("should show 'Minimum 2 znaki' message for name input", async () => {
 		TestProvider(<Contact />);
 
 		const nameInput = screen.getByLabelText(/Imię/i);
@@ -55,12 +55,12 @@ describe("Contact view", () => {
 		await userEvent.type(nameInput, "m");
 
 		await waitFor(() => {
-			const errorText = screen.getByText(/Minimum 2 characters/i);
+			const errorText = screen.getByText(/Minimum 2 znaki/i);
 			expect(errorText).toBeInTheDocument();
 		});
 	});
 
-	test("should show 'Email format is not valid' message for name input", async () => {
+	test("should show 'Format jest niepoprawny' message for name input", async () => {
 		TestProvider(<Contact />);
 
 		const nameInput = screen.getByLabelText(/E-mail/i);
@@ -68,7 +68,7 @@ describe("Contact view", () => {
 		await userEvent.type(nameInput, "example text");
 
 		await waitFor(() => {
-			const errorText = screen.getByText(/Email format is not valid/i);
+			const errorText = screen.getByText(/Format jest niepoprawny/i);
 			expect(errorText).toBeInTheDocument();
 		});
 	});
