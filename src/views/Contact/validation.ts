@@ -3,15 +3,15 @@ import * as yup from "yup";
 export const contactFormValidationSchema = yup.object({
 	name: yup
 		.string()
-		.required("Name is required")
-		.min(2, "Minimum 2 characters")
-		.max(20, "Maximum 20 characters"),
+		.required("Pole jest wymagane")
+		.min(2, "Minimum 2 znaki")
+		.max(20, "Maximum 20 znaków"),
 	email: yup
 		.string()
-		.email("Email format is not valid")
-		.required("Email is required"),
+		.email("Format jest niepoprawny")
+		.required("Pole jest wymagane"),
 	message: yup
 		.string()
-		.required("Message is required")
-		.max(200, "Maximum 200 characters"),
+		.required("Pole jest wymagane")
+		.max(200, "Maximum 200 znaków"),
 });
