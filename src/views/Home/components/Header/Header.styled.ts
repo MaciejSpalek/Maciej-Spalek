@@ -6,7 +6,6 @@ export const Container = styled.header`
   ${flexColumn};
   justify-content: space-between;
   overflow: hidden;
-  /* min-height: calc(100vh - 60px); */
   background-color: ${colors.grayScale[1]};
   border-radius: 48px;
   gap: 16px;
