@@ -4,24 +4,12 @@ import { useHomeAnimations } from "./useHomeAnimations";
 
 export interface HomeContent {
 	aboutSectionContainerRef: React.RefObject<HTMLElement>;
-	headerContainerRef: React.RefObject<HTMLElement>;
-	headerParagraphRef: React.RefObject<HTMLParagraphElement>;
-	headerRightImageRef: React.RefObject<HTMLLIElement>;
-	headerLeftImageRef: React.RefObject<HTMLLIElement>;
-	headerHeadingRef: React.RefObject<HTMLHeadingElement>;
-	headerButtonRef: React.RefObject<HTMLDivElement>;
 	about: IAbout;
 	header: IHeader;
 }
 
 export const HomeContext = createContext<HomeContent>({
 	aboutSectionContainerRef: { current: null },
-	headerContainerRef: { current: null },
-	headerParagraphRef: { current: null },
-	headerRightImageRef: { current: null },
-	headerLeftImageRef: { current: null },
-	headerHeadingRef: { current: null },
-	headerButtonRef: { current: null },
 	about: {
 		description: "",
 		photo: "",
